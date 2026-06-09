@@ -88,6 +88,6 @@ def main():
 
     save_state(state)
 
-if name == "main":
+if __name__ == "__main__":
     print(f"Running ParkSignals check at {datetime.now()}")
     main()
