@@ -3,9 +3,10 @@ MAJOR_RIDES = {
     "Space Mountain",
     "Seven Dwarfs Mine Train",
     "Big Thunder Mountain Railroad",
-    "Haunted Mansion",
     "Pirates of the Caribbean",
+    "Haunted Mansion",
     "Jungle Cruise",
     "Peter Pan's Flight",
     "Tiana's Bayou Adventure",
+    "Buzz Lightyear's Space Ranger Spin",
 }
