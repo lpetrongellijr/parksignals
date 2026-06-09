@@ -1,0 +1,24 @@
+{
+  "account_handle": "@ParkSignals",
+  "tracked_parks": [
+    {
+      "resort_tag": "WDW",
+      "park_name": "Magic Kingdom",
+      "queue_times_park_id": 6,
+      "major_rides": [
+        "TRON Lightcycle / Run",
+        "Space Mountain",
+        "Seven Dwarfs Mine Train",
+        "Big Thunder Mountain Railroad",
+        "Pirates of the Caribbean",
+        "Haunted Mansion",
+        "Jungle Cruise"
+      ]
+    }
+  ],
+  "post_settings": {
+    "dry_run": true,
+    "max_posts_per_run": 3,
+    "minimum_minutes_between_same_ride_posts": 30
+  }
+}
