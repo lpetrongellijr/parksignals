@@ -1,0 +1,70 @@
+{
+  "default_parks": [
+    "magic_kingdom",
+    "epcot",
+    "hollywood_studios",
+    "animal_kingdom"
+  ],
+  "parks": {
+    "magic_kingdom": {
+      "enabled": true,
+      "park_id": 6,
+      "park_name": "Magic Kingdom",
+      "resort_tag": "WDW",
+      "major_rides": [
+        "TRON Lightcycle / Run",
+        "Space Mountain",
+        "Seven Dwarfs Mine Train",
+        "Big Thunder Mountain Railroad",
+        "Pirates of the Caribbean",
+        "Haunted Mansion",
+        "Jungle Cruise",
+        "Peter Pan's Flight",
+        "Tiana's Bayou Adventure",
+        "Buzz Lightyear's Space Ranger Spin"
+      ]
+    },
+    "epcot": {
+      "enabled": true,
+      "park_id": 5,
+      "park_name": "EPCOT",
+      "resort_tag": "WDW",
+      "major_rides": [
+        "Guardians of the Galaxy: Cosmic Rewind",
+        "Remy's Ratatouille Adventure",
+        "Frozen Ever After",
+        "Test Track",
+        "Soarin' Across America",
+        "Spaceship Earth",
+        "Mission: SPACE"
+      ]
+    },
+    "hollywood_studios": {
+      "enabled": true,
+      "park_id": 7,
+      "park_name": "Hollywood Studios",
+      "resort_tag": "WDW",
+      "major_rides": [
+        "Star Wars: Rise of the Resistance",
+        "Slinky Dog Dash",
+        "The Twilight Zone™ Tower of Terror",
+        "Rock ’n’ Roller Coaster Starring The Muppets",
+        "Mickey & Minnie's Runaway Railway",
+        "Millennium Falcon: Smugglers Run",
+        "Toy Story Mania!"
+      ]
+    },
+    "animal_kingdom": {
+      "enabled": true,
+      "park_id": 8,
+      "park_name": "Animal Kingdom",
+      "resort_tag": "WDW",
+      "major_rides": [
+        "Avatar Flight of Passage",
+        "Expedition Everest - Legend of the Forbidden Mountain",
+        "Kilimanjaro Safaris",
+        "Na'vi River Journey"
+      ]
+    }
+  }
+}
