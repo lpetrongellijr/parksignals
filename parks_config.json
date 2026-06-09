@@ -1,6 +1,9 @@
 {
   "default_parks": [
-    "magic_kingdom"
+    "magic_kingdom",
+    "epcot",
+    "hollywood_studios",
+    "animal_kingdom"
   ],
   "parks": {
     "magic_kingdom": {
@@ -22,7 +25,7 @@
       ]
     },
     "epcot": {
-      "enabled": false,
+      "enabled": true,
       "park_id": 5,
       "park_name": "EPCOT",
       "resort_tag": "WDW",
@@ -37,7 +40,7 @@
       ]
     },
     "hollywood_studios": {
-      "enabled": false,
+      "enabled": true,
       "park_id": 7,
       "park_name": "Hollywood Studios",
       "resort_tag": "WDW",
@@ -52,7 +55,7 @@
       ]
     },
     "animal_kingdom": {
-      "enabled": false,
+      "enabled": true,
       "park_id": 8,
       "park_name": "Animal Kingdom",
       "resort_tag": "WDW",
