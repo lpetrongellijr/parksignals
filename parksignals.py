@@ -18,6 +18,9 @@ MAJOR_RIDES = {
     "Pirates of the Caribbean",
     "Haunted Mansion",
     "Jungle Cruise",
+    "Peter Pan's Flight",
+    "Tiana's Bayou Adventure",
+    "Buzz Lightyear's Space Ranger Spin",
 }
 
 def load_state():
