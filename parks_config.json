@@ -1,0 +1,46 @@
+{
+  "default_parks": [
+    "magic_kingdom"
+  ],
+  "parks": {
+    "magic_kingdom": {
+      "enabled": true,
+      "park_id": 6,
+      "park_name": "Magic Kingdom",
+      "resort_tag": "WDW",
+      "major_rides": [
+        "TRON Lightcycle / Run",
+        "Space Mountain",
+        "Seven Dwarfs Mine Train",
+        "Big Thunder Mountain Railroad",
+        "Pirates of the Caribbean",
+        "Haunted Mansion",
+        "Jungle Cruise",
+        "Peter Pan's Flight",
+        "Tiana's Bayou Adventure",
+        "Buzz Lightyear's Space Ranger Spin"
+      ]
+    },
+    "epcot": {
+      "enabled": false,
+      "park_id": 5,
+      "park_name": "EPCOT",
+      "resort_tag": "WDW",
+      "major_rides": []
+    },
+    "hollywood_studios": {
+      "enabled": false,
+      "park_id": 7,
+      "park_name": "Hollywood Studios",
+      "resort_tag": "WDW",
+      "major_rides": []
+    },
+    "animal_kingdom": {
+      "enabled": false,
+      "park_id": 8,
+      "park_name": "Animal Kingdom",
+      "resort_tag": "WDW",
+      "major_rides": []
+    }
+  }
+}
