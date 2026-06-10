@@ -337,6 +337,23 @@ def build_readiness_summary(summary, candidates):
     return "\n".join(lines)
 
 
+def build_park_status_text(park_statuses):
+    lines = ["Park operating status"]
+    if not park_statuses:
+        lines.append("No park status was recorded for this run.")
+        return "\n".join(lines)
+
+    for status in park_statuses:
+        hours = status.get("hours") or {}
+        hours_text = "no hours guard configured"
+        if hours:
+            hours_text = f"{hours['opens_at']}-{hours['closes_at']} {hours['timezone']} ({hours['source']})"
+        lines.append(f"- {status['park_name']}: {status['operating_status']} for monitoring; {hours_text}")
+        if status.get("reason"):
+            lines.append(f"  {status['reason']}")
+    return "\n".join(lines)
+
+
 def build_ride_id_map(state):
     ride_map = {}
     for park_key, rides in state.items():
@@ -370,13 +387,16 @@ def main():
         config,
         parksignals.parse_timestamp(observed_at) or parksignals.utc_now(),
     )
+    park_statuses = last_run.get("park_statuses", [])
     candidates = build_post_candidates(summary, config, last_run, observed_at)
 
     write_json(output_dir / "analytics-summary.json", summary)
     write_json(output_dir / "post-candidates.json", candidates)
     write_json(output_dir / "ride-id-map.json", build_ride_id_map(state))
+    write_json(output_dir / "park-status.json", park_statuses)
     write_text(output_dir / "daily-summary.txt", build_daily_summary(summary))
     write_text(output_dir / "content-pillar-readiness.txt", build_readiness_summary(summary, candidates))
+    write_text(output_dir / "park-status.txt", build_park_status_text(park_statuses))
     write_text(output_dir / "post-previews.txt", build_post_previews(candidates))
 
 
