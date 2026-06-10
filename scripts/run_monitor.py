@@ -1,7 +1,10 @@
 import json
+import sys
 from datetime import datetime, time
 from pathlib import Path
 from zoneinfo import ZoneInfo
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import parksignals
 
