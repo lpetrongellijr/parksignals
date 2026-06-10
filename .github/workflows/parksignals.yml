@@ -43,6 +43,7 @@ jobs:
           python scripts/run_monitor.py | tee outputs/monitor-summary.txt
           python scripts/export_artifacts.py --output-dir outputs
           python scripts/export_x_status.py --output-dir outputs
+          python scripts/plan_posts.py --output-dir outputs
 
       - name: Upload Monitor Outputs
         uses: actions/upload-artifact@v4
@@ -50,10 +51,11 @@ jobs:
           name: parksignals-monitor-outputs
           path: outputs/
 
-      - name: Commit Updated State
+      - name: Commit Updated State And Posting Log
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add state.json
-          git commit -m "Update ride state" || echo "No changes"
+          git add state.json posting_log.json
+          git commit -m "Update ride state and posting log" || echo "No changes"
+          git pull --rebase origin main
           git push
