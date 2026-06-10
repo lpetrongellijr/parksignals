@@ -35,7 +35,7 @@ jobs:
       - name: Run ParkSignals
         run: |
           mkdir -p outputs
-          python parksignals.py | tee outputs/monitor-summary.txt
+          python scripts/run_monitor.py | tee outputs/monitor-summary.txt
           python scripts/export_artifacts.py --output-dir outputs
 
       - name: Upload Monitor Outputs
