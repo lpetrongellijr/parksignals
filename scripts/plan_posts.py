@@ -4,6 +4,7 @@ import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -14,6 +15,7 @@ import x_integration
 DEFAULT_POLICY_FILE = "posting_policy.json"
 DEFAULT_LOG_FILE = "posting_log.json"
 MAX_RECORDED_DECISIONS = 500
+PARK_TIMEZONE = "America/New_York"
 
 
 def utc_now_text():
@@ -71,7 +73,7 @@ def local_date_from_observed_at(observed_at):
     parsed = parksignals.parse_timestamp(observed_at)
     if parsed is None:
         return "unknown-date"
-    return parsed.astimezone(timezone.utc).date().isoformat()
+    return parsed.astimezone(ZoneInfo(PARK_TIMEZONE)).date().isoformat()
 
 
 def candidate_key(candidate, observed_at):
