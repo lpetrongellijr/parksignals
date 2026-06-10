@@ -45,3 +45,15 @@ open/unavailable counts, any status changes, and a ride ID map such as:
 
 To confirm the scheduled monitor is working, open the latest ParkSignals
 Monitor workflow run in GitHub Actions and review the "Run ParkSignals" step.
+
+The same log also prints a content pillar readiness section:
+
+- real-time single ride closure/reopen events
+- active multi-ride closure candidates
+- multi-ride reopening candidates from the current run
+- daily downtime summary inputs
+- 30-day downtime ranking inputs
+- trend and active downtime projection inputs
+
+These are generated as operational logs only. They prepare the data needed for
+future automated posting and insight workflows without connecting X posting yet.
