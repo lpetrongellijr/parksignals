@@ -7,7 +7,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 
 
-DISNEY_CALENDAR_URL = "https://disneyworld.disney.go.com/calendars/day/"
+DISNEY_CALENDAR_URL = "https://disneyworld.disney.go.com/calendars/day/#/magic-kingdom,epcot,animal-kingdom,hollywood-studios/"
 PARK_LABELS = {
     "magic_kingdom": "Magic Kingdom",
     "epcot": "EPCOT",
@@ -68,6 +68,40 @@ def matching_park_key(part, normalized_labels):
     return None
 
 
+def build_hours(target_date, match, raw):
+    return {
+        "date": target_date.isoformat(),
+        "source": "official_disney_calendar",
+        "timezone": "America/New_York",
+        "opens_at": to_24_hour(match.group(1)),
+        "closes_at": to_24_hour(match.group(2)),
+        "raw": raw,
+    }
+
+
+def parse_summary_hours(parts, target_date, normalized_labels):
+    hours = {}
+    summary_start = None
+    for index, part in enumerate(parts):
+        if part.startswith("Park Hours for"):
+            summary_start = index
+            break
+    if summary_start is None:
+        return hours
+
+    for index in range(summary_start + 1, min(summary_start + 40, len(parts))):
+        park_key = matching_park_key(parts[index], normalized_labels)
+        if park_key is None or park_key in hours:
+            continue
+        for offset in range(1, 4):
+            candidate = parts[index + offset] if index + offset < len(parts) else ""
+            match = TIME_RANGE_RE.search(candidate)
+            if match:
+                hours[park_key] = build_hours(target_date, match, candidate)
+                break
+    return hours
+
+
 def parse_time_range_after_park(parts, start_index):
     for offset in range(1, 24):
         next_part = parts[start_index + offset] if start_index + offset < len(parts) else ""
@@ -79,13 +113,8 @@ def parse_time_range_after_park(parts, start_index):
     return None, None
 
 
-def parse_disney_hours(parts, target_date):
+def parse_detail_hours(parts, target_date, normalized_labels):
     hours = {}
-    normalized_labels = {
-        park_key: normalize_park_name(label)
-        for park_key, label in PARK_LABELS.items()
-    }
-
     for index, part in enumerate(parts):
         park_key = matching_park_key(part, normalized_labels)
         if park_key is None or park_key in hours:
@@ -94,16 +123,18 @@ def parse_disney_hours(parts, target_date):
         match, raw = parse_time_range_after_park(parts, index)
         if not match:
             continue
-        hours[park_key] = {
-            "date": target_date.isoformat(),
-            "source": "official_disney_calendar",
-            "timezone": "America/New_York",
-            "opens_at": to_24_hour(match.group(1)),
-            "closes_at": to_24_hour(match.group(2)),
-            "raw": raw,
-        }
-
+        hours[park_key] = build_hours(target_date, match, raw)
     return hours
+
+
+def parse_disney_hours(parts, target_date):
+    normalized_labels = {
+        park_key: normalize_park_name(label)
+        for park_key, label in PARK_LABELS.items()
+    }
+    summary_hours = parse_summary_hours(parts, target_date, normalized_labels)
+    detail_hours = parse_detail_hours(parts, target_date, normalized_labels)
+    return {**summary_hours, **detail_hours}
 
 
 def load_existing(path):
