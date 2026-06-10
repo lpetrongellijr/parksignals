@@ -1,14 +1,201 @@
 {
-  "parks": {},
+  "parks": {
+    "magic_kingdom": {
+      "date": "2026-06-10",
+      "source": "themeparks_wiki",
+      "timezone": "America/New_York",
+      "opens_at": "09:00",
+      "closes_at": "23:00",
+      "raw": {
+        "date": "2026-06-10",
+        "type": "OPERATING",
+        "purchases": [
+          {
+            "id": "lightninglane_16767284",
+            "name": "Lightning Lane for Seven Dwarfs Mine Train",
+            "type": "ATTRACTION",
+            "price": {
+              "amount": 1100,
+              "currency": "USD",
+              "formatted": "$11.00"
+            },
+            "available": false
+          },
+          {
+            "id": "lightninglane_411504498",
+            "name": "Lightning Lane for TRON Lightcycle / Run",
+            "type": "ATTRACTION",
+            "price": {
+              "amount": 2000,
+              "currency": "USD",
+              "formatted": "$20.00"
+            },
+            "available": false
+          },
+          {
+            "id": "lightninglanemultipass_80007944",
+            "name": "Lightning Lane Multi Pass",
+            "type": "PACKAGE",
+            "price": {
+              "amount": 3200,
+              "currency": "USD",
+              "formatted": "$32.00"
+            },
+            "available": true
+          }
+        ],
+        "closingTime": "2026-06-10T23:00:00-04:00",
+        "openingTime": "2026-06-10T09:00:00-04:00"
+      }
+    },
+    "epcot": {
+      "date": "2026-06-10",
+      "source": "themeparks_wiki",
+      "timezone": "America/New_York",
+      "opens_at": "09:00",
+      "closes_at": "21:00",
+      "raw": {
+        "date": "2026-06-10",
+        "type": "OPERATING",
+        "purchases": [
+          {
+            "id": "lightninglane_411499845",
+            "name": "Lightning Lane for Guardians of the Galaxy: Cosmic Rewind",
+            "type": "ATTRACTION",
+            "price": {
+              "amount": 1800,
+              "currency": "USD",
+              "formatted": "$18.00"
+            },
+            "available": false
+          },
+          {
+            "id": "lightninglanemultipass_80007838",
+            "name": "Lightning Lane Multi Pass",
+            "type": "PACKAGE",
+            "price": {
+              "amount": 2100,
+              "currency": "USD",
+              "formatted": "$21.00"
+            },
+            "available": true
+          },
+          {
+            "id": "premierpass_80007838",
+            "name": "Lightning Lane Premier Pass",
+            "type": "PACKAGE",
+            "price": {
+              "amount": 16900,
+              "currency": "USD",
+              "formatted": "$169.00"
+            },
+            "available": true
+          }
+        ],
+        "closingTime": "2026-06-10T21:00:00-04:00",
+        "openingTime": "2026-06-10T09:00:00-04:00"
+      }
+    },
+    "hollywood_studios": {
+      "date": "2026-06-10",
+      "source": "themeparks_wiki",
+      "timezone": "America/New_York",
+      "opens_at": "09:00",
+      "closes_at": "21:00",
+      "raw": {
+        "date": "2026-06-10",
+        "type": "OPERATING",
+        "purchases": [
+          {
+            "id": "lightninglane_19263736",
+            "name": "Lightning Lane for Star Wars: Rise of the Resistance",
+            "type": "ATTRACTION",
+            "price": {
+              "amount": 2200,
+              "currency": "USD",
+              "formatted": "$22.00"
+            },
+            "available": false
+          },
+          {
+            "id": "lightninglanemultipass_80007998",
+            "name": "Lightning Lane Multi Pass",
+            "type": "PACKAGE",
+            "price": {
+              "amount": 3200,
+              "currency": "USD",
+              "formatted": "$32.00"
+            },
+            "available": true
+          },
+          {
+            "id": "premierpass_80007998",
+            "name": "Lightning Lane Premier Pass",
+            "type": "PACKAGE",
+            "price": {
+              "amount": 33900,
+              "currency": "USD",
+              "formatted": "$339.00"
+            },
+            "available": true
+          }
+        ],
+        "closingTime": "2026-06-10T21:00:00-04:00",
+        "openingTime": "2026-06-10T09:00:00-04:00"
+      }
+    },
+    "animal_kingdom": {
+      "date": "2026-06-10",
+      "source": "themeparks_wiki",
+      "timezone": "America/New_York",
+      "opens_at": "08:00",
+      "closes_at": "18:00",
+      "raw": {
+        "date": "2026-06-10",
+        "type": "OPERATING",
+        "purchases": [
+          {
+            "id": "lightninglane_18665186",
+            "name": "Lightning Lane for Avatar Flight of Passage",
+            "type": "ATTRACTION",
+            "price": {
+              "amount": 1500,
+              "currency": "USD",
+              "formatted": "$15.00"
+            },
+            "available": true
+          },
+          {
+            "id": "lightninglanemultipass_80007823",
+            "name": "Lightning Lane Multi Pass",
+            "type": "PACKAGE",
+            "price": {
+              "amount": 1700,
+              "currency": "USD",
+              "formatted": "$17.00"
+            },
+            "available": true
+          },
+          {
+            "id": "premierpass_80007823",
+            "name": "Lightning Lane Premier Pass",
+            "type": "PACKAGE",
+            "price": {
+              "amount": 13900,
+              "currency": "USD",
+              "formatted": "$139.00"
+            },
+            "available": true
+          }
+        ],
+        "closingTime": "2026-06-10T18:00:00-04:00",
+        "openingTime": "2026-06-10T08:00:00-04:00"
+      }
+    }
+  },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-06-10T14:38:22Z",
-  "source_url": "https://disneyworld.disney.go.com/calendars/day/2026-06-10/#/magic-kingdom/,https://disneyworld.disney.go.com/calendars/day/2026-06-10/#/epcot/,https://disneyworld.disney.go.com/calendars/day/2026-06-10/#/hollywood-studios/,https://disneyworld.disney.go.com/calendars/day/2026-06-10/#/animal-kingdom/",
+  "generated_at": "2026-06-10T14:56:38Z",
+  "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
-  "last_fetch_status": "fetch_failed",
-  "last_fetch_error": "Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://disneyworld.disney.go.com/calendars/day/2026-06-10/#/magic-kingdom/\nCall log:\n  - navigating to \"https://disneyworld.disney.go.com/calendars/day/2026-06-10/#/magic-kingdom/\", waiting until \"networkidle\"\n",
-  "fallback_notice": {
-    "status": "fetch_failed",
-    "message": "Official Disney park hours were not updated; ParkSignals will use cached official hours when valid, otherwise configured fallback hours.",
-    "error": "Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://disneyworld.disney.go.com/calendars/day/2026-06-10/#/magic-kingdom/\nCall log:\n  - navigating to \"https://disneyworld.disney.go.com/calendars/day/2026-06-10/#/magic-kingdom/\", waiting until \"networkidle\"\n"
-  }
+  "last_fetch_status": "ok"
 }
