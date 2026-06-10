@@ -1,7 +1,7 @@
 import argparse
 import json
 import re
-from datetime import date, datetime
+from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -11,6 +11,8 @@ from zoneinfo import ZoneInfo
 THEMEPARKS_DESTINATIONS_URL = "https://api.themeparks.wiki/v1/destinations"
 THEMEPARKS_SCHEDULE_URL = "https://api.themeparks.wiki/v1/entity/{entity_id}/schedule"
 REGULAR_SCHEDULE_TYPE = "OPERATING"
+DEFAULT_FETCH_TIMEZONE = "America/Chicago"
+PARK_HOURS_TIMEZONE = "America/New_York"
 DISNEY_DAY_URL = "https://disneyworld.disney.go.com/calendars/day/{date}/#/{park_slug}/"
 DISNEY_DAY_BASE_URL = "https://disneyworld.disney.go.com/calendars/day/{date}/"
 PARK_LABELS = {
@@ -53,6 +55,10 @@ def github_notice(message):
     print(f"::notice title=Park hours fallback::{message}")
 
 
+def default_fetch_date():
+    return datetime.now(ZoneInfo(DEFAULT_FETCH_TIMEZONE)).date()
+
+
 def get_json(url):
     request = Request(url, headers={"User-Agent": "ParkSignals/1.0"})
     with urlopen(request, timeout=30) as response:
@@ -82,7 +88,7 @@ def to_24_hour(value):
     return datetime.strptime(value.replace(" ", ""), "%I:%M%p").strftime("%H:%M")
 
 
-def iso_to_local_hhmm(value, timezone_name="America/New_York"):
+def iso_to_local_hhmm(value, timezone_name=PARK_HOURS_TIMEZONE):
     parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
     return parsed.astimezone(ZoneInfo(timezone_name)).strftime("%H:%M")
 
@@ -92,7 +98,7 @@ def local_date_for_entry(entry):
     if not opening:
         return None
     return datetime.fromisoformat(opening.replace("Z", "+00:00")).astimezone(
-        ZoneInfo("America/New_York")
+        ZoneInfo(PARK_HOURS_TIMEZONE)
     ).date()
 
 
@@ -186,7 +192,7 @@ def build_hours(target_date, match, raw, source="official_disney_calendar"):
     return {
         "date": target_date.isoformat(),
         "source": source,
-        "timezone": "America/New_York",
+        "timezone": PARK_HOURS_TIMEZONE,
         "opens_at": to_24_hour(match.group(1)),
         "closes_at": to_24_hour(match.group(2)),
         "selected_schedule_type": REGULAR_SCHEDULE_TYPE,
@@ -199,7 +205,7 @@ def build_api_hours(target_date, schedule_entry, ignored_entries, source="themep
     return {
         "date": target_date.isoformat(),
         "source": source,
-        "timezone": "America/New_York",
+        "timezone": PARK_HOURS_TIMEZONE,
         "opens_at": iso_to_local_hhmm(schedule_entry["openingTime"]),
         "closes_at": iso_to_local_hhmm(schedule_entry["closingTime"]),
         "selected_schedule_type": REGULAR_SCHEDULE_TYPE,
@@ -373,7 +379,8 @@ def write_cache(path, source_url, parsed_hours, status="ok", error=None, text_sa
     cache.update({
         "generated_at": datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
         "source_url": source_url,
-        "timezone": "America/New_York",
+        "timezone": PARK_HOURS_TIMEZONE,
+        "fetch_date_timezone": DEFAULT_FETCH_TIMEZONE,
         "special_events_extend_monitoring": False,
         "last_fetch_status": status,
     })
@@ -476,12 +483,12 @@ def fetch_and_parse_hours(target_date):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--date", default=date.today().isoformat())
+    parser.add_argument("--date", default=default_fetch_date().isoformat())
     parser.add_argument("--output", default="park_hours_cache.json")
     parser.add_argument("--strict", action="store_true")
     args = parser.parse_args()
 
-    target_date = date.fromisoformat(args.date)
+    target_date = datetime.strptime(args.date, "%Y-%m-%d").date()
     output_path = Path(args.output)
     source_url = THEMEPARKS_DESTINATIONS_URL
 
@@ -521,7 +528,10 @@ def main():
 
     write_cache(output_path, source_url, parsed_hours)
 
-    print(f"Updated park hours for {target_date.isoformat()}")
+    print(
+        f"Updated park hours for {target_date.isoformat()} "
+        f"(date selected in {DEFAULT_FETCH_TIMEZONE})"
+    )
     for park_key, park_hours in sorted(parsed_hours.items()):
         print(
             f"- {park_key}: {park_hours['opens_at']} to {park_hours['closes_at']} "
