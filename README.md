@@ -8,7 +8,7 @@ Automated Disney & Universal ride downtime monitoring system.
 - Persists ride state by park
 - Tracks downtime timestamps and completed downtime events for future summaries
 - Runs from GitHub Actions workflows triggered by cron-job.org
-- Produces workflow artifacts for monitor summaries, post previews, park status, ride ID maps, and analytics inputs
+- Produces workflow artifacts for monitor summaries, post previews, park status, ride ID maps, analytics inputs, and disabled X connection readiness
 
 ## Park configuration
 ParkSignals is configured in `parks_config.json`. Magic Kingdom, EPCOT,
@@ -90,6 +90,8 @@ The monitor workflow also uploads output artifacts from `outputs/`:
 - `content-pillar-readiness.txt`
 - `post-candidates.json`
 - `post-previews.txt`
+- `x-connection-status.txt`
+- `x-connection-status.json`
 - `analytics-summary.json`
 - `ride-id-map.json`
 - `daily-summary.txt`
@@ -101,6 +103,11 @@ post candidates across single-ride alerts, multi-ride alerts, daily summaries,
 30-day analytics, trend insights, and projection insights. `post-candidates.json`
 carries the same candidates in structured form for future automated posting.
 Posting remains disconnected.
+
+`x-connection-status.txt` reports whether the X credentials are present in
+GitHub Actions secrets. It never prints secret values. Posting is still blocked
+unless `PARKSIGNALS_X_POSTING_ENABLED` is explicitly set to `true`, and the
+workflows currently set it to `false`.
 
 To confirm the monitor is working, open the latest ParkSignals Monitor workflow
 run in GitHub Actions and review the "Run ParkSignals" step or download the
@@ -118,6 +125,25 @@ The same log also prints a content pillar readiness section:
 These are generated as operational logs and artifacts only. They prepare the
 data needed for future automated posting and insight workflows without
 connecting X posting yet.
+
+## X connection readiness
+Add X credentials as GitHub Actions repository secrets only. Do not commit them
+and do not paste them into issues, logs, or chat.
+
+Required secrets for future posting readiness:
+
+- `X_API_KEY`
+- `X_API_SECRET`
+- `X_ACCESS_TOKEN`
+- `X_ACCESS_TOKEN_SECRET`
+
+Optional secret:
+
+- `X_BEARER_TOKEN`
+
+After the next Monitor or Daily Summary run, download the artifact and open
+`x-connection-status.txt`. If all required credentials are present, it will show
+`Ready for manual connection test: true`. That still does not post anything.
 
 ## Dry runs
 Use dry-run mode to test closures and reopenings against sample data without
