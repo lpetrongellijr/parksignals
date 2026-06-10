@@ -101,6 +101,26 @@ class RunMonitorTest(unittest.TestCase):
         self.assertEqual(parsed["magic_kingdom"]["closes_at"], "18:00")
         self.assertEqual(parsed["epcot"]["closes_at"], "21:00")
 
+    def test_fetch_parser_handles_top_summary_hours(self):
+        parts = [
+            "Park Hours for Saturday, June 6, 2026",
+            "Magic Kingdom",
+            "9:00 AM to 11:00 PM",
+            "Disney's Hollywood Studios",
+            "9:00 AM to 10:00 PM",
+            "EPCOT",
+            "9:00 AM to 9:00 PM",
+            "Disney's Animal Kingdom",
+            "8:00 AM to 7:00 PM",
+        ]
+
+        parsed = fetch_park_hours.parse_disney_hours(parts, date(2026, 6, 6))
+
+        self.assertEqual(parsed["magic_kingdom"]["closes_at"], "23:00")
+        self.assertEqual(parsed["hollywood_studios"]["closes_at"], "22:00")
+        self.assertEqual(parsed["epcot"]["closes_at"], "21:00")
+        self.assertEqual(parsed["animal_kingdom"]["opens_at"], "08:00")
+
     def test_fetch_parser_handles_heading_text_and_split_hours(self):
         parts = [
             "### Magic Kingdom",
