@@ -86,11 +86,11 @@ Currently unavailable:
 
 # CONTENT PILLAR 2 — DAILY OPERATIONS SUMMARIES
 
-## 2A — WDW DAILY SUMMARY
+## 2A — WALT DISNEY WORLD DAILY SUMMARY
 
 Template:
 
-WDW Operations Summary — [DATE]
+Walt Disney World Operations Summary — [DATE]
 
 Most downtime:
 1. [RIDE] — [TIME]
@@ -109,7 +109,7 @@ Most stable park: [PARK]
 
 Template:
 
-DLR Operations Summary — [DATE]
+Disneyland Resort Operations Summary — [DATE]
 
 Most downtime:
 1. [RIDE] — [TIME]
@@ -128,7 +128,7 @@ Most stable park: [PARK]
 
 Template:
 
-UOR Operations Summary — [DATE]
+Universal Orlando Operations Summary — [DATE]
 
 Most downtime:
 1. [RIDE] — [TIME]
@@ -147,7 +147,7 @@ Most stable park: [PARK]
 
 Template:
 
-UHR Operations Summary — [DATE]
+Universal Hollywood Operations Summary — [DATE]
 
 Most downtime:
 1. [RIDE] — [TIME]
