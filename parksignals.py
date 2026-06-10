@@ -1,6 +1,6 @@
 import json
 import os
-from datetime import datetime, timezone
+from datetime import datetime, time, timedelta, timezone
 
 import requests
 
@@ -10,6 +10,9 @@ STATE_FILE = "state.json"
 DEFAULT_PARK_KEY = "magic_kingdom"
 PARKS_ENV_VAR = "PARKSIGNALS_PARKS"
 MAX_DOWNTIME_EVENTS_PER_RIDE = 120
+DOWNTIME_EVENT_RETENTION_DAYS = 45
+ANALYTICS_LOOKBACK_DAYS = 30
+TREND_LOOKBACK_DAYS = 7
 
 
 def utc_now():
@@ -36,6 +39,20 @@ def elapsed_seconds(started_at, ended_at):
         return None
 
     return max(0, int((ended_at - start).total_seconds()))
+
+
+def overlap_seconds(started_at, ended_at, window_start, window_end):
+    start = parse_timestamp(started_at)
+    end = parse_timestamp(ended_at) if ended_at else window_end
+    if start is None or end is None:
+        return 0
+
+    overlap_start = max(start, window_start)
+    overlap_end = min(end, window_end)
+    if overlap_end <= overlap_start:
+        return 0
+
+    return int((overlap_end - overlap_start).total_seconds())
 
 
 def load_config():
@@ -118,6 +135,74 @@ def format_duration(seconds):
     if hours:
         return f"{hours}h"
     return f"{minutes}m"
+
+
+def events_in_window(ride_state, window_start, window_end):
+    events = []
+    for event in ride_state.get("downtime_events", []):
+        duration = overlap_seconds(
+            event.get("down_at"),
+            event.get("reopened_at"),
+            window_start,
+            window_end,
+        )
+        if duration > 0:
+            events.append({
+                "down_at": event.get("down_at"),
+                "reopened_at": event.get("reopened_at"),
+                "duration_seconds": duration,
+            })
+
+    if ride_state.get("is_open") is False:
+        duration = overlap_seconds(
+            ride_state.get("down_since"),
+            None,
+            window_start,
+            window_end,
+        )
+        if duration > 0:
+            events.append({
+                "down_at": ride_state.get("down_since"),
+                "reopened_at": None,
+                "duration_seconds": duration,
+            })
+
+    return events
+
+
+def downtime_seconds_in_window(ride_state, window_start, window_end):
+    return sum(
+        event["duration_seconds"]
+        for event in events_in_window(ride_state, window_start, window_end)
+    )
+
+
+def average_completed_downtime_seconds(ride_state, window_start, window_end):
+    durations = []
+    for event in ride_state.get("downtime_events", []):
+        reopened_at = parse_timestamp(event.get("reopened_at"))
+        if reopened_at is None or reopened_at < window_start or reopened_at > window_end:
+            continue
+        duration = int(event.get("duration_seconds") or 0)
+        if duration > 0:
+            durations.append(duration)
+
+    if not durations:
+        return None
+
+    return int(sum(durations) / len(durations))
+
+
+def prune_downtime_events(ride_state, observed_at):
+    cutoff = observed_at - timedelta(days=DOWNTIME_EVENT_RETENTION_DAYS)
+    retained_events = []
+
+    for event in ride_state.get("downtime_events", []):
+        reopened_at = parse_timestamp(event.get("reopened_at"))
+        if reopened_at is None or reopened_at >= cutoff:
+            retained_events.append(event)
+
+    ride_state["downtime_events"] = retained_events[-MAX_DOWNTIME_EVENTS_PER_RIDE:]
 
 
 def hashtag(value):
@@ -250,6 +335,141 @@ def update_ride_state(ride_state, ride, observed_at):
     return "reopened"
 
 
+def ride_metric(park_key, park_name, ride_id, ride_state, window_start, window_end):
+    return {
+        "park_key": park_key,
+        "park_name": park_name,
+        "ride_id": ride_id,
+        "ride_name": ride_state.get("name") or ride_id,
+        "is_open": ride_state.get("is_open"),
+        "downtime_seconds": downtime_seconds_in_window(
+            ride_state,
+            window_start,
+            window_end,
+        ),
+        "event_count": len(events_in_window(ride_state, window_start, window_end)),
+        "average_completed_downtime_seconds": average_completed_downtime_seconds(
+            ride_state,
+            window_start,
+            window_end,
+        ),
+        "current_down_seconds": int(ride_state.get("current_down_seconds", 0) or 0),
+    }
+
+
+def top_downtime(metrics, limit=3):
+    return [
+        metric
+        for metric in sorted(
+            metrics,
+            key=lambda item: item["downtime_seconds"],
+            reverse=True,
+        )
+        if metric["downtime_seconds"] > 0
+    ][:limit]
+
+
+def collect_content_pillar_summary(state, config, observed_at):
+    day_start = datetime.combine(observed_at.date(), time.min, tzinfo=timezone.utc)
+    thirty_day_start = observed_at - timedelta(days=ANALYTICS_LOOKBACK_DAYS)
+    trend_start = observed_at - timedelta(days=TREND_LOOKBACK_DAYS)
+    parks = config.get("parks", {})
+    daily_metrics = []
+    thirty_day_metrics = []
+    trend_metrics = []
+    park_daily_totals = {}
+
+    for park_key, park_config in enabled_park_configs(config):
+        park_name = park_config["park_name"]
+        park_state = state.get(park_key, {})
+        park_daily_totals[park_name] = 0
+
+        for ride_id, ride_state in park_state.items():
+            if not isinstance(ride_state, dict):
+                continue
+
+            prune_downtime_events(ride_state, observed_at)
+            daily_metric = ride_metric(
+                park_key,
+                park_name,
+                ride_id,
+                ride_state,
+                day_start,
+                observed_at,
+            )
+            monthly_metric = ride_metric(
+                park_key,
+                park_name,
+                ride_id,
+                ride_state,
+                thirty_day_start,
+                observed_at,
+            )
+            trend_metric = ride_metric(
+                park_key,
+                park_name,
+                ride_id,
+                ride_state,
+                trend_start,
+                observed_at,
+            )
+
+            daily_metrics.append(daily_metric)
+            thirty_day_metrics.append(monthly_metric)
+            trend_metrics.append(trend_metric)
+            park_daily_totals[park_name] += daily_metric["downtime_seconds"]
+
+    stable_park = None
+    if park_daily_totals:
+        stable_park = min(park_daily_totals.items(), key=lambda item: item[1])
+
+    active_multi_ride_alerts = []
+    for park_key, park_config in parks.items():
+        if not park_config.get("enabled", False):
+            continue
+        unavailable = [
+            ride_state.get("name") or ride_id
+            for ride_id, ride_state in state.get(park_key, {}).items()
+            if isinstance(ride_state, dict) and ride_state.get("is_open") is False
+        ]
+        if len(unavailable) >= 2:
+            active_multi_ride_alerts.append({
+                "park_name": park_config["park_name"],
+                "rides": unavailable,
+            })
+
+    elevated_trends = [
+        metric
+        for metric in trend_metrics
+        if metric["event_count"] >= 2
+    ]
+    active_projections = []
+    for metric in thirty_day_metrics:
+        average_duration = metric["average_completed_downtime_seconds"]
+        if (
+            metric["is_open"] is False
+            and average_duration
+            and metric["current_down_seconds"] > 0
+        ):
+            active_projections.append({
+                **metric,
+                "projected_total_seconds": average_duration,
+                "projected_remaining_seconds": max(
+                    0,
+                    average_duration - metric["current_down_seconds"],
+                ),
+            })
+
+    return {
+        "daily_top": top_downtime(daily_metrics),
+        "thirty_day_top": top_downtime(thirty_day_metrics),
+        "stable_park": stable_park,
+        "active_multi_ride_alerts": active_multi_ride_alerts,
+        "elevated_trends": elevated_trends,
+        "active_projections": active_projections,
+    }
+
+
 def monitor_park(park_key, park_config, state, observed_at):
     major_rides = set(park_config.get("major_rides", []))
     park_state = state.setdefault(park_key, {})
@@ -359,6 +579,96 @@ def print_run_summary(summaries, observed_at):
                 print(f"  - {ride_name}")
 
 
+def print_content_pillar_summary(pillar_summary, run_summaries):
+    print("")
+    print("Content pillar readiness")
+    print("1. Real-time single ride closures/reopenings: supported")
+
+    multi_closures = pillar_summary["active_multi_ride_alerts"]
+    if multi_closures:
+        print("1C. Multi-ride closure candidates:")
+        for alert in multi_closures:
+            print(f"  {alert['park_name']}:")
+            for ride_name in alert["rides"][:5]:
+                print(f"    - {ride_name}")
+    else:
+        print("1C. Multi-ride closure candidates: none active")
+
+    multi_reopenings = []
+    for summary in run_summaries:
+        reopened = [
+            transition["ride_name"]
+            for transition in summary["transitions"]
+            if transition["type"] == "reopened"
+        ]
+        if len(reopened) >= 2:
+            multi_reopenings.append({
+                "park_name": summary["park_name"],
+                "rides": reopened,
+            })
+
+    if multi_reopenings:
+        print("Multi-ride reopening candidates:")
+        for alert in multi_reopenings:
+            print(f"  {alert['park_name']}:")
+            for ride_name in alert["rides"][:5]:
+                print(f"    - {ride_name}")
+    else:
+        print("Multi-ride reopening candidates: none this run")
+
+    print("")
+    print("2. Daily operations summary inputs:")
+    if pillar_summary["daily_top"]:
+        print("  Most downtime today:")
+        for index, metric in enumerate(pillar_summary["daily_top"], start=1):
+            print(
+                f"  {index}. {metric['ride_name']} "
+                f"({metric['park_name']}) — "
+                f"{format_duration(metric['downtime_seconds'])}"
+            )
+    else:
+        print("  Most downtime today: no downtime recorded yet")
+
+    stable_park = pillar_summary["stable_park"]
+    if stable_park:
+        print(f"  Most stable park today: {stable_park[0]}")
+
+    print("")
+    print("3. 30-day reliability analytics inputs:")
+    if pillar_summary["thirty_day_top"]:
+        for index, metric in enumerate(pillar_summary["thirty_day_top"], start=1):
+            print(
+                f"  {index}. {metric['ride_name']} "
+                f"({metric['park_name']}) — "
+                f"{format_duration(metric['downtime_seconds'])}"
+            )
+    else:
+        print("  No completed downtime history yet")
+
+    print("")
+    print("4. Insight and projection inputs:")
+    if pillar_summary["elevated_trends"]:
+        print("  Elevated downtime frequency:")
+        for metric in pillar_summary["elevated_trends"][:5]:
+            print(
+                f"  - {metric['ride_name']} ({metric['park_name']}): "
+                f"{metric['event_count']} events in {TREND_LOOKBACK_DAYS} days"
+            )
+    else:
+        print("  Elevated downtime frequency: no trend candidates yet")
+
+    if pillar_summary["active_projections"]:
+        print("  Active downtime projections:")
+        for projection in pillar_summary["active_projections"][:5]:
+            print(
+                f"  - {projection['ride_name']} ({projection['park_name']}): "
+                f"currently down {format_duration(projection['current_down_seconds'])}; "
+                f"historical average {format_duration(projection['projected_total_seconds'])}"
+            )
+    else:
+        print("  Active downtime projections: no active rides with history yet")
+
+
 def main():
     config = load_config()
     state = load_state()
@@ -368,8 +678,10 @@ def main():
     for park_key, park_config in enabled_park_configs(config):
         summaries.append(monitor_park(park_key, park_config, state, observed_at))
 
+    pillar_summary = collect_content_pillar_summary(state, config, observed_at)
     save_state(state)
     print_run_summary(summaries, observed_at)
+    print_content_pillar_summary(pillar_summary, summaries)
 
 
 if __name__ == "__main__":
