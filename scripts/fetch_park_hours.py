@@ -7,7 +7,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 
 
-DISNEY_CALENDAR_URL = "https://disneyworld.disney.go.com/calendars/day/{date}/"
+DISNEY_CALENDAR_URL = "https://disneyworld.disney.go.com/calendars/day/"
 PARK_LABELS = {
     "magic_kingdom": "Magic Kingdom",
     "epcot": "EPCOT",
@@ -39,11 +39,10 @@ def to_24_hour(value):
     return datetime.strptime(value.replace(" ", ""), "%I:%M%p").strftime("%H:%M")
 
 
-def fetch_calendar_html(target_date):
-    url = DISNEY_CALENDAR_URL.format(date=target_date.isoformat())
-    request = Request(url, headers={"User-Agent": "ParkSignals/1.0"})
+def fetch_calendar_html(_target_date):
+    request = Request(DISNEY_CALENDAR_URL, headers={"User-Agent": "ParkSignals/1.0"})
     with urlopen(request, timeout=20) as response:
-        return response.read().decode("utf-8", errors="replace"), url
+        return response.read().decode("utf-8", errors="replace"), DISNEY_CALENDAR_URL
 
 
 def extract_text(html):
@@ -69,10 +68,13 @@ def parse_disney_hours(parts, target_date):
         if park_key is None or park_key in hours:
             continue
 
-        for next_part in parts[index + 1:index + 20]:
+        for offset in range(1, 20):
+            next_part = parts[index + offset] if index + offset < len(parts) else ""
+            following_part = parts[index + offset + 1] if index + offset + 1 < len(parts) else ""
+            combined_part = f"{next_part} {following_part}".strip()
             if not next_part.startswith("Park Hours"):
                 continue
-            match = TIME_RANGE_RE.search(next_part)
+            match = TIME_RANGE_RE.search(combined_part)
             if not match:
                 continue
             hours[park_key] = {
@@ -81,7 +83,7 @@ def parse_disney_hours(parts, target_date):
                 "timezone": "America/New_York",
                 "opens_at": to_24_hour(match.group(1)),
                 "closes_at": to_24_hour(match.group(2)),
-                "raw": next_part,
+                "raw": combined_part,
             }
             break
 
