@@ -30,6 +30,11 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install Browser Renderer
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
       - name: Fetch Official Disney Park Hours
         run: python scripts/fetch_park_hours.py --output park_hours_cache.json
 
