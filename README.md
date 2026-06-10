@@ -30,3 +30,18 @@ PARKSIGNALS_PARKS=magic_kingdom python parksignals.py
 current open status, last seen and change timestamps, downtime start time,
 last reopen time, current downtime duration, total completed downtime seconds,
 and recent downtime events.
+
+Each ride record also stores the Queue-Times `id` and current `name`, so the
+numeric keys in `state.json` can be read without looking them up elsewhere.
+
+## Monitoring logs
+Every run prints a monitor summary to the GitHub Actions log. The summary shows
+which parks were checked, how many configured rides matched Queue-Times, current
+open/unavailable counts, any status changes, and a ride ID map such as:
+
+```text
+159: Frozen Ever After (open, wait 45 min)
+```
+
+To confirm the scheduled monitor is working, open the latest ParkSignals
+Monitor workflow run in GitHub Actions and review the "Run ParkSignals" step.
