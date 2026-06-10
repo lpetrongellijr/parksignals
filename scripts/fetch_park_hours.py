@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 
 THEMEPARKS_DESTINATIONS_URL = "https://api.themeparks.wiki/v1/destinations"
 THEMEPARKS_SCHEDULE_URL = "https://api.themeparks.wiki/v1/entity/{entity_id}/schedule"
+REGULAR_SCHEDULE_TYPE = "OPERATING"
 DISNEY_DAY_URL = "https://disneyworld.disney.go.com/calendars/day/{date}/#/{park_slug}/"
 DISNEY_DAY_BASE_URL = "https://disneyworld.disney.go.com/calendars/day/{date}/"
 PARK_LABELS = {
@@ -84,6 +85,24 @@ def to_24_hour(value):
 def iso_to_local_hhmm(value, timezone_name="America/New_York"):
     parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
     return parsed.astimezone(ZoneInfo(timezone_name)).strftime("%H:%M")
+
+
+def local_date_for_entry(entry):
+    opening = entry.get("openingTime")
+    if not opening:
+        return None
+    return datetime.fromisoformat(opening.replace("Z", "+00:00")).astimezone(
+        ZoneInfo("America/New_York")
+    ).date()
+
+
+def schedule_entry_summary(entry):
+    return {
+        "type": entry.get("type"),
+        "openingTime": entry.get("openingTime"),
+        "closingTime": entry.get("closingTime"),
+        "description": entry.get("description"),
+    }
 
 
 def fetch_calendar_html(url):
@@ -170,17 +189,21 @@ def build_hours(target_date, match, raw, source="official_disney_calendar"):
         "timezone": "America/New_York",
         "opens_at": to_24_hour(match.group(1)),
         "closes_at": to_24_hour(match.group(2)),
+        "selected_schedule_type": REGULAR_SCHEDULE_TYPE,
+        "ignored_schedule_entries": [],
         "raw": raw,
     }
 
 
-def build_api_hours(target_date, schedule_entry, source="themeparks_wiki"):
+def build_api_hours(target_date, schedule_entry, ignored_entries, source="themeparks_wiki"):
     return {
         "date": target_date.isoformat(),
         "source": source,
         "timezone": "America/New_York",
         "opens_at": iso_to_local_hhmm(schedule_entry["openingTime"]),
         "closes_at": iso_to_local_hhmm(schedule_entry["closingTime"]),
+        "selected_schedule_type": REGULAR_SCHEDULE_TYPE,
+        "ignored_schedule_entries": ignored_entries,
         "raw": schedule_entry,
     }
 
@@ -284,21 +307,21 @@ def match_park_entity(park_key, entities):
     return None
 
 
-def operating_entry_for_date(schedule_payload, target_date):
+def entries_for_date(schedule_payload, target_date):
     entries = schedule_payload.get("schedule", schedule_payload if isinstance(schedule_payload, list) else [])
-    for entry in entries:
-        if entry.get("type") != "OPERATING":
-            continue
-        opening = entry.get("openingTime")
-        closing = entry.get("closingTime")
-        if not opening or not closing:
-            continue
-        local_date = datetime.fromisoformat(opening.replace("Z", "+00:00")).astimezone(
-            ZoneInfo("America/New_York")
-        ).date()
-        if local_date == target_date:
-            return entry
-    return None
+    return [entry for entry in entries if local_date_for_entry(entry) == target_date]
+
+
+def regular_and_ignored_entries_for_date(schedule_payload, target_date):
+    regular_entry = None
+    ignored_entries = []
+    for entry in entries_for_date(schedule_payload, target_date):
+        entry_type = entry.get("type")
+        if entry_type == REGULAR_SCHEDULE_TYPE and regular_entry is None:
+            regular_entry = entry
+        else:
+            ignored_entries.append(schedule_entry_summary(entry))
+    return regular_entry, ignored_entries
 
 
 def fetch_themeparks_wiki_hours(target_date):
@@ -316,9 +339,9 @@ def fetch_themeparks_wiki_hours(target_date):
             missing.append(park_key)
             continue
         schedule = get_json(THEMEPARKS_SCHEDULE_URL.format(entity_id=entity["id"]))
-        entry = operating_entry_for_date(schedule, target_date)
+        entry, ignored_entries = regular_and_ignored_entries_for_date(schedule, target_date)
         if entry:
-            hours[park_key] = build_api_hours(target_date, entry)
+            hours[park_key] = build_api_hours(target_date, entry, ignored_entries)
         else:
             missing.append(park_key)
 
@@ -500,7 +523,11 @@ def main():
 
     print(f"Updated park hours for {target_date.isoformat()}")
     for park_key, park_hours in sorted(parsed_hours.items()):
-        print(f"- {park_key}: {park_hours['opens_at']} to {park_hours['closes_at']} ({park_hours['source']})")
+        print(
+            f"- {park_key}: {park_hours['opens_at']} to {park_hours['closes_at']} "
+            f"({park_hours['source']}, selected {park_hours['selected_schedule_type']}, "
+            f"ignored {len(park_hours['ignored_schedule_entries'])})"
+        )
 
 
 if __name__ == "__main__":
