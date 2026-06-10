@@ -147,6 +147,8 @@ class RunMonitorTest(unittest.TestCase):
         self.assertEqual(cache["last_fetch_status"], "parse_failed")
         self.assertIn("magic_kingdom", cache["parks"])
         self.assertEqual(cache["parks"]["magic_kingdom"]["closes_at"], "22:00")
+        self.assertIn("fallback_notice", cache)
+        self.assertIn("fallback hours", cache["fallback_notice"]["message"])
 
     def test_suppressed_summary_does_not_touch_state(self):
         observed = datetime(2026, 6, 10, 3, 0, tzinfo=timezone.utc)
