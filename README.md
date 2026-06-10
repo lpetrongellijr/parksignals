@@ -7,7 +7,7 @@ Automated Disney & Universal ride downtime monitoring system.
 - Detects ride downtime/reopenings
 - Persists ride state by park
 - Tracks downtime timestamps and completed downtime events for future summaries
-- Runs automatically every 15 minutes via GitHub Actions
+- Runs from GitHub Actions workflows triggered by cron-job.org
 - Produces workflow artifacts for monitor summaries, post candidates, ride ID maps, and analytics inputs
 
 ## Park configuration
@@ -21,9 +21,14 @@ and `park_hashtag` so alert text can follow the master template system in
 
 ParkSignals uses official Disney daily park hours when `park_hours_cache.json`
 has current data for the park. The `ParkSignals Park Hours` workflow refreshes
-that cache in the morning and again around midday. If official hours are missing
-or stale, the monitor falls back to the configured `monitoring_hours` in
-`parks_config.json`.
+that cache from cron-job.org, currently starting at 6:00 AM Central and then
+every 6 hours. When no `--date` is passed, the park-hours fetch selects the date
+using America/Chicago so the workflow follows the operator's Central Time
+schedule. Cached operating-hour values remain in America/New_York because Walt
+Disney World operates on Eastern Time.
+
+If official hours are missing or stale, the monitor falls back to the configured
+`monitoring_hours` in `parks_config.json`.
 
 Special-ticket events do not extend the monitoring window. The official-hours
 parser uses the regular `Park Hours` entry only, so events like Mickey's
@@ -80,9 +85,9 @@ The monitor workflow also uploads output artifacts from `outputs/`:
 - `ride-id-map.json`
 - `daily-summary.txt`
 
-To confirm the scheduled monitor is working, open the latest ParkSignals
-Monitor workflow run in GitHub Actions and review the "Run ParkSignals" step
-or download the `parksignals-monitor-outputs` artifact.
+To confirm the monitor is working, open the latest ParkSignals Monitor workflow
+run in GitHub Actions and review the "Run ParkSignals" step or download the
+`parksignals-monitor-outputs` artifact.
 
 The same log also prints a content pillar readiness section:
 
@@ -116,6 +121,7 @@ Pull requests run the same tests in GitHub Actions and also execute a dry run
 that uploads sample output artifacts.
 
 ## Daily summaries
-The separate `ParkSignals Daily Summary` workflow runs once per day and can also
-be started manually. It generates daily summary artifacts from the current
-persisted state without saving state or posting externally.
+The separate `ParkSignals Daily Summary` workflow runs once per day from
+cron-job.org and can also be started manually. It generates daily summary
+artifacts from the current persisted state without saving state or posting
+externally.
