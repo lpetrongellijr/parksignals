@@ -5,8 +5,11 @@ from datetime import date, datetime
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 
+THEMEPARKS_DESTINATIONS_URL = "https://api.themeparks.wiki/v1/destinations"
+THEMEPARKS_SCHEDULE_URL = "https://api.themeparks.wiki/v1/entity/{entity_id}/schedule"
 DISNEY_DAY_URL = "https://disneyworld.disney.go.com/calendars/day/{date}/#/{park_slug}/"
 DISNEY_DAY_BASE_URL = "https://disneyworld.disney.go.com/calendars/day/{date}/"
 PARK_LABELS = {
@@ -20,6 +23,12 @@ PARK_SLUGS = {
     "epcot": "epcot",
     "hollywood_studios": "hollywood-studios",
     "animal_kingdom": "animal-kingdom",
+}
+PARK_NAME_MATCHES = {
+    "magic_kingdom": ["magic kingdom"],
+    "epcot": ["epcot"],
+    "hollywood_studios": ["hollywood studios"],
+    "animal_kingdom": ["animal kingdom"],
 }
 TIME_RANGE_RE = re.compile(
     r"(\d{1,2}:\d{2}\s*[AP]M)\s+to\s+(\d{1,2}:\d{2}\s*[AP]M)",
@@ -43,6 +52,12 @@ def github_notice(message):
     print(f"::notice title=Park hours fallback::{message}")
 
 
+def get_json(url):
+    request = Request(url, headers={"User-Agent": "ParkSignals/1.0"})
+    with urlopen(request, timeout=30) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
 def calendar_url(target_date, park_key):
     return DISNEY_DAY_URL.format(
         date=target_date.isoformat(),
@@ -64,6 +79,11 @@ def normalize_park_name(value):
 
 def to_24_hour(value):
     return datetime.strptime(value.replace(" ", ""), "%I:%M%p").strftime("%H:%M")
+
+
+def iso_to_local_hhmm(value, timezone_name="America/New_York"):
+    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    return parsed.astimezone(ZoneInfo(timezone_name)).strftime("%H:%M")
 
 
 def fetch_calendar_html(url):
@@ -154,6 +174,17 @@ def build_hours(target_date, match, raw, source="official_disney_calendar"):
     }
 
 
+def build_api_hours(target_date, schedule_entry, source="themeparks_wiki"):
+    return {
+        "date": target_date.isoformat(),
+        "source": source,
+        "timezone": "America/New_York",
+        "opens_at": iso_to_local_hhmm(schedule_entry["openingTime"]),
+        "closes_at": iso_to_local_hhmm(schedule_entry["closingTime"]),
+        "raw": schedule_entry,
+    }
+
+
 def parse_summary_hours(parts, target_date, normalized_labels, source="official_disney_calendar"):
     hours = {}
     summary_start = None
@@ -217,6 +248,85 @@ def parse_single_park_hours(park_key, parts, target_date, source):
     return parsed.get(park_key)
 
 
+def find_destinations_list(payload):
+    if isinstance(payload, list):
+        return payload
+    for key in ("destinations", "data"):
+        if isinstance(payload.get(key), list):
+            return payload[key]
+    return []
+
+
+def iter_entities(entity):
+    yield entity
+    for child_key in ("parks", "children", "entities"):
+        for child in entity.get(child_key, []) or []:
+            yield from iter_entities(child)
+
+
+def find_wdw_destination(destinations):
+    for destination in destinations:
+        name = destination.get("name", "").lower()
+        if "walt disney world" in name:
+            return destination
+    return None
+
+
+def match_park_entity(park_key, entities):
+    matches = PARK_NAME_MATCHES[park_key]
+    for entity in entities:
+        entity_type = str(entity.get("entityType") or entity.get("type") or "").lower()
+        name = entity.get("name", "").lower()
+        if entity_type and "park" not in entity_type:
+            continue
+        if any(match in name for match in matches):
+            return entity
+    return None
+
+
+def operating_entry_for_date(schedule_payload, target_date):
+    entries = schedule_payload.get("schedule", schedule_payload if isinstance(schedule_payload, list) else [])
+    for entry in entries:
+        if entry.get("type") != "OPERATING":
+            continue
+        opening = entry.get("openingTime")
+        closing = entry.get("closingTime")
+        if not opening or not closing:
+            continue
+        local_date = datetime.fromisoformat(opening.replace("Z", "+00:00")).astimezone(
+            ZoneInfo("America/New_York")
+        ).date()
+        if local_date == target_date:
+            return entry
+    return None
+
+
+def fetch_themeparks_wiki_hours(target_date):
+    destinations_payload = get_json(THEMEPARKS_DESTINATIONS_URL)
+    destination = find_wdw_destination(find_destinations_list(destinations_payload))
+    if not destination:
+        raise RuntimeError("ThemeParks.wiki Walt Disney World destination not found")
+
+    entities = list(iter_entities(destination))
+    hours = {}
+    missing = []
+    for park_key in PARK_SLUGS:
+        entity = match_park_entity(park_key, entities)
+        if not entity or not entity.get("id"):
+            missing.append(park_key)
+            continue
+        schedule = get_json(THEMEPARKS_SCHEDULE_URL.format(entity_id=entity["id"]))
+        entry = operating_entry_for_date(schedule, target_date)
+        if entry:
+            hours[park_key] = build_api_hours(target_date, entry)
+        else:
+            missing.append(park_key)
+
+    if missing:
+        print("ThemeParks.wiki missing hours for: " + ", ".join(sorted(missing)))
+    return hours
+
+
 def load_existing(path):
     if not path.exists():
         return {"parks": {}}
@@ -228,8 +338,8 @@ def fallback_notice(status, error):
     return {
         "status": status,
         "message": (
-            "Official Disney park hours were not updated; "
-            "ParkSignals will use cached official hours when valid, otherwise configured fallback hours."
+            "Park hours were not fully updated; ParkSignals will use cached "
+            "machine-readable hours when valid, otherwise configured fallback hours."
         ),
         "error": error,
     }
@@ -263,7 +373,7 @@ def write_cache(path, source_url, parsed_hours, status="ok", error=None, text_sa
         f.write("\n")
 
 
-def fetch_and_parse_hours(target_date):
+def fetch_disney_web_hours(target_date):
     parsed_hours = {}
     samples = []
     errors = {}
@@ -310,6 +420,37 @@ def fetch_and_parse_hours(target_date):
     return parsed_hours, ",".join(urls.values()), samples
 
 
+def fetch_and_parse_hours(target_date):
+    samples = []
+    parsed_hours = {}
+    errors = []
+
+    try:
+        parsed_hours.update(fetch_themeparks_wiki_hours(target_date))
+    except Exception as exc:
+        errors.append("ThemeParks.wiki: " + str(exc))
+
+    missing = set(PARK_SLUGS) - set(parsed_hours)
+    if missing:
+        try:
+            disney_hours, disney_source, disney_samples = fetch_disney_web_hours(target_date)
+            samples.extend(disney_samples)
+            for park_key in missing:
+                if park_key in disney_hours:
+                    parsed_hours[park_key] = disney_hours[park_key]
+        except Exception as exc:
+            errors.append("Disney calendar: " + str(exc))
+            disney_source = ",".join(calendar_url(target_date, park_key) for park_key in PARK_SLUGS)
+    else:
+        disney_source = "not_needed"
+
+    if errors:
+        samples.append("source_errors: " + json.dumps(errors)[:1000])
+
+    source_url = THEMEPARKS_DESTINATIONS_URL + " | " + disney_source
+    return parsed_hours, source_url, samples
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", default=date.today().isoformat())
@@ -319,7 +460,7 @@ def main():
 
     target_date = date.fromisoformat(args.date)
     output_path = Path(args.output)
-    source_url = ",".join(calendar_url(target_date, park_key) for park_key in PARK_SLUGS)
+    source_url = THEMEPARKS_DESTINATIONS_URL
 
     try:
         parsed_hours, source_url, parts = fetch_and_parse_hours(target_date)
@@ -335,12 +476,12 @@ def main():
             error=message,
         )
         github_notice(message)
-        print(f"Disney park hours fetch failed; existing cache/fallback hours will be used: {message}")
+        print(f"Park hours fetch failed; existing cache/fallback hours will be used: {message}")
         return
 
     missing_parks = sorted(set(PARK_SLUGS) - set(parsed_hours))
     if missing_parks:
-        message = "No Disney park hours found for: " + ", ".join(missing_parks)
+        message = "No park hours found for: " + ", ".join(missing_parks)
         if args.strict:
             raise RuntimeError(message)
         write_cache(
@@ -357,7 +498,7 @@ def main():
 
     write_cache(output_path, source_url, parsed_hours)
 
-    print(f"Updated Disney park hours for {target_date.isoformat()}")
+    print(f"Updated park hours for {target_date.isoformat()}")
     for park_key, park_hours in sorted(parsed_hours.items()):
         print(f"- {park_key}: {park_hours['opens_at']} to {park_hours['closes_at']} ({park_hours['source']})")
 
