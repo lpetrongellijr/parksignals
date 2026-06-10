@@ -25,7 +25,7 @@ def load_park_hours_cache(path=PARK_HOURS_CACHE_FILE):
         with open(path, "r") as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
-        return {"parks": {}}
+        return {"parks": {}, "last_fetch_status": "missing_or_invalid_cache"}
 
 
 def official_hours_for_park(park_key, observed_at, cache):
@@ -129,6 +129,7 @@ def build_suppressed_summary(park_key, park_config, observed_at, reason):
 def print_hours_source_notes(config, observed_at, cache):
     print("")
     print("Park hours source")
+    fallback_parks = []
     for park_key, park_config in parksignals.enabled_park_configs(config):
         hours = resolved_monitoring_hours(park_key, park_config, observed_at, cache)
         if not hours:
@@ -138,6 +139,21 @@ def print_hours_source_notes(config, observed_at, cache):
             f"- {park_config['park_name']}: {hours['source']} "
             f"{hours['opens_at']}-{hours['closes_at']} {hours['timezone']}"
         )
+        if hours["source"] == "configured_fallback":
+            fallback_parks.append(park_config["park_name"])
+
+    if fallback_parks:
+        print("")
+        print("Park hours fallback notice")
+        print(
+            "Official Disney hours were not available for: "
+            + ", ".join(fallback_parks)
+        )
+        print("Using configured fallback hours from parks_config.json.")
+        if cache.get("last_fetch_status") and cache.get("last_fetch_status") != "ok":
+            print(f"Last official-hours fetch status: {cache['last_fetch_status']}")
+        if cache.get("last_fetch_error"):
+            print(f"Last official-hours fetch error: {cache['last_fetch_error']}")
 
 
 def print_suppression_notes(summaries):
