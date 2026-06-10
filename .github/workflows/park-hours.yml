@@ -1,8 +1,9 @@
-name: ParkSignals Monitor
+name: ParkSignals Park Hours
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "0 10 * * *"
+    - cron: "0 16 * * *"
   workflow_dispatch:
 
 permissions:
@@ -12,7 +13,7 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  monitor:
+  park-hours:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,25 +30,19 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install Dependencies
-        run: pip install -r requirements.txt
+      - name: Fetch Official Disney Park Hours
+        run: python scripts/fetch_park_hours.py --output park_hours_cache.json
 
-      - name: Run ParkSignals
-        run: |
-          mkdir -p outputs
-          python scripts/run_monitor.py | tee outputs/monitor-summary.txt
-          python scripts/export_artifacts.py --output-dir outputs
-
-      - name: Upload Monitor Outputs
+      - name: Upload Park Hours Cache
         uses: actions/upload-artifact@v4
         with:
-          name: parksignals-monitor-outputs
-          path: outputs/
+          name: parksignals-park-hours-cache
+          path: park_hours_cache.json
 
-      - name: Commit Updated State
+      - name: Commit Park Hours Cache
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add state.json
-          git commit -m "Update ride state" || echo "No changes"
+          git add park_hours_cache.json
+          git commit -m "Update park hours cache" || echo "No changes"
           git push
