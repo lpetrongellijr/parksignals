@@ -19,11 +19,21 @@ Each park also defines post metadata such as `resort_name`, `resort_hashtag`,
 and `park_hashtag` so alert text can follow the master template system in
 `docs/MASTER_POST_TEMPLATES.md`.
 
-Each park has `monitoring_hours` in local park time. The GitHub Actions monitor
-uses these hours to avoid treating normal park closing as ride downtime. When a
-run is outside the configured window, the monitor still logs the park and ride
-ID map, but it suppresses closure transitions and does not update downtime
-state.
+ParkSignals uses official Disney daily park hours when `park_hours_cache.json`
+has current data for the park. The `ParkSignals Park Hours` workflow refreshes
+that cache in the morning and again around midday. If official hours are missing
+or stale, the monitor falls back to the configured `monitoring_hours` in
+`parks_config.json`.
+
+Special-ticket events do not extend the monitoring window. The official-hours
+parser uses the regular `Park Hours` entry only, so events like Mickey's
+Not-So-Scary Halloween Party, Mickey's Very Merry Christmas Party, Jollywood
+Nights, or Disney After Hours are ignored for downtime tracking unless a future
+config explicitly enables event monitoring.
+
+When a run is outside the resolved monitoring window, the monitor still logs the
+park and ride ID map, but it suppresses closure transitions and does not update
+downtime state.
 
 To run a specific comma-separated set of enabled parks locally or in Actions,
 set `PARKSIGNALS_PARKS`, for example:
@@ -54,7 +64,10 @@ open/unavailable counts, any status changes, and a ride ID map such as:
 159: Frozen Ever After (open, wait 45 min)
 ```
 
-If a run is outside configured monitoring hours, the log also prints a
+The log also prints a `Park hours source` section showing whether each park used
+`official_disney_calendar` or `configured_fallback` hours.
+
+If a run is outside resolved monitoring hours, the log also prints a
 `Downtime tracking suppressed` section. That means the workflow ran and observed
 Queue-Times data, but intentionally skipped downtime state changes.
 
