@@ -1,5 +1,7 @@
 import importlib.util
+import json
 import sys
+import tempfile
 import types
 import unittest
 from datetime import date, datetime, timezone
@@ -98,6 +100,53 @@ class RunMonitorTest(unittest.TestCase):
         self.assertEqual(parsed["magic_kingdom"]["opens_at"], "09:00")
         self.assertEqual(parsed["magic_kingdom"]["closes_at"], "18:00")
         self.assertEqual(parsed["epcot"]["closes_at"], "21:00")
+
+    def test_fetch_parser_handles_heading_text_and_split_hours(self):
+        parts = [
+            "### Magic Kingdom",
+            "Early Entry",
+            "8:30 AM to 9:00 AM",
+            "Park Hours",
+            "9:00 AM to 10:00 PM",
+            "### Disney's Animal Kingdom",
+            "Park Hours 8:00 AM to 6:00 PM",
+        ]
+
+        parsed = fetch_park_hours.parse_disney_hours(parts, date(2026, 6, 10))
+
+        self.assertEqual(parsed["magic_kingdom"]["opens_at"], "09:00")
+        self.assertEqual(parsed["magic_kingdom"]["closes_at"], "22:00")
+        self.assertEqual(parsed["animal_kingdom"]["closes_at"], "18:00")
+
+    def test_write_cache_records_parse_failure_without_removing_existing_hours(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "park_hours_cache.json"
+            path.write_text(json.dumps({
+                "parks": {
+                    "magic_kingdom": {
+                        "date": "2026-06-10",
+                        "source": "official_disney_calendar",
+                        "timezone": "America/New_York",
+                        "opens_at": "09:00",
+                        "closes_at": "22:00",
+                    }
+                }
+            }))
+
+            fetch_park_hours.write_cache(
+                path,
+                "https://disneyworld.disney.go.com/calendars/day/",
+                {},
+                status="parse_failed",
+                error="No Disney park hours found",
+                text_sample=["unexpected", "response"],
+            )
+
+            cache = json.loads(path.read_text())
+
+        self.assertEqual(cache["last_fetch_status"], "parse_failed")
+        self.assertIn("magic_kingdom", cache["parks"])
+        self.assertEqual(cache["parks"]["magic_kingdom"]["closes_at"], "22:00")
 
     def test_suppressed_summary_does_not_touch_state(self):
         observed = datetime(2026, 6, 10, 3, 0, tzinfo=timezone.utc)
