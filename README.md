@@ -8,7 +8,7 @@ Automated Disney & Universal ride downtime monitoring system.
 - Persists ride state by park
 - Tracks downtime timestamps and completed downtime events for future summaries
 - Runs from GitHub Actions workflows triggered by cron-job.org
-- Produces workflow artifacts for monitor summaries, post previews, park status, ride ID maps, analytics inputs, and disabled X connection readiness
+- Produces workflow artifacts for monitor summaries, post previews, post safety plans, park status, ride ID maps, analytics inputs, and disabled X connection readiness
 
 ## Park configuration
 ParkSignals is configured in `parks_config.json`. Magic Kingdom, EPCOT,
@@ -90,6 +90,8 @@ The monitor workflow also uploads output artifacts from `outputs/`:
 - `content-pillar-readiness.txt`
 - `post-candidates.json`
 - `post-previews.txt`
+- `post-dispatch-plan.txt`
+- `post-dispatch-plan.json`
 - `x-connection-status.txt`
 - `x-connection-status.json`
 - `analytics-summary.json`
@@ -103,6 +105,11 @@ post candidates across single-ride alerts, multi-ride alerts, daily summaries,
 30-day analytics, trend insights, and projection insights. `post-candidates.json`
 carries the same candidates in structured form for future automated posting.
 Posting remains disconnected.
+
+`post-dispatch-plan.txt` applies the posting safety policy and explains whether
+each candidate would post in dry-run mode or be skipped. It includes skip reasons
+such as missing X credentials, park closed for monitoring, duplicate posted key,
+empty summary, disabled pillar, or text over the configured character limit.
 
 `x-connection-status.txt` reports whether the X credentials are present in
 GitHub Actions secrets. It never prints secret values. Posting is still blocked
@@ -125,6 +132,22 @@ The same log also prints a content pillar readiness section:
 These are generated as operational logs and artifacts only. They prepare the
 data needed for future automated posting and insight workflows without
 connecting X posting yet.
+
+## Posting safety
+Posting is controlled by `posting_policy.json` and recorded in `posting_log.json`.
+The current policy keeps real posting disabled and dry-run planning enabled.
+
+Safety features now in place:
+
+- Global posting switch is off by default.
+- Workflows hard-set `PARKSIGNALS_X_POSTING_ENABLED=false`.
+- Per-pillar and per-post-type toggles exist in `posting_policy.json`.
+- Candidates are blocked if required X credentials are missing.
+- Real-time posts are blocked outside park monitoring hours.
+- Empty daily summaries and empty analytics posts are blocked.
+- Over-length posts are blocked using `max_post_characters`.
+- Duplicate protection checks `posted_keys` and prior confirmed posted decisions.
+- Dry-run decisions are logged, while real posted keys remain separate for future live posting.
 
 ## X connection readiness
 Add X credentials as GitHub Actions repository secrets only. Do not commit them
