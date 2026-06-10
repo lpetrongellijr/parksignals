@@ -1,0 +1,43 @@
+{
+  "posting_enabled": false,
+  "dry_run": true,
+  "max_post_characters": 280,
+  "require_x_credentials": true,
+  "rules": {
+    "block_real_time_posts_outside_park_hours": true,
+    "block_empty_daily_summary": true,
+    "block_empty_analytics": true,
+    "block_duplicate_posted_keys": true,
+    "record_dry_run_decisions": true
+  },
+  "pillars": {
+    "real_time_alert": {
+      "enabled": true,
+      "types": {
+        "down": true,
+        "reopened": true,
+        "multi_ride_closure": true,
+        "multi_ride_reopening": true
+      }
+    },
+    "daily_operations_summary": {
+      "enabled": true,
+      "types": {
+        "wdw_daily_summary": true
+      }
+    },
+    "reliability_analytics": {
+      "enabled": true,
+      "types": {
+        "wdw_30_day_downtime": true
+      }
+    },
+    "insights_predictions": {
+      "enabled": true,
+      "types": {
+        "trend_detection": true,
+        "active_projection": true
+      }
+    }
+  }
+}
