@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -22,6 +22,11 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync latest repo
+        run: git pull --rebase origin main
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -37,9 +42,19 @@ jobs:
           mkdir -p outputs
           python scripts/export_artifacts.py --output-dir outputs
           python scripts/export_x_status.py --output-dir outputs
+          python scripts/plan_posts.py --output-dir outputs
 
       - name: Upload Daily Summary Outputs
         uses: actions/upload-artifact@v4
         with:
           name: parksignals-daily-summary
           path: outputs/
+
+      - name: Commit Posting Log
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add posting_log.json
+          git commit -m "Update posting log" || echo "No changes"
+          git pull --rebase origin main
+          git push
