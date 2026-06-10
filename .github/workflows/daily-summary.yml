@@ -1,0 +1,37 @@
+name: ParkSignals Daily Summary
+
+on:
+  schedule:
+    - cron: "55 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  daily-summary:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate Daily Summary
+        run: python scripts/export_artifacts.py --output-dir outputs
+
+      - name: Upload Daily Summary Outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: parksignals-daily-summary
+          path: outputs/

@@ -1,0 +1,86 @@
+{
+  "magic_kingdom": {
+    "lands": [
+      {
+        "name": "Tomorrowland",
+        "rides": [
+          {
+            "id": 134,
+            "name": "Space Mountain",
+            "is_open": true,
+            "wait_time": 35
+          },
+          {
+            "id": 411,
+            "name": "TRON Lightcycle / Run",
+            "is_open": false,
+            "wait_time": 0
+          }
+        ]
+      }
+    ]
+  },
+  "epcot": {
+    "lands": [
+      {
+        "name": "World Discovery",
+        "rides": [
+          {
+            "id": 10916,
+            "name": "Guardians of the Galaxy: Cosmic Rewind",
+            "is_open": true,
+            "wait_time": 55
+          },
+          {
+            "id": 159,
+            "name": "Frozen Ever After",
+            "is_open": false,
+            "wait_time": 0
+          }
+        ]
+      }
+    ]
+  },
+  "hollywood_studios": {
+    "lands": [
+      {
+        "name": "Star Wars: Galaxy's Edge",
+        "rides": [
+          {
+            "id": 6361,
+            "name": "Star Wars: Rise of the Resistance",
+            "is_open": false,
+            "wait_time": 0
+          },
+          {
+            "id": 123,
+            "name": "Millennium Falcon: Smugglers Run",
+            "is_open": true,
+            "wait_time": 40
+          }
+        ]
+      }
+    ]
+  },
+  "animal_kingdom": {
+    "lands": [
+      {
+        "name": "Pandora - The World of Avatar",
+        "rides": [
+          {
+            "id": 4439,
+            "name": "Avatar Flight of Passage",
+            "is_open": true,
+            "wait_time": 75
+          },
+          {
+            "id": 4438,
+            "name": "Na'vi River Journey",
+            "is_open": false,
+            "wait_time": 0
+          }
+        ]
+      }
+    ]
+  }
+}

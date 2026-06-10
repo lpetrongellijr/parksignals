@@ -33,7 +33,16 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run ParkSignals
-        run: python parksignals.py
+        run: |
+          mkdir -p outputs
+          python parksignals.py | tee outputs/monitor-summary.txt
+          python scripts/export_artifacts.py --output-dir outputs
+
+      - name: Upload Monitor Outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: parksignals-monitor-outputs
+          path: outputs/
 
       - name: Commit Updated State
         run: |
