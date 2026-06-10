@@ -54,10 +54,30 @@ def fetch_calendar_html(_target_date):
         return response.read().decode("utf-8", errors="replace"), DISNEY_CALENDAR_URL
 
 
+def render_calendar_text():
+    try:
+        from playwright.sync_api import sync_playwright
+    except ModuleNotFoundError as exc:
+        raise RuntimeError("Playwright is required to render Disney park hours") from exc
+
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch()
+        page = browser.new_page()
+        page.goto(DISNEY_CALENDAR_URL, wait_until="networkidle", timeout=60000)
+        page.wait_for_timeout(3000)
+        text = page.locator("body").inner_text(timeout=30000)
+        browser.close()
+    return text
+
+
 def extract_text(html):
     parser = TextExtractor()
     parser.feed(html)
     return parser.parts
+
+
+def extract_text_lines(text):
+    return [line.strip() for line in text.splitlines() if line.strip()]
 
 
 def matching_park_key(part, normalized_labels):
@@ -68,10 +88,10 @@ def matching_park_key(part, normalized_labels):
     return None
 
 
-def build_hours(target_date, match, raw):
+def build_hours(target_date, match, raw, source="official_disney_calendar"):
     return {
         "date": target_date.isoformat(),
-        "source": "official_disney_calendar",
+        "source": source,
         "timezone": "America/New_York",
         "opens_at": to_24_hour(match.group(1)),
         "closes_at": to_24_hour(match.group(2)),
@@ -79,7 +99,7 @@ def build_hours(target_date, match, raw):
     }
 
 
-def parse_summary_hours(parts, target_date, normalized_labels):
+def parse_summary_hours(parts, target_date, normalized_labels, source="official_disney_calendar"):
     hours = {}
     summary_start = None
     for index, part in enumerate(parts):
@@ -97,7 +117,7 @@ def parse_summary_hours(parts, target_date, normalized_labels):
             candidate = parts[index + offset] if index + offset < len(parts) else ""
             match = TIME_RANGE_RE.search(candidate)
             if match:
-                hours[park_key] = build_hours(target_date, match, candidate)
+                hours[park_key] = build_hours(target_date, match, candidate, source=source)
                 break
     return hours
 
@@ -113,7 +133,7 @@ def parse_time_range_after_park(parts, start_index):
     return None, None
 
 
-def parse_detail_hours(parts, target_date, normalized_labels):
+def parse_detail_hours(parts, target_date, normalized_labels, source="official_disney_calendar"):
     hours = {}
     for index, part in enumerate(parts):
         park_key = matching_park_key(part, normalized_labels)
@@ -123,17 +143,17 @@ def parse_detail_hours(parts, target_date, normalized_labels):
         match, raw = parse_time_range_after_park(parts, index)
         if not match:
             continue
-        hours[park_key] = build_hours(target_date, match, raw)
+        hours[park_key] = build_hours(target_date, match, raw, source=source)
     return hours
 
 
-def parse_disney_hours(parts, target_date):
+def parse_disney_hours(parts, target_date, source="official_disney_calendar"):
     normalized_labels = {
         park_key: normalize_park_name(label)
         for park_key, label in PARK_LABELS.items()
     }
-    summary_hours = parse_summary_hours(parts, target_date, normalized_labels)
-    detail_hours = parse_detail_hours(parts, target_date, normalized_labels)
+    summary_hours = parse_summary_hours(parts, target_date, normalized_labels, source=source)
+    detail_hours = parse_detail_hours(parts, target_date, normalized_labels, source=source)
     return {**summary_hours, **detail_hours}
 
 
@@ -183,6 +203,23 @@ def write_cache(path, source_url, parsed_hours, status="ok", error=None, text_sa
         f.write("\n")
 
 
+def fetch_and_parse_hours(target_date):
+    html, source_url = fetch_calendar_html(target_date)
+    parts = extract_text(html)
+    parsed_hours = parse_disney_hours(parts, target_date)
+    if parsed_hours:
+        return parsed_hours, source_url, parts
+
+    rendered_text = render_calendar_text()
+    rendered_parts = extract_text_lines(rendered_text)
+    parsed_hours = parse_disney_hours(
+        rendered_parts,
+        target_date,
+        source="official_disney_calendar_rendered",
+    )
+    return parsed_hours, source_url, rendered_parts
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", default=date.today().isoformat())
@@ -195,9 +232,7 @@ def main():
     source_url = DISNEY_CALENDAR_URL
 
     try:
-        html, source_url = fetch_calendar_html(target_date)
-        parts = extract_text(html)
-        parsed_hours = parse_disney_hours(parts, target_date)
+        parsed_hours, source_url, parts = fetch_and_parse_hours(target_date)
     except Exception as exc:
         if args.strict:
             raise
@@ -233,7 +268,7 @@ def main():
 
     print(f"Updated Disney park hours for {target_date.isoformat()} from {source_url}")
     for park_key, park_hours in sorted(parsed_hours.items()):
-        print(f"- {park_key}: {park_hours['opens_at']} to {park_hours['closes_at']}")
+        print(f"- {park_key}: {park_hours['opens_at']} to {park_hours['closes_at']} ({park_hours['source']})")
 
 
 if __name__ == "__main__":
