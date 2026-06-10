@@ -10,6 +10,7 @@ import parksignals
 
 
 PARK_HOURS_CACHE_FILE = "park_hours_cache.json"
+LAST_RUN_SUMMARY_FILE = Path("outputs") / "last-run-summary.json"
 
 
 def parse_local_time(value):
@@ -94,6 +95,7 @@ def build_suppressed_summary(park_key, park_config, observed_at, reason):
     rides = parksignals.fetch_rides(park_config)
     matched_ride_names = set()
     summary = {
+        "park_key": park_key,
         "park_name": park_config["park_name"],
         "configured_count": len(major_rides),
         "fetched_count": len(rides),
@@ -170,6 +172,20 @@ def print_suppression_notes(summaries):
         print(f"- {summary['park_name']}: {summary['suppression_reason']}")
 
 
+def write_last_run_summary(observed_at, summaries, pillar_summary, hours_cache):
+    LAST_RUN_SUMMARY_FILE.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "observed_at": parksignals.isoformat(observed_at),
+        "posting_connected": False,
+        "run_summaries": summaries,
+        "content_pillar_summary": pillar_summary,
+        "park_hours_cache_status": hours_cache.get("last_fetch_status"),
+    }
+    with open(LAST_RUN_SUMMARY_FILE, "w") as f:
+        json.dump(payload, f, indent=2)
+        f.write("\n")
+
+
 def run():
     config = parksignals.load_config()
     state = parksignals.load_state()
@@ -185,12 +201,15 @@ def run():
             hours_cache,
         )
         if monitoring_allowed:
-            summaries.append(parksignals.monitor_park(park_key, park_config, state, observed_at))
+            summary = parksignals.monitor_park(park_key, park_config, state, observed_at)
+            summary["park_key"] = park_key
+            summaries.append(summary)
         else:
             summaries.append(build_suppressed_summary(park_key, park_config, observed_at, reason))
 
     pillar_summary = parksignals.collect_content_pillar_summary(state, config, observed_at)
     parksignals.save_state(state)
+    write_last_run_summary(observed_at, summaries, pillar_summary, hours_cache)
     parksignals.print_run_summary(summaries, observed_at)
     print_hours_source_notes(config, observed_at, hours_cache)
     print_suppression_notes(summaries)
