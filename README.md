@@ -19,11 +19,17 @@ Each park also defines post metadata such as `resort_name`, `resort_hashtag`,
 and `park_hashtag` so alert text can follow the master template system in
 `docs/MASTER_POST_TEMPLATES.md`.
 
+Each park has `monitoring_hours` in local park time. The GitHub Actions monitor
+uses these hours to avoid treating normal park closing as ride downtime. When a
+run is outside the configured window, the monitor still logs the park and ride
+ID map, but it suppresses closure transitions and does not update downtime
+state.
+
 To run a specific comma-separated set of enabled parks locally or in Actions,
 set `PARKSIGNALS_PARKS`, for example:
 
 ```bash
-PARKSIGNALS_PARKS=magic_kingdom python parksignals.py
+PARKSIGNALS_PARKS=magic_kingdom python scripts/run_monitor.py
 ```
 
 ## State storage
@@ -35,6 +41,10 @@ and recent downtime events.
 Each ride record also stores the Queue-Times `id` and current `name`, so the
 numeric keys in `state.json` can be read without looking them up elsewhere.
 
+If a test run happens after normal monitoring hours and marks many rides as
+unavailable, clear that test pollution from `state.json`. Do not delete the test
+suite; the tests should remain so future changes keep this behavior covered.
+
 ## Monitoring logs and artifacts
 Every run prints a monitor summary to the GitHub Actions log. The summary shows
 which parks were checked, how many configured rides matched Queue-Times, current
@@ -43,6 +53,10 @@ open/unavailable counts, any status changes, and a ride ID map such as:
 ```text
 159: Frozen Ever After (open, wait 45 min)
 ```
+
+If a run is outside configured monitoring hours, the log also prints a
+`Downtime tracking suppressed` section. That means the workflow ran and observed
+Queue-Times data, but intentionally skipped downtime state changes.
 
 The monitor workflow also uploads output artifacts from `outputs/`:
 
