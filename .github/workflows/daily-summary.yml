@@ -26,7 +26,10 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Generate Daily Summary
-        run: python scripts/export_artifacts.py --output-dir outputs
+        run: |
+          rm -rf outputs
+          mkdir -p outputs
+          python scripts/export_artifacts.py --output-dir outputs
 
       - name: Upload Daily Summary Outputs
         uses: actions/upload-artifact@v4
