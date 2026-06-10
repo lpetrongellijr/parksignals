@@ -1,9 +1,6 @@
 name: ParkSignals Park Hours
 
 on:
-  schedule:
-    - cron: "11 10 * * *"
-    - cron: "17 16 * * *"
   workflow_dispatch:
 
 permissions:
