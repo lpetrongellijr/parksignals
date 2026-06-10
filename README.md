@@ -8,7 +8,7 @@ Automated Disney & Universal ride downtime monitoring system.
 - Persists ride state by park
 - Tracks downtime timestamps and completed downtime events for future summaries
 - Runs from GitHub Actions workflows triggered by cron-job.org
-- Produces workflow artifacts for monitor summaries, post candidates, ride ID maps, and analytics inputs
+- Produces workflow artifacts for monitor summaries, post previews, ride ID maps, and analytics inputs
 
 ## Park configuration
 ParkSignals is configured in `parks_config.json`. Magic Kingdom, EPCOT,
@@ -78,11 +78,19 @@ Queue-Times data, but intentionally skipped downtime state changes.
 The monitor workflow also uploads output artifacts from `outputs/`:
 
 - `monitor-summary.txt`
+- `last-run-summary.json`
 - `content-pillar-readiness.txt`
 - `post-candidates.json`
+- `post-previews.txt`
 - `analytics-summary.json`
 - `ride-id-map.json`
 - `daily-summary.txt`
+
+`post-previews.txt` is the easiest review file. It shows draft text for the
+currently available post candidates across single-ride alerts, multi-ride alerts,
+daily summaries, 30-day analytics, trend insights, and projection insights.
+`post-candidates.json` carries the same candidates in structured form for future
+automated posting. Posting remains disconnected.
 
 To confirm the monitor is working, open the latest ParkSignals Monitor workflow
 run in GitHub Actions and review the "Run ParkSignals" step or download the
