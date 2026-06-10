@@ -1,8 +1,6 @@
 name: ParkSignals Daily Summary
 
 on:
-  schedule:
-    - cron: "55 4 * * *"
   workflow_dispatch:
 
 permissions:
