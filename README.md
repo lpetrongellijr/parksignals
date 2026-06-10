@@ -8,7 +8,7 @@ Automated Disney & Universal ride downtime monitoring system.
 - Persists ride state by park
 - Tracks downtime timestamps and completed downtime events for future summaries
 - Runs from GitHub Actions workflows triggered by cron-job.org
-- Produces workflow artifacts for monitor summaries, post previews, ride ID maps, and analytics inputs
+- Produces workflow artifacts for monitor summaries, post previews, park status, ride ID maps, and analytics inputs
 
 ## Park configuration
 ParkSignals is configured in `parks_config.json`. Magic Kingdom, EPCOT,
@@ -52,6 +52,12 @@ current open status, last seen and change timestamps, downtime start time,
 last reopen time, current downtime duration, total completed downtime seconds,
 and recent downtime events.
 
+Ride state is not the same as park operating status. If a park is closed or a
+run is outside regular operating hours, ParkSignals leaves ride state at the last
+tracked in-hours value so normal nightly closures do not become fake downtime.
+Current park open/closed-for-monitoring status is reported separately in
+`park-status.txt`, `park-status.json`, and `last-run-summary.json`.
+
 Each ride record also stores the Queue-Times `id` and current `name`, so the
 numeric keys in `state.json` can be read without looking them up elsewhere.
 
@@ -79,6 +85,8 @@ The monitor workflow also uploads output artifacts from `outputs/`:
 
 - `monitor-summary.txt`
 - `last-run-summary.json`
+- `park-status.txt`
+- `park-status.json`
 - `content-pillar-readiness.txt`
 - `post-candidates.json`
 - `post-previews.txt`
@@ -86,11 +94,13 @@ The monitor workflow also uploads output artifacts from `outputs/`:
 - `ride-id-map.json`
 - `daily-summary.txt`
 
-`post-previews.txt` is the easiest review file. It shows draft text for the
-currently available post candidates across single-ride alerts, multi-ride alerts,
-daily summaries, 30-day analytics, trend insights, and projection insights.
-`post-candidates.json` carries the same candidates in structured form for future
-automated posting. Posting remains disconnected.
+`park-status.txt` is the quickest way to confirm whether a park is open for
+monitoring or closed/outside regular hours. `post-previews.txt` is the easiest
+review file for draft post text. It shows draft text for the currently available
+post candidates across single-ride alerts, multi-ride alerts, daily summaries,
+30-day analytics, trend insights, and projection insights. `post-candidates.json`
+carries the same candidates in structured form for future automated posting.
+Posting remains disconnected.
 
 To confirm the monitor is working, open the latest ParkSignals Monitor workflow
 run in GitHub Actions and review the "Run ParkSignals" step or download the
