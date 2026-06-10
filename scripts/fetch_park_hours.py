@@ -32,6 +32,10 @@ class TextExtractor(HTMLParser):
             self.parts.append(text)
 
 
+def github_notice(message):
+    print(f"::notice title=Park hours fallback::{message}")
+
+
 def normalize_park_name(value):
     value = HEADING_PREFIX_RE.sub("", value)
     value = value.replace("Park", "")
@@ -109,6 +113,17 @@ def load_existing(path):
         return json.load(f)
 
 
+def fallback_notice(status, error):
+    return {
+        "status": status,
+        "message": (
+            "Official Disney park hours were not updated; "
+            "ParkSignals will use cached official hours when valid, otherwise configured fallback hours."
+        ),
+        "error": error,
+    }
+
+
 def write_cache(path, source_url, parsed_hours, status="ok", error=None, text_sample=None):
     cache = load_existing(path)
     cache.update({
@@ -120,8 +135,10 @@ def write_cache(path, source_url, parsed_hours, status="ok", error=None, text_sa
     })
     if error:
         cache["last_fetch_error"] = error
+        cache["fallback_notice"] = fallback_notice(status, error)
     else:
         cache.pop("last_fetch_error", None)
+        cache.pop("fallback_notice", None)
     if text_sample:
         cache["last_fetch_text_sample"] = text_sample[:20]
     else:
@@ -153,14 +170,16 @@ def main():
     except Exception as exc:
         if args.strict:
             raise
+        message = str(exc)
         write_cache(
             output_path,
             source_url,
             {},
             status="fetch_failed",
-            error=str(exc),
+            error=message,
         )
-        print(f"Disney park hours fetch failed; existing cache/fallback hours will be used: {exc}")
+        github_notice(message)
+        print(f"Disney park hours fetch failed; existing cache/fallback hours will be used: {message}")
         return
 
     if not parsed_hours:
@@ -175,6 +194,7 @@ def main():
             error=message,
             text_sample=parts,
         )
+        github_notice(message)
         print(f"{message}; existing cache/fallback hours will be used")
         return
 
