@@ -18,6 +18,7 @@ TIME_RANGE_RE = re.compile(
     r"(\d{1,2}:\d{2}\s*[AP]M)\s+to\s+(\d{1,2}:\d{2}\s*[AP]M)",
     re.IGNORECASE,
 )
+HEADING_PREFIX_RE = re.compile(r"^[#\s]+")
 
 
 class TextExtractor(HTMLParser):
@@ -32,7 +33,11 @@ class TextExtractor(HTMLParser):
 
 
 def normalize_park_name(value):
-    return " ".join(value.replace("Park", "").split()).lower()
+    value = HEADING_PREFIX_RE.sub("", value)
+    value = value.replace("Park", "")
+    value = value.replace("Theme", "")
+    value = value.replace("Disney's", "Disney's")
+    return " ".join(value.split()).lower()
 
 
 def to_24_hour(value):
@@ -51,6 +56,25 @@ def extract_text(html):
     return parser.parts
 
 
+def matching_park_key(part, normalized_labels):
+    normalized_part = normalize_park_name(part)
+    for candidate_key, label in normalized_labels.items():
+        if normalized_part == label:
+            return candidate_key
+    return None
+
+
+def parse_time_range_after_park(parts, start_index):
+    for offset in range(1, 24):
+        next_part = parts[start_index + offset] if start_index + offset < len(parts) else ""
+        following_part = parts[start_index + offset + 1] if start_index + offset + 1 < len(parts) else ""
+        combined_part = f"{next_part} {following_part}".strip()
+        if not next_part.startswith("Park Hours"):
+            continue
+        return TIME_RANGE_RE.search(combined_part), combined_part
+    return None, None
+
+
 def parse_disney_hours(parts, target_date):
     hours = {}
     normalized_labels = {
@@ -59,33 +83,21 @@ def parse_disney_hours(parts, target_date):
     }
 
     for index, part in enumerate(parts):
-        normalized_part = normalize_park_name(part)
-        park_key = None
-        for candidate_key, label in normalized_labels.items():
-            if normalized_part == label:
-                park_key = candidate_key
-                break
+        park_key = matching_park_key(part, normalized_labels)
         if park_key is None or park_key in hours:
             continue
 
-        for offset in range(1, 20):
-            next_part = parts[index + offset] if index + offset < len(parts) else ""
-            following_part = parts[index + offset + 1] if index + offset + 1 < len(parts) else ""
-            combined_part = f"{next_part} {following_part}".strip()
-            if not next_part.startswith("Park Hours"):
-                continue
-            match = TIME_RANGE_RE.search(combined_part)
-            if not match:
-                continue
-            hours[park_key] = {
-                "date": target_date.isoformat(),
-                "source": "official_disney_calendar",
-                "timezone": "America/New_York",
-                "opens_at": to_24_hour(match.group(1)),
-                "closes_at": to_24_hour(match.group(2)),
-                "raw": combined_part,
-            }
-            break
+        match, raw = parse_time_range_after_park(parts, index)
+        if not match:
+            continue
+        hours[park_key] = {
+            "date": target_date.isoformat(),
+            "source": "official_disney_calendar",
+            "timezone": "America/New_York",
+            "opens_at": to_24_hour(match.group(1)),
+            "closes_at": to_24_hour(match.group(2)),
+            "raw": raw,
+        }
 
     return hours
 
@@ -97,15 +109,26 @@ def load_existing(path):
         return json.load(f)
 
 
-def write_cache(path, source_url, parsed_hours):
+def write_cache(path, source_url, parsed_hours, status="ok", error=None, text_sample=None):
     cache = load_existing(path)
     cache.update({
         "generated_at": datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
         "source_url": source_url,
         "timezone": "America/New_York",
         "special_events_extend_monitoring": False,
+        "last_fetch_status": status,
     })
-    cache.setdefault("parks", {}).update(parsed_hours)
+    if error:
+        cache["last_fetch_error"] = error
+    else:
+        cache.pop("last_fetch_error", None)
+    if text_sample:
+        cache["last_fetch_text_sample"] = text_sample[:20]
+    else:
+        cache.pop("last_fetch_text_sample", None)
+
+    if parsed_hours:
+        cache.setdefault("parks", {}).update(parsed_hours)
 
     with open(path, "w") as f:
         json.dump(cache, f, indent=2)
@@ -116,15 +139,46 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", default=date.today().isoformat())
     parser.add_argument("--output", default="park_hours_cache.json")
+    parser.add_argument("--strict", action="store_true")
     args = parser.parse_args()
 
     target_date = date.fromisoformat(args.date)
-    html, source_url = fetch_calendar_html(target_date)
-    parsed_hours = parse_disney_hours(extract_text(html), target_date)
-    if not parsed_hours:
-        raise RuntimeError("No Disney park hours found in official calendar response")
+    output_path = Path(args.output)
+    source_url = DISNEY_CALENDAR_URL
 
-    write_cache(Path(args.output), source_url, parsed_hours)
+    try:
+        html, source_url = fetch_calendar_html(target_date)
+        parts = extract_text(html)
+        parsed_hours = parse_disney_hours(parts, target_date)
+    except Exception as exc:
+        if args.strict:
+            raise
+        write_cache(
+            output_path,
+            source_url,
+            {},
+            status="fetch_failed",
+            error=str(exc),
+        )
+        print(f"Disney park hours fetch failed; existing cache/fallback hours will be used: {exc}")
+        return
+
+    if not parsed_hours:
+        message = "No Disney park hours found in official calendar response"
+        if args.strict:
+            raise RuntimeError(message)
+        write_cache(
+            output_path,
+            source_url,
+            {},
+            status="parse_failed",
+            error=message,
+            text_sample=parts,
+        )
+        print(f"{message}; existing cache/fallback hours will be used")
+        return
+
+    write_cache(output_path, source_url, parsed_hours)
 
     print(f"Updated Disney park hours for {target_date.isoformat()} from {source_url}")
     for park_key, park_hours in sorted(parsed_hours.items()):
