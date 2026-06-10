@@ -90,6 +90,31 @@ def monitoring_hours_status(park_key, park_config, observed_at, cache=None):
     )
 
 
+def park_status_for_park(park_key, park_config, observed_at, cache):
+    hours = resolved_monitoring_hours(park_key, park_config, observed_at, cache)
+    monitoring_allowed, reason = monitoring_hours_status(
+        park_key,
+        park_config,
+        observed_at,
+        cache,
+    )
+    local_observed_at = None
+    if hours:
+        local_observed_at = observed_at.astimezone(ZoneInfo(hours["timezone"]))
+
+    return {
+        "park_key": park_key,
+        "park_name": park_config["park_name"],
+        "operating_status": "open" if monitoring_allowed else "closed",
+        "monitoring_allowed": monitoring_allowed,
+        "reason": reason,
+        "observed_at_local": (
+            local_observed_at.isoformat(timespec="seconds") if local_observed_at else None
+        ),
+        "hours": hours,
+    }
+
+
 def build_suppressed_summary(park_key, park_config, observed_at, reason):
     major_rides = set(park_config.get("major_rides", []))
     rides = parksignals.fetch_rides(park_config)
@@ -97,6 +122,7 @@ def build_suppressed_summary(park_key, park_config, observed_at, reason):
     summary = {
         "park_key": park_key,
         "park_name": park_config["park_name"],
+        "park_operating_status": "closed",
         "configured_count": len(major_rides),
         "fetched_count": len(rides),
         "monitored_count": 0,
@@ -161,6 +187,22 @@ def print_hours_source_notes(config, observed_at, cache):
             print(f"Last official-hours fetch error: {cache['last_fetch_error']}")
 
 
+def print_park_status_notes(park_statuses):
+    print("")
+    print("Park operating status")
+    for status in park_statuses:
+        hours = status.get("hours") or {}
+        hours_text = "no hours guard configured"
+        if hours:
+            hours_text = f"{hours['opens_at']}-{hours['closes_at']} {hours['timezone']} ({hours['source']})"
+        print(
+            f"- {status['park_name']}: {status['operating_status']} "
+            f"for monitoring; {hours_text}"
+        )
+        if status.get("reason"):
+            print(f"  {status['reason']}")
+
+
 def print_suppression_notes(summaries):
     suppressed = [summary for summary in summaries if summary.get("monitoring_suppressed")]
     if not suppressed:
@@ -172,11 +214,12 @@ def print_suppression_notes(summaries):
         print(f"- {summary['park_name']}: {summary['suppression_reason']}")
 
 
-def write_last_run_summary(observed_at, summaries, pillar_summary, hours_cache):
+def write_last_run_summary(observed_at, summaries, pillar_summary, hours_cache, park_statuses):
     LAST_RUN_SUMMARY_FILE.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "observed_at": parksignals.isoformat(observed_at),
         "posting_connected": False,
+        "park_statuses": park_statuses,
         "run_summaries": summaries,
         "content_pillar_summary": pillar_summary,
         "park_hours_cache_status": hours_cache.get("last_fetch_status"),
@@ -192,26 +235,33 @@ def run():
     observed_at = parksignals.utc_now()
     hours_cache = load_park_hours_cache()
     summaries = []
+    park_statuses = []
 
     for park_key, park_config in parksignals.enabled_park_configs(config):
-        monitoring_allowed, reason = monitoring_hours_status(
-            park_key,
-            park_config,
-            observed_at,
-            hours_cache,
-        )
-        if monitoring_allowed:
+        park_status = park_status_for_park(park_key, park_config, observed_at, hours_cache)
+        park_statuses.append(park_status)
+        if park_status["monitoring_allowed"]:
             summary = parksignals.monitor_park(park_key, park_config, state, observed_at)
             summary["park_key"] = park_key
+            summary["park_operating_status"] = "open"
+            summary["monitoring_suppressed"] = False
             summaries.append(summary)
         else:
-            summaries.append(build_suppressed_summary(park_key, park_config, observed_at, reason))
+            summaries.append(
+                build_suppressed_summary(
+                    park_key,
+                    park_config,
+                    observed_at,
+                    park_status["reason"],
+                )
+            )
 
     pillar_summary = parksignals.collect_content_pillar_summary(state, config, observed_at)
     parksignals.save_state(state)
-    write_last_run_summary(observed_at, summaries, pillar_summary, hours_cache)
+    write_last_run_summary(observed_at, summaries, pillar_summary, hours_cache, park_statuses)
     parksignals.print_run_summary(summaries, observed_at)
     print_hours_source_notes(config, observed_at, hours_cache)
+    print_park_status_notes(park_statuses)
     print_suppression_notes(summaries)
     parksignals.print_content_pillar_summary(pillar_summary, summaries)
 
