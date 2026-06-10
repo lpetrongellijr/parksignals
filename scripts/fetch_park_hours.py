@@ -11,8 +11,8 @@ from zoneinfo import ZoneInfo
 THEMEPARKS_DESTINATIONS_URL = "https://api.themeparks.wiki/v1/destinations"
 THEMEPARKS_SCHEDULE_URL = "https://api.themeparks.wiki/v1/entity/{entity_id}/schedule"
 REGULAR_SCHEDULE_TYPE = "OPERATING"
-DEFAULT_FETCH_TIMEZONE = "America/Chicago"
 PARK_HOURS_TIMEZONE = "America/New_York"
+DEFAULT_FETCH_TIMEZONE = PARK_HOURS_TIMEZONE
 DISNEY_DAY_URL = "https://disneyworld.disney.go.com/calendars/day/{date}/#/{park_slug}/"
 DISNEY_DAY_BASE_URL = "https://disneyworld.disney.go.com/calendars/day/{date}/"
 PARK_LABELS = {
