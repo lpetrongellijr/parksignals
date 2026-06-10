@@ -21,11 +21,10 @@ and `park_hashtag` so alert text can follow the master template system in
 
 ParkSignals uses official Disney daily park hours when `park_hours_cache.json`
 has current data for the park. The `ParkSignals Park Hours` workflow refreshes
-that cache from cron-job.org, currently starting at 6:00 AM Central and then
+that cache from cron-job.org, currently starting at 7:00 AM Eastern and then
 every 6 hours. When no `--date` is passed, the park-hours fetch selects the date
-using America/Chicago so the workflow follows the operator's Central Time
-schedule. Cached operating-hour values remain in America/New_York because Walt
-Disney World operates on Eastern Time.
+using America/New_York so the workflow follows Walt Disney World's local park
+schedule. Cached operating-hour values are also stored in America/New_York.
 
 If official hours are missing or stale, the monitor falls back to the configured
 `monitoring_hours` in `parks_config.json`.
