@@ -1,0 +1,48 @@
+name: ParkSignals Park Hours
+
+on:
+  schedule:
+    - cron: "0 10 * * *"
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  park-hours:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync latest repo
+        run: git pull --rebase origin main
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch Official Disney Park Hours
+        run: python scripts/fetch_park_hours.py --output park_hours_cache.json
+
+      - name: Upload Park Hours Cache
+        uses: actions/upload-artifact@v4
+        with:
+          name: parksignals-park-hours-cache
+          path: park_hours_cache.json
+
+      - name: Commit Park Hours Cache
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add park_hours_cache.json
+          git commit -m "Update park hours cache" || echo "No changes"
+          git push
