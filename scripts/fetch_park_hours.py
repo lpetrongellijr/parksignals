@@ -8,6 +8,7 @@ from urllib.request import Request, urlopen
 
 
 DISNEY_DAY_URL = "https://disneyworld.disney.go.com/calendars/day/{date}/#/{park_slug}/"
+DISNEY_DAY_BASE_URL = "https://disneyworld.disney.go.com/calendars/day/{date}/"
 PARK_LABELS = {
     "magic_kingdom": "Magic Kingdom",
     "epcot": "EPCOT",
@@ -49,6 +50,10 @@ def calendar_url(target_date, park_key):
     )
 
 
+def base_calendar_url(target_date):
+    return DISNEY_DAY_BASE_URL.format(date=target_date.isoformat())
+
+
 def normalize_park_name(value):
     value = HEADING_PREFIX_RE.sub("", value)
     value = value.replace("Park", "")
@@ -67,23 +72,57 @@ def fetch_calendar_html(url):
         return response.read().decode("utf-8", errors="replace")
 
 
-def render_calendar_texts(urls):
+def rendered_text_from_page(page, url, park_slug=None):
+    page.goto(url, wait_until="domcontentloaded", timeout=60000)
+    if park_slug:
+        page.evaluate("slug => { window.location.hash = '/' + slug + '/'; }", park_slug)
+    try:
+        page.wait_for_load_state("networkidle", timeout=10000)
+    except Exception:
+        pass
+    page.wait_for_timeout(5000)
+    return page.locator("body").inner_text(timeout=30000)
+
+
+def render_calendar_texts(target_date, urls):
     try:
         from playwright.sync_api import sync_playwright
     except ModuleNotFoundError as exc:
         raise RuntimeError("Playwright is required to render Disney park hours") from exc
 
     rendered = {}
+    errors = {}
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch()
+        browser = playwright.chromium.launch(
+            args=["--disable-http2", "--disable-features=NetworkService"]
+        )
+        context = browser.new_context(
+            ignore_https_errors=True,
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/120.0.0.0 Safari/537.36"
+            ),
+        )
         for park_key, url in urls.items():
-            page = browser.new_page()
-            page.goto(url, wait_until="networkidle", timeout=60000)
-            page.wait_for_timeout(3000)
-            rendered[park_key] = page.locator("body").inner_text(timeout=30000)
-            page.close()
+            page = context.new_page()
+            try:
+                try:
+                    rendered[park_key] = rendered_text_from_page(page, url)
+                except Exception:
+                    rendered[park_key] = rendered_text_from_page(
+                        page,
+                        base_calendar_url(target_date),
+                        park_slug=PARK_SLUGS[park_key],
+                    )
+            except Exception as exc:
+                errors[park_key] = str(exc)
+                print(f"Could not render Disney hours for {park_key}: {exc}")
+            finally:
+                page.close()
+        context.close()
         browser.close()
-    return rendered
+    return rendered, errors
 
 
 def extract_text(html):
@@ -227,26 +266,32 @@ def write_cache(path, source_url, parsed_hours, status="ok", error=None, text_sa
 def fetch_and_parse_hours(target_date):
     parsed_hours = {}
     samples = []
+    errors = {}
     urls = {park_key: calendar_url(target_date, park_key) for park_key in PARK_SLUGS}
     missing_urls = {}
 
     for park_key, url in urls.items():
-        html = fetch_calendar_html(url)
-        parts = extract_text(html)
-        samples.extend(parts[:5])
-        park_hours = parse_single_park_hours(
-            park_key,
-            parts,
-            target_date,
-            source="official_disney_calendar_static",
-        )
+        try:
+            html = fetch_calendar_html(url)
+            parts = extract_text(html)
+            samples.extend(parts[:5])
+            park_hours = parse_single_park_hours(
+                park_key,
+                parts,
+                target_date,
+                source="official_disney_calendar_static",
+            )
+        except Exception as exc:
+            errors[park_key] = str(exc)
+            park_hours = None
         if park_hours:
             parsed_hours[park_key] = park_hours
         else:
             missing_urls[park_key] = url
 
     if missing_urls:
-        rendered_texts = render_calendar_texts(missing_urls)
+        rendered_texts, render_errors = render_calendar_texts(target_date, missing_urls)
+        errors.update(render_errors)
         for park_key, rendered_text in rendered_texts.items():
             parts = extract_text_lines(rendered_text)
             samples.extend(parts[:5])
@@ -258,6 +303,9 @@ def fetch_and_parse_hours(target_date):
             )
             if park_hours:
                 parsed_hours[park_key] = park_hours
+
+    if errors:
+        samples.append("render_errors: " + json.dumps(errors, sort_keys=True)[:1000])
 
     return parsed_hours, ",".join(urls.values()), samples
 
