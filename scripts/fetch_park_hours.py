@@ -7,12 +7,18 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 
 
-DISNEY_CALENDAR_URL = "https://disneyworld.disney.go.com/calendars/day/#/magic-kingdom,epcot,animal-kingdom,hollywood-studios/"
+DISNEY_DAY_URL = "https://disneyworld.disney.go.com/calendars/day/{date}/#/{park_slug}/"
 PARK_LABELS = {
     "magic_kingdom": "Magic Kingdom",
     "epcot": "EPCOT",
     "hollywood_studios": "Disney's Hollywood Studios",
     "animal_kingdom": "Disney's Animal Kingdom",
+}
+PARK_SLUGS = {
+    "magic_kingdom": "magic-kingdom",
+    "epcot": "epcot",
+    "hollywood_studios": "hollywood-studios",
+    "animal_kingdom": "animal-kingdom",
 }
 TIME_RANGE_RE = re.compile(
     r"(\d{1,2}:\d{2}\s*[AP]M)\s+to\s+(\d{1,2}:\d{2}\s*[AP]M)",
@@ -36,6 +42,13 @@ def github_notice(message):
     print(f"::notice title=Park hours fallback::{message}")
 
 
+def calendar_url(target_date, park_key):
+    return DISNEY_DAY_URL.format(
+        date=target_date.isoformat(),
+        park_slug=PARK_SLUGS[park_key],
+    )
+
+
 def normalize_park_name(value):
     value = HEADING_PREFIX_RE.sub("", value)
     value = value.replace("Park", "")
@@ -48,26 +61,29 @@ def to_24_hour(value):
     return datetime.strptime(value.replace(" ", ""), "%I:%M%p").strftime("%H:%M")
 
 
-def fetch_calendar_html(_target_date):
-    request = Request(DISNEY_CALENDAR_URL, headers={"User-Agent": "ParkSignals/1.0"})
+def fetch_calendar_html(url):
+    request = Request(url, headers={"User-Agent": "ParkSignals/1.0"})
     with urlopen(request, timeout=20) as response:
-        return response.read().decode("utf-8", errors="replace"), DISNEY_CALENDAR_URL
+        return response.read().decode("utf-8", errors="replace")
 
 
-def render_calendar_text():
+def render_calendar_texts(urls):
     try:
         from playwright.sync_api import sync_playwright
     except ModuleNotFoundError as exc:
         raise RuntimeError("Playwright is required to render Disney park hours") from exc
 
+    rendered = {}
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
-        page = browser.new_page()
-        page.goto(DISNEY_CALENDAR_URL, wait_until="networkidle", timeout=60000)
-        page.wait_for_timeout(3000)
-        text = page.locator("body").inner_text(timeout=30000)
+        for park_key, url in urls.items():
+            page = browser.new_page()
+            page.goto(url, wait_until="networkidle", timeout=60000)
+            page.wait_for_timeout(3000)
+            rendered[park_key] = page.locator("body").inner_text(timeout=30000)
+            page.close()
         browser.close()
-    return text
+    return rendered
 
 
 def extract_text(html):
@@ -157,6 +173,11 @@ def parse_disney_hours(parts, target_date, source="official_disney_calendar"):
     return {**summary_hours, **detail_hours}
 
 
+def parse_single_park_hours(park_key, parts, target_date, source):
+    parsed = parse_disney_hours(parts, target_date, source=source)
+    return parsed.get(park_key)
+
+
 def load_existing(path):
     if not path.exists():
         return {"parks": {}}
@@ -204,20 +225,41 @@ def write_cache(path, source_url, parsed_hours, status="ok", error=None, text_sa
 
 
 def fetch_and_parse_hours(target_date):
-    html, source_url = fetch_calendar_html(target_date)
-    parts = extract_text(html)
-    parsed_hours = parse_disney_hours(parts, target_date)
-    if parsed_hours:
-        return parsed_hours, source_url, parts
+    parsed_hours = {}
+    samples = []
+    urls = {park_key: calendar_url(target_date, park_key) for park_key in PARK_SLUGS}
+    missing_urls = {}
 
-    rendered_text = render_calendar_text()
-    rendered_parts = extract_text_lines(rendered_text)
-    parsed_hours = parse_disney_hours(
-        rendered_parts,
-        target_date,
-        source="official_disney_calendar_rendered",
-    )
-    return parsed_hours, source_url, rendered_parts
+    for park_key, url in urls.items():
+        html = fetch_calendar_html(url)
+        parts = extract_text(html)
+        samples.extend(parts[:5])
+        park_hours = parse_single_park_hours(
+            park_key,
+            parts,
+            target_date,
+            source="official_disney_calendar_static",
+        )
+        if park_hours:
+            parsed_hours[park_key] = park_hours
+        else:
+            missing_urls[park_key] = url
+
+    if missing_urls:
+        rendered_texts = render_calendar_texts(missing_urls)
+        for park_key, rendered_text in rendered_texts.items():
+            parts = extract_text_lines(rendered_text)
+            samples.extend(parts[:5])
+            park_hours = parse_single_park_hours(
+                park_key,
+                parts,
+                target_date,
+                source="official_disney_calendar_rendered",
+            )
+            if park_hours:
+                parsed_hours[park_key] = park_hours
+
+    return parsed_hours, ",".join(urls.values()), samples
 
 
 def main():
@@ -229,7 +271,7 @@ def main():
 
     target_date = date.fromisoformat(args.date)
     output_path = Path(args.output)
-    source_url = DISNEY_CALENDAR_URL
+    source_url = ",".join(calendar_url(target_date, park_key) for park_key in PARK_SLUGS)
 
     try:
         parsed_hours, source_url, parts = fetch_and_parse_hours(target_date)
@@ -248,25 +290,26 @@ def main():
         print(f"Disney park hours fetch failed; existing cache/fallback hours will be used: {message}")
         return
 
-    if not parsed_hours:
-        message = "No Disney park hours found in official calendar response"
+    missing_parks = sorted(set(PARK_SLUGS) - set(parsed_hours))
+    if missing_parks:
+        message = "No Disney park hours found for: " + ", ".join(missing_parks)
         if args.strict:
             raise RuntimeError(message)
         write_cache(
             output_path,
             source_url,
-            {},
-            status="parse_failed",
+            parsed_hours,
+            status="partial" if parsed_hours else "parse_failed",
             error=message,
             text_sample=parts,
         )
         github_notice(message)
-        print(f"{message}; existing cache/fallback hours will be used")
+        print(f"{message}; cached/fallback hours will be used for missing parks")
         return
 
     write_cache(output_path, source_url, parsed_hours)
 
-    print(f"Updated Disney park hours for {target_date.isoformat()} from {source_url}")
+    print(f"Updated Disney park hours for {target_date.isoformat()}")
     for park_key, park_hours in sorted(parsed_hours.items()):
         print(f"- {park_key}: {park_hours['opens_at']} to {park_hours['closes_at']} ({park_hours['source']})")
 
