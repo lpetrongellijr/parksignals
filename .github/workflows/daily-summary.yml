@@ -8,6 +8,12 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  PARKSIGNALS_X_POSTING_ENABLED: "false"
+  X_API_KEY: ${{ secrets.X_API_KEY }}
+  X_API_SECRET: ${{ secrets.X_API_SECRET }}
+  X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+  X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+  X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
 
 jobs:
   daily-summary:
@@ -30,6 +36,7 @@ jobs:
           rm -rf outputs
           mkdir -p outputs
           python scripts/export_artifacts.py --output-dir outputs
+          python scripts/export_x_status.py --output-dir outputs
 
       - name: Upload Daily Summary Outputs
         uses: actions/upload-artifact@v4
