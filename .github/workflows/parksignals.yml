@@ -32,6 +32,7 @@ jobs:
 
       - name: Run ParkSignals
         run: |
+          rm -rf outputs
           mkdir -p outputs
           python scripts/run_monitor.py | tee outputs/monitor-summary.txt
           python scripts/export_artifacts.py --output-dir outputs
