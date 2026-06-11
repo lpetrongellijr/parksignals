@@ -17,13 +17,38 @@ def local_day_start(observed_at, timezone_name=PARK_ANALYTICS_TIMEZONE):
     ).astimezone(timezone.utc)
 
 
+def completed_month_window(observed_at, timezone_name=PARK_ANALYTICS_TIMEZONE):
+    local_tz = ZoneInfo(timezone_name)
+    local_observed_at = observed_at.astimezone(local_tz)
+    current_month_start = datetime(
+        local_observed_at.year,
+        local_observed_at.month,
+        1,
+        tzinfo=local_tz,
+    )
+    if current_month_start.month == 1:
+        previous_month_start = datetime(current_month_start.year - 1, 12, 1, tzinfo=local_tz)
+    else:
+        previous_month_start = datetime(
+            current_month_start.year,
+            current_month_start.month - 1,
+            1,
+            tzinfo=local_tz,
+        )
+    return (
+        previous_month_start.astimezone(timezone.utc),
+        current_month_start.astimezone(timezone.utc),
+        previous_month_start.strftime("%B %Y"),
+    )
+
+
 def collect_content_pillar_summary(state, config, observed_at):
     day_start = local_day_start(observed_at)
-    thirty_day_start = observed_at - timedelta(days=parksignals.ANALYTICS_LOOKBACK_DAYS)
+    monthly_start, monthly_end, monthly_label = completed_month_window(observed_at)
     trend_start = observed_at - timedelta(days=parksignals.TREND_LOOKBACK_DAYS)
     parks = config.get("parks", {})
     daily_metrics = []
-    thirty_day_metrics = []
+    monthly_metrics = []
     trend_metrics = []
     park_daily_totals = {}
 
@@ -50,8 +75,8 @@ def collect_content_pillar_summary(state, config, observed_at):
                 park_name,
                 ride_id,
                 ride_state,
-                thirty_day_start,
-                observed_at,
+                monthly_start,
+                monthly_end,
             )
             trend_metric = parksignals.ride_metric(
                 park_key,
@@ -63,7 +88,7 @@ def collect_content_pillar_summary(state, config, observed_at):
             )
 
             daily_metrics.append(daily_metric)
-            thirty_day_metrics.append(monthly_metric)
+            monthly_metrics.append(monthly_metric)
             trend_metrics.append(trend_metric)
             park_daily_totals[park_name] += daily_metric["downtime_seconds"]
 
@@ -92,7 +117,7 @@ def collect_content_pillar_summary(state, config, observed_at):
         if metric["event_count"] >= 2
     ]
     active_projections = []
-    for metric in thirty_day_metrics:
+    for metric in monthly_metrics:
         average_duration = metric["average_completed_downtime_seconds"]
         if (
             metric["is_open"] is False
@@ -108,12 +133,18 @@ def collect_content_pillar_summary(state, config, observed_at):
                 ),
             })
 
+    monthly_top = parksignals.top_downtime(monthly_metrics)
     return {
         "daily_window_timezone": PARK_ANALYTICS_TIMEZONE,
         "daily_window_start": parksignals.isoformat(day_start),
         "daily_window_end": parksignals.isoformat(observed_at),
+        "monthly_window_timezone": PARK_ANALYTICS_TIMEZONE,
+        "monthly_window_start": parksignals.isoformat(monthly_start),
+        "monthly_window_end": parksignals.isoformat(monthly_end),
+        "monthly_window_label": monthly_label,
         "daily_top": parksignals.top_downtime(daily_metrics),
-        "thirty_day_top": parksignals.top_downtime(thirty_day_metrics),
+        "monthly_top": monthly_top,
+        "thirty_day_top": monthly_top,
         "stable_park": stable_park,
         "active_multi_ride_alerts": active_multi_ride_alerts,
         "elevated_trends": elevated_trends,
