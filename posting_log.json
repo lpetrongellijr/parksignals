@@ -171,6 +171,26 @@
       "ride_name": null,
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T01:45:16Z",
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-10",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T01:45:16Z",
+      "dedupe_key": "reliability_analytics:wdw_30_day_downtime:2026-06-10",
+      "pillar": "reliability_analytics",
+      "type": "wdw_30_day_downtime",
+      "park_name": null,
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
