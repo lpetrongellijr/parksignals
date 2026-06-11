@@ -7,6 +7,7 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import parksignals
+import parksignals_analytics
 
 
 PARK_HOURS_CACHE_FILE = "park_hours_cache.json"
@@ -256,7 +257,11 @@ def run():
                 )
             )
 
-    pillar_summary = parksignals.collect_content_pillar_summary(state, config, observed_at)
+    pillar_summary = parksignals_analytics.collect_content_pillar_summary(
+        state,
+        config,
+        observed_at,
+    )
     parksignals.save_state(state)
     write_last_run_summary(observed_at, summaries, pillar_summary, hours_cache, park_statuses)
     parksignals.print_run_summary(summaries, observed_at)
