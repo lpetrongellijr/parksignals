@@ -158,6 +158,49 @@ class ParkSignalsSupportTest(unittest.TestCase):
         self.assertNotIn("#Analytics", post)
         self.assertLessEqual(len(post), 280)
 
+    def test_daily_and_reliability_posts_limit_rankings_to_top_three(self):
+        metrics = [
+            {"ride_name": "Ride One", "park_name": "Magic Kingdom", "downtime_seconds": 4000},
+            {"ride_name": "Ride Two", "park_name": "EPCOT", "downtime_seconds": 3000},
+            {"ride_name": "Ride Three", "park_name": "Hollywood Studios", "downtime_seconds": 2000},
+            {"ride_name": "Ride Four", "park_name": "Animal Kingdom", "downtime_seconds": 1000},
+        ]
+        summary = {
+            "daily_top": metrics,
+            "thirty_day_top": metrics,
+            "stable_park": None,
+            "active_multi_ride_alerts": [],
+            "elevated_trends": [],
+            "active_projections": [],
+        }
+        config = {
+            "default_parks": ["magic_kingdom"],
+            "parks": {
+                "magic_kingdom": {
+                    "enabled": True,
+                    "park_name": "Magic Kingdom",
+                    "resort_name": "Walt Disney World",
+                    "major_rides": [],
+                }
+            },
+        }
+
+        daily_post = export_artifacts.build_wdw_daily_post(summary, "2026-06-10T23:30:00Z")
+        reliability_post = export_artifacts.build_thirty_day_post(summary)
+        candidates = export_artifacts.build_post_candidates(
+            summary,
+            config,
+            {"run_summaries": []},
+            "2026-06-10T23:30:00Z",
+        )
+
+        self.assertIn("Ride Three", daily_post)
+        self.assertNotIn("Ride Four", daily_post)
+        self.assertIn("Ride Three", reliability_post)
+        self.assertNotIn("Ride Four", reliability_post)
+        self.assertEqual(len(candidates["daily_summaries"][0]["metrics"]), 3)
+        self.assertEqual(len(candidates["thirty_day_rankings"][0]["metrics"]), 3)
+
     def test_trend_insight_uses_parksignals_header(self):
         park_lookup = {
             "hollywood_studios": {
