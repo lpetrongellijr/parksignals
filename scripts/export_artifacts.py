@@ -12,6 +12,7 @@ import parksignals_analytics
 
 PARK_TIMEZONE = "America/New_York"
 MAX_POST_CHARACTERS = 280
+POST_RANKING_LIMIT = 3
 
 
 def write_json(path, data):
@@ -105,19 +106,26 @@ def metric_line(metric, include_park=True):
     return f"{name} - {parksignals.format_duration(metric['downtime_seconds'])}"
 
 
-def format_rankings(title, rankings):
+def format_rankings(title, rankings, limit=None):
     lines = [title]
     if not rankings:
         lines.append("No downtime recorded yet")
         return lines
 
-    for index, metric in enumerate(rankings, start=1):
+    limited_rankings = rankings[:limit] if limit else rankings
+    for index, metric in enumerate(limited_rankings, start=1):
         lines.append(f"{index}. {metric_line(metric)}")
     return lines
 
 
 def build_daily_summary(summary):
-    return "\n".join(format_rankings("Daily downtime summary", summary["daily_top"]))
+    return "\n".join(
+        format_rankings(
+            "Daily downtime summary",
+            summary["daily_top"],
+            limit=POST_RANKING_LIMIT,
+        )
+    )
 
 
 def local_date_label(observed_at):
@@ -131,7 +139,7 @@ def build_wdw_daily_post(summary, observed_at):
     lines = [f"Walt Disney World Operations Summary - {local_date_label(observed_at)}", ""]
     lines.append("Most downtime:")
     if summary["daily_top"]:
-        for index, metric in enumerate(summary["daily_top"], start=1):
+        for index, metric in enumerate(summary["daily_top"][:POST_RANKING_LIMIT], start=1):
             lines.append(f"{index}. {metric_line(metric)}")
     else:
         lines.append("No downtime recorded yet")
@@ -145,7 +153,7 @@ def build_wdw_daily_post(summary, observed_at):
 def build_thirty_day_post(summary):
     lines = ["Highest total downtime across WDW over the past 30 days:", ""]
     if summary["thirty_day_top"]:
-        for index, metric in enumerate(summary["thirty_day_top"], start=1):
+        for index, metric in enumerate(summary["thirty_day_top"][:POST_RANKING_LIMIT], start=1):
             lines.append(f"{index}. {metric_line(metric)}")
     else:
         lines.append("No completed downtime history yet")
@@ -294,13 +302,13 @@ def build_post_candidates(summary, config, last_run, observed_at):
         "pillar": "daily_operations_summary",
         "type": "wdw_daily_summary",
         "preview_text": build_wdw_daily_post(summary, observed_at),
-        "metrics": summary["daily_top"],
+        "metrics": summary["daily_top"][:POST_RANKING_LIMIT],
     })
     thirty_day = with_trimmed_preview({
         "pillar": "reliability_analytics",
         "type": "wdw_30_day_downtime",
         "preview_text": build_thirty_day_post(summary),
-        "metrics": summary["thirty_day_top"],
+        "metrics": summary["thirty_day_top"][:POST_RANKING_LIMIT],
     })
     trend_candidates = [
         with_trimmed_preview({
