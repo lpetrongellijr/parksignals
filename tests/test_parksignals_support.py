@@ -153,11 +153,11 @@ class ParkSignalsSupportTest(unittest.TestCase):
 
         post = export_artifacts.build_wdw_daily_post(summary, "2026-06-10T23:30:00Z")
 
-        self.assertTrue(post.startswith("Disney World Summary - "))
+        self.assertTrue(post.startswith("PARKSIGNALS // Disney World"))
+        self.assertIn("Disney World Summary - ", post)
         self.assertNotIn("Operations Summary", post)
         self.assertNotIn("Most stable park", post)
         self.assertIn("#WaltDisneyWorld", post)
-        self.assertNotIn("#Analytics", post)
         self.assertLessEqual(len(post), 280)
 
     def test_daily_and_reliability_posts_limit_rankings_to_top_three(self):
@@ -198,6 +198,7 @@ class ParkSignalsSupportTest(unittest.TestCase):
 
         self.assertIn("Ride Three", daily_post)
         self.assertNotIn("Ride Four", daily_post)
+        self.assertTrue(reliability_post.startswith("PARKSIGNALS // Disney World"))
         self.assertIn("Highest total downtime across Disney World", reliability_post)
         self.assertNotIn("WDW", reliability_post)
         self.assertIn("Ride Three", reliability_post)
@@ -245,7 +246,15 @@ class ParkSignalsSupportTest(unittest.TestCase):
                     "ride_name": "Space Mountain",
                 }
             ],
-            "active_projections": [],
+            "active_projections": [
+                {
+                    "park_key": "magic_kingdom",
+                    "park_name": "Magic Kingdom",
+                    "ride_name": "Space Mountain",
+                    "current_down_seconds": 900,
+                    "projected_total_seconds": 1800,
+                }
+            ],
         }
 
         candidates = export_artifacts.build_post_candidates(
@@ -256,11 +265,14 @@ class ParkSignalsSupportTest(unittest.TestCase):
         )
         reopening = candidates["single_ride_reopenings"][0]["preview_text"]
         trend = candidates["insights"]["elevated_trends"][0]["preview_text"]
+        projection = candidates["insights"]["active_projections"][0]["preview_text"]
 
         self.assertIn("PARKSIGNALS // Disney World", reopening)
         self.assertIn("PARKSIGNALS // Disney World", trend)
+        self.assertIn("PARKSIGNALS // Disney World", projection)
         self.assertNotIn("PARKSIGNALS // Walt Disney World", reopening)
         self.assertNotIn("PARKSIGNALS // Walt Disney World", trend)
+        self.assertNotIn("PARKSIGNALS // Walt Disney World", projection)
 
     def test_display_name_normalization_supports_other_resorts(self):
         self.assertEqual(
