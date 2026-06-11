@@ -129,6 +129,35 @@ class ParkSignalsSupportTest(unittest.TestCase):
         self.assertEqual(summary["daily_top"][0]["downtime_seconds"], 6230)
         self.assertEqual(summary["thirty_day_top"][0]["downtime_seconds"], 6230)
 
+    def test_daily_operations_post_omits_stable_park_and_keeps_resort_hashtag(self):
+        summary = {
+            "daily_top": [
+                {
+                    "ride_name": "Rock ’n’ Roller Coaster Starring The Muppets",
+                    "park_name": "Hollywood Studios",
+                    "downtime_seconds": 6230,
+                },
+                {
+                    "ride_name": "Guardians of the Galaxy: Cosmic Rewind",
+                    "park_name": "EPCOT",
+                    "downtime_seconds": 5400,
+                },
+                {
+                    "ride_name": "Avatar Flight of Passage",
+                    "park_name": "Animal Kingdom",
+                    "downtime_seconds": 3600,
+                },
+            ],
+            "stable_park": ("Magic Kingdom", 0),
+        }
+
+        post = export_artifacts.build_wdw_daily_post(summary, "2026-06-10T23:30:00Z")
+
+        self.assertNotIn("Most stable park", post)
+        self.assertIn("#WaltDisneyWorld", post)
+        self.assertNotIn("#Analytics", post)
+        self.assertLessEqual(len(post), 280)
+
     def test_export_helpers_write_readable_outputs(self):
         state = {
             "magic_kingdom": {
