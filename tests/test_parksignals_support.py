@@ -158,6 +158,26 @@ class ParkSignalsSupportTest(unittest.TestCase):
         self.assertNotIn("#Analytics", post)
         self.assertLessEqual(len(post), 280)
 
+    def test_trend_insight_uses_parksignals_header(self):
+        park_lookup = {
+            "hollywood_studios": {
+                "park_name": "Hollywood Studios",
+                "resort_name": "Walt Disney World",
+                "resort_hashtag": "WaltDisneyWorld",
+                "park_hashtag": "HollywoodStudios",
+            }
+        }
+        metric = {
+            "park_key": "hollywood_studios",
+            "park_name": "Hollywood Studios",
+            "ride_name": "Slinky Dog Dash",
+        }
+
+        post = export_artifacts.build_trend_post(metric, park_lookup)
+
+        self.assertTrue(post.startswith("PARKSIGNALS // Walt Disney World"))
+        self.assertIn("elevated downtime frequency", post)
+
     def test_hashtag_trimming_applies_to_any_post_candidate(self):
         post = "\n".join([
             "PARKSIGNALS // Walt Disney World",
