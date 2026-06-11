@@ -158,6 +158,30 @@ class ParkSignalsSupportTest(unittest.TestCase):
         self.assertNotIn("#Analytics", post)
         self.assertLessEqual(len(post), 280)
 
+    def test_hashtag_trimming_applies_to_any_post_candidate(self):
+        post = "\n".join([
+            "PARKSIGNALS // Walt Disney World",
+            "",
+            "ALERT: Hollywood Studios",
+            "",
+            "Currently unavailable:",
+            "- Rock ’n’ Roller Coaster Starring The Muppets",
+            "- Mickey & Minnie’s Runaway Railway",
+            "- Millennium Falcon: Smugglers Run",
+            "- Toy Story Mania",
+            "- Slinky Dog Dash",
+            "",
+            "#WaltDisneyWorld",
+            "#HollywoodStudios",
+            "#OpsAlert",
+        ])
+
+        trimmed = export_artifacts.trim_post_hashtags(post)
+
+        self.assertIn("#WaltDisneyWorld", trimmed)
+        self.assertNotIn("#OpsAlert", trimmed)
+        self.assertLessEqual(len(trimmed), 280)
+
     def test_export_helpers_write_readable_outputs(self):
         state = {
             "magic_kingdom": {
