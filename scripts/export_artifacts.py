@@ -21,6 +21,23 @@ POST_DISPLAY_REPLACEMENTS = {
     "Universal Hollywood Resort": "Universal Hollywood",
     "UHR": "Universal Hollywood",
 }
+HASHTAG_REPLACEMENTS = {
+    "#WaltDisneyWorld": "#DisneyWorld",
+    "#WDW": "#DisneyWorld",
+    "#UniversalOrlandoResort": "#UniversalOrlando",
+    "#UOR": "#UniversalOrlando",
+    "#UniversalHollywoodResort": "#UniversalHollywood",
+    "#UHR": "#UniversalHollywood",
+}
+REMOVED_HASHTAGS = {
+    "#down",
+    "#reopened",
+    "#opsalert",
+    "#dailyops",
+    "#analytics",
+    "#aiinsight",
+    "#operations",
+}
 
 
 def write_json(path, data):
@@ -57,6 +74,24 @@ def display_resort_name(resort_name):
     return normalize_post_display_text(resort_name)
 
 
+def normalize_hashtag(hashtag):
+    return HASHTAG_REPLACEMENTS.get(hashtag, hashtag)
+
+
+def normalize_post_hashtags(post_text):
+    normalized_lines = []
+    for line in post_text.splitlines():
+        stripped = line.strip()
+        if is_hashtag_line(stripped):
+            hashtag = normalize_hashtag(stripped)
+            if hashtag.lower() in REMOVED_HASHTAGS:
+                continue
+            normalized_lines.append(hashtag)
+        else:
+            normalized_lines.append(line)
+    return "\n".join(trim_blank_edges(normalized_lines))
+
+
 def enabled_park_lookup(config):
     lookup = {}
     for park_key, park_config in parksignals.enabled_park_configs(config):
@@ -75,9 +110,9 @@ def tags_for_park(park_config, extras=None):
         "park_hashtag",
         parksignals.hashtag(park_config["park_name"])[1:],
     )
-    tags = [f"#{resort_hashtag}", f"#{park_hashtag}"]
-    tags.extend(extras)
-    return "\n".join(tags)
+    tags = [normalize_hashtag(f"#{resort_hashtag}"), f"#{park_hashtag}"]
+    tags.extend(normalize_hashtag(tag) for tag in extras)
+    return "\n".join(tag for tag in tags if tag.lower() not in REMOVED_HASHTAGS)
 
 
 def is_hashtag_line(line):
@@ -168,10 +203,7 @@ def build_wdw_daily_post(summary, observed_at):
     else:
         lines.append("No downtime recorded yet")
 
-    return add_priority_hashtags(
-        lines,
-        ["#WaltDisneyWorld", "#DailyOps", "#Analytics"],
-    )
+    return add_priority_hashtags(lines, ["#DisneyWorld"])
 
 
 def build_thirty_day_post(summary):
@@ -187,7 +219,7 @@ def build_thirty_day_post(summary):
     else:
         lines.append("No completed downtime history yet")
 
-    lines.extend(["", "#WaltDisneyWorld", "#Analytics"])
+    lines.extend(["", "#DisneyWorld"])
     return "\n".join(lines)
 
 
@@ -200,7 +232,7 @@ def build_multi_ride_closure_post(alert, park_lookup):
     for ride_name in alert["rides"][:5]:
         lines.append(f"- {ride_name}")
     if park_config:
-        lines.extend(["", tags_for_park(park_config, ["#OpsAlert"])])
+        lines.extend(["", tags_for_park(park_config)])
     return "\n".join(lines)
 
 
@@ -213,7 +245,7 @@ def build_multi_ride_reopening_post(alert, park_lookup):
     for ride_name in alert["rides"][:5]:
         lines.append(f"- {ride_name}")
     if park_config:
-        lines.extend(["", tags_for_park(park_config, ["#Reopened"])])
+        lines.extend(["", tags_for_park(park_config)])
     return "\n".join(lines)
 
 
@@ -227,7 +259,7 @@ def build_trend_post(metric, park_lookup):
         "",
     ]
     if park_config:
-        lines.append(tags_for_park(park_config, [parksignals.ride_hashtag(metric["ride_name"]), "#AIInsight"]))
+        lines.append(tags_for_park(park_config, [parksignals.ride_hashtag(metric["ride_name"])]))
     return "\n".join(lines)
 
 
@@ -244,7 +276,7 @@ def build_projection_post(metric, park_lookup):
         "",
     ]
     if park_config:
-        lines.append(tags_for_park(park_config, ["#AIInsight", "#Operations"]))
+        lines.append(tags_for_park(park_config))
     return "\n".join(lines)
 
 
@@ -257,7 +289,7 @@ def ride_lookup_for_summary(summary):
 
 def with_trimmed_preview(candidate):
     candidate["preview_text"] = trim_post_hashtags(
-        normalize_post_display_text(candidate["preview_text"])
+        normalize_post_hashtags(normalize_post_display_text(candidate["preview_text"]))
     )
     return candidate
 
