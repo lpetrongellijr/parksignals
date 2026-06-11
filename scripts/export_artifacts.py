@@ -182,7 +182,10 @@ def build_multi_ride_reopening_post(alert, park_lookup):
 
 def build_trend_post(metric, park_lookup):
     park_config = park_lookup.get(metric["park_key"]) or park_lookup.get(metric["park_name"])
+    resort_name = park_config["resort_name"] if park_config else "Walt Disney World"
     lines = [
+        f"PARKSIGNALS // {resort_name}",
+        "",
         f"{metric['ride_name']} has experienced elevated downtime frequency over the past 7 days.",
         "",
     ]
