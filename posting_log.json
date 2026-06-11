@@ -781,6 +781,76 @@
       "ride_name": null,
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T12:15:18Z",
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:113:2026-06-11T12:15:17Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kilimanjaro Safaris",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T12:15:18Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:1c670e0bf017f528:2026-06-11T12:15:17Z",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T12:15:18Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:8cc4d17a81d93dae:2026-06-11T12:15:17Z",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T12:15:18Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Hollywood Studios:83a3976903275e58:2026-06-11T12:15:17Z",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Hollywood Studios",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T12:15:18Z",
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-11",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T12:15:18Z",
+      "dedupe_key": "insights_predictions:trend_detection:Magic Kingdom:11527:2026-06-11",
+      "pillar": "insights_predictions",
+      "type": "trend_detection",
+      "park_name": "Magic Kingdom",
+      "ride_name": "TRON Lightcycle / Run",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T12:15:18Z",
+      "dedupe_key": "insights_predictions:trend_detection:Hollywood Studios:16342:2026-06-11",
+      "pillar": "insights_predictions",
+      "type": "trend_detection",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
