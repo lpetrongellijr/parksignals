@@ -189,7 +189,7 @@ class ParkSignalsSupportTest(unittest.TestCase):
             "active_projections": [],
         }
 
-        self.assertIn("Most stable park", export_artifacts.build_daily_summary(summary))
+        self.assertNotIn("Most stable park", export_artifacts.build_daily_summary(summary))
         candidates = export_artifacts.build_post_candidates(
             summary,
             config,
