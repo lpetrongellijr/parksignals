@@ -155,8 +155,13 @@ def local_date_label(observed_at):
 
 
 def build_wdw_daily_post(summary, observed_at):
-    lines = [f"Disney World Summary - {local_date_label(observed_at)}", ""]
-    lines.append("Most downtime:")
+    lines = [
+        "PARKSIGNALS // Disney World",
+        "",
+        f"Disney World Summary - {local_date_label(observed_at)}",
+        "",
+        "Most downtime:",
+    ]
     if summary["daily_top"]:
         for index, metric in enumerate(summary["daily_top"][:POST_RANKING_LIMIT], start=1):
             lines.append(f"{index}. {metric_line(metric)}")
@@ -170,7 +175,12 @@ def build_wdw_daily_post(summary, observed_at):
 
 
 def build_thirty_day_post(summary):
-    lines = ["Highest total downtime across Disney World over the past 30 days:", ""]
+    lines = [
+        "PARKSIGNALS // Disney World",
+        "",
+        "Highest total downtime across Disney World over the past 30 days:",
+        "",
+    ]
     if summary["thirty_day_top"]:
         for index, metric in enumerate(summary["thirty_day_top"][:POST_RANKING_LIMIT], start=1):
             lines.append(f"{index}. {metric_line(metric)}")
@@ -223,7 +233,10 @@ def build_trend_post(metric, park_lookup):
 
 def build_projection_post(metric, park_lookup):
     park_config = park_lookup.get(metric["park_key"]) or park_lookup.get(metric["park_name"])
+    resort_name = display_resort_name(park_config["resort_name"]) if park_config else "Disney World"
     lines = [
+        f"PARKSIGNALS // {resort_name}",
+        "",
         f"Elevated operational disruption risk detected at {metric['park_name']} based on historical downtime patterns.",
         "",
         f"{metric['ride_name']} is currently down {parksignals.format_duration(metric['current_down_seconds'])}.",
