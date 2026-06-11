@@ -1,5 +1,56 @@
 {
   "version": 1,
   "posted_keys": [],
-  "decisions": []
+  "decisions": [
+    {
+      "recorded_at": "2026-06-11T00:05:07Z",
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:11527:2026-06-11T00:05:05Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "TRON Lightcycle / Run",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T00:05:07Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:6361:2026-06-11T00:05:05Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Mickey & Minnie's Runaway Railway",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T00:05:07Z",
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:16342:2026-06-11T00:05:05Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T00:05:07Z",
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-10",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T00:05:07Z",
+      "dedupe_key": "reliability_analytics:wdw_30_day_downtime:2026-06-10",
+      "pillar": "reliability_analytics",
+      "type": "wdw_30_day_downtime",
+      "park_name": null,
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    }
+  ]
 }
