@@ -7,6 +7,7 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import parksignals
+import parksignals_analytics
 
 
 PARK_TIMEZONE = "America/New_York"
@@ -382,7 +383,7 @@ def main():
     last_run = load_json(output_dir / "last-run-summary.json", {})
     if last_run.get("observed_at"):
         observed_at = last_run["observed_at"]
-    summary = last_run.get("content_pillar_summary") or parksignals.collect_content_pillar_summary(
+    summary = last_run.get("content_pillar_summary") or parksignals_analytics.collect_content_pillar_summary(
         state,
         config,
         parksignals.parse_timestamp(observed_at) or parksignals.utc_now(),
