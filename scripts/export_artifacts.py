@@ -20,6 +20,7 @@ POST_DISPLAY_REPLACEMENTS = {
     "UOR": "Universal Orlando",
     "Universal Hollywood Resort": "Universal Hollywood",
     "UHR": "Universal Hollywood",
+    "DL": "Disneyland",
 }
 HASHTAG_REPLACEMENTS = {
     "#WaltDisneyWorld": "#DisneyWorld",
@@ -28,6 +29,7 @@ HASHTAG_REPLACEMENTS = {
     "#UOR": "#UniversalOrlando",
     "#UniversalHollywoodResort": "#UniversalHollywood",
     "#UHR": "#UniversalHollywood",
+    "#DL": "#Disneyland",
 }
 REMOVED_HASHTAGS = {
     "#down",
