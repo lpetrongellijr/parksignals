@@ -129,7 +129,7 @@ class ParkSignalsSupportTest(unittest.TestCase):
         self.assertEqual(summary["daily_top"][0]["downtime_seconds"], 6230)
         self.assertEqual(summary["thirty_day_top"][0]["downtime_seconds"], 6230)
 
-    def test_daily_operations_post_omits_stable_park_and_keeps_resort_hashtag(self):
+    def test_daily_operations_post_omits_operations_word_and_keeps_resort_hashtag(self):
         summary = {
             "daily_top": [
                 {
@@ -153,6 +153,8 @@ class ParkSignalsSupportTest(unittest.TestCase):
 
         post = export_artifacts.build_wdw_daily_post(summary, "2026-06-10T23:30:00Z")
 
+        self.assertTrue(post.startswith("Disney World Summary - "))
+        self.assertNotIn("Operations Summary", post)
         self.assertNotIn("Most stable park", post)
         self.assertIn("#WaltDisneyWorld", post)
         self.assertNotIn("#Analytics", post)
@@ -196,10 +198,83 @@ class ParkSignalsSupportTest(unittest.TestCase):
 
         self.assertIn("Ride Three", daily_post)
         self.assertNotIn("Ride Four", daily_post)
+        self.assertIn("Highest total downtime across Disney World", reliability_post)
+        self.assertNotIn("WDW", reliability_post)
         self.assertIn("Ride Three", reliability_post)
         self.assertNotIn("Ride Four", reliability_post)
         self.assertEqual(len(candidates["daily_summaries"][0]["metrics"]), 3)
         self.assertEqual(len(candidates["thirty_day_rankings"][0]["metrics"]), 3)
+
+    def test_post_candidates_normalize_resort_display_names(self):
+        config = {
+            "default_parks": ["magic_kingdom"],
+            "parks": {
+                "magic_kingdom": {
+                    "enabled": True,
+                    "park_name": "Magic Kingdom",
+                    "resort_name": "Walt Disney World",
+                    "resort_hashtag": "WaltDisneyWorld",
+                    "park_hashtag": "MagicKingdom",
+                    "major_rides": [],
+                }
+            },
+        }
+        last_run = {
+            "run_summaries": [
+                {
+                    "park_key": "magic_kingdom",
+                    "park_name": "Magic Kingdom",
+                    "ride_ids": [
+                        {"id": "1", "name": "Space Mountain", "wait_time": 20},
+                    ],
+                    "transitions": [
+                        {"type": "reopened", "ride_id": "1", "ride_name": "Space Mountain"},
+                    ],
+                }
+            ]
+        }
+        summary = {
+            "daily_top": [],
+            "thirty_day_top": [],
+            "stable_park": None,
+            "active_multi_ride_alerts": [],
+            "elevated_trends": [
+                {
+                    "park_key": "magic_kingdom",
+                    "park_name": "Magic Kingdom",
+                    "ride_name": "Space Mountain",
+                }
+            ],
+            "active_projections": [],
+        }
+
+        candidates = export_artifacts.build_post_candidates(
+            summary,
+            config,
+            last_run,
+            "2026-06-10T23:30:00Z",
+        )
+        reopening = candidates["single_ride_reopenings"][0]["preview_text"]
+        trend = candidates["insights"]["elevated_trends"][0]["preview_text"]
+
+        self.assertIn("PARKSIGNALS // Disney World", reopening)
+        self.assertIn("PARKSIGNALS // Disney World", trend)
+        self.assertNotIn("PARKSIGNALS // Walt Disney World", reopening)
+        self.assertNotIn("PARKSIGNALS // Walt Disney World", trend)
+
+    def test_display_name_normalization_supports_other_resorts(self):
+        self.assertEqual(
+            export_artifacts.normalize_post_display_text("UOR / Universal Orlando Resort"),
+            "Universal Orlando / Universal Orlando",
+        )
+        self.assertEqual(
+            export_artifacts.normalize_post_display_text("UHR / Universal Hollywood Resort"),
+            "Universal Hollywood / Universal Hollywood",
+        )
+        self.assertEqual(
+            export_artifacts.normalize_post_display_text("DL / Disneyland"),
+            "DL / Disneyland",
+        )
 
     def test_trend_insight_uses_parksignals_header(self):
         park_lookup = {
@@ -218,12 +293,12 @@ class ParkSignalsSupportTest(unittest.TestCase):
 
         post = export_artifacts.build_trend_post(metric, park_lookup)
 
-        self.assertTrue(post.startswith("PARKSIGNALS // Walt Disney World"))
+        self.assertTrue(post.startswith("PARKSIGNALS // Disney World"))
         self.assertIn("elevated downtime frequency", post)
 
     def test_hashtag_trimming_applies_to_any_post_candidate(self):
         post = "\n".join([
-            "PARKSIGNALS // Walt Disney World",
+            "PARKSIGNALS // Disney World",
             "",
             "ALERT: Hollywood Studios",
             "",
