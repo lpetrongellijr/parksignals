@@ -174,6 +174,10 @@ def format_rankings(title, rankings, limit=None):
     return lines
 
 
+def monthly_rankings(summary):
+    return summary.get("monthly_top") or summary.get("thirty_day_top", [])
+
+
 def build_daily_summary(summary):
     return "\n".join(
         format_rankings(
@@ -209,14 +213,16 @@ def build_wdw_daily_post(summary, observed_at):
 
 
 def build_thirty_day_post(summary):
+    rankings = monthly_rankings(summary)
+    label = summary.get("monthly_window_label") or "Monthly"
     lines = [
         "PARKSIGNALS // Disney World",
         "",
-        "Highest total downtime across Disney World over the past 30 days:",
+        f"Disney World Reliability - {label}",
         "",
     ]
-    if summary["thirty_day_top"]:
-        for index, metric in enumerate(summary["thirty_day_top"][:POST_RANKING_LIMIT], start=1):
+    if rankings:
+        for index, metric in enumerate(rankings[:POST_RANKING_LIMIT], start=1):
             lines.append(f"{index}. {metric_line(metric)}")
     else:
         lines.append("No completed downtime history yet")
@@ -347,6 +353,7 @@ def build_post_candidates(summary, config, last_run, observed_at):
     park_lookup = enabled_park_lookup(config)
     single_closures, single_reopenings = build_single_ride_candidates(last_run, park_lookup)
     multi_reopenings = build_multi_ride_reopenings(last_run)
+    reliability_rankings = monthly_rankings(summary)
 
     multi_closures = [
         with_trimmed_preview({
@@ -372,11 +379,11 @@ def build_post_candidates(summary, config, last_run, observed_at):
         "preview_text": build_wdw_daily_post(summary, observed_at),
         "metrics": summary["daily_top"][:POST_RANKING_LIMIT],
     })
-    thirty_day = with_trimmed_preview({
+    monthly_reliability = with_trimmed_preview({
         "pillar": "reliability_analytics",
-        "type": "wdw_30_day_downtime",
+        "type": "wdw_monthly_reliability",
         "preview_text": build_thirty_day_post(summary),
-        "metrics": summary["thirty_day_top"][:POST_RANKING_LIMIT],
+        "metrics": reliability_rankings[:POST_RANKING_LIMIT],
     })
     trend_candidates = [
         with_trimmed_preview({
@@ -405,7 +412,8 @@ def build_post_candidates(summary, config, last_run, observed_at):
         "multi_ride_closures": multi_closures,
         "multi_ride_reopenings": multi_reopening_candidates,
         "daily_summaries": [daily_summary],
-        "thirty_day_rankings": [thirty_day],
+        "monthly_reliability_rankings": [monthly_reliability],
+        "thirty_day_rankings": [monthly_reliability],
         "insights": {
             "elevated_trends": trend_candidates,
             "active_projections": projection_candidates,
@@ -414,13 +422,14 @@ def build_post_candidates(summary, config, last_run, observed_at):
 
 
 def build_post_previews(candidates):
+    reliability_candidates = candidates.get("monthly_reliability_rankings") or candidates["thirty_day_rankings"]
     sections = [
         ("Single Ride Closures", candidates["single_ride_closures"]),
         ("Single Ride Reopenings", candidates["single_ride_reopenings"]),
         ("Multi-Ride Closures", candidates["multi_ride_closures"]),
         ("Multi-Ride Reopenings", candidates["multi_ride_reopenings"]),
         ("Daily Summaries", candidates["daily_summaries"]),
-        ("30-Day Reliability Analytics", candidates["thirty_day_rankings"]),
+        ("Monthly Reliability", reliability_candidates),
         ("Trend Insights", candidates["insights"]["elevated_trends"]),
         ("Projection Insights", candidates["insights"]["active_projections"]),
     ]
@@ -436,6 +445,8 @@ def build_post_previews(candidates):
 
 
 def build_readiness_summary(summary, candidates):
+    reliability_rankings = monthly_rankings(summary)
+    reliability_candidates = candidates.get("monthly_reliability_rankings") or candidates["thirty_day_rankings"]
     lines = ["Content pillar readiness"]
     lines.append(
         "Single ride closure/reopen previews: "
@@ -448,7 +459,8 @@ def build_readiness_summary(summary, candidates):
         + " candidates"
     )
     lines.extend(format_rankings("Daily summary inputs", summary["daily_top"]))
-    lines.extend(format_rankings("30-day downtime inputs", summary["thirty_day_top"]))
+    lines.extend(format_rankings("Monthly reliability inputs", reliability_rankings))
+    lines.append(f"Monthly reliability preview candidates: {len(reliability_candidates)}")
     lines.append(f"Trend preview candidates: {len(candidates['insights']['elevated_trends'])}")
     lines.append(f"Projection preview candidates: {len(candidates['insights']['active_projections'])}")
     lines.append("Posting connected: false")
