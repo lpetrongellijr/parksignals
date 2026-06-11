@@ -102,7 +102,7 @@ The monitor workflow also uploads output artifacts from `outputs/`:
 monitoring or closed/outside regular hours. `post-previews.txt` is the easiest
 review file for draft post text. It shows draft text for the currently available
 post candidates across single-ride alerts, multi-ride alerts, daily summaries,
-30-day analytics, trend insights, and projection insights. `post-candidates.json`
+monthly reliability, trend insights, and projection insights. `post-candidates.json`
 carries the same candidates in structured form for future automated posting.
 Posting remains disconnected.
 
@@ -126,7 +126,7 @@ The same log also prints a content pillar readiness section:
 - active multi-ride closure candidates
 - multi-ride reopening candidates from the current run
 - daily downtime summary inputs
-- 30-day downtime ranking inputs
+- monthly reliability ranking inputs
 - trend and active downtime projection inputs
 
 These are generated as operational logs and artifacts only. They prepare the
@@ -191,3 +191,16 @@ The separate `ParkSignals Daily Summary` workflow runs once per day from
 cron-job.org and can also be started manually. It generates daily summary
 artifacts from the current persisted state without saving state or posting
 externally.
+
+Monthly reliability previews use the previous completed calendar month in the
+park timezone. For example, a run on July 1 Eastern produces a title like
+`Disney World Reliability - June 2026` and summarizes June 1 through July 1.
+
+## Next verification checklist
+Check the next generated artifacts tomorrow and confirm:
+
+- `post-previews.txt` includes a `Monthly Reliability` section.
+- The reliability preview title follows `Disney World Reliability - Month YYYY`.
+- `analytics-summary.json` includes `monthly_window_start`, `monthly_window_end`, and `monthly_window_label`.
+- The monthly reliability preview shows no more than the top 3 rides.
+- The post still begins with `PARKSIGNALS // Disney World` and keeps `#DisneyWorld` as the priority hashtag.
