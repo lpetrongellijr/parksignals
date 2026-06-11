@@ -60,17 +60,42 @@ def tags_for_park(park_config, extras=None):
     return "\n".join(tags)
 
 
+def is_hashtag_line(line):
+    stripped = line.strip()
+    return stripped.startswith("#") and " " not in stripped and len(stripped) > 1
+
+
+def trim_blank_edges(lines):
+    trimmed = list(lines)
+    while trimmed and trimmed[0] == "":
+        trimmed.pop(0)
+    while trimmed and trimmed[-1] == "":
+        trimmed.pop()
+    return trimmed
+
+
+def trim_post_hashtags(post_text, max_characters=MAX_POST_CHARACTERS):
+    lines = post_text.splitlines()
+    hashtag_indices = [index for index, line in enumerate(lines) if is_hashtag_line(line)]
+    if len(post_text) <= max_characters or len(hashtag_indices) <= 1:
+        return post_text
+
+    protected_hashtag_index = hashtag_indices[0]
+    removable_indices = [index for index in hashtag_indices if index != protected_hashtag_index]
+    remaining_lines = list(lines)
+
+    for index in reversed(removable_indices):
+        remaining_lines.pop(index)
+        candidate = "\n".join(trim_blank_edges(remaining_lines))
+        if len(candidate) <= max_characters:
+            return candidate
+
+    return "\n".join(trim_blank_edges(remaining_lines))
+
+
 def add_priority_hashtags(lines, hashtags, max_characters=MAX_POST_CHARACTERS):
     body = "\n".join(lines).rstrip()
-    selected_hashtags = list(hashtags)
-
-    while selected_hashtags:
-        post_text = body + "\n\n" + "\n".join(selected_hashtags)
-        if len(post_text) <= max_characters or len(selected_hashtags) == 1:
-            return post_text
-        selected_hashtags.pop()
-
-    return body
+    return trim_post_hashtags(body + "\n\n" + "\n".join(hashtags), max_characters)
 
 
 def metric_line(metric, include_park=True):
@@ -187,6 +212,11 @@ def ride_lookup_for_summary(summary):
     }
 
 
+def with_trimmed_preview(candidate):
+    candidate["preview_text"] = trim_post_hashtags(candidate["preview_text"])
+    return candidate
+
+
 def build_single_ride_candidates(last_run, park_lookup):
     closures = []
     reopenings = []
@@ -202,7 +232,7 @@ def build_single_ride_candidates(last_run, park_lookup):
                 "name": transition["ride_name"],
                 "wait_time": ride.get("wait_time"),
             }
-            candidate = {
+            candidate = with_trimmed_preview({
                 "pillar": "real_time_alert",
                 "type": transition["type"],
                 "park_name": run_summary["park_name"],
@@ -213,7 +243,7 @@ def build_single_ride_candidates(last_run, park_lookup):
                     ride_payload,
                     reopened=transition["type"] == "reopened",
                 ),
-            }
+            })
             if transition["type"] == "reopened":
                 reopenings.append(candidate)
             else:
@@ -240,51 +270,51 @@ def build_post_candidates(summary, config, last_run, observed_at):
     multi_reopenings = build_multi_ride_reopenings(last_run)
 
     multi_closures = [
-        {
+        with_trimmed_preview({
             "pillar": "real_time_alert",
             "type": "multi_ride_closure",
             **alert,
             "preview_text": build_multi_ride_closure_post(alert, park_lookup),
-        }
+        })
         for alert in summary["active_multi_ride_alerts"]
     ]
     multi_reopening_candidates = [
-        {
+        with_trimmed_preview({
             "pillar": "real_time_alert",
             "type": "multi_ride_reopening",
             **alert,
             "preview_text": build_multi_ride_reopening_post(alert, park_lookup),
-        }
+        })
         for alert in multi_reopenings
     ]
-    daily_summary = {
+    daily_summary = with_trimmed_preview({
         "pillar": "daily_operations_summary",
         "type": "wdw_daily_summary",
         "preview_text": build_wdw_daily_post(summary, observed_at),
         "metrics": summary["daily_top"],
-    }
-    thirty_day = {
+    })
+    thirty_day = with_trimmed_preview({
         "pillar": "reliability_analytics",
         "type": "wdw_30_day_downtime",
         "preview_text": build_thirty_day_post(summary),
         "metrics": summary["thirty_day_top"],
-    }
+    })
     trend_candidates = [
-        {
+        with_trimmed_preview({
             "pillar": "insights_predictions",
             "type": "trend_detection",
             "metric": metric,
             "preview_text": build_trend_post(metric, park_lookup),
-        }
+        })
         for metric in summary["elevated_trends"][:5]
     ]
     projection_candidates = [
-        {
+        with_trimmed_preview({
             "pillar": "insights_predictions",
             "type": "active_projection",
             "metric": metric,
             "preview_text": build_projection_post(metric, park_lookup),
-        }
+        })
         for metric in summary["active_projections"][:5]
     ]
 
