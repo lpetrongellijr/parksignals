@@ -13,6 +13,14 @@ import parksignals_analytics
 PARK_TIMEZONE = "America/New_York"
 MAX_POST_CHARACTERS = 280
 POST_RANKING_LIMIT = 3
+POST_DISPLAY_REPLACEMENTS = {
+    "Walt Disney World": "Disney World",
+    "WDW": "Disney World",
+    "Universal Orlando Resort": "Universal Orlando",
+    "UOR": "Universal Orlando",
+    "Universal Hollywood Resort": "Universal Hollywood",
+    "UHR": "Universal Hollywood",
+}
 
 
 def write_json(path, data):
@@ -36,6 +44,17 @@ def load_json(path, default):
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return default
+
+
+def normalize_post_display_text(text):
+    normalized = text
+    for source, replacement in POST_DISPLAY_REPLACEMENTS.items():
+        normalized = normalized.replace(source, replacement)
+    return normalized
+
+
+def display_resort_name(resort_name):
+    return normalize_post_display_text(resort_name)
 
 
 def enabled_park_lookup(config):
@@ -136,7 +155,7 @@ def local_date_label(observed_at):
 
 
 def build_wdw_daily_post(summary, observed_at):
-    lines = [f"Walt Disney World Operations Summary - {local_date_label(observed_at)}", ""]
+    lines = [f"Disney World Summary - {local_date_label(observed_at)}", ""]
     lines.append("Most downtime:")
     if summary["daily_top"]:
         for index, metric in enumerate(summary["daily_top"][:POST_RANKING_LIMIT], start=1):
@@ -151,7 +170,7 @@ def build_wdw_daily_post(summary, observed_at):
 
 
 def build_thirty_day_post(summary):
-    lines = ["Highest total downtime across WDW over the past 30 days:", ""]
+    lines = ["Highest total downtime across Disney World over the past 30 days:", ""]
     if summary["thirty_day_top"]:
         for index, metric in enumerate(summary["thirty_day_top"][:POST_RANKING_LIMIT], start=1):
             lines.append(f"{index}. {metric_line(metric)}")
@@ -164,7 +183,7 @@ def build_thirty_day_post(summary):
 
 def build_multi_ride_closure_post(alert, park_lookup):
     park_config = park_lookup.get(alert["park_name"])
-    resort_name = park_config["resort_name"] if park_config else "Walt Disney World"
+    resort_name = display_resort_name(park_config["resort_name"]) if park_config else "Disney World"
     lines = [f"PARKSIGNALS // {resort_name}", ""]
     lines.append(f"ALERT: {alert['park_name']}")
     lines.extend(["", "Currently unavailable:"])
@@ -177,7 +196,7 @@ def build_multi_ride_closure_post(alert, park_lookup):
 
 def build_multi_ride_reopening_post(alert, park_lookup):
     park_config = park_lookup.get(alert["park_name"])
-    resort_name = park_config["resort_name"] if park_config else "Walt Disney World"
+    resort_name = display_resort_name(park_config["resort_name"]) if park_config else "Disney World"
     lines = [f"PARKSIGNALS // {resort_name}", ""]
     lines.append(f"UPDATE: {alert['park_name']}")
     lines.extend(["", "Multiple attractions have reopened:"])
@@ -190,7 +209,7 @@ def build_multi_ride_reopening_post(alert, park_lookup):
 
 def build_trend_post(metric, park_lookup):
     park_config = park_lookup.get(metric["park_key"]) or park_lookup.get(metric["park_name"])
-    resort_name = park_config["resort_name"] if park_config else "Walt Disney World"
+    resort_name = display_resort_name(park_config["resort_name"]) if park_config else "Disney World"
     lines = [
         f"PARKSIGNALS // {resort_name}",
         "",
@@ -224,7 +243,9 @@ def ride_lookup_for_summary(summary):
 
 
 def with_trimmed_preview(candidate):
-    candidate["preview_text"] = trim_post_hashtags(candidate["preview_text"])
+    candidate["preview_text"] = trim_post_hashtags(
+        normalize_post_display_text(candidate["preview_text"])
+    )
     return candidate
 
 
