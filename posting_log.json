@@ -81,6 +81,26 @@
       "ride_name": null,
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T00:30:19Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Hollywood Studios:a0f561ef1718e3be:2026-06-11T00:30:18Z",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Hollywood Studios",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-11T00:30:19Z",
+      "dedupe_key": "reliability_analytics:wdw_30_day_downtime:2026-06-10",
+      "pillar": "reliability_analytics",
+      "type": "wdw_30_day_downtime",
+      "park_name": null,
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
