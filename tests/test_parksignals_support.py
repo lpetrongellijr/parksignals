@@ -295,11 +295,12 @@ class ParkSignalsSupportTest(unittest.TestCase):
         )
         self.assertEqual(
             export_artifacts.normalize_post_display_text("DL / Disneyland"),
-            "DL / Disneyland",
+            "Disneyland / Disneyland",
         )
         self.assertEqual(export_artifacts.normalize_hashtag("#UOR"), "#UniversalOrlando")
         self.assertEqual(export_artifacts.normalize_hashtag("#UHR"), "#UniversalHollywood")
         self.assertEqual(export_artifacts.normalize_hashtag("#WaltDisneyWorld"), "#DisneyWorld")
+        self.assertEqual(export_artifacts.normalize_hashtag("#DL"), "#Disneyland")
 
     def test_trend_insight_uses_parksignals_header(self):
         park_lookup = {
