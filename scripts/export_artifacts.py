@@ -11,6 +11,7 @@ import parksignals_analytics
 
 
 PARK_TIMEZONE = "America/New_York"
+MAX_POST_CHARACTERS = 280
 
 
 def write_json(path, data):
@@ -59,6 +60,19 @@ def tags_for_park(park_config, extras=None):
     return "\n".join(tags)
 
 
+def add_priority_hashtags(lines, hashtags, max_characters=MAX_POST_CHARACTERS):
+    body = "\n".join(lines).rstrip()
+    selected_hashtags = list(hashtags)
+
+    while selected_hashtags:
+        post_text = body + "\n\n" + "\n".join(selected_hashtags)
+        if len(post_text) <= max_characters or len(selected_hashtags) == 1:
+            return post_text
+        selected_hashtags.pop()
+
+    return body
+
+
 def metric_line(metric, include_park=True):
     name = metric["ride_name"]
     if include_park:
@@ -101,12 +115,10 @@ def build_wdw_daily_post(summary, observed_at):
     else:
         lines.append("No downtime recorded yet")
 
-    stable_park = summary.get("stable_park")
-    if stable_park:
-        lines.extend(["", f"Most stable park: {stable_park[0]}"])
-
-    lines.extend(["", "#WaltDisneyWorld", "#DailyOps", "#Analytics"])
-    return "\n".join(lines)
+    return add_priority_hashtags(
+        lines,
+        ["#WaltDisneyWorld", "#DailyOps", "#Analytics"],
+    )
 
 
 def build_thirty_day_post(summary):
