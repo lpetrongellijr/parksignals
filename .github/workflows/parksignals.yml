@@ -57,5 +57,4 @@ jobs:
           git config user.email "actions@github.com"
           git add state.json posting_log.json
           git commit -m "Update ride state and posting log" || echo "No changes"
-          git pull --rebase origin main
           git push
