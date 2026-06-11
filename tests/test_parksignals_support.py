@@ -52,7 +52,7 @@ class ParkSignalsSupportTest(unittest.TestCase):
         self.assertEqual(state["downtime_events"][0]["duration_seconds"], 1800)
 
     def test_content_summary_supports_daily_monthly_and_trends(self):
-        observed = datetime(2026, 6, 9, 12, 0, tzinfo=timezone.utc)
+        observed = datetime(2026, 7, 1, 12, 0, tzinfo=timezone.utc)
         config = {
             "default_parks": ["magic_kingdom"],
             "parks": {
@@ -72,13 +72,18 @@ class ParkSignalsSupportTest(unittest.TestCase):
                     "current_down_seconds": 0,
                     "downtime_events": [
                         {
-                            "down_at": "2026-06-09T08:00:00Z",
-                            "reopened_at": "2026-06-09T09:00:00Z",
+                            "down_at": "2026-07-01T10:00:00Z",
+                            "reopened_at": "2026-07-01T11:00:00Z",
                             "duration_seconds": 3600,
                         },
                         {
-                            "down_at": "2026-06-08T08:00:00Z",
-                            "reopened_at": "2026-06-08T09:00:00Z",
+                            "down_at": "2026-06-30T08:00:00Z",
+                            "reopened_at": "2026-06-30T09:00:00Z",
+                            "duration_seconds": 3600,
+                        },
+                        {
+                            "down_at": "2026-06-28T08:00:00Z",
+                            "reopened_at": "2026-06-28T09:00:00Z",
                             "duration_seconds": 3600,
                         },
                     ],
@@ -89,8 +94,12 @@ class ParkSignalsSupportTest(unittest.TestCase):
         summary = parksignals_analytics.collect_content_pillar_summary(state, config, observed)
 
         self.assertEqual(summary["daily_top"][0]["downtime_seconds"], 3600)
-        self.assertEqual(summary["thirty_day_top"][0]["downtime_seconds"], 7200)
-        self.assertEqual(summary["elevated_trends"][0]["event_count"], 2)
+        self.assertEqual(summary["monthly_window_label"], "June 2026")
+        self.assertEqual(summary["monthly_window_start"], "2026-06-01T04:00:00Z")
+        self.assertEqual(summary["monthly_window_end"], "2026-07-01T04:00:00Z")
+        self.assertEqual(summary["monthly_top"][0]["downtime_seconds"], 7200)
+        self.assertEqual(summary["thirty_day_top"], summary["monthly_top"])
+        self.assertEqual(summary["elevated_trends"][0]["event_count"], 3)
 
     def test_daily_summary_uses_eastern_park_day_after_utc_midnight(self):
         observed = datetime(2026, 6, 11, 0, 5, 5, tzinfo=timezone.utc)
@@ -127,7 +136,6 @@ class ParkSignalsSupportTest(unittest.TestCase):
         self.assertEqual(summary["daily_window_timezone"], "America/New_York")
         self.assertEqual(summary["daily_window_start"], "2026-06-10T04:00:00Z")
         self.assertEqual(summary["daily_top"][0]["downtime_seconds"], 6230)
-        self.assertEqual(summary["thirty_day_top"][0]["downtime_seconds"], 6230)
 
     def test_daily_operations_post_omits_operations_word_and_keeps_resort_hashtag(self):
         summary = {
@@ -171,6 +179,8 @@ class ParkSignalsSupportTest(unittest.TestCase):
         ]
         summary = {
             "daily_top": metrics,
+            "monthly_top": metrics,
+            "monthly_window_label": "June 2026",
             "thirty_day_top": metrics,
             "stable_park": None,
             "active_multi_ride_alerts": [],
@@ -201,10 +211,12 @@ class ParkSignalsSupportTest(unittest.TestCase):
         self.assertIn("Ride Three", daily_post)
         self.assertNotIn("Ride Four", daily_post)
         self.assertTrue(reliability_post.startswith("PARKSIGNALS // Disney World"))
-        self.assertIn("Highest total downtime across Disney World", reliability_post)
+        self.assertIn("Disney World Reliability - June 2026", reliability_post)
+        self.assertNotIn("over the past 30 days", reliability_post)
         self.assertNotIn("#Analytics", reliability_post)
         self.assertIn("Ride Three", reliability_post)
         self.assertNotIn("Ride Four", reliability_post)
+        self.assertEqual(candidates["monthly_reliability_rankings"][0]["type"], "wdw_monthly_reliability")
         self.assertEqual(len(candidates["daily_summaries"][0]["metrics"]), 3)
         self.assertEqual(len(candidates["thirty_day_rankings"][0]["metrics"]), 3)
 
@@ -238,6 +250,8 @@ class ParkSignalsSupportTest(unittest.TestCase):
         }
         summary = {
             "daily_top": [],
+            "monthly_top": [],
+            "monthly_window_label": "June 2026",
             "thirty_day_top": [],
             "stable_park": None,
             "active_multi_ride_alerts": [
@@ -374,6 +388,8 @@ class ParkSignalsSupportTest(unittest.TestCase):
         }
         summary = {
             "daily_top": [],
+            "monthly_top": [],
+            "monthly_window_label": "June 2026",
             "thirty_day_top": [],
             "stable_park": ("Magic Kingdom", 0),
             "active_multi_ride_alerts": [],
@@ -388,6 +404,8 @@ class ParkSignalsSupportTest(unittest.TestCase):
             {"run_summaries": []},
             "2026-06-09T12:00:00Z",
         )
+        previews = export_artifacts.build_post_previews(candidates)
+        self.assertIn("Monthly Reliability", previews)
         self.assertFalse(candidates["posting_connected"])
         ride_map = export_artifacts.build_ride_id_map(state)
         self.assertEqual(ride_map["magic_kingdom"][0]["name"], "Space Mountain")
