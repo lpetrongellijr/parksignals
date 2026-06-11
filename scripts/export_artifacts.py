@@ -92,11 +92,7 @@ def format_rankings(title, rankings):
 
 
 def build_daily_summary(summary):
-    lines = format_rankings("Daily downtime summary", summary["daily_top"])
-    stable_park = summary.get("stable_park")
-    if stable_park:
-        lines.append(f"Most stable park: {stable_park[0]}")
-    return "\n".join(lines)
+    return "\n".join(format_rankings("Daily downtime summary", summary["daily_top"]))
 
 
 def local_date_label(observed_at):
