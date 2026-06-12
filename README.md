@@ -27,10 +27,9 @@ using America/New_York so the workflow follows Walt Disney World's local park
 schedule. Cached operating-hour values are also stored in America/New_York.
 
 Official hours are required for downtime monitoring. If official hours are
-missing or stale for a park, the monitor marks that park closed for monitoring
-and suppresses downtime state changes. The configured `monitoring_hours` values
-remain in `parks_config.json` for reference, but they are not used as generic
-fallback hours for live downtime tracking.
+missing or stale for a park, the monitor marks that park closed for monitoring,
+emits a GitHub Actions warning named `Park hours missing`, and suppresses
+downtime state changes. There are no generic fallback operating hours.
 
 Special-ticket events do not extend the monitoring window. The official-hours
 parser uses the regular `Park Hours` entry only, so events like Mickey's
@@ -79,8 +78,7 @@ open/unavailable counts, any status changes, and a ride ID map such as:
 
 The log also prints a `Park hours source` section showing whether each park used
 current official hours or whether official hours were unavailable and monitoring
-was suppressed. Generic configured fallback hours are logged as ignored when
-official hours are unavailable.
+was suppressed.
 
 If a run is outside resolved monitoring hours, the log also prints a
 `Downtime tracking suppressed` section. That means the workflow ran and observed
@@ -207,8 +205,8 @@ once 30 days of ParkSignals history are available.
 ## Next verification checklist
 Check the next generated artifacts tomorrow and confirm:
 
-- `park-status.txt` shows `official hours unavailable` instead of generic fallback hours if the official cache is missing or stale.
+- `park-status.txt` shows `official hours unavailable` if the official cache is missing or stale.
+- The GitHub Actions run shows a `Park hours missing` warning if official hours are unavailable.
 - `content-pillar-readiness.txt` holds trend previews until 7 days of history are available.
 - `content-pillar-readiness.txt` holds monthly reliability previews until 30 days of history are available.
 - `analytics-summary.json` includes `data_age_days`, `trend_insights_ready`, and `monthly_reliability_ready`.
-- The post still begins with `PARKSIGNALS // Disney World` and keeps `#DisneyWorld` as the priority hashtag.
