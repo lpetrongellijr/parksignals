@@ -461,6 +461,26 @@
       "ride_name": null,
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T20:30:19Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:126:2026-06-12T20:30:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "The Barnstormer",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T20:30:19Z",
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-12",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
