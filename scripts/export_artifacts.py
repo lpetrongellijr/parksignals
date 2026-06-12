@@ -21,6 +21,8 @@ POST_DISPLAY_REPLACEMENTS = {
     "Universal Hollywood Resort": "Universal Hollywood",
     "UHR": "Universal Hollywood",
     "DL": "Disneyland",
+    "Expedition Everest - Legend of the Forbidden Mountain": "Expedition Everest",
+    "The Twilight Zone™ Tower of Terror": "The Twilight Zone Tower of Terror",
 }
 HASHTAG_REPLACEMENTS = {
     "#WaltDisneyWorld": "#DisneyWorld",
@@ -30,6 +32,7 @@ HASHTAG_REPLACEMENTS = {
     "#UniversalHollywoodResort": "#UniversalHollywood",
     "#UHR": "#UniversalHollywood",
     "#DL": "#Disneyland",
+    "#ExpeditionEverestLegendoftheForbiddenMountain": "#ExpeditionEverest",
 }
 REMOVED_HASHTAGS = {
     "#down",
