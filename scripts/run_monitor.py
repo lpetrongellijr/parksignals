@@ -12,6 +12,10 @@ import parksignals_analytics
 
 PARK_HOURS_CACHE_FILE = "park_hours_cache.json"
 LAST_RUN_SUMMARY_FILE = Path("outputs") / "last-run-summary.json"
+DEFAULT_PARK_TIMEZONE = "America/New_York"
+OFFICIAL_HOURS_UNAVAILABLE_REASON = (
+    "official park hours unavailable; monitoring suppressed so generic configured hours are not used"
+)
 
 
 def parse_local_time(value):
@@ -38,7 +42,7 @@ def official_hours_for_park(park_key, observed_at, cache):
     if not park_hours:
         return None
 
-    timezone_name = park_hours.get("timezone") or cache.get("timezone", "America/New_York")
+    timezone_name = park_hours.get("timezone") or cache.get("timezone", DEFAULT_PARK_TIMEZONE)
     local_date = observed_at.astimezone(ZoneInfo(timezone_name)).date().isoformat()
     if park_hours.get("date") != local_date:
         return None
@@ -58,24 +62,21 @@ def configured_hours_for_park(park_config):
 
     return {
         "source": "configured_fallback",
-        "timezone": hours.get("timezone", "America/New_York"),
+        "timezone": hours.get("timezone", DEFAULT_PARK_TIMEZONE),
         "opens_at": hours["opens_at"],
         "closes_at": hours["closes_at"],
     }
 
 
 def resolved_monitoring_hours(park_key, park_config, observed_at, cache):
-    return (
-        official_hours_for_park(park_key, observed_at, cache)
-        or configured_hours_for_park(park_config)
-    )
+    return official_hours_for_park(park_key, observed_at, cache)
 
 
 def monitoring_hours_status(park_key, park_config, observed_at, cache=None):
     cache = cache or {"parks": {}}
     hours = resolved_monitoring_hours(park_key, park_config, observed_at, cache)
     if not hours:
-        return True, None
+        return False, OFFICIAL_HOURS_UNAVAILABLE_REASON
 
     timezone_name = hours["timezone"]
     local_observed_at = observed_at.astimezone(ZoneInfo(timezone_name))
@@ -99,9 +100,8 @@ def park_status_for_park(park_key, park_config, observed_at, cache):
         observed_at,
         cache,
     )
-    local_observed_at = None
-    if hours:
-        local_observed_at = observed_at.astimezone(ZoneInfo(hours["timezone"]))
+    timezone_name = hours["timezone"] if hours else DEFAULT_PARK_TIMEZONE
+    local_observed_at = observed_at.astimezone(ZoneInfo(timezone_name))
 
     return {
         "park_key": park_key,
@@ -109,10 +109,9 @@ def park_status_for_park(park_key, park_config, observed_at, cache):
         "operating_status": "open" if monitoring_allowed else "closed",
         "monitoring_allowed": monitoring_allowed,
         "reason": reason,
-        "observed_at_local": (
-            local_observed_at.isoformat(timespec="seconds") if local_observed_at else None
-        ),
+        "observed_at_local": local_observed_at.isoformat(timespec="seconds"),
         "hours": hours,
+        "configured_fallback_hours": configured_hours_for_park(park_config),
     }
 
 
@@ -161,27 +160,33 @@ def build_suppressed_summary(park_key, park_config, observed_at, reason):
 def print_hours_source_notes(config, observed_at, cache):
     print("")
     print("Park hours source")
-    fallback_parks = []
+    missing_official_hours = []
     for park_key, park_config in parksignals.enabled_park_configs(config):
         hours = resolved_monitoring_hours(park_key, park_config, observed_at, cache)
         if not hours:
-            print(f"- {park_config['park_name']}: no monitoring-hours guard configured")
+            fallback = configured_hours_for_park(park_config)
+            fallback_text = "no configured fallback present"
+            if fallback:
+                fallback_text = (
+                    f"configured fallback ignored ({fallback['opens_at']}-{fallback['closes_at']} "
+                    f"{fallback['timezone']})"
+                )
+            print(f"- {park_config['park_name']}: official hours unavailable; {fallback_text}")
+            missing_official_hours.append(park_config["park_name"])
             continue
         print(
             f"- {park_config['park_name']}: {hours['source']} "
             f"{hours['opens_at']}-{hours['closes_at']} {hours['timezone']}"
         )
-        if hours["source"] == "configured_fallback":
-            fallback_parks.append(park_config["park_name"])
 
-    if fallback_parks:
+    if missing_official_hours:
         print("")
-        print("Park hours fallback notice")
+        print("Park hours missing notice")
         print(
-            "Official Disney hours were not available for: "
-            + ", ".join(fallback_parks)
+            "Official park hours were not available for: "
+            + ", ".join(missing_official_hours)
         )
-        print("Using configured fallback hours from parks_config.json.")
+        print("No generic fallback hours were used; monitoring is suppressed for those parks.")
         if cache.get("last_fetch_status") and cache.get("last_fetch_status") != "ok":
             print(f"Last official-hours fetch status: {cache['last_fetch_status']}")
         if cache.get("last_fetch_error"):
@@ -193,7 +198,7 @@ def print_park_status_notes(park_statuses):
     print("Park operating status")
     for status in park_statuses:
         hours = status.get("hours") or {}
-        hours_text = "no hours guard configured"
+        hours_text = "official hours unavailable"
         if hours:
             hours_text = f"{hours['opens_at']}-{hours['closes_at']} {hours['timezone']} ({hours['source']})"
         print(
