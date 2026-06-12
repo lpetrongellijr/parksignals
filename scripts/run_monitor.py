@@ -220,6 +220,105 @@ def print_suppression_notes(summaries):
         print(f"- {summary['park_name']}: {summary['suppression_reason']}")
 
 
+def print_content_pillar_summary(pillar_summary, run_summaries):
+    print("")
+    print("Content pillar readiness")
+    print("1. Real-time single ride closures/reopenings: supported")
+
+    multi_closures = pillar_summary["active_multi_ride_alerts"]
+    if multi_closures:
+        print("1C. Multi-ride closure candidates:")
+        for alert in multi_closures:
+            print(f"  {alert['park_name']}:")
+            for ride_name in alert["rides"][:5]:
+                print(f"    - {ride_name}")
+    else:
+        print("1C. Multi-ride closure candidates: none active")
+
+    multi_reopenings = []
+    for summary in run_summaries:
+        reopened = [
+            transition["ride_name"]
+            for transition in summary["transitions"]
+            if transition["type"] == "reopened"
+        ]
+        if len(reopened) >= 2:
+            multi_reopenings.append({"park_name": summary["park_name"], "rides": reopened})
+
+    if multi_reopenings:
+        print("Multi-ride reopening candidates:")
+        for alert in multi_reopenings:
+            print(f"  {alert['park_name']}:")
+            for ride_name in alert["rides"][:5]:
+                print(f"    - {ride_name}")
+    else:
+        print("Multi-ride reopening candidates: none this run")
+
+    print("")
+    print("2. Daily summary inputs:")
+    if pillar_summary["daily_top"]:
+        print("  Most downtime today:")
+        for index, metric in enumerate(pillar_summary["daily_top"], start=1):
+            print(
+                f"  {index}. {metric['ride_name']} "
+                f"({metric['park_name']}) - "
+                f"{parksignals.format_duration(metric['downtime_seconds'])}"
+            )
+    else:
+        print("  Most downtime today: no downtime recorded yet")
+
+    stable_park = pillar_summary["stable_park"]
+    if stable_park:
+        print(f"  Most stable park today: {stable_park[0]}")
+
+    print("")
+    print("3. Monthly reliability inputs:")
+    if not pillar_summary.get("monthly_reliability_ready", True):
+        print(
+            "  Waiting for "
+            f"{pillar_summary.get('monthly_reliability_min_days', parksignals.ANALYTICS_LOOKBACK_DAYS)} "
+            f"days of history; current history is {pillar_summary.get('data_age_days', 0)} days."
+        )
+    elif pillar_summary.get("monthly_top"):
+        for index, metric in enumerate(pillar_summary["monthly_top"], start=1):
+            print(
+                f"  {index}. {metric['ride_name']} "
+                f"({metric['park_name']}) - "
+                f"{parksignals.format_duration(metric['downtime_seconds'])}"
+            )
+    else:
+        print("  No completed downtime history yet")
+
+    print("")
+    print("4. Insight and projection inputs:")
+    if not pillar_summary.get("trend_insights_ready", True):
+        print(
+            "  Elevated downtime frequency: waiting for "
+            f"{pillar_summary.get('trend_insights_min_days', parksignals.TREND_LOOKBACK_DAYS)} "
+            f"days of history; current history is {pillar_summary.get('data_age_days', 0)} days."
+        )
+    elif pillar_summary["elevated_trends"]:
+        print("  Elevated downtime frequency:")
+        for metric in pillar_summary["elevated_trends"][:5]:
+            print(
+                f"  - {metric['ride_name']} ({metric['park_name']}): "
+                f"{metric['event_count']} events in {parksignals.TREND_LOOKBACK_DAYS} days"
+            )
+    else:
+        print("  Elevated downtime frequency: no trend candidates yet")
+
+    if pillar_summary["active_projections"]:
+        print("  Active downtime projections:")
+        for projection in pillar_summary["active_projections"][:5]:
+            print(
+                f"  - {projection['ride_name']} ({projection['park_name']}): "
+                f"currently down {parksignals.format_duration(projection['current_down_seconds'])}; "
+                f"historical average {parksignals.format_duration(projection['projected_total_seconds'])}"
+            )
+    else:
+        print("  Active downtime projections: no active rides with history yet")
+
+
 def write_last_run_summary(observed_at, summaries, pillar_summary, hours_cache, park_statuses):
     LAST_RUN_SUMMARY_FILE.parent.mkdir(parents=True, exist_ok=True)
     payload = {
@@ -273,7 +372,7 @@ def run():
     print_hours_source_notes(config, observed_at, hours_cache)
     print_park_status_notes(park_statuses)
     print_suppression_notes(summaries)
-    parksignals.print_content_pillar_summary(pillar_summary, summaries)
+    print_content_pillar_summary(pillar_summary, summaries)
 
 
 if __name__ == "__main__":
