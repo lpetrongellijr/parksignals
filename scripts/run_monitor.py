@@ -14,8 +14,12 @@ PARK_HOURS_CACHE_FILE = "park_hours_cache.json"
 LAST_RUN_SUMMARY_FILE = Path("outputs") / "last-run-summary.json"
 DEFAULT_PARK_TIMEZONE = "America/New_York"
 OFFICIAL_HOURS_UNAVAILABLE_REASON = (
-    "official park hours unavailable; monitoring suppressed so generic configured hours are not used"
+    "official park hours unavailable; monitoring suppressed"
 )
+
+
+def github_warning(title, message):
+    print(f"::warning title={title}::{message}")
 
 
 def parse_local_time(value):
@@ -52,19 +56,6 @@ def official_hours_for_park(park_key, observed_at, cache):
         "timezone": timezone_name,
         "opens_at": park_hours["opens_at"],
         "closes_at": park_hours["closes_at"],
-    }
-
-
-def configured_hours_for_park(park_config):
-    hours = park_config.get("monitoring_hours")
-    if not hours or hours.get("enabled") is False:
-        return None
-
-    return {
-        "source": "configured_fallback",
-        "timezone": hours.get("timezone", DEFAULT_PARK_TIMEZONE),
-        "opens_at": hours["opens_at"],
-        "closes_at": hours["closes_at"],
     }
 
 
@@ -111,7 +102,6 @@ def park_status_for_park(park_key, park_config, observed_at, cache):
         "reason": reason,
         "observed_at_local": local_observed_at.isoformat(timespec="seconds"),
         "hours": hours,
-        "configured_fallback_hours": configured_hours_for_park(park_config),
     }
 
 
@@ -177,14 +167,7 @@ def print_hours_source_notes(config, observed_at, cache):
     for park_key, park_config in parksignals.enabled_park_configs(config):
         hours = resolved_monitoring_hours(park_key, park_config, observed_at, cache)
         if not hours:
-            fallback = configured_hours_for_park(park_config)
-            fallback_text = "no configured fallback present"
-            if fallback:
-                fallback_text = (
-                    f"configured fallback ignored ({fallback['opens_at']}-{fallback['closes_at']} "
-                    f"{fallback['timezone']})"
-                )
-            print(f"- {park_config['park_name']}: official hours unavailable; {fallback_text}")
+            print(f"- {park_config['park_name']}: official hours unavailable")
             missing_official_hours.append(park_config["park_name"])
             continue
         print(
@@ -193,13 +176,15 @@ def print_hours_source_notes(config, observed_at, cache):
         )
 
     if missing_official_hours:
-        print("")
-        print("Park hours missing notice")
-        print(
+        message = (
             "Official park hours were not available for: "
             + ", ".join(missing_official_hours)
+            + ". Monitoring was suppressed for those parks."
         )
-        print("No generic fallback hours were used; monitoring is suppressed for those parks.")
+        github_warning("Park hours missing", message)
+        print("")
+        print("Park hours missing notice")
+        print(message)
         if cache.get("last_fetch_status") and cache.get("last_fetch_status") != "ok":
             print(f"Last official-hours fetch status: {cache['last_fetch_status']}")
         if cache.get("last_fetch_error"):
