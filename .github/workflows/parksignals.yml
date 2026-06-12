@@ -8,6 +8,7 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  PARKSIGNALS_POST_CONTEXT: "monitor"
   PARKSIGNALS_X_POSTING_ENABLED: "false"
   X_API_KEY: ${{ secrets.X_API_KEY }}
   X_API_SECRET: ${{ secrets.X_API_SECRET }}
@@ -43,7 +44,7 @@ jobs:
           python scripts/run_monitor.py | tee outputs/monitor-summary.txt
           python scripts/export_artifacts.py --output-dir outputs
           python scripts/export_x_status.py --output-dir outputs
-          python scripts/plan_posts.py --output-dir outputs
+          python scripts/plan_posts.py --output-dir outputs --post-context monitor
           python scripts/dispatch_posts.py --output-dir outputs
 
       - name: Upload Monitor Outputs
