@@ -48,23 +48,11 @@ def write_text(path, content):
             f.write("\n")
 
 
-def suppressed_reopening_pairs(candidates):
-    pairs = set()
-    for item in candidates.get("multi_ride_reopenings", []):
-        park_name = item.get("park_name")
-        for ride_name in item.get("rides", []):
-            if park_name and ride_name:
-                pairs.add((park_name, ride_name))
-    return pairs
-
-
 def candidate_groups(candidates):
-    suppressed_reopenings = suppressed_reopening_pairs(candidates)
     groups = [
         ("single_ride_closures", candidates.get("single_ride_closures", [])),
         ("single_ride_reopenings", candidates.get("single_ride_reopenings", [])),
         ("multi_ride_closures", candidates.get("multi_ride_closures", [])),
-        ("multi_ride_reopenings", candidates.get("multi_ride_reopenings", [])),
         ("daily_summaries", candidates.get("daily_summaries", [])),
         ("thirty_day_rankings", candidates.get("thirty_day_rankings", [])),
         ("insights_elevated_trends", candidates.get("insights", {}).get("elevated_trends", [])),
@@ -72,11 +60,6 @@ def candidate_groups(candidates):
     ]
     for group_name, items in groups:
         for item in items:
-            if (
-                group_name == "single_ride_reopenings"
-                and (item.get("park_name"), item.get("ride_name")) in suppressed_reopenings
-            ):
-                continue
             yield group_name, item
 
 
