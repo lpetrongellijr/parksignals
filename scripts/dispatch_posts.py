@@ -16,7 +16,6 @@ POST_PRIORITY = {
     "down": 1,
     "reopened": 2,
     "multi_ride_closure": 3,
-    "multi_ride_reopening": 4,
     "wdw_daily_summary": 5,
     "wdw_monthly_reliability": 6,
     "wdw_30_day_downtime": 6,
@@ -141,7 +140,7 @@ def build_results_text(results, batch_size=DEFAULT_BATCH_SIZE, batch_delay_secon
     lines = ["X dispatch results"]
     lines.append(f"Batch size: {batch_size}")
     lines.append(f"Delay between batches: {batch_delay_seconds} seconds")
-    lines.append("Priority: single closures, single reopenings, multi-ride closures, multi-ride reopenings, then summaries and insights")
+    lines.append("Priority: single closures, single reopenings, multi-ride closures, then summaries and insights")
     lines.append("")
     if not results:
         lines.append("No posts were ready to dispatch.")
