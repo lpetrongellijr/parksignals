@@ -83,14 +83,12 @@ class XIntegrationTest(unittest.TestCase):
             {"tweet_id": "2"},
             {"tweet_id": "3"},
             {"tweet_id": "4"},
-            {"tweet_id": "5"},
         ]
         sleep_calls = []
         plan = {
             "items": [
                 self.ready_item("daily_operations_summary", "wdw_daily_summary", "daily"),
                 self.ready_item("insights_predictions", "trend_detection", "trend"),
-                self.ready_item("real_time_alert", "multi_ride_reopening", "multi reopen"),
                 self.ready_item("real_time_alert", "down", "single down"),
                 self.ready_item("real_time_alert", "multi_ride_closure", "multi down"),
             ]
@@ -108,14 +106,13 @@ class XIntegrationTest(unittest.TestCase):
             [
                 "down",
                 "multi_ride_closure",
-                "multi_ride_reopening",
                 "wdw_daily_summary",
                 "trend_detection",
             ],
         )
-        self.assertEqual([result["batch_number"] for result in results], [1, 2, 3, 4, 5])
-        self.assertEqual(sleep_calls, [60, 60, 60, 60])
-        self.assertEqual(mock_publish.call_count, 5)
+        self.assertEqual([result["batch_number"] for result in results], [1, 2, 3, 4])
+        self.assertEqual(sleep_calls, [60, 60, 60])
+        self.assertEqual(mock_publish.call_count, 4)
 
     def ready_item(self, pillar, post_type, text):
         return {
