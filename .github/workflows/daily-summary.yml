@@ -64,7 +64,7 @@ jobs:
           git commit -m "Update posting log"
           git status --short
           git reset --hard HEAD
-          rm -rf outputs
+          git clean -fdX
           git fetch origin main
           git rebase origin/main
           git push
