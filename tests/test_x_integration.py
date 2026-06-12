@@ -77,7 +77,7 @@ class XIntegrationTest(unittest.TestCase):
         mock_post.assert_called_once()
 
     @patch("x_integration.publish_post")
-    def test_dispatch_prioritizes_realtime_posts_and_batches_by_two(self, mock_publish):
+    def test_dispatch_prioritizes_realtime_posts_and_posts_one_at_a_time(self, mock_publish):
         mock_publish.side_effect = [
             {"tweet_id": "1"},
             {"tweet_id": "2"},
@@ -98,8 +98,8 @@ class XIntegrationTest(unittest.TestCase):
 
         results = dispatch_posts.dispatch_ready_posts(
             plan,
-            batch_size=2,
-            batch_delay_seconds=120,
+            batch_size=1,
+            batch_delay_seconds=60,
             sleep=sleep_calls.append,
         )
 
@@ -113,8 +113,8 @@ class XIntegrationTest(unittest.TestCase):
                 "trend_detection",
             ],
         )
-        self.assertEqual([result["batch_number"] for result in results], [1, 1, 2, 2, 3])
-        self.assertEqual(sleep_calls, [120, 120])
+        self.assertEqual([result["batch_number"] for result in results], [1, 2, 3, 4, 5])
+        self.assertEqual(sleep_calls, [60, 60, 60, 60])
         self.assertEqual(mock_publish.call_count, 5)
 
     def ready_item(self, pillar, post_type, text):
