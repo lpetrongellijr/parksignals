@@ -41,6 +41,26 @@
       "ride_name": null,
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T16:00:27Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:2679:2026-06-12T16:00:25Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Frozen Ever After",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T16:00:27Z",
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-12",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
