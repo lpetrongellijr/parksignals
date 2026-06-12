@@ -29,6 +29,7 @@ POST_DISPLAY_REPLACEMENTS = {
     "Tomorrowland Transit Authority PeopleMover": "PeopleMover",
     "Rock ’n’ Roller Coaster Starring The Muppets": "Rock ’n’ Roller Coaster",
     "Walt Disney’s Carousel of Progress": "Carousel of Progress",
+    "Walt Disney's Carousel of Progress": "Carousel of Progress",
 }
 HASHTAG_REPLACEMENTS = {
     "#WaltDisneyWorld": "#DisneyWorld",
