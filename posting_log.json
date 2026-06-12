@@ -171,6 +171,56 @@
       "ride_name": null,
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T17:30:19Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:6361:2026-06-12T17:30:18Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Mickey & Minnie's Runaway Railway",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T17:30:19Z",
+      "dedupe_key": "real_time_alert:reopened:EPCOT:155:2026-06-12T17:30:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Journey Into Imagination With Figment",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T17:30:19Z",
+      "dedupe_key": "real_time_alert:reopened:EPCOT:2679:2026-06-12T17:30:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Frozen Ever After",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T17:30:19Z",
+      "dedupe_key": "real_time_alert:multi_ride_reopening:EPCOT:5ee05119c4a54625:2026-06-12T17:30:18Z",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_reopening",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T17:30:19Z",
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-12",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
