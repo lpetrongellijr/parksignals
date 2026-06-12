@@ -47,6 +47,7 @@ jobs:
           python scripts/dispatch_posts.py --output-dir outputs
 
       - name: Upload Monitor Outputs
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: parksignals-monitor-outputs
