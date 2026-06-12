@@ -63,5 +63,7 @@ jobs:
             exit 0
           fi
           git commit -m "Update ride state and posting log"
-          git pull --rebase origin main
+          rm -rf outputs
+          git fetch origin main
+          git rebase origin/main
           git push
