@@ -46,6 +46,40 @@ class PostDisplayNameTest(unittest.TestCase):
         self.assertNotIn("™", normalized)
         self.assertNotIn("#ExpeditionEverestLegendoftheForbiddenMountain", normalized)
 
+    def test_post_text_uses_shortened_names_for_common_long_titles(self):
+        post = "\n".join([
+            "Star Tours - The Adventures Continue",
+            "Journey Into Imagination With Figment",
+            "Gran Fiesta Tour Starring The Three Caballeros",
+            "Tomorrowland Transit Authority PeopleMover",
+            "Rock ’n’ Roller Coaster Starring The Muppets",
+            "#StarToursTheAdventuresContinue",
+            "#JourneyIntoImaginationWithFigment",
+            "#GranFiestaTourStarringTheThreeCaballeros",
+            "#TomorrowlandTransitAuthorityPeopleMover",
+            "#RocknRollerCoasterStarringTheMuppets",
+        ])
+
+        normalized = export_artifacts.normalize_post_hashtags(
+            export_artifacts.normalize_post_display_text(post)
+        )
+
+        self.assertIn("Star Tours", normalized)
+        self.assertIn("Journey Into Imagination", normalized)
+        self.assertIn("Gran Fiesta Tour", normalized)
+        self.assertIn("PeopleMover", normalized)
+        self.assertIn("Rock ’n’ Roller Coaster", normalized)
+        self.assertIn("#StarTours", normalized)
+        self.assertIn("#JourneyIntoImagination", normalized)
+        self.assertIn("#GranFiestaTour", normalized)
+        self.assertIn("#PeopleMover", normalized)
+        self.assertIn("#RocknRollerCoaster", normalized)
+        self.assertNotIn("Star Tours - The Adventures Continue", normalized)
+        self.assertNotIn("Journey Into Imagination With Figment", normalized)
+        self.assertNotIn("Gran Fiesta Tour Starring The Three Caballeros", normalized)
+        self.assertNotIn("Tomorrowland Transit Authority PeopleMover", normalized)
+        self.assertNotIn("Rock ’n’ Roller Coaster Starring The Muppets", normalized)
+
 
 if __name__ == "__main__":
     unittest.main()
