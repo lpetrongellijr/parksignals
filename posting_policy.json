@@ -5,6 +5,7 @@
   "require_x_credentials": true,
   "rules": {
     "block_real_time_posts_outside_park_hours": true,
+    "block_daily_summary_outside_daily_workflow": true,
     "block_empty_daily_summary": true,
     "block_empty_analytics": true,
     "block_duplicate_posted_keys": true,
@@ -17,7 +18,7 @@
         "down": true,
         "reopened": true,
         "multi_ride_closure": true,
-        "multi_ride_reopening": true
+        "multi_ride_reopening": false
       }
     },
     "daily_operations_summary": {
