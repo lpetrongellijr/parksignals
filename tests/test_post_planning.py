@@ -1,6 +1,5 @@
 import importlib.util
 import sys
-import types
 import unittest
 from pathlib import Path
 
@@ -12,14 +11,6 @@ parksignals_spec = importlib.util.spec_from_file_location("parksignals", ROOT / 
 parksignals = importlib.util.module_from_spec(parksignals_spec)
 parksignals_spec.loader.exec_module(parksignals)
 sys.modules["parksignals"] = parksignals
-
-sys.modules.setdefault(
-    "x_integration",
-    types.SimpleNamespace(
-        posting_enabled=lambda: False,
-        connection_status=lambda: {"ready_for_manual_connection_test": True},
-    ),
-)
 
 plan_spec = importlib.util.spec_from_file_location(
     "plan_posts",
