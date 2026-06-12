@@ -52,7 +52,7 @@ class TextExtractor(HTMLParser):
 
 
 def github_notice(message):
-    print(f"::notice title=Park hours fallback::{message}")
+    print(f"::notice title=Park hours unavailable::{message}")
 
 
 def default_fetch_date():
@@ -363,12 +363,12 @@ def load_existing(path):
         return json.load(f)
 
 
-def fallback_notice(status, error):
+def unavailable_notice(status, error):
     return {
         "status": status,
         "message": (
-            "Park hours were not fully updated; ParkSignals will use cached "
-            "machine-readable hours when valid, otherwise configured fallback hours."
+            "Park hours were not fully updated; ParkSignals will suppress "
+            "monitoring for parks without valid official hours."
         ),
         "error": error,
     }
@@ -386,9 +386,10 @@ def write_cache(path, source_url, parsed_hours, status="ok", error=None, text_sa
     })
     if error:
         cache["last_fetch_error"] = error
-        cache["fallback_notice"] = fallback_notice(status, error)
+        cache["unavailable_notice"] = unavailable_notice(status, error)
     else:
         cache.pop("last_fetch_error", None)
+        cache.pop("unavailable_notice", None)
         cache.pop("fallback_notice", None)
     if text_sample:
         cache["last_fetch_text_sample"] = text_sample[:20]
@@ -506,7 +507,7 @@ def main():
             error=message,
         )
         github_notice(message)
-        print(f"Park hours fetch failed; existing cache/fallback hours will be used: {message}")
+        print(f"Park hours fetch failed; monitoring will be suppressed without valid official hours: {message}")
         return
 
     missing_parks = sorted(set(PARK_SLUGS) - set(parsed_hours))
@@ -523,7 +524,7 @@ def main():
             text_sample=parts,
         )
         github_notice(message)
-        print(f"{message}; cached/fallback hours will be used for missing parks")
+        print(f"{message}; monitoring will be suppressed for missing parks")
         return
 
     write_cache(output_path, source_url, parsed_hours)
