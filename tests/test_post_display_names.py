@@ -53,11 +53,13 @@ class PostDisplayNameTest(unittest.TestCase):
             "Gran Fiesta Tour Starring The Three Caballeros",
             "Tomorrowland Transit Authority PeopleMover",
             "Rock ’n’ Roller Coaster Starring The Muppets",
+            "Walt Disney’s Carousel of Progress",
             "#StarToursTheAdventuresContinue",
             "#JourneyIntoImaginationWithFigment",
             "#GranFiestaTourStarringTheThreeCaballeros",
             "#TomorrowlandTransitAuthorityPeopleMover",
             "#RocknRollerCoasterStarringTheMuppets",
+            "#WaltDisneysCarouselofProgress",
         ])
 
         normalized = export_artifacts.normalize_post_hashtags(
@@ -69,16 +71,19 @@ class PostDisplayNameTest(unittest.TestCase):
         self.assertIn("Gran Fiesta Tour", normalized)
         self.assertIn("PeopleMover", normalized)
         self.assertIn("Rock ’n’ Roller Coaster", normalized)
+        self.assertIn("Carousel of Progress", normalized)
         self.assertIn("#StarTours", normalized)
         self.assertIn("#JourneyIntoImagination", normalized)
         self.assertIn("#GranFiestaTour", normalized)
         self.assertIn("#PeopleMover", normalized)
         self.assertIn("#RocknRollerCoaster", normalized)
+        self.assertIn("#CarouselofProgress", normalized)
         self.assertNotIn("Star Tours - The Adventures Continue", normalized)
         self.assertNotIn("Journey Into Imagination With Figment", normalized)
         self.assertNotIn("Gran Fiesta Tour Starring The Three Caballeros", normalized)
         self.assertNotIn("Tomorrowland Transit Authority PeopleMover", normalized)
         self.assertNotIn("Rock ’n’ Roller Coaster Starring The Muppets", normalized)
+        self.assertNotIn("Walt Disney’s Carousel of Progress", normalized)
 
 
 if __name__ == "__main__":
