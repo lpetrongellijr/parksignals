@@ -182,15 +182,7 @@ class ParkSignalsSupportTest(unittest.TestCase):
 
     def test_monitor_suppresses_when_official_hours_are_missing(self):
         observed = datetime(2026, 6, 12, 1, 30, tzinfo=timezone.utc)
-        park_config = {
-            "park_name": "Animal Kingdom",
-            "monitoring_hours": {
-                "enabled": True,
-                "timezone": "America/New_York",
-                "opens_at": "08:00",
-                "closes_at": "22:00",
-            },
-        }
+        park_config = {"park_name": "Animal Kingdom"}
 
         allowed, reason = run_monitor.monitoring_hours_status(
             "animal_kingdom",
@@ -209,7 +201,7 @@ class ParkSignalsSupportTest(unittest.TestCase):
         self.assertIn("official park hours unavailable", reason)
         self.assertEqual(status["operating_status"], "closed")
         self.assertIsNone(status["hours"])
-        self.assertEqual(status["configured_fallback_hours"]["opens_at"], "08:00")
+        self.assertNotIn("configured_fallback_hours", status)
 
     def test_daily_summary_uses_eastern_park_day_after_utc_midnight(self):
         observed = datetime(2026, 6, 11, 0, 5, 5, tzinfo=timezone.utc)
