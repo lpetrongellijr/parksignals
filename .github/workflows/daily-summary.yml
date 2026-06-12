@@ -62,6 +62,8 @@ jobs:
             exit 0
           fi
           git commit -m "Update posting log"
+          git status --short
+          git reset --hard HEAD
           rm -rf outputs
           git fetch origin main
           git rebase origin/main
