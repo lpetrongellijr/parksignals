@@ -26,8 +26,11 @@ every 6 hours. When no `--date` is passed, the park-hours fetch selects the date
 using America/New_York so the workflow follows Walt Disney World's local park
 schedule. Cached operating-hour values are also stored in America/New_York.
 
-If official hours are missing or stale, the monitor falls back to the configured
-`monitoring_hours` in `parks_config.json`.
+Official hours are required for downtime monitoring. If official hours are
+missing or stale for a park, the monitor marks that park closed for monitoring
+and suppresses downtime state changes. The configured `monitoring_hours` values
+remain in `parks_config.json` for reference, but they are not used as generic
+fallback hours for live downtime tracking.
 
 Special-ticket events do not extend the monitoring window. The official-hours
 parser uses the regular `Park Hours` entry only, so events like Mickey's
@@ -75,7 +78,9 @@ open/unavailable counts, any status changes, and a ride ID map such as:
 ```
 
 The log also prints a `Park hours source` section showing whether each park used
-`official_disney_calendar` or `configured_fallback` hours.
+current official hours or whether official hours were unavailable and monitoring
+was suppressed. Generic configured fallback hours are logged as ignored when
+official hours are unavailable.
 
 If a run is outside resolved monitoring hours, the log also prints a
 `Downtime tracking suppressed` section. That means the workflow ran and observed
@@ -126,8 +131,9 @@ The same log also prints a content pillar readiness section:
 - active multi-ride closure candidates
 - multi-ride reopening candidates from the current run
 - daily downtime summary inputs
-- monthly reliability ranking inputs
-- trend and active downtime projection inputs
+- monthly reliability ranking inputs once 30 days of history are available
+- trend inputs once 7 days of history are available
+- active downtime projection inputs
 
 These are generated as operational logs and artifacts only. They prepare the
 data needed for future automated posting and insight workflows without
@@ -192,15 +198,17 @@ cron-job.org and can also be started manually. It generates daily summary
 artifacts from the current persisted state without saving state or posting
 externally.
 
-Monthly reliability previews use the previous completed calendar month in the
-park timezone. For example, a run on July 1 Eastern produces a title like
-`Disney World Reliability - June 2026` and summarizes June 1 through July 1.
+Trend insight previews require at least 7 days of collected state history.
+Monthly reliability previews require at least 30 days of collected state history
+and use the previous completed calendar month in the park timezone. For example,
+a run on July 1 Eastern can produce a title like `Disney World Reliability - June 2026`
+once 30 days of ParkSignals history are available.
 
 ## Next verification checklist
 Check the next generated artifacts tomorrow and confirm:
 
-- `post-previews.txt` includes a `Monthly Reliability` section.
-- The reliability preview title follows `Disney World Reliability - Month YYYY`.
-- `analytics-summary.json` includes `monthly_window_start`, `monthly_window_end`, and `monthly_window_label`.
-- The monthly reliability preview shows no more than the top 3 rides.
+- `park-status.txt` shows `official hours unavailable` instead of generic fallback hours if the official cache is missing or stale.
+- `content-pillar-readiness.txt` holds trend previews until 7 days of history are available.
+- `content-pillar-readiness.txt` holds monthly reliability previews until 30 days of history are available.
+- `analytics-summary.json` includes `data_age_days`, `trend_insights_ready`, and `monthly_reliability_ready`.
 - The post still begins with `PARKSIGNALS // Disney World` and keeps `#DisneyWorld` as the priority hashtag.
