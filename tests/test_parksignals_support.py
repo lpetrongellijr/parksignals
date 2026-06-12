@@ -31,6 +31,13 @@ export_spec = importlib.util.spec_from_file_location(
 export_artifacts = importlib.util.module_from_spec(export_spec)
 export_spec.loader.exec_module(export_artifacts)
 
+run_monitor_spec = importlib.util.spec_from_file_location(
+    "run_monitor",
+    ROOT / "scripts" / "run_monitor.py",
+)
+run_monitor = importlib.util.module_from_spec(run_monitor_spec)
+run_monitor_spec.loader.exec_module(run_monitor)
+
 
 class ParkSignalsSupportTest(unittest.TestCase):
     def test_state_transition_tracks_duration(self):
@@ -69,8 +76,14 @@ class ParkSignalsSupportTest(unittest.TestCase):
                     "id": "1",
                     "name": "Space Mountain",
                     "is_open": True,
+                    "last_seen_at": "2026-05-25T12:00:00Z",
                     "current_down_seconds": 0,
                     "downtime_events": [
+                        {
+                            "down_at": "2026-05-25T08:00:00Z",
+                            "reopened_at": "2026-05-25T09:00:00Z",
+                            "duration_seconds": 3600,
+                        },
                         {
                             "down_at": "2026-07-01T10:00:00Z",
                             "reopened_at": "2026-07-01T11:00:00Z",
@@ -97,9 +110,106 @@ class ParkSignalsSupportTest(unittest.TestCase):
         self.assertEqual(summary["monthly_window_label"], "June 2026")
         self.assertEqual(summary["monthly_window_start"], "2026-06-01T04:00:00Z")
         self.assertEqual(summary["monthly_window_end"], "2026-07-01T04:00:00Z")
+        self.assertTrue(summary["trend_insights_ready"])
+        self.assertTrue(summary["monthly_reliability_ready"])
         self.assertEqual(summary["monthly_top"][0]["downtime_seconds"], 7200)
         self.assertEqual(summary["thirty_day_top"], summary["monthly_top"])
         self.assertEqual(summary["elevated_trends"][0]["event_count"], 3)
+
+    def test_analytics_waits_for_enough_history_before_trends_and_monthly(self):
+        observed = datetime(2026, 6, 12, 1, 30, tzinfo=timezone.utc)
+        config = {
+            "default_parks": ["epcot"],
+            "parks": {
+                "epcot": {
+                    "enabled": True,
+                    "park_name": "EPCOT",
+                    "major_rides": ["Spaceship Earth"],
+                }
+            },
+        }
+        state = {
+            "epcot": {
+                "159": {
+                    "id": "159",
+                    "name": "Spaceship Earth",
+                    "is_open": True,
+                    "last_seen_at": "2026-06-10T12:00:00Z",
+                    "current_down_seconds": 0,
+                    "downtime_events": [
+                        {
+                            "down_at": "2026-06-10T12:00:00Z",
+                            "reopened_at": "2026-06-10T12:30:00Z",
+                            "duration_seconds": 1800,
+                        },
+                        {
+                            "down_at": "2026-06-11T12:00:00Z",
+                            "reopened_at": "2026-06-11T12:30:00Z",
+                            "duration_seconds": 1800,
+                        },
+                    ],
+                }
+            }
+        }
+
+        summary = parksignals_analytics.collect_content_pillar_summary(state, config, observed)
+        candidates = export_artifacts.build_post_candidates(
+            summary,
+            {
+                "default_parks": ["epcot"],
+                "parks": {
+                    "epcot": {
+                        "enabled": True,
+                        "park_name": "EPCOT",
+                        "resort_name": "Walt Disney World",
+                        "major_rides": ["Spaceship Earth"],
+                    }
+                },
+            },
+            {"run_summaries": []},
+            "2026-06-12T01:30:00Z",
+        )
+
+        self.assertFalse(summary["trend_insights_ready"])
+        self.assertFalse(summary["monthly_reliability_ready"])
+        self.assertEqual(summary["elevated_trends"], [])
+        self.assertEqual(summary["monthly_top"], [])
+        self.assertEqual(candidates["insights"]["elevated_trends"], [])
+        self.assertEqual(candidates["monthly_reliability_rankings"], [])
+        readiness = export_artifacts.build_readiness_summary(summary, candidates)
+        self.assertIn("Waiting for 7 days of history", readiness)
+        self.assertIn("Waiting for 30 days of history", readiness)
+
+    def test_monitor_suppresses_when_official_hours_are_missing(self):
+        observed = datetime(2026, 6, 12, 1, 30, tzinfo=timezone.utc)
+        park_config = {
+            "park_name": "Animal Kingdom",
+            "monitoring_hours": {
+                "enabled": True,
+                "timezone": "America/New_York",
+                "opens_at": "08:00",
+                "closes_at": "22:00",
+            },
+        }
+
+        allowed, reason = run_monitor.monitoring_hours_status(
+            "animal_kingdom",
+            park_config,
+            observed,
+            {"parks": {}, "last_fetch_status": "missing_or_invalid_cache"},
+        )
+        status = run_monitor.park_status_for_park(
+            "animal_kingdom",
+            park_config,
+            observed,
+            {"parks": {}, "last_fetch_status": "missing_or_invalid_cache"},
+        )
+
+        self.assertFalse(allowed)
+        self.assertIn("official park hours unavailable", reason)
+        self.assertEqual(status["operating_status"], "closed")
+        self.assertIsNone(status["hours"])
+        self.assertEqual(status["configured_fallback_hours"]["opens_at"], "08:00")
 
     def test_daily_summary_uses_eastern_park_day_after_utc_midnight(self):
         observed = datetime(2026, 6, 11, 0, 5, 5, tzinfo=timezone.utc)
@@ -181,6 +291,8 @@ class ParkSignalsSupportTest(unittest.TestCase):
             "daily_top": metrics,
             "monthly_top": metrics,
             "monthly_window_label": "June 2026",
+            "monthly_reliability_ready": True,
+            "trend_insights_ready": True,
             "thirty_day_top": metrics,
             "stable_park": None,
             "active_multi_ride_alerts": [],
@@ -252,6 +364,8 @@ class ParkSignalsSupportTest(unittest.TestCase):
             "daily_top": [],
             "monthly_top": [],
             "monthly_window_label": "June 2026",
+            "monthly_reliability_ready": True,
+            "trend_insights_ready": True,
             "thirty_day_top": [],
             "stable_park": None,
             "active_multi_ride_alerts": [
@@ -390,6 +504,8 @@ class ParkSignalsSupportTest(unittest.TestCase):
             "daily_top": [],
             "monthly_top": [],
             "monthly_window_label": "June 2026",
+            "monthly_reliability_ready": True,
+            "trend_insights_ready": True,
             "thirty_day_top": [],
             "stable_park": ("Magic Kingdom", 0),
             "active_multi_ride_alerts": [],
