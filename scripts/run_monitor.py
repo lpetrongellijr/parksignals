@@ -157,6 +157,19 @@ def build_suppressed_summary(park_key, park_config, observed_at, reason):
     return summary
 
 
+def analytics_config_for_open_parks(config, park_statuses):
+    open_park_keys = {
+        status["park_key"]
+        for status in park_statuses
+        if status.get("monitoring_allowed")
+    }
+    analytics_config = json.loads(json.dumps(config))
+    for park_key, park_config in analytics_config.get("parks", {}).items():
+        if park_key not in open_park_keys:
+            park_config["enabled"] = False
+    return analytics_config
+
+
 def print_hours_source_notes(config, observed_at, cache):
     print("")
     print("Park hours source")
@@ -363,7 +376,7 @@ def run():
 
     pillar_summary = parksignals_analytics.collect_content_pillar_summary(
         state,
-        config,
+        analytics_config_for_open_parks(config, park_statuses),
         observed_at,
     )
     parksignals.save_state(state)
