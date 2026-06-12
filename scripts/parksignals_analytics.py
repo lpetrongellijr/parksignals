@@ -5,6 +5,7 @@ import parksignals
 
 
 PARK_ANALYTICS_TIMEZONE = "America/New_York"
+SECONDS_PER_DAY = 24 * 60 * 60
 
 
 def local_day_start(observed_at, timezone_name=PARK_ANALYTICS_TIMEZONE):
@@ -42,10 +43,62 @@ def completed_month_window(observed_at, timezone_name=PARK_ANALYTICS_TIMEZONE):
     )
 
 
+def state_history_start(state):
+    timestamps = []
+    ride_timestamp_fields = [
+        "last_seen_at",
+        "last_changed_at",
+        "down_since",
+        "last_down_at",
+        "last_reopened_at",
+    ]
+    event_timestamp_fields = ["down_at", "reopened_at"]
+
+    for park_state in state.values():
+        if not isinstance(park_state, dict):
+            continue
+        for ride_state in park_state.values():
+            if not isinstance(ride_state, dict):
+                continue
+            for field in ride_timestamp_fields:
+                parsed = parksignals.parse_timestamp(ride_state.get(field))
+                if parsed is not None:
+                    timestamps.append(parsed)
+            for event in ride_state.get("downtime_events", []):
+                if not isinstance(event, dict):
+                    continue
+                for field in event_timestamp_fields:
+                    parsed = parksignals.parse_timestamp(event.get(field))
+                    if parsed is not None:
+                        timestamps.append(parsed)
+
+    return min(timestamps) if timestamps else None
+
+
+def data_coverage(state, observed_at):
+    started_at = state_history_start(state)
+    if started_at is None:
+        return {
+            "data_observed_since": None,
+            "data_age_seconds": 0,
+            "data_age_days": 0,
+        }
+
+    age_seconds = max(0, int((observed_at - started_at).total_seconds()))
+    return {
+        "data_observed_since": parksignals.isoformat(started_at),
+        "data_age_seconds": age_seconds,
+        "data_age_days": age_seconds // SECONDS_PER_DAY,
+    }
+
+
 def collect_content_pillar_summary(state, config, observed_at):
     day_start = local_day_start(observed_at)
     monthly_start, monthly_end, monthly_label = completed_month_window(observed_at)
     trend_start = observed_at - timedelta(days=parksignals.TREND_LOOKBACK_DAYS)
+    coverage = data_coverage(state, observed_at)
+    trend_insights_ready = coverage["data_age_seconds"] >= parksignals.TREND_LOOKBACK_DAYS * SECONDS_PER_DAY
+    monthly_reliability_ready = coverage["data_age_seconds"] >= parksignals.ANALYTICS_LOOKBACK_DAYS * SECONDS_PER_DAY
     parks = config.get("parks", {})
     daily_metrics = []
     monthly_metrics = []
@@ -111,29 +164,33 @@ def collect_content_pillar_summary(state, config, observed_at):
                 "rides": unavailable,
             })
 
-    elevated_trends = [
-        metric
-        for metric in trend_metrics
-        if metric["event_count"] >= 2
-    ]
-    active_projections = []
-    for metric in monthly_metrics:
-        average_duration = metric["average_completed_downtime_seconds"]
-        if (
-            metric["is_open"] is False
-            and average_duration
-            and metric["current_down_seconds"] > 0
-        ):
-            active_projections.append({
-                **metric,
-                "projected_total_seconds": average_duration,
-                "projected_remaining_seconds": max(
-                    0,
-                    average_duration - metric["current_down_seconds"],
-                ),
-            })
+    elevated_trends = []
+    if trend_insights_ready:
+        elevated_trends = [
+            metric
+            for metric in trend_metrics
+            if metric["event_count"] >= 2
+        ]
 
-    monthly_top = parksignals.top_downtime(monthly_metrics)
+    active_projections = []
+    if monthly_reliability_ready:
+        for metric in monthly_metrics:
+            average_duration = metric["average_completed_downtime_seconds"]
+            if (
+                metric["is_open"] is False
+                and average_duration
+                and metric["current_down_seconds"] > 0
+            ):
+                active_projections.append({
+                    **metric,
+                    "projected_total_seconds": average_duration,
+                    "projected_remaining_seconds": max(
+                        0,
+                        average_duration - metric["current_down_seconds"],
+                    ),
+                })
+
+    monthly_top = parksignals.top_downtime(monthly_metrics) if monthly_reliability_ready else []
     return {
         "daily_window_timezone": PARK_ANALYTICS_TIMEZONE,
         "daily_window_start": parksignals.isoformat(day_start),
@@ -142,6 +199,13 @@ def collect_content_pillar_summary(state, config, observed_at):
         "monthly_window_start": parksignals.isoformat(monthly_start),
         "monthly_window_end": parksignals.isoformat(monthly_end),
         "monthly_window_label": monthly_label,
+        "data_observed_since": coverage["data_observed_since"],
+        "data_age_seconds": coverage["data_age_seconds"],
+        "data_age_days": coverage["data_age_days"],
+        "trend_insights_ready": trend_insights_ready,
+        "trend_insights_min_days": parksignals.TREND_LOOKBACK_DAYS,
+        "monthly_reliability_ready": monthly_reliability_ready,
+        "monthly_reliability_min_days": parksignals.ANALYTICS_LOOKBACK_DAYS,
         "daily_top": parksignals.top_downtime(daily_metrics),
         "monthly_top": monthly_top,
         "thirty_day_top": monthly_top,
