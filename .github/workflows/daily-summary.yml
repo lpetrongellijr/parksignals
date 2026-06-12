@@ -43,6 +43,7 @@ jobs:
           python scripts/export_artifacts.py --output-dir outputs
           python scripts/export_x_status.py --output-dir outputs
           python scripts/plan_posts.py --output-dir outputs
+          python scripts/dispatch_posts.py --output-dir outputs
 
       - name: Upload Daily Summary Outputs
         uses: actions/upload-artifact@v4
