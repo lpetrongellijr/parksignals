@@ -101,7 +101,7 @@ class PostPlanningTest(unittest.TestCase):
         self.assertNotEqual(first_key, next_day_key)
         self.assertNotIn("17:00:22Z", first_key)
 
-    def test_multi_ride_reopening_suppresses_matching_single_reopenings(self):
+    def test_multi_ride_reopening_candidates_are_ignored_but_single_reopenings_remain(self):
         candidates = {
             "single_ride_reopenings": [
                 {"park_name": "EPCOT", "ride_name": "Frozen Ever After"},
@@ -120,9 +120,8 @@ class PostPlanningTest(unittest.TestCase):
         single_reopenings = [item for group, item in grouped if group == "single_ride_reopenings"]
         multi_reopenings = [item for group, item in grouped if group == "multi_ride_reopenings"]
 
-        self.assertEqual(len(single_reopenings), 1)
-        self.assertEqual(single_reopenings[0]["ride_name"], "Slinky Dog Dash")
-        self.assertEqual(len(multi_reopenings), 1)
+        self.assertEqual(len(single_reopenings), 3)
+        self.assertEqual(len(multi_reopenings), 0)
 
 
 if __name__ == "__main__":
