@@ -10,8 +10,8 @@ import x_integration
 
 
 DEFAULT_LOG_FILE = "posting_log.json"
-DEFAULT_BATCH_SIZE = 2
-DEFAULT_BATCH_DELAY_SECONDS = 120
+DEFAULT_BATCH_SIZE = 1
+DEFAULT_BATCH_DELAY_SECONDS = 60
 POST_PRIORITY = {
     "down": 1,
     "reopened": 2,
