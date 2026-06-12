@@ -12,6 +12,7 @@ import parksignals_analytics
 
 PARK_TIMEZONE = "America/New_York"
 MAX_POST_CHARACTERS = 280
+HASHTAG_TRIM_BUFFER = 25
 POST_RANKING_LIMIT = 3
 POST_DISPLAY_REPLACEMENTS = {
     "Walt Disney World": "Disney World",
@@ -129,7 +130,7 @@ def trim_post_hashtags(post_text, max_characters=MAX_POST_CHARACTERS):
     post_text = normalize_post_hashtags(normalize_post_display_text(post_text))
     lines = post_text.splitlines()
     hashtag_indices = [index for index, line in enumerate(lines) if is_hashtag_line(line)]
-    if len(post_text) < max_characters or len(hashtag_indices) <= 1:
+    if len(post_text) < max_characters - HASHTAG_TRIM_BUFFER or len(hashtag_indices) <= 1:
         return post_text
 
     protected_hashtag_index = hashtag_indices[0]
@@ -147,8 +148,7 @@ def trim_post_hashtags(post_text, max_characters=MAX_POST_CHARACTERS):
 
 def add_priority_hashtags(lines, hashtags, max_characters=MAX_POST_CHARACTERS):
     body = normalize_post_display_text("\n".join(lines).rstrip())
-    post_text = body + "\n\n" + "\n".join(hashtags)
-    return trim_post_hashtags(post_text, max_characters)
+    return trim_post_hashtags(body + "\n\n" + "\n".join(hashtags), max_characters)
 
 
 def enabled_park_lookup(config):
@@ -161,14 +161,8 @@ def enabled_park_lookup(config):
 
 def tags_for_park(park_config, extras=None):
     extras = extras or []
-    resort_hashtag = park_config.get(
-        "resort_hashtag",
-        parksignals.hashtag(park_config["resort_name"])[1:],
-    )
-    park_hashtag = park_config.get(
-        "park_hashtag",
-        parksignals.hashtag(park_config["park_name"])[1:],
-    )
+    resort_hashtag = park_config.get("resort_hashtag", parksignals.hashtag(park_config["resort_name"])[1:])
+    park_hashtag = park_config.get("park_hashtag", parksignals.hashtag(park_config["park_name"])[1:])
     tags = [normalize_hashtag(f"#{resort_hashtag}"), normalize_hashtag(f"#{park_hashtag}")]
     tags.extend(normalize_hashtag(tag) for tag in extras)
     return "\n".join(tag for tag in tags if tag.lower() not in REMOVED_HASHTAGS)
@@ -186,9 +180,7 @@ def format_rankings(title, rankings, limit=None):
     if not rankings:
         lines.append("No downtime recorded yet")
         return lines
-
-    limited_rankings = rankings[:limit] if limit else rankings
-    for index, metric in enumerate(limited_rankings, start=1):
+    for index, metric in enumerate(rankings[:limit] if limit else rankings, start=1):
         lines.append(f"{index}. {metric_line(metric)}")
     return lines
 
@@ -202,19 +194,14 @@ def monthly_rankings(summary):
 def analytics_hold_message(summary, readiness_key, min_days_key):
     if summary.get(readiness_key, True):
         return None
-    data_age_days = summary.get("data_age_days", 0)
-    min_days = summary.get(min_days_key, 0)
-    return f"Waiting for {min_days} days of history; current history is {data_age_days} days."
+    return (
+        f"Waiting for {summary.get(min_days_key, 0)} days of history; "
+        f"current history is {summary.get('data_age_days', 0)} days."
+    )
 
 
 def build_daily_summary(summary):
-    return "\n".join(
-        format_rankings(
-            "Daily downtime summary",
-            summary["daily_top"],
-            limit=POST_RANKING_LIMIT,
-        )
-    )
+    return "\n".join(format_rankings("Daily downtime summary", summary["daily_top"], limit=POST_RANKING_LIMIT))
 
 
 def local_date_label(observed_at):
@@ -225,48 +212,32 @@ def local_date_label(observed_at):
 
 
 def build_wdw_daily_post(summary, observed_at):
-    lines = [
-        "PARKSIGNALS // Disney World",
-        "",
-        f"Disney World Summary - {local_date_label(observed_at)}",
-        "",
-        "Most downtime:",
-    ]
+    lines = ["PARKSIGNALS // Disney World", "", f"Disney World Summary - {local_date_label(observed_at)}", "", "Most downtime:"]
     if summary["daily_top"]:
         for index, metric in enumerate(summary["daily_top"][:POST_RANKING_LIMIT], start=1):
             lines.append(f"{index}. {metric_line(metric)}")
     else:
         lines.append("No downtime recorded yet")
-
     return add_priority_hashtags(lines, ["#DisneyWorld"])
 
 
 def build_thirty_day_post(summary):
     rankings = monthly_rankings(summary)
     label = summary.get("monthly_window_label") or "Monthly"
-    lines = [
-        "PARKSIGNALS // Disney World",
-        "",
-        f"Disney World Reliability - {label}",
-        "",
-    ]
+    lines = ["PARKSIGNALS // Disney World", "", f"Disney World Reliability - {label}", ""]
     if rankings:
         for index, metric in enumerate(rankings[:POST_RANKING_LIMIT], start=1):
             lines.append(f"{index}. {metric_line(metric)}")
     else:
         lines.append("No completed downtime history yet")
-
     return add_priority_hashtags(lines, ["#DisneyWorld"])
 
 
 def build_multi_ride_closure_post(alert, park_lookup):
     park_config = park_lookup.get(alert["park_name"])
     resort_name = display_resort_name(park_config["resort_name"]) if park_config else "Disney World"
-    lines = [f"PARKSIGNALS // {resort_name}", ""]
-    lines.append(f"ALERT: {alert['park_name']}")
-    lines.extend(["", "Currently unavailable:"])
-    for ride_name in alert["rides"][:5]:
-        lines.append(f"- {normalize_post_display_text(ride_name)}")
+    lines = [f"PARKSIGNALS // {resort_name}", "", f"ALERT: {alert['park_name']}", "", "Currently unavailable:"]
+    lines.extend(f"- {normalize_post_display_text(ride_name)}" for ride_name in alert["rides"][:5])
     if park_config:
         lines.extend(["", tags_for_park(park_config)])
     return "\n".join(lines)
@@ -275,11 +246,8 @@ def build_multi_ride_closure_post(alert, park_lookup):
 def build_multi_ride_reopening_post(alert, park_lookup):
     park_config = park_lookup.get(alert["park_name"])
     resort_name = display_resort_name(park_config["resort_name"]) if park_config else "Disney World"
-    lines = [f"PARKSIGNALS // {resort_name}", ""]
-    lines.append(f"UPDATE: {alert['park_name']}")
-    lines.extend(["", "Multiple attractions have reopened:"])
-    for ride_name in alert["rides"][:5]:
-        lines.append(f"- {normalize_post_display_text(ride_name)}")
+    lines = [f"PARKSIGNALS // {resort_name}", "", f"UPDATE: {alert['park_name']}", "", "Multiple attractions have reopened:"]
+    lines.extend(f"- {normalize_post_display_text(ride_name)}" for ride_name in alert["rides"][:5])
     if park_config:
         lines.extend(["", tags_for_park(park_config)])
     return "\n".join(lines)
@@ -289,12 +257,7 @@ def build_trend_post(metric, park_lookup):
     park_config = park_lookup.get(metric["park_key"]) or park_lookup.get(metric["park_name"])
     resort_name = display_resort_name(park_config["resort_name"]) if park_config else "Disney World"
     ride_name = normalize_post_display_text(metric["ride_name"])
-    lines = [
-        f"PARKSIGNALS // {resort_name}",
-        "",
-        f"{ride_name} has experienced elevated downtime frequency over the past 7 days.",
-        "",
-    ]
+    lines = [f"PARKSIGNALS // {resort_name}", "", f"{ride_name} has experienced elevated downtime frequency over the past 7 days.", ""]
     if park_config:
         lines.append(tags_for_park(park_config, [parksignals.ride_hashtag(ride_name)]))
     return "\n".join(lines)
@@ -337,22 +300,14 @@ def build_single_ride_candidates(last_run, park_lookup):
         rides_by_id = ride_lookup_for_summary(run_summary)
         for transition in run_summary.get("transitions", []):
             ride = rides_by_id.get(transition["ride_id"], {})
-            ride_payload = {
-                "id": transition["ride_id"],
-                "name": transition["ride_name"],
-                "wait_time": ride.get("wait_time"),
-            }
+            ride_payload = {"id": transition["ride_id"], "name": transition["ride_name"], "wait_time": ride.get("wait_time")}
             candidate = with_trimmed_preview({
                 "pillar": "real_time_alert",
                 "type": transition["type"],
                 "park_name": run_summary["park_name"],
                 "ride_id": transition["ride_id"],
                 "ride_name": transition["ride_name"],
-                "preview_text": parksignals.build_post(
-                    park_config,
-                    ride_payload,
-                    reopened=transition["type"] == "reopened",
-                ),
+                "preview_text": parksignals.build_post(park_config, ride_payload, reopened=transition["type"] == "reopened"),
             })
             if transition["type"] == "reopened":
                 reopenings.append(candidate)
@@ -364,11 +319,7 @@ def build_single_ride_candidates(last_run, park_lookup):
 def build_multi_ride_reopenings(last_run):
     alerts = []
     for run_summary in last_run.get("run_summaries", []):
-        reopened = [
-            transition["ride_name"]
-            for transition in run_summary.get("transitions", [])
-            if transition["type"] == "reopened"
-        ]
+        reopened = [transition["ride_name"] for transition in run_summary.get("transitions", []) if transition["type"] == "reopened"]
         if len(reopened) >= 2:
             alerts.append({"park_name": run_summary["park_name"], "rides": reopened})
     return alerts
@@ -377,28 +328,16 @@ def build_multi_ride_reopenings(last_run):
 def build_post_candidates(summary, config, last_run, observed_at):
     park_lookup = enabled_park_lookup(config)
     single_closures, single_reopenings = build_single_ride_candidates(last_run, park_lookup)
-    multi_reopenings = build_multi_ride_reopenings(last_run)
     reliability_rankings = monthly_rankings(summary)
     monthly_ready = summary.get("monthly_reliability_ready", True)
     trends_ready = summary.get("trend_insights_ready", True)
-
     multi_closures = [
-        with_trimmed_preview({
-            "pillar": "real_time_alert",
-            "type": "multi_ride_closure",
-            **alert,
-            "preview_text": build_multi_ride_closure_post(alert, park_lookup),
-        })
+        with_trimmed_preview({"pillar": "real_time_alert", "type": "multi_ride_closure", **alert, "preview_text": build_multi_ride_closure_post(alert, park_lookup)})
         for alert in summary["active_multi_ride_alerts"]
     ]
     multi_reopening_candidates = [
-        with_trimmed_preview({
-            "pillar": "real_time_alert",
-            "type": "multi_ride_reopening",
-            **alert,
-            "preview_text": build_multi_ride_reopening_post(alert, park_lookup),
-        })
-        for alert in multi_reopenings
+        with_trimmed_preview({"pillar": "real_time_alert", "type": "multi_ride_reopening", **alert, "preview_text": build_multi_ride_reopening_post(alert, park_lookup)})
+        for alert in build_multi_ride_reopenings(last_run)
     ]
     daily_summary = with_trimmed_preview({
         "pillar": "daily_operations_summary",
@@ -417,24 +356,13 @@ def build_post_candidates(summary, config, last_run, observed_at):
     trend_candidates = []
     if trends_ready:
         trend_candidates = [
-            with_trimmed_preview({
-                "pillar": "insights_predictions",
-                "type": "trend_detection",
-                "metric": metric,
-                "preview_text": build_trend_post(metric, park_lookup),
-            })
+            with_trimmed_preview({"pillar": "insights_predictions", "type": "trend_detection", "metric": metric, "preview_text": build_trend_post(metric, park_lookup)})
             for metric in summary["elevated_trends"][:5]
         ]
     projection_candidates = [
-        with_trimmed_preview({
-            "pillar": "insights_predictions",
-            "type": "active_projection",
-            "metric": metric,
-            "preview_text": build_projection_post(metric, park_lookup),
-        })
+        with_trimmed_preview({"pillar": "insights_predictions", "type": "active_projection", "metric": metric, "preview_text": build_projection_post(metric, park_lookup)})
         for metric in summary["active_projections"][:5]
     ]
-
     return {
         "posting_connected": False,
         "observed_at": observed_at,
@@ -445,10 +373,7 @@ def build_post_candidates(summary, config, last_run, observed_at):
         "daily_summaries": [daily_summary],
         "monthly_reliability_rankings": monthly_reliability,
         "thirty_day_rankings": monthly_reliability,
-        "insights": {
-            "elevated_trends": trend_candidates,
-            "active_projections": projection_candidates,
-        },
+        "insights": {"elevated_trends": trend_candidates, "active_projections": projection_candidates},
     }
 
 
@@ -481,16 +406,8 @@ def build_readiness_summary(summary, candidates):
     trend_hold = analytics_hold_message(summary, "trend_insights_ready", "trend_insights_min_days")
     monthly_hold = analytics_hold_message(summary, "monthly_reliability_ready", "monthly_reliability_min_days")
     lines = ["Content pillar readiness"]
-    lines.append(
-        "Single ride closure/reopen previews: "
-        + str(len(candidates["single_ride_closures"]) + len(candidates["single_ride_reopenings"]))
-        + " current-run candidates"
-    )
-    lines.append(
-        "Multi-ride closure/reopening previews: "
-        + str(len(candidates["multi_ride_closures"]) + len(candidates["multi_ride_reopenings"]))
-        + " candidates"
-    )
+    lines.append("Single ride closure/reopen previews: " + str(len(candidates["single_ride_closures"]) + len(candidates["single_ride_reopenings"])) + " current-run candidates")
+    lines.append("Multi-ride closure/reopening previews: " + str(len(candidates["multi_ride_closures"]) + len(candidates["multi_ride_reopenings"])) + " candidates")
     lines.extend(format_rankings("Daily summary inputs", summary["daily_top"]))
     if monthly_hold:
         lines.append("Monthly reliability inputs")
@@ -512,7 +429,6 @@ def build_park_status_text(park_statuses):
     if not park_statuses:
         lines.append("No park status was recorded for this run.")
         return "\n".join(lines)
-
     for status in park_statuses:
         hours = status.get("hours") or {}
         hours_text = "official hours unavailable"
@@ -544,7 +460,6 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", default="outputs")
     args = parser.parse_args()
-
     output_dir = Path(args.output_dir)
     config = parksignals.load_config()
     state = parksignals.load_state()
@@ -559,7 +474,6 @@ def main():
     )
     park_statuses = last_run.get("park_statuses", [])
     candidates = build_post_candidates(summary, config, last_run, observed_at)
-
     write_json(output_dir / "analytics-summary.json", summary)
     write_json(output_dir / "post-candidates.json", candidates)
     write_json(output_dir / "ride-id-map.json", build_ride_id_map(state))
