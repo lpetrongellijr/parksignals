@@ -681,6 +681,56 @@
       "ride_name": null,
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T21:45:19Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:466:2026-06-12T21:45:18Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Gran Fiesta Tour Starring The Three Caballeros",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T21:45:19Z",
+      "dedupe_key": "real_time_alert:reopened:EPCOT:159:2026-06-12T21:45:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Spaceship Earth",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T21:45:19Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:43467919466140a3:2026-06-12",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T21:45:19Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:9b43f4c477ea4994:2026-06-12",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-12T21:45:19Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Animal Kingdom:53781c1308589511:2026-06-12",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Animal Kingdom",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
