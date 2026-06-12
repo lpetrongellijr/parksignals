@@ -1,6 +1,7 @@
 import argparse
 import hashlib
 import json
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -16,6 +17,8 @@ DEFAULT_POLICY_FILE = "posting_policy.json"
 DEFAULT_LOG_FILE = "posting_log.json"
 MAX_RECORDED_DECISIONS = 500
 PARK_TIMEZONE = "America/New_York"
+POST_CONTEXT_MONITOR = "monitor"
+POST_CONTEXT_DAILY_SUMMARY = "daily_summary"
 
 
 def utc_now_text():
@@ -45,7 +48,18 @@ def write_text(path, content):
             f.write("\n")
 
 
+def suppressed_reopening_pairs(candidates):
+    pairs = set()
+    for item in candidates.get("multi_ride_reopenings", []):
+        park_name = item.get("park_name")
+        for ride_name in item.get("rides", []):
+            if park_name and ride_name:
+                pairs.add((park_name, ride_name))
+    return pairs
+
+
 def candidate_groups(candidates):
+    suppressed_reopenings = suppressed_reopening_pairs(candidates)
     groups = [
         ("single_ride_closures", candidates.get("single_ride_closures", [])),
         ("single_ride_reopenings", candidates.get("single_ride_reopenings", [])),
@@ -58,6 +72,11 @@ def candidate_groups(candidates):
     ]
     for group_name, items in groups:
         for item in items:
+            if (
+                group_name == "single_ride_reopenings"
+                and (item.get("park_name"), item.get("ride_name")) in suppressed_reopenings
+            ):
+                continue
             yield group_name, item
 
 
@@ -76,27 +95,31 @@ def local_date_from_observed_at(observed_at):
     return parsed.astimezone(ZoneInfo(PARK_TIMEZONE)).date().isoformat()
 
 
+def stable_ride_set(candidate):
+    return "|".join(sorted(candidate.get("rides", [])))
+
+
 def candidate_key(candidate, observed_at):
     pillar = candidate.get("pillar", "unknown")
     candidate_type = candidate.get("type", "unknown")
     park = candidate.get("park_name") or candidate.get("metric", {}).get("park_name") or "resort"
     ride_id = candidate.get("ride_id") or candidate.get("metric", {}).get("ride_id")
     ride_name = candidate.get("ride_name") or candidate.get("metric", {}).get("ride_name")
+    local_date = local_date_from_observed_at(observed_at)
 
     if pillar == "real_time_alert" and ride_id:
         return f"{pillar}:{candidate_type}:{park}:{ride_id}:{observed_at}"
     if pillar == "real_time_alert" and candidate.get("rides"):
-        rides = "|".join(sorted(candidate.get("rides", [])))
-        return f"{pillar}:{candidate_type}:{park}:{stable_hash(rides)}:{observed_at}"
+        return f"{pillar}:{candidate_type}:{park}:{stable_hash(stable_ride_set(candidate))}:{local_date}"
     if pillar == "daily_operations_summary":
-        return f"{pillar}:{candidate_type}:{local_date_from_observed_at(observed_at)}"
+        return f"{pillar}:{candidate_type}:{local_date}"
     if pillar == "reliability_analytics":
-        return f"{pillar}:{candidate_type}:{local_date_from_observed_at(observed_at)}"
+        return f"{pillar}:{candidate_type}:{local_date}"
     if pillar == "insights_predictions" and ride_id:
-        return f"{pillar}:{candidate_type}:{park}:{ride_id}:{local_date_from_observed_at(observed_at)}"
+        return f"{pillar}:{candidate_type}:{park}:{ride_id}:{local_date}"
     if ride_name:
-        return f"{pillar}:{candidate_type}:{park}:{stable_hash(ride_name)}:{local_date_from_observed_at(observed_at)}"
-    return f"{pillar}:{candidate_type}:{stable_hash(candidate_text(candidate))}:{local_date_from_observed_at(observed_at)}"
+        return f"{pillar}:{candidate_type}:{park}:{stable_hash(ride_name)}:{local_date}"
+    return f"{pillar}:{candidate_type}:{stable_hash(candidate_text(candidate))}:{local_date}"
 
 
 def policy_type_enabled(policy, pillar, candidate_type):
@@ -132,7 +155,7 @@ def has_nonempty_metrics(candidate):
     return bool(metrics)
 
 
-def evaluate_candidate(candidate, policy, x_status, posting_log, park_statuses, observed_at):
+def evaluate_candidate(candidate, policy, x_status, posting_log, park_statuses, observed_at, post_context):
     text = candidate_text(candidate)
     pillar = candidate.get("pillar", "unknown")
     candidate_type = candidate.get("type", "unknown")
@@ -153,6 +176,12 @@ def evaluate_candidate(candidate, policy, x_status, posting_log, park_statuses, 
         and not park_is_open_for_candidate(candidate, park_statuses)
     ):
         reasons.append("park_closed_for_monitoring")
+    if (
+        policy.get("rules", {}).get("block_daily_summary_outside_daily_workflow", True)
+        and pillar == "daily_operations_summary"
+        and post_context != POST_CONTEXT_DAILY_SUMMARY
+    ):
+        reasons.append("daily_summary_not_in_daily_workflow")
     if (
         policy.get("rules", {}).get("block_empty_daily_summary", True)
         and pillar == "daily_operations_summary"
@@ -224,6 +253,7 @@ def append_decisions(posting_log, plan, generated_at):
 def build_plan_text(plan):
     lines = ["Post dispatch plan"]
     lines.append(f"Generated at: {plan['generated_at']}")
+    lines.append(f"Post context: {plan['post_context']}")
     lines.append(f"Posting enabled: {str(plan['posting_enabled']).lower()}")
     lines.append(f"Dry run: {str(plan['dry_run']).lower()}")
     lines.append(f"Candidates: {plan['candidate_count']}")
@@ -252,17 +282,18 @@ def build_plan_text(plan):
     return "\n".join(lines)
 
 
-def build_plan(candidates, policy, x_status, posting_log, last_run):
+def build_plan(candidates, policy, x_status, posting_log, last_run, post_context=POST_CONTEXT_MONITOR):
     generated_at = utc_now_text()
     observed_at = candidates.get("observed_at") or last_run.get("observed_at") or generated_at
     park_statuses = last_run.get("park_statuses", [])
     items = [
-        evaluate_candidate(candidate, policy, x_status, posting_log, park_statuses, observed_at)
+        evaluate_candidate(candidate, policy, x_status, posting_log, park_statuses, observed_at, post_context)
         for _group_name, candidate in candidate_groups(candidates)
     ]
     return {
         "generated_at": generated_at,
         "observed_at": observed_at,
+        "post_context": post_context,
         "posting_enabled": bool(policy.get("posting_enabled", False)) and x_integration.posting_enabled(),
         "dry_run": bool(policy.get("dry_run", True)),
         "candidate_count": len(items),
@@ -278,6 +309,7 @@ def main():
     parser.add_argument("--output-dir", default="outputs")
     parser.add_argument("--policy", default=DEFAULT_POLICY_FILE)
     parser.add_argument("--log", default=DEFAULT_LOG_FILE)
+    parser.add_argument("--post-context", default=os.environ.get("PARKSIGNALS_POST_CONTEXT", POST_CONTEXT_MONITOR))
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
@@ -287,7 +319,7 @@ def main():
     x_status = load_json(output_dir / "x-connection-status.json", x_integration.connection_status())
     last_run = load_json(output_dir / "last-run-summary.json", {})
 
-    plan = build_plan(candidates, policy, x_status, posting_log, last_run)
+    plan = build_plan(candidates, policy, x_status, posting_log, last_run, args.post_context)
     if policy.get("rules", {}).get("record_dry_run_decisions", True):
         posting_log = append_decisions(posting_log, plan, plan["generated_at"])
 
