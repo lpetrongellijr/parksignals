@@ -35,6 +35,17 @@ Monitor and Daily Summary also create dispatch artifacts:
 
 While posting is disabled, these should say no posts were ready to dispatch.
 
+When posting is enabled, dispatch sends one post at a time, waits 60 seconds, then sends the next ready post. Priority is:
+
+1. Single ride closures
+2. Single ride reopenings
+3. Multi-ride closures
+4. Multi-ride reopenings
+5. Daily summaries
+6. Monthly reliability
+7. Trend insights
+8. Projection insights
+
 ## Before enabling live posts
 
 Confirm all of these first:
