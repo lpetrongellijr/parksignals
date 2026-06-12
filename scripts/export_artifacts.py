@@ -175,7 +175,17 @@ def format_rankings(title, rankings, limit=None):
 
 
 def monthly_rankings(summary):
+    if not summary.get("monthly_reliability_ready", True):
+        return []
     return summary.get("monthly_top") or summary.get("thirty_day_top", [])
+
+
+def analytics_hold_message(summary, readiness_key, min_days_key):
+    if summary.get(readiness_key, True):
+        return None
+    data_age_days = summary.get("data_age_days", 0)
+    min_days = summary.get(min_days_key, 0)
+    return f"Waiting for {min_days} days of history; current history is {data_age_days} days."
 
 
 def build_daily_summary(summary):
@@ -354,6 +364,8 @@ def build_post_candidates(summary, config, last_run, observed_at):
     single_closures, single_reopenings = build_single_ride_candidates(last_run, park_lookup)
     multi_reopenings = build_multi_ride_reopenings(last_run)
     reliability_rankings = monthly_rankings(summary)
+    monthly_ready = summary.get("monthly_reliability_ready", True)
+    trends_ready = summary.get("trend_insights_ready", True)
 
     multi_closures = [
         with_trimmed_preview({
@@ -379,21 +391,25 @@ def build_post_candidates(summary, config, last_run, observed_at):
         "preview_text": build_wdw_daily_post(summary, observed_at),
         "metrics": summary["daily_top"][:POST_RANKING_LIMIT],
     })
-    monthly_reliability = with_trimmed_preview({
-        "pillar": "reliability_analytics",
-        "type": "wdw_monthly_reliability",
-        "preview_text": build_thirty_day_post(summary),
-        "metrics": reliability_rankings[:POST_RANKING_LIMIT],
-    })
-    trend_candidates = [
-        with_trimmed_preview({
-            "pillar": "insights_predictions",
-            "type": "trend_detection",
-            "metric": metric,
-            "preview_text": build_trend_post(metric, park_lookup),
-        })
-        for metric in summary["elevated_trends"][:5]
-    ]
+    monthly_reliability = []
+    if monthly_ready:
+        monthly_reliability = [with_trimmed_preview({
+            "pillar": "reliability_analytics",
+            "type": "wdw_monthly_reliability",
+            "preview_text": build_thirty_day_post(summary),
+            "metrics": reliability_rankings[:POST_RANKING_LIMIT],
+        })]
+    trend_candidates = []
+    if trends_ready:
+        trend_candidates = [
+            with_trimmed_preview({
+                "pillar": "insights_predictions",
+                "type": "trend_detection",
+                "metric": metric,
+                "preview_text": build_trend_post(metric, park_lookup),
+            })
+            for metric in summary["elevated_trends"][:5]
+        ]
     projection_candidates = [
         with_trimmed_preview({
             "pillar": "insights_predictions",
@@ -412,8 +428,8 @@ def build_post_candidates(summary, config, last_run, observed_at):
         "multi_ride_closures": multi_closures,
         "multi_ride_reopenings": multi_reopening_candidates,
         "daily_summaries": [daily_summary],
-        "monthly_reliability_rankings": [monthly_reliability],
-        "thirty_day_rankings": [monthly_reliability],
+        "monthly_reliability_rankings": monthly_reliability,
+        "thirty_day_rankings": monthly_reliability,
         "insights": {
             "elevated_trends": trend_candidates,
             "active_projections": projection_candidates,
@@ -447,6 +463,8 @@ def build_post_previews(candidates):
 def build_readiness_summary(summary, candidates):
     reliability_rankings = monthly_rankings(summary)
     reliability_candidates = candidates.get("monthly_reliability_rankings") or candidates["thirty_day_rankings"]
+    trend_hold = analytics_hold_message(summary, "trend_insights_ready", "trend_insights_min_days")
+    monthly_hold = analytics_hold_message(summary, "monthly_reliability_ready", "monthly_reliability_min_days")
     lines = ["Content pillar readiness"]
     lines.append(
         "Single ride closure/reopen previews: "
@@ -459,9 +477,16 @@ def build_readiness_summary(summary, candidates):
         + " candidates"
     )
     lines.extend(format_rankings("Daily summary inputs", summary["daily_top"]))
-    lines.extend(format_rankings("Monthly reliability inputs", reliability_rankings))
+    if monthly_hold:
+        lines.append("Monthly reliability inputs")
+        lines.append(monthly_hold)
+    else:
+        lines.extend(format_rankings("Monthly reliability inputs", reliability_rankings))
     lines.append(f"Monthly reliability preview candidates: {len(reliability_candidates)}")
-    lines.append(f"Trend preview candidates: {len(candidates['insights']['elevated_trends'])}")
+    if trend_hold:
+        lines.append(f"Trend preview candidates: 0 ({trend_hold})")
+    else:
+        lines.append(f"Trend preview candidates: {len(candidates['insights']['elevated_trends'])}")
     lines.append(f"Projection preview candidates: {len(candidates['insights']['active_projections'])}")
     lines.append("Posting connected: false")
     return "\n".join(lines)
@@ -475,7 +500,7 @@ def build_park_status_text(park_statuses):
 
     for status in park_statuses:
         hours = status.get("hours") or {}
-        hours_text = "no hours guard configured"
+        hours_text = "official hours unavailable"
         if hours:
             hours_text = f"{hours['opens_at']}-{hours['closes_at']} {hours['timezone']} ({hours['source']})"
         lines.append(f"- {status['park_name']}: {status['operating_status']} for monitoring; {hours_text}")
