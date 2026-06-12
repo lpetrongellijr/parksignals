@@ -44,6 +44,7 @@ jobs:
           python scripts/export_artifacts.py --output-dir outputs
           python scripts/export_x_status.py --output-dir outputs
           python scripts/plan_posts.py --output-dir outputs
+          python scripts/dispatch_posts.py --output-dir outputs
 
       - name: Upload Monitor Outputs
         uses: actions/upload-artifact@v4
@@ -56,5 +57,10 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add state.json posting_log.json
-          git commit -m "Update ride state and posting log" || echo "No changes"
+          if git diff --cached --quiet; then
+            echo "No state or posting log changes"
+            exit 0
+          fi
+          git commit -m "Update ride state and posting log"
+          git pull --rebase origin main
           git push
