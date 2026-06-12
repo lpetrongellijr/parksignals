@@ -28,6 +28,7 @@ POST_DISPLAY_REPLACEMENTS = {
     "Gran Fiesta Tour Starring The Three Caballeros": "Gran Fiesta Tour",
     "Tomorrowland Transit Authority PeopleMover": "PeopleMover",
     "Rock ’n’ Roller Coaster Starring The Muppets": "Rock ’n’ Roller Coaster",
+    "Walt Disney’s Carousel of Progress": "Carousel of Progress",
 }
 HASHTAG_REPLACEMENTS = {
     "#WaltDisneyWorld": "#DisneyWorld",
@@ -43,6 +44,7 @@ HASHTAG_REPLACEMENTS = {
     "#GranFiestaTourStarringTheThreeCaballeros": "#GranFiestaTour",
     "#TomorrowlandTransitAuthorityPeopleMover": "#PeopleMover",
     "#RocknRollerCoasterStarringTheMuppets": "#RocknRollerCoaster",
+    "#WaltDisneysCarouselofProgress": "#CarouselofProgress",
 }
 REMOVED_HASHTAGS = {
     "#down",
