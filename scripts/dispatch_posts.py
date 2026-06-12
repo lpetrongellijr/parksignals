@@ -1,6 +1,7 @@
 import argparse
 import json
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -9,6 +10,19 @@ import x_integration
 
 
 DEFAULT_LOG_FILE = "posting_log.json"
+DEFAULT_BATCH_SIZE = 2
+DEFAULT_BATCH_DELAY_SECONDS = 120
+POST_PRIORITY = {
+    "down": 1,
+    "reopened": 2,
+    "multi_ride_closure": 3,
+    "multi_ride_reopening": 4,
+    "wdw_daily_summary": 5,
+    "wdw_monthly_reliability": 6,
+    "wdw_30_day_downtime": 6,
+    "trend_detection": 7,
+    "active_projection": 8,
+}
 
 
 def load_json(path, default):
@@ -34,31 +48,67 @@ def write_text(path, content):
             f.write("\n")
 
 
-def dispatch_ready_posts(plan):
-    results = []
-    for item in plan.get("items", []):
+def ready_posts(plan):
+    ready = []
+    for index, item in enumerate(plan.get("items", [])):
         if item.get("decision") != "post" or item.get("status") != "ready_to_post":
             continue
+        ready.append((index, item))
+    return [
+        item
+        for _index, item in sorted(
+            ready,
+            key=lambda indexed_item: (
+                POST_PRIORITY.get(indexed_item[1].get("type"), 99),
+                indexed_item[0],
+            ),
+        )
+    ]
 
-        result = {
-            "dedupe_key": item["dedupe_key"],
-            "pillar": item["pillar"],
-            "type": item["type"],
-            "park_name": item.get("park_name"),
-            "ride_name": item.get("ride_name"),
-            "status": "pending",
-            "tweet_id": None,
-            "error": None,
-        }
-        try:
-            posted = x_integration.publish_post(item.get("preview_text", ""))
-        except x_integration.XIntegrationError as exc:
-            result["status"] = "failed"
-            result["error"] = str(exc)
-        else:
-            result["status"] = "posted"
-            result["tweet_id"] = posted.get("tweet_id")
-        results.append(result)
+
+def post_result_template(item, sequence, batch_number):
+    return {
+        "dedupe_key": item["dedupe_key"],
+        "pillar": item["pillar"],
+        "type": item["type"],
+        "park_name": item.get("park_name"),
+        "ride_name": item.get("ride_name"),
+        "priority": POST_PRIORITY.get(item.get("type"), 99),
+        "sequence": sequence,
+        "batch_number": batch_number,
+        "status": "pending",
+        "tweet_id": None,
+        "error": None,
+    }
+
+
+def dispatch_ready_posts(plan, batch_size=DEFAULT_BATCH_SIZE, batch_delay_seconds=DEFAULT_BATCH_DELAY_SECONDS, sleep=time.sleep):
+    posts = ready_posts(plan)
+    results = []
+    if not posts:
+        return results
+
+    batch_size = max(1, int(batch_size))
+    batch_delay_seconds = max(0, int(batch_delay_seconds))
+    total_batches = (len(posts) + batch_size - 1) // batch_size
+
+    for batch_index in range(total_batches):
+        batch_number = batch_index + 1
+        if batch_index > 0 and batch_delay_seconds:
+            sleep(batch_delay_seconds)
+
+        batch = posts[batch_index * batch_size:(batch_index + 1) * batch_size]
+        for item in batch:
+            result = post_result_template(item, len(results) + 1, batch_number)
+            try:
+                posted = x_integration.publish_post(item.get("preview_text", ""))
+            except x_integration.XIntegrationError as exc:
+                result["status"] = "failed"
+                result["error"] = str(exc)
+            else:
+                result["status"] = "posted"
+                result["tweet_id"] = posted.get("tweet_id")
+            results.append(result)
     return results
 
 
@@ -87,14 +137,22 @@ def update_posting_log(posting_log, results):
     return posting_log
 
 
-def build_results_text(results):
+def build_results_text(results, batch_size=DEFAULT_BATCH_SIZE, batch_delay_seconds=DEFAULT_BATCH_DELAY_SECONDS):
     lines = ["X dispatch results"]
+    lines.append(f"Batch size: {batch_size}")
+    lines.append(f"Delay between batches: {batch_delay_seconds} seconds")
+    lines.append("Priority: single closures, single reopenings, multi-ride closures, multi-ride reopenings, then summaries and insights")
+    lines.append("")
     if not results:
         lines.append("No posts were ready to dispatch.")
         return "\n".join(lines)
 
     for result in results:
-        lines.append(f"- {result['status']}: {result['pillar']} / {result['type']}")
+        lines.append(
+            f"- {result['status']}: batch {result['batch_number']}, "
+            f"sequence {result['sequence']}, priority {result['priority']} "
+            f"({result['pillar']} / {result['type']})"
+        )
         if result.get("park_name"):
             lines.append(f"  Park: {result['park_name']}")
         if result.get("ride_name"):
@@ -110,17 +168,34 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", default="outputs")
     parser.add_argument("--log", default=DEFAULT_LOG_FILE)
+    parser.add_argument("--batch-size", type=int, default=DEFAULT_BATCH_SIZE)
+    parser.add_argument("--batch-delay-seconds", type=int, default=DEFAULT_BATCH_DELAY_SECONDS)
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
     plan = load_json(output_dir / "post-dispatch-plan.json", {})
     posting_log = load_json(Path(args.log), {"version": 1, "posted_keys": [], "decisions": []})
 
-    results = dispatch_ready_posts(plan)
+    results = dispatch_ready_posts(
+        plan,
+        batch_size=args.batch_size,
+        batch_delay_seconds=args.batch_delay_seconds,
+    )
     posting_log = update_posting_log(posting_log, results)
 
-    write_json(output_dir / "x-dispatch-results.json", {"results": results})
-    write_text(output_dir / "x-dispatch-results.txt", build_results_text(results))
+    write_json(
+        output_dir / "x-dispatch-results.json",
+        {
+            "batch_size": max(1, int(args.batch_size)),
+            "batch_delay_seconds": max(0, int(args.batch_delay_seconds)),
+            "priority_order": POST_PRIORITY,
+            "results": results,
+        },
+    )
+    write_text(
+        output_dir / "x-dispatch-results.txt",
+        build_results_text(results, args.batch_size, args.batch_delay_seconds),
+    )
     write_json(Path(args.log), posting_log)
 
     failed = [result for result in results if result["status"] == "failed"]
