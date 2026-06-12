@@ -24,6 +24,7 @@ POST_DISPLAY_REPLACEMENTS = {
     "Expedition Everest - Legend of the Forbidden Mountain": "Expedition Everest",
     "The Twilight Zone™ Tower of Terror": "The Twilight Zone Tower of Terror",
     "Star Tours - The Adventures Continue": "Star Tours",
+    "Star Tours – The Adventures Continue": "Star Tours",
     "Journey Into Imagination With Figment": "Journey Into Imagination",
     "Gran Fiesta Tour Starring The Three Caballeros": "Gran Fiesta Tour",
     "Tomorrowland Transit Authority PeopleMover": "PeopleMover",
@@ -150,7 +151,7 @@ def trim_blank_edges(lines):
 def trim_post_hashtags(post_text, max_characters=MAX_POST_CHARACTERS):
     lines = post_text.splitlines()
     hashtag_indices = [index for index, line in enumerate(lines) if is_hashtag_line(line)]
-    if len(post_text) <= max_characters or len(hashtag_indices) <= 1:
+    if len(post_text) < max_characters or len(hashtag_indices) <= 1:
         return post_text
 
     protected_hashtag_index = hashtag_indices[0]
@@ -167,8 +168,9 @@ def trim_post_hashtags(post_text, max_characters=MAX_POST_CHARACTERS):
 
 
 def add_priority_hashtags(lines, hashtags, max_characters=MAX_POST_CHARACTERS):
-    body = "\n".join(lines).rstrip()
-    return trim_post_hashtags(body + "\n\n" + "\n".join(hashtags), max_characters)
+    body = normalize_post_display_text("\n".join(lines).rstrip())
+    post_text = body + "\n\n" + "\n".join(hashtags)
+    return trim_post_hashtags(normalize_post_hashtags(post_text), max_characters)
 
 
 def metric_line(metric, include_park=True):
@@ -253,8 +255,7 @@ def build_thirty_day_post(summary):
     else:
         lines.append("No completed downtime history yet")
 
-    lines.extend(["", "#DisneyWorld"])
-    return "\n".join(lines)
+    return add_priority_hashtags(lines, ["#DisneyWorld"])
 
 
 def build_multi_ride_closure_post(alert, park_lookup):
@@ -422,154 +423,3 @@ def build_post_candidates(summary, config, last_run, observed_at):
                 "pillar": "insights_predictions",
                 "type": "trend_detection",
                 "metric": metric,
-                "preview_text": build_trend_post(metric, park_lookup),
-            })
-            for metric in summary["elevated_trends"][:5]
-        ]
-    projection_candidates = [
-        with_trimmed_preview({
-            "pillar": "insights_predictions",
-            "type": "active_projection",
-            "metric": metric,
-            "preview_text": build_projection_post(metric, park_lookup),
-        })
-        for metric in summary["active_projections"][:5]
-    ]
-
-    return {
-        "posting_connected": False,
-        "observed_at": observed_at,
-        "single_ride_closures": single_closures,
-        "single_ride_reopenings": single_reopenings,
-        "multi_ride_closures": multi_closures,
-        "multi_ride_reopenings": multi_reopening_candidates,
-        "daily_summaries": [daily_summary],
-        "monthly_reliability_rankings": monthly_reliability,
-        "thirty_day_rankings": monthly_reliability,
-        "insights": {
-            "elevated_trends": trend_candidates,
-            "active_projections": projection_candidates,
-        },
-    }
-
-
-def build_post_previews(candidates):
-    reliability_candidates = candidates.get("monthly_reliability_rankings") or candidates["thirty_day_rankings"]
-    sections = [
-        ("Single Ride Closures", candidates["single_ride_closures"]),
-        ("Single Ride Reopenings", candidates["single_ride_reopenings"]),
-        ("Multi-Ride Closures", candidates["multi_ride_closures"]),
-        ("Multi-Ride Reopenings", candidates["multi_ride_reopenings"]),
-        ("Daily Summaries", candidates["daily_summaries"]),
-        ("Monthly Reliability", reliability_candidates),
-        ("Trend Insights", candidates["insights"]["elevated_trends"]),
-        ("Projection Insights", candidates["insights"]["active_projections"]),
-    ]
-    lines = ["ParkSignals post previews", "Posting connected: false"]
-    for title, items in sections:
-        lines.extend(["", "=" * len(title), title, "=" * len(title)])
-        if not items:
-            lines.append("No candidates right now.")
-            continue
-        for index, item in enumerate(items, start=1):
-            lines.extend(["", f"Candidate {index}", "-" * 11, item["preview_text"]])
-    return "\n".join(lines)
-
-
-def build_readiness_summary(summary, candidates):
-    reliability_rankings = monthly_rankings(summary)
-    reliability_candidates = candidates.get("monthly_reliability_rankings") or candidates["thirty_day_rankings"]
-    trend_hold = analytics_hold_message(summary, "trend_insights_ready", "trend_insights_min_days")
-    monthly_hold = analytics_hold_message(summary, "monthly_reliability_ready", "monthly_reliability_min_days")
-    lines = ["Content pillar readiness"]
-    lines.append(
-        "Single ride closure/reopen previews: "
-        + str(len(candidates["single_ride_closures"]) + len(candidates["single_ride_reopenings"]))
-        + " current-run candidates"
-    )
-    lines.append(
-        "Multi-ride closure/reopening previews: "
-        + str(len(candidates["multi_ride_closures"]) + len(candidates["multi_ride_reopenings"]))
-        + " candidates"
-    )
-    lines.extend(format_rankings("Daily summary inputs", summary["daily_top"]))
-    if monthly_hold:
-        lines.append("Monthly reliability inputs")
-        lines.append(monthly_hold)
-    else:
-        lines.extend(format_rankings("Monthly reliability inputs", reliability_rankings))
-    lines.append(f"Monthly reliability preview candidates: {len(reliability_candidates)}")
-    if trend_hold:
-        lines.append(f"Trend preview candidates: 0 ({trend_hold})")
-    else:
-        lines.append(f"Trend preview candidates: {len(candidates['insights']['elevated_trends'])}")
-    lines.append(f"Projection preview candidates: {len(candidates['insights']['active_projections'])}")
-    lines.append("Posting connected: false")
-    return "\n".join(lines)
-
-
-def build_park_status_text(park_statuses):
-    lines = ["Park operating status"]
-    if not park_statuses:
-        lines.append("No park status was recorded for this run.")
-        return "\n".join(lines)
-
-    for status in park_statuses:
-        hours = status.get("hours") or {}
-        hours_text = "official hours unavailable"
-        if hours:
-            hours_text = f"{hours['opens_at']}-{hours['closes_at']} {hours['timezone']} ({hours['source']})"
-        lines.append(f"- {status['park_name']}: {status['operating_status']} for monitoring; {hours_text}")
-        if status.get("reason"):
-            lines.append(f"  {status['reason']}")
-    return "\n".join(lines)
-
-
-def build_ride_id_map(state):
-    ride_map = {}
-    for park_key, rides in state.items():
-        if not isinstance(rides, dict):
-            continue
-        ride_map[park_key] = [
-            {
-                "id": ride_id,
-                "name": ride_state.get("name") if isinstance(ride_state, dict) else None,
-                "is_open": ride_state.get("is_open") if isinstance(ride_state, dict) else ride_state,
-            }
-            for ride_id, ride_state in rides.items()
-        ]
-    return ride_map
-
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--output-dir", default="outputs")
-    args = parser.parse_args()
-
-    output_dir = Path(args.output_dir)
-    config = parksignals.load_config()
-    state = parksignals.load_state()
-    observed_at = parksignals.isoformat(parksignals.utc_now())
-    last_run = load_json(output_dir / "last-run-summary.json", {})
-    if last_run.get("observed_at"):
-        observed_at = last_run["observed_at"]
-    summary = last_run.get("content_pillar_summary") or parksignals_analytics.collect_content_pillar_summary(
-        state,
-        config,
-        parksignals.parse_timestamp(observed_at) or parksignals.utc_now(),
-    )
-    park_statuses = last_run.get("park_statuses", [])
-    candidates = build_post_candidates(summary, config, last_run, observed_at)
-
-    write_json(output_dir / "analytics-summary.json", summary)
-    write_json(output_dir / "post-candidates.json", candidates)
-    write_json(output_dir / "ride-id-map.json", build_ride_id_map(state))
-    write_json(output_dir / "park-status.json", park_statuses)
-    write_text(output_dir / "daily-summary.txt", build_daily_summary(summary))
-    write_text(output_dir / "content-pillar-readiness.txt", build_readiness_summary(summary, candidates))
-    write_text(output_dir / "park-status.txt", build_park_status_text(park_statuses))
-    write_text(output_dir / "post-previews.txt", build_post_previews(candidates))
-
-
-if __name__ == "__main__":
-    main()
