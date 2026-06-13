@@ -92,6 +92,20 @@ def data_coverage(state, observed_at):
     }
 
 
+def unavailable_ride_names(park_state):
+    names = []
+    seen = set()
+    for ride_id, ride_state in park_state.items():
+        if not isinstance(ride_state, dict) or ride_state.get("is_open") is not False:
+            continue
+        name = ride_state.get("name") or ride_id
+        if name in seen:
+            continue
+        seen.add(name)
+        names.append(name)
+    return names
+
+
 def collect_content_pillar_summary(state, config, observed_at):
     day_start = local_day_start(observed_at)
     monthly_start, monthly_end, monthly_label = completed_month_window(observed_at)
@@ -153,11 +167,7 @@ def collect_content_pillar_summary(state, config, observed_at):
     for park_key, park_config in parks.items():
         if not park_config.get("enabled", False):
             continue
-        unavailable = [
-            ride_state.get("name") or ride_id
-            for ride_id, ride_state in state.get(park_key, {}).items()
-            if isinstance(ride_state, dict) and ride_state.get("is_open") is False
-        ]
+        unavailable = unavailable_ride_names(state.get(park_key, {}))
         if len(unavailable) >= 2:
             active_multi_ride_alerts.append({
                 "park_name": park_config["park_name"],
