@@ -55,7 +55,7 @@ class PlannedClosureTest(unittest.TestCase):
             }
         }
         original_fetch_rides = parksignals.fetch_rides
-        parksignals.fetch_rides = lambda config: [
+        parksignals.fetch_rides = lambda config, park_key=None: [
             {
                 "id": "123",
                 "name": "Kali River Rapids",

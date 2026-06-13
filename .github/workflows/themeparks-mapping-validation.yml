@@ -1,14 +1,19 @@
-name: ParkSignals Tests
+name: ThemeParks Wiki Mapping Validation
 
 on:
-  pull_request:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  test:
+  validate-themeparks-mapping:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,19 +28,18 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
-      - name: Run Tests
+      - name: Run Unit Tests
         run: python -m unittest discover -s tests
 
-      - name: Run Dry Run
-        run: python scripts/dry_run.py --data samples/dry_run_themeparks_wiki.json --output-dir outputs
-
       - name: Validate ThemeParks Wiki Mapping
-        if: always()
-        run: python scripts/validate_themeparks_mapping.py | tee outputs/themeparks-wiki-mapping-summary.txt
+        run: |
+          rm -rf outputs
+          mkdir -p outputs
+          python scripts/validate_themeparks_mapping.py | tee outputs/themeparks-wiki-mapping-summary.txt
 
-      - name: Upload Test Outputs
+      - name: Upload Mapping Outputs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: parksignals-test-outputs
+          name: themeparks-wiki-mapping-validation
           path: outputs/
