@@ -15,6 +15,8 @@ sys.modules.setdefault("requests", types.SimpleNamespace(get=lambda *args, **kwa
 
 import parksignals
 import export_artifacts
+import parksignals_analytics
+import run_monitor
 
 
 def load_dry_run_data(path):
@@ -99,17 +101,13 @@ def main():
                         observed_at,
                     )
                 )
-            pillar_summary = parksignals.collect_content_pillar_summary(
+            pillar_summary = parksignals_analytics.collect_content_pillar_summary(
                 state,
                 config,
                 observed_at,
             )
-            if hasattr(parksignals, "print_run_summary"):
-                parksignals.print_run_summary(summaries, observed_at)
-                parksignals.print_content_pillar_summary(pillar_summary, summaries)
-            else:
-                print(parksignals.build_run_summary_text(summaries, observed_at))
-                print(parksignals.build_content_pillar_text(pillar_summary, summaries))
+            parksignals.print_run_summary(summaries, observed_at)
+            run_monitor.print_content_pillar_summary(pillar_summary, summaries)
 
         parksignals.fetch_rides = original_fetch_rides
         parksignals.STATE_FILE = original_state_file
