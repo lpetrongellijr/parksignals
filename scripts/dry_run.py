@@ -23,7 +23,9 @@ def load_dry_run_data(path):
 
 
 def normalize_dry_run_output(output):
-    return export_artifacts.trim_post_hashtags(output)
+    return export_artifacts.normalize_post_hashtags(
+        export_artifacts.normalize_post_display_text(output)
+    )
 
 
 def main():
