@@ -221,6 +221,26 @@
       "ride_name": "Spaceship Earth",
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T14:30:24Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:6361:2026-06-13T14:30:20Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Mickey & Minnie's Runaway Railway",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T14:30:24Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Hollywood Studios:8e442a319505612b:2026-06-13",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Hollywood Studios",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
