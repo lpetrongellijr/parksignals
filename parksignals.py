@@ -3,8 +3,6 @@ import os
 from datetime import date, datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
-import requests
-
 import themeparks_wiki
 
 
@@ -107,33 +105,11 @@ def enabled_park_configs(config):
             yield park_key, park_config
 
 
-def fetch_queue_times_rides(park_config):
-    url = f"https://queue-times.com/parks/{park_config['park_id']}/queue_times.json"
-    response = requests.get(url, timeout=10)
-    response.raise_for_status()
-    data = response.json()
-    rides = []
-    for land in data.get("lands", []):
-        for ride in land.get("rides", []):
-            rides.append({
-                "id": str(ride.get("id")),
-                "name": ride.get("name"),
-                "is_open": ride.get("is_open"),
-                "wait_time": ride.get("wait_time"),
-                "source": "queue_times",
-                "source_status": None,
-                "planned_closure": None,
-            })
-    return rides
-
-
 def fetch_rides(park_config, park_key=None):
-    if park_config.get("data_source") == "themeparks_wiki":
-        resolved_park_key = park_key or park_config.get("park_key")
-        if not resolved_park_key:
-            raise ValueError("park_key is required for ThemeParks Wiki live data")
-        return themeparks_wiki.fetch_rides(resolved_park_key, park_config)
-    return fetch_queue_times_rides(park_config)
+    resolved_park_key = park_key or park_config.get("park_key")
+    if not resolved_park_key:
+        raise ValueError("park_key is required for ThemeParks Wiki live data")
+    return themeparks_wiki.fetch_rides(resolved_park_key, park_config)
 
 
 def status_label(is_open):
@@ -428,7 +404,7 @@ def monitor_park(park_key, park_config, state, observed_at):
     matched_ride_names = set()
     summary = {
         "park_name": park_config["park_name"],
-        "data_source": park_config.get("data_source", "queue_times"),
+        "data_source": park_config.get("data_source", "themeparks_wiki"),
         "configured_count": len(major_rides),
         "fetched_count": len(rides),
         "monitored_count": 0,
@@ -493,7 +469,7 @@ def print_run_summary(summaries, observed_at):
     print(f"ParkSignals monitor summary at {isoformat(observed_at)}")
     for summary in summaries:
         print("")
-        print(f"{summary['park_name']} ({summary.get('data_source', 'queue_times')}): {summary['monitored_count']}/{summary['configured_count']} configured rides matched from {summary['fetched_count']} fetched rides")
+        print(f"{summary['park_name']} ({summary.get('data_source', 'themeparks_wiki')}): {summary['monitored_count']}/{summary['configured_count']} configured rides matched from {summary['fetched_count']} fetched rides")
         print(f"Status: {summary['open_count']} open, {summary['down_count']} unavailable, {summary.get('planned_closure_count', 0)} planned")
         if summary["down_rides"]:
             print("Currently unavailable:")
