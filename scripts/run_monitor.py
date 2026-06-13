@@ -1,6 +1,6 @@
 import json
 import sys
-from datetime import datetime, time
+from datetime import datetime, time, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -103,6 +103,53 @@ def park_status_for_park(park_key, park_config, observed_at, cache):
         "observed_at_local": local_observed_at.isoformat(timespec="seconds"),
         "hours": hours,
     }
+
+
+def most_recent_close_at(observed_at, hours):
+    timezone_name = hours["timezone"]
+    local_tz = ZoneInfo(timezone_name)
+    local_observed_at = observed_at.astimezone(local_tz)
+    closes_at = parse_local_time(hours["closes_at"])
+    close_at = datetime.combine(local_observed_at.date(), closes_at, tzinfo=local_tz)
+    if close_at > local_observed_at:
+        close_at = close_at - timedelta(days=1)
+    return close_at.astimezone(timezone.utc)
+
+
+def close_active_downtime_at_park_close(park_key, state, park_status):
+    hours = park_status.get("hours")
+    if not hours:
+        return
+
+    close_at = most_recent_close_at(
+        parksignals.parse_timestamp(park_status["observed_at_local"]) or parksignals.utc_now(),
+        hours,
+    )
+    close_at_text = parksignals.isoformat(close_at)
+    park_state = state.get(park_key, {})
+    if not isinstance(park_state, dict):
+        return
+
+    for ride_state in park_state.values():
+        if not isinstance(ride_state, dict) or ride_state.get("is_open") is not False:
+            continue
+
+        down_since = ride_state.get("down_since")
+        duration_seconds = parksignals.elapsed_seconds(down_since, close_at) or 0
+        if duration_seconds > 0:
+            ride_state["total_down_seconds"] = int(ride_state.get("total_down_seconds", 0) or 0) + duration_seconds
+            ride_state.setdefault("downtime_events", []).append({
+                "down_at": down_since,
+                "reopened_at": close_at_text,
+                "duration_seconds": duration_seconds,
+                "ended_by": "park_close",
+            })
+            ride_state["downtime_events"] = ride_state["downtime_events"][-parksignals.MAX_DOWNTIME_EVENTS_PER_RIDE:]
+
+        ride_state["is_open"] = None
+        ride_state["down_since"] = None
+        ride_state["current_down_seconds"] = 0
+        ride_state["paused_at_park_close"] = close_at_text
 
 
 def build_suppressed_summary(park_key, park_config, observed_at, reason):
@@ -350,6 +397,7 @@ def run():
             summary["monitoring_suppressed"] = False
             summaries.append(summary)
         else:
+            close_active_downtime_at_park_close(park_key, state, park_status)
             summaries.append(
                 build_suppressed_summary(
                     park_key,
