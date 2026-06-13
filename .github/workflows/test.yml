@@ -27,7 +27,7 @@ jobs:
         run: python -m unittest discover -s tests
 
       - name: Run Dry Run
-        run: python scripts/dry_run.py --data samples/dry_run_queue_times.json --output-dir outputs
+        run: python scripts/dry_run.py --data samples/dry_run_themeparks_wiki.json --output-dir outputs
 
       - name: Validate ThemeParks Wiki Mapping
         if: always()
