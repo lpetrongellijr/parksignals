@@ -71,6 +71,44 @@ class PostPlanningTest(unittest.TestCase):
         self.assertIn("daily_summary_not_in_daily_workflow", monitor_plan["items"][0]["reasons"])
         self.assertEqual(daily_plan["items"][0]["decision"], "would_post")
 
+    def test_daily_summary_context_blocks_realtime_alerts(self):
+        policy = {
+            "dry_run": True,
+            "max_post_characters": 280,
+            "require_x_credentials": True,
+            "pillars": {
+                "real_time_alert": {
+                    "enabled": True,
+                    "types": {"multi_ride_closure": True},
+                },
+            },
+            "rules": {},
+        }
+        candidates = {
+            "observed_at": "2026-06-13T03:30:17Z",
+            "multi_ride_closures": [
+                {
+                    "pillar": "real_time_alert",
+                    "type": "multi_ride_closure",
+                    "park_name": "EPCOT",
+                    "rides": ["Test Track", "Remy's Ratatouille Adventure"],
+                    "preview_text": "PARKSIGNALS // Disney World\n\nALERT: EPCOT",
+                },
+            ],
+        }
+
+        plan = plan_posts.build_plan(
+            candidates,
+            policy,
+            {"ready_for_manual_connection_test": True},
+            {"posted_keys": [], "decisions": []},
+            {},
+            post_context=plan_posts.POST_CONTEXT_DAILY_SUMMARY,
+        )
+
+        self.assertEqual(plan["items"][0]["decision"], "skip")
+        self.assertIn("real_time_alert_not_in_daily_workflow", plan["items"][0]["reasons"])
+
     def test_multi_ride_alert_keys_are_stable_for_the_day(self):
         candidate_a = {
             "pillar": "real_time_alert",
