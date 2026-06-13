@@ -28,10 +28,10 @@ def dedupe_repeated_bullets(output):
     current_section = None
     for line in output.splitlines():
         stripped = line.strip()
-        if stripped.endswith(":") and not stripped.startswith("-"):
+        if stripped.endswith(":") and not stripped.startswith("- "):
             current_section = stripped
             seen_bullets_by_section = set()
-        if stripped.startswith("-"):
+        if stripped.startswith("- "):
             key = (current_section, stripped)
             if key in seen_bullets_by_section:
                 continue
