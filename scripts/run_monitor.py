@@ -280,25 +280,6 @@ def print_content_pillar_summary(pillar_summary, run_summaries):
     else:
         print("1C. Multi-ride closure candidates: none active")
 
-    multi_reopenings = []
-    for summary in run_summaries:
-        reopened = [
-            transition["ride_name"]
-            for transition in summary["transitions"]
-            if transition["type"] == "reopened"
-        ]
-        if len(reopened) >= 2:
-            multi_reopenings.append({"park_name": summary["park_name"], "rides": reopened})
-
-    if multi_reopenings:
-        print("Multi-ride reopening candidates:")
-        for alert in multi_reopenings:
-            print(f"  {alert['park_name']}:")
-            for ride_name in alert["rides"][:5]:
-                print(f"    - {ride_name}")
-    else:
-        print("Multi-ride reopening candidates: none this run")
-
     print("")
     print("2. Daily summary inputs:")
     if pillar_summary["daily_top"]:
