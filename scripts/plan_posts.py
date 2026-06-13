@@ -153,6 +153,8 @@ def evaluate_candidate(candidate, policy, x_status, posting_log, park_statuses, 
         reasons.append("pillar_or_type_disabled")
     if policy.get("require_x_credentials", True) and not x_status.get("ready_for_manual_connection_test"):
         reasons.append("x_credentials_not_ready")
+    if pillar == "real_time_alert" and post_context == POST_CONTEXT_DAILY_SUMMARY:
+        reasons.append("real_time_alert_not_in_daily_workflow")
     if (
         policy.get("rules", {}).get("block_real_time_posts_outside_park_hours", True)
         and pillar == "real_time_alert"
