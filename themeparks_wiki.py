@@ -72,6 +72,7 @@ def match_park_entity(park_key, destinations_payload=None):
 def normalize_name(value):
     value = unicodedata.normalize("NFKD", value or "")
     value = value.encode("ascii", "ignore").decode("ascii")
+    value = re.sub(r"\b(tm|sm|registered)\b", " ", value, flags=re.IGNORECASE)
     value = value.replace("&", "and")
     value = value.replace("™", "")
     value = value.replace("'", "")
