@@ -1,7 +1,6 @@
 import argparse
 import io
 import json
-import shutil
 import sys
 import tempfile
 import types
@@ -79,8 +78,7 @@ def main():
 
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_state = Path(temp_dir) / "state.json"
-        if Path(parksignals.STATE_FILE).exists():
-            shutil.copyfile(parksignals.STATE_FILE, temp_state)
+        temp_state.write_text("{}\n")
         original_state_file = parksignals.STATE_FILE
         parksignals.STATE_FILE = str(temp_state)
         parksignals.fetch_rides = fetch_rides_from_sample
