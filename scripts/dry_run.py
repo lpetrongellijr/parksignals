@@ -51,7 +51,7 @@ def normalize_dry_run_output(output):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data", default="samples/dry_run_queue_times.json")
+    parser.add_argument("--data", default="samples/dry_run_themeparks_wiki.json")
     parser.add_argument("--output-dir", default="outputs")
     args = parser.parse_args()
 
@@ -61,11 +61,7 @@ def main():
     original_fetch_rides = parksignals.fetch_rides
 
     def fetch_rides_from_sample(park_config, *args, **kwargs):
-        park_key = kwargs.get("park_key")
-        for candidate_key, candidate_config in parksignals.load_config().get("parks", {}).items():
-            if candidate_config.get("park_id") == park_config.get("park_id"):
-                park_key = candidate_key
-                break
+        park_key = kwargs.get("park_key") or park_config.get("park_key")
         park_data = dry_run_data.get(park_key, {})
         rides = []
         for land in park_data.get("lands", []):
@@ -75,6 +71,9 @@ def main():
                     "name": ride.get("name"),
                     "is_open": ride.get("is_open"),
                     "wait_time": ride.get("wait_time"),
+                    "source": "themeparks_wiki_sample",
+                    "source_status": ride.get("source_status"),
+                    "planned_closure": ride.get("planned_closure"),
                 })
         return rides
 
