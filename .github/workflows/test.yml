@@ -29,8 +29,13 @@ jobs:
       - name: Run Dry Run
         run: python scripts/dry_run.py --data samples/dry_run_queue_times.json --output-dir outputs
 
-      - name: Upload Dry Run Outputs
+      - name: Validate ThemeParks Wiki Mapping
+        if: always()
+        run: python scripts/validate_themeparks_mapping.py | tee outputs/themeparks-wiki-mapping-summary.txt
+
+      - name: Upload Test Outputs
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: parksignals-dry-run-outputs
+          name: parksignals-test-outputs
           path: outputs/
