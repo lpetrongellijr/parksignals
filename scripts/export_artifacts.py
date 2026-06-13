@@ -243,16 +243,6 @@ def build_multi_ride_closure_post(alert, park_lookup):
     return "\n".join(lines)
 
 
-def build_multi_ride_reopening_post(alert, park_lookup):
-    park_config = park_lookup.get(alert["park_name"])
-    resort_name = display_resort_name(park_config["resort_name"]) if park_config else "Disney World"
-    lines = [f"PARKSIGNALS // {resort_name}", "", f"UPDATE: {alert['park_name']}", "", "Multiple attractions have reopened:"]
-    lines.extend(f"- {normalize_post_display_text(ride_name)}" for ride_name in alert["rides"][:5])
-    if park_config:
-        lines.extend(["", tags_for_park(park_config)])
-    return "\n".join(lines)
-
-
 def build_trend_post(metric, park_lookup):
     park_config = park_lookup.get(metric["park_key"]) or park_lookup.get(metric["park_name"])
     resort_name = display_resort_name(park_config["resort_name"]) if park_config else "Disney World"
@@ -316,15 +306,6 @@ def build_single_ride_candidates(last_run, park_lookup):
     return closures, reopenings
 
 
-def build_multi_ride_reopenings(last_run):
-    alerts = []
-    for run_summary in last_run.get("run_summaries", []):
-        reopened = [transition["ride_name"] for transition in run_summary.get("transitions", []) if transition["type"] == "reopened"]
-        if len(reopened) >= 2:
-            alerts.append({"park_name": run_summary["park_name"], "rides": reopened})
-    return alerts
-
-
 def build_post_candidates(summary, config, last_run, observed_at):
     park_lookup = enabled_park_lookup(config)
     single_closures, single_reopenings = build_single_ride_candidates(last_run, park_lookup)
@@ -334,10 +315,6 @@ def build_post_candidates(summary, config, last_run, observed_at):
     multi_closures = [
         with_trimmed_preview({"pillar": "real_time_alert", "type": "multi_ride_closure", **alert, "preview_text": build_multi_ride_closure_post(alert, park_lookup)})
         for alert in summary["active_multi_ride_alerts"]
-    ]
-    multi_reopening_candidates = [
-        with_trimmed_preview({"pillar": "real_time_alert", "type": "multi_ride_reopening", **alert, "preview_text": build_multi_ride_reopening_post(alert, park_lookup)})
-        for alert in build_multi_ride_reopenings(last_run)
     ]
     daily_summary = with_trimmed_preview({
         "pillar": "daily_operations_summary",
@@ -369,7 +346,6 @@ def build_post_candidates(summary, config, last_run, observed_at):
         "single_ride_closures": single_closures,
         "single_ride_reopenings": single_reopenings,
         "multi_ride_closures": multi_closures,
-        "multi_ride_reopenings": multi_reopening_candidates,
         "daily_summaries": [daily_summary],
         "monthly_reliability_rankings": monthly_reliability,
         "thirty_day_rankings": monthly_reliability,
@@ -383,7 +359,6 @@ def build_post_previews(candidates):
         ("Single Ride Closures", candidates["single_ride_closures"]),
         ("Single Ride Reopenings", candidates["single_ride_reopenings"]),
         ("Multi-Ride Closures", candidates["multi_ride_closures"]),
-        ("Multi-Ride Reopenings", candidates["multi_ride_reopenings"]),
         ("Daily Summaries", candidates["daily_summaries"]),
         ("Monthly Reliability", reliability_candidates),
         ("Trend Insights", candidates["insights"]["elevated_trends"]),
@@ -407,7 +382,7 @@ def build_readiness_summary(summary, candidates):
     monthly_hold = analytics_hold_message(summary, "monthly_reliability_ready", "monthly_reliability_min_days")
     lines = ["Content pillar readiness"]
     lines.append("Single ride closure/reopen previews: " + str(len(candidates["single_ride_closures"]) + len(candidates["single_ride_reopenings"])) + " current-run candidates")
-    lines.append("Multi-ride closure/reopening previews: " + str(len(candidates["multi_ride_closures"]) + len(candidates["multi_ride_reopenings"])) + " candidates")
+    lines.append("Multi-ride closure previews: " + str(len(candidates["multi_ride_closures"])) + " candidates")
     lines.extend(format_rankings("Daily summary inputs", summary["daily_top"]))
     if monthly_hold:
         lines.append("Monthly reliability inputs")
