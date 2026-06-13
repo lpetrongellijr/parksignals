@@ -7,14 +7,24 @@
   ],
   "parks": {
     "magic_kingdom": {
+      "park_key": "magic_kingdom",
       "enabled": true,
+      "data_source": "themeparks_wiki",
       "park_id": 6,
       "park_name": "Magic Kingdom",
+      "themeparks_wiki_entity_name": "Magic Kingdom Park",
       "resort_name": "Walt Disney World",
       "resort_tag": "WDW",
       "resort_hashtag": "WaltDisneyWorld",
       "park_hashtag": "MagicKingdom",
       "planned_closures": [],
+      "ride_name_aliases": {
+        "TRON Lightcycle / Run": ["TRON Lightcycle / Run Presented by Enterprise"],
+        "Buzz Lightyear’s Space Ranger Spin": ["Buzz Lightyear's Space Ranger Spin"],
+        "\"it's a small world\"": ["it's a small world"],
+        "Under the Sea - Journey of The Little Mermaid": ["Under the Sea ~ Journey of The Little Mermaid"],
+        "Walt Disney's Carousel of Progress": ["Walt Disney’s Carousel of Progress"]
+      },
       "major_rides": [
         "TRON Lightcycle / Run",
         "Space Mountain",
@@ -38,14 +48,23 @@
       ]
     },
     "epcot": {
+      "park_key": "epcot",
       "enabled": true,
+      "data_source": "themeparks_wiki",
       "park_id": 5,
       "park_name": "EPCOT",
+      "themeparks_wiki_entity_name": "EPCOT",
       "resort_name": "Walt Disney World",
       "resort_tag": "WDW",
       "resort_hashtag": "WaltDisneyWorld",
       "park_hashtag": "EPCOT",
       "planned_closures": [],
+      "ride_name_aliases": {
+        "Soarin' Across America": ["Soarin' Around America", "Soarin' Around the World", "Soarin'"],
+        "Mission: SPACE": ["Mission: SPACE Orange", "Mission: SPACE Green"],
+        "Journey Into Imagination With Figment": ["Journey Into Imagination with Figment"],
+        "Gran Fiesta Tour Starring The Three Caballeros": ["Gran Fiesta Tour Starring The Three Caballeros"]
+      },
       "major_rides": [
         "Guardians of the Galaxy: Cosmic Rewind",
         "Remy's Ratatouille Adventure",
@@ -61,14 +80,24 @@
       ]
     },
     "hollywood_studios": {
+      "park_key": "hollywood_studios",
       "enabled": true,
+      "data_source": "themeparks_wiki",
       "park_id": 7,
       "park_name": "Hollywood Studios",
+      "themeparks_wiki_entity_name": "Disney's Hollywood Studios",
       "resort_name": "Walt Disney World",
       "resort_tag": "WDW",
       "resort_hashtag": "WaltDisneyWorld",
       "park_hashtag": "HollywoodStudios",
       "planned_closures": [],
+      "ride_name_aliases": {
+        "Star Wars: Rise of the Resistance": ["Star Wars: Rise of the Resistance"],
+        "The Twilight Zone™ Tower of Terror": ["The Twilight Zone Tower of Terror", "The Twilight Zone™ Tower of Terror"],
+        "Rock ’n’ Roller Coaster Starring The Muppets": ["Rock 'n' Roller Coaster Starring The Muppets", "Rock 'n' Roller Coaster Starring Aerosmith", "Rock ‘n’ Roller Coaster Starring The Muppets"],
+        "Mickey & Minnie's Runaway Railway": ["Mickey & Minnie’s Runaway Railway"],
+        "Star Tours – The Adventures Continue": ["Star Tours - The Adventures Continue"]
+      },
       "major_rides": [
         "Star Wars: Rise of the Resistance",
         "Slinky Dog Dash",
@@ -82,14 +111,22 @@
       ]
     },
     "animal_kingdom": {
+      "park_key": "animal_kingdom",
       "enabled": true,
+      "data_source": "themeparks_wiki",
       "park_id": 8,
       "park_name": "Animal Kingdom",
+      "themeparks_wiki_entity_name": "Disney's Animal Kingdom Theme Park",
       "resort_name": "Walt Disney World",
       "resort_tag": "WDW",
       "resort_hashtag": "WaltDisneyWorld",
       "park_hashtag": "AnimalKingdom",
       "planned_closures": [],
+      "ride_name_aliases": {
+        "Avatar Flight of Passage": ["Avatar Flight of Passage"],
+        "Expedition Everest - Legend of the Forbidden Mountain": ["Expedition Everest - Legend of the Forbidden Mountain", "Expedition Everest"],
+        "Na'vi River Journey": ["Na’vi River Journey"]
+      },
       "major_rides": [
         "Avatar Flight of Passage",
         "Expedition Everest - Legend of the Forbidden Mountain",
