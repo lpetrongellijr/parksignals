@@ -22,8 +22,10 @@ POST_DISPLAY_REPLACEMENTS = {
     "Universal Hollywood Resort": "Universal Hollywood",
     "UHR": "Universal Hollywood",
     "DL": "Disneyland",
+    "Big Thunder Mountain Railroad": "Big Thunder Mountain",
     "Expedition Everest - Legend of the Forbidden Mountain": "Expedition Everest",
-    "The Twilight Zone™ Tower of Terror": "The Twilight Zone Tower of Terror",
+    "The Twilight Zone™ Tower of Terror": "Tower of Terror",
+    "The Twilight Zone Tower of Terror": "Tower of Terror",
     "Star Tours - The Adventures Continue": "Star Tours",
     "Star Tours – The Adventures Continue": "Star Tours",
     "Journey Into Imagination With Figment": "Journey Into Imagination",
@@ -41,7 +43,9 @@ HASHTAG_REPLACEMENTS = {
     "#UniversalHollywoodResort": "#UniversalHollywood",
     "#UHR": "#UniversalHollywood",
     "#DL": "#Disneyland",
+    "#BigThunderMountainRailroad": "#BigThunderMountain",
     "#ExpeditionEverestLegendoftheForbiddenMountain": "#ExpeditionEverest",
+    "#TheTwilightZoneTowerofTerror": "#TowerofTerror",
     "#StarToursTheAdventuresContinue": "#StarTours",
     "#JourneyIntoImaginationWithFigment": "#JourneyIntoImagination",
     "#GranFiestaTourStarringTheThreeCaballeros": "#GranFiestaTour",
@@ -236,7 +240,7 @@ def build_thirty_day_post(summary):
 def build_multi_ride_closure_post(alert, park_lookup):
     park_config = park_lookup.get(alert["park_name"])
     resort_name = display_resort_name(park_config["resort_name"]) if park_config else "Disney World"
-    lines = [f"PARKSIGNALS // {resort_name}", "", f"ALERT: {alert['park_name']}", "", "Currently unavailable:"]
+    lines = [f"PARKSIGNALS // {resort_name}", "", f"ALERT: {alert['park_name']}", "", "Newly unavailable:"]
     lines.extend(f"- {normalize_post_display_text(ride_name)}" for ride_name in alert["rides"][:5])
     if park_config:
         lines.extend(["", tags_for_park(park_config)])
@@ -306,6 +310,19 @@ def build_single_ride_candidates(last_run, park_lookup):
     return closures, reopenings
 
 
+def build_multi_ride_closures(last_run):
+    alerts = []
+    for run_summary in last_run.get("run_summaries", []):
+        newly_closed = [
+            transition["ride_name"]
+            for transition in run_summary.get("transitions", [])
+            if transition["type"] == "down"
+        ]
+        if len(newly_closed) >= 2:
+            alerts.append({"park_name": run_summary["park_name"], "rides": newly_closed})
+    return alerts
+
+
 def build_post_candidates(summary, config, last_run, observed_at):
     park_lookup = enabled_park_lookup(config)
     single_closures, single_reopenings = build_single_ride_candidates(last_run, park_lookup)
@@ -314,7 +331,7 @@ def build_post_candidates(summary, config, last_run, observed_at):
     trends_ready = summary.get("trend_insights_ready", True)
     multi_closures = [
         with_trimmed_preview({"pillar": "real_time_alert", "type": "multi_ride_closure", **alert, "preview_text": build_multi_ride_closure_post(alert, park_lookup)})
-        for alert in summary["active_multi_ride_alerts"]
+        for alert in build_multi_ride_closures(last_run)
     ]
     daily_summary = with_trimmed_preview({
         "pillar": "daily_operations_summary",
@@ -382,7 +399,7 @@ def build_readiness_summary(summary, candidates):
     monthly_hold = analytics_hold_message(summary, "monthly_reliability_ready", "monthly_reliability_min_days")
     lines = ["Content pillar readiness"]
     lines.append("Single ride closure/reopen previews: " + str(len(candidates["single_ride_closures"]) + len(candidates["single_ride_reopenings"])) + " current-run candidates")
-    lines.append("Multi-ride closure previews: " + str(len(candidates["multi_ride_closures"])) + " candidates")
+    lines.append("Multi-ride closure previews: " + str(len(candidates["multi_ride_closures"])) + " same-run candidates")
     lines.extend(format_rankings("Daily summary inputs", summary["daily_top"]))
     if monthly_hold:
         lines.append("Monthly reliability inputs")
