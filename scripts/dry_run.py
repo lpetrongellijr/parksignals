@@ -10,14 +10,20 @@ from pathlib import Path
 
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.modules.setdefault("requests", types.SimpleNamespace(get=lambda *args, **kwargs: None))
 
 import parksignals
+import export_artifacts
 
 
 def load_dry_run_data(path):
     with open(path, "r") as f:
         return json.load(f)
+
+
+def normalize_dry_run_output(output):
+    return export_artifacts.trim_post_hashtags(output)
 
 
 def main():
@@ -87,7 +93,7 @@ def main():
         parksignals.fetch_rides = original_fetch_rides
         parksignals.STATE_FILE = original_state_file
 
-    output = buffer.getvalue()
+    output = normalize_dry_run_output(buffer.getvalue())
     print(output, end="")
     (output_dir / "dry-run-summary.txt").write_text(output)
 
