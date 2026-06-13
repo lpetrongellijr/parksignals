@@ -1151,6 +1151,36 @@
       "ride_name": "The Barnstormer",
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T03:30:17Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:c066f50237e4113f:2026-06-12",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T03:30:17Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Animal Kingdom:53781c1308589511:2026-06-12",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Animal Kingdom",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T03:30:17Z",
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-12",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
