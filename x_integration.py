@@ -1,4 +1,9 @@
 import os
+import sys
+
+existing_requests = sys.modules.get("requests")
+if existing_requests is not None and not hasattr(existing_requests, "__path__"):
+    del sys.modules["requests"]
 
 import requests
 from requests_oauthlib import OAuth1
