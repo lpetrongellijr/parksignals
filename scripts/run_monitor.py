@@ -1,5 +1,7 @@
+import io
 import json
 import sys
+from contextlib import redirect_stdout
 from datetime import datetime, time, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -16,10 +18,66 @@ DEFAULT_PARK_TIMEZONE = "America/New_York"
 OFFICIAL_HOURS_UNAVAILABLE_REASON = (
     "official park hours unavailable; monitoring suppressed"
 )
+POST_OUTPUT_REPLACEMENTS = {
+    "Walt Disney World": "Disney World",
+    "WDW": "Disney World",
+    "Universal Orlando Resort": "Universal Orlando",
+    "UOR": "Universal Orlando",
+    "Universal Hollywood Resort": "Universal Hollywood",
+    "UHR": "Universal Hollywood",
+    "DL": "Disneyland",
+    "Expedition Everest - Legend of the Forbidden Mountain": "Expedition Everest",
+    "The Twilight Zone™ Tower of Terror": "The Twilight Zone Tower of Terror",
+    "Star Tours - The Adventures Continue": "Star Tours",
+    "Star Tours – The Adventures Continue": "Star Tours",
+    "Journey Into Imagination With Figment": "Journey Into Imagination",
+    "Gran Fiesta Tour Starring The Three Caballeros": "Gran Fiesta Tour",
+    "Tomorrowland Transit Authority PeopleMover": "PeopleMover",
+    "Rock ’n’ Roller Coaster Starring The Muppets": "Rock ’n’ Roller Coaster",
+    "Walt Disney’s Carousel of Progress": "Carousel of Progress",
+    "Walt Disney's Carousel of Progress": "Carousel of Progress",
+    "#WaltDisneyWorld": "#DisneyWorld",
+    "#WDW": "#DisneyWorld",
+    "#UniversalOrlandoResort": "#UniversalOrlando",
+    "#UOR": "#UniversalOrlando",
+    "#UniversalHollywoodResort": "#UniversalHollywood",
+    "#UHR": "#UniversalHollywood",
+    "#DL": "#Disneyland",
+    "#ExpeditionEverestLegendoftheForbiddenMountain": "#ExpeditionEverest",
+    "#StarToursTheAdventuresContinue": "#StarTours",
+    "#JourneyIntoImaginationWithFigment": "#JourneyIntoImagination",
+    "#GranFiestaTourStarringTheThreeCaballeros": "#GranFiestaTour",
+    "#TomorrowlandTransitAuthorityPeopleMover": "#PeopleMover",
+    "#RocknRollerCoasterStarringTheMuppets": "#RocknRollerCoaster",
+    "#WaltDisneysCarouselofProgress": "#CarouselofProgress",
+}
+REMOVED_POST_HASHTAGS = {"#down", "#reopened"}
 
 
 def github_warning(title, message):
     print(f"::warning title={title}::{message}")
+
+
+def clean_monitor_output(output):
+    cleaned = output
+    for source, replacement in POST_OUTPUT_REPLACEMENTS.items():
+        cleaned = cleaned.replace(source, replacement)
+    lines = []
+    for line in cleaned.splitlines():
+        if line.strip().lower() in REMOVED_POST_HASHTAGS:
+            continue
+        lines.append(line)
+    return "\n".join(lines) + ("\n" if cleaned.endswith("\n") else "")
+
+
+def run_monitor_park_with_clean_output(park_key, park_config, state, observed_at):
+    buffer = io.StringIO()
+    with redirect_stdout(buffer):
+        summary = parksignals.monitor_park(park_key, park_config, state, observed_at)
+    cleaned_output = clean_monitor_output(buffer.getvalue())
+    if cleaned_output:
+        print(cleaned_output, end="")
+    return summary
 
 
 def parse_local_time(value):
@@ -372,7 +430,7 @@ def run():
         park_status = park_status_for_park(park_key, park_config, observed_at, hours_cache)
         park_statuses.append(park_status)
         if park_status["monitoring_allowed"]:
-            summary = parksignals.monitor_park(park_key, park_config, state, observed_at)
+            summary = run_monitor_park_with_clean_output(park_key, park_config, state, observed_at)
             summary["park_key"] = park_key
             summary["park_operating_status"] = "open"
             summary["monitoring_suppressed"] = False
