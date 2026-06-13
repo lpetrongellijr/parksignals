@@ -11,6 +11,36 @@
       "ride_name": "Test Track",
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T15:30:22Z",
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:352feb94-e52e-45eb-9c92-e4b44c6b1a9d:2026-06-13T15:30:21Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Pirates of the Caribbean",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T15:30:22Z",
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:6e118e37-5002-408d-9d88-0b5d9cdb5d14:2026-06-13T15:30:21Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Mickey & Minnie's Runaway Railway",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T15:30:22Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:ef275d641d99eed2:2026-06-13",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
