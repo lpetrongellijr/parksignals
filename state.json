@@ -384,22 +384,29 @@
     },
     "160": {
       "id": "160",
-      "is_open": false,
+      "is_open": null,
       "name": "Test Track",
       "last_seen_at": "2026-06-13T00:45:21Z",
       "last_changed_at": "2026-06-12T20:45:18Z",
-      "down_since": "2026-06-12T20:45:18Z",
+      "down_since": null,
       "last_down_at": "2026-06-12T20:45:18Z",
       "last_reopened_at": "2026-06-12T19:00:20Z",
-      "current_down_seconds": 14403,
-      "total_down_seconds": 902,
+      "current_down_seconds": 0,
+      "total_down_seconds": 16184,
       "downtime_events": [
         {
           "down_at": "2026-06-12T18:45:18Z",
           "reopened_at": "2026-06-12T19:00:20Z",
           "duration_seconds": 902
+        },
+        {
+          "down_at": "2026-06-12T20:45:18Z",
+          "reopened_at": "2026-06-13T01:00:00Z",
+          "duration_seconds": 15282,
+          "ended_by": "park_close"
         }
-      ]
+      ],
+      "paused_at_park_close": "2026-06-13T01:00:00Z"
     },
     "156": {
       "id": "156",
@@ -486,16 +493,24 @@
     },
     "10914": {
       "id": "10914",
-      "is_open": false,
+      "is_open": null,
       "name": "Remy's Ratatouille Adventure",
       "last_seen_at": "2026-06-13T00:45:21Z",
       "last_changed_at": "2026-06-13T00:00:27Z",
-      "down_since": "2026-06-13T00:00:27Z",
+      "down_since": null,
       "last_down_at": "2026-06-13T00:00:27Z",
       "last_reopened_at": null,
-      "current_down_seconds": 2694,
-      "total_down_seconds": 0,
-      "downtime_events": []
+      "current_down_seconds": 0,
+      "total_down_seconds": 3573,
+      "downtime_events": [
+        {
+          "down_at": "2026-06-13T00:00:27Z",
+          "reopened_at": "2026-06-13T01:00:00Z",
+          "duration_seconds": 3573,
+          "ended_by": "park_close"
+        }
+      ],
+      "paused_at_park_close": "2026-06-13T01:00:00Z"
     }
   },
   "hollywood_studios": {
@@ -546,14 +561,14 @@
     },
     "6369": {
       "id": "6369",
-      "is_open": false,
+      "is_open": null,
       "name": "Star Wars: Rise of the Resistance",
       "last_seen_at": "2026-06-13T01:45:18Z",
       "last_changed_at": "2026-06-13T01:30:19Z",
-      "down_since": "2026-06-13T01:30:19Z",
+      "down_since": null,
       "last_down_at": "2026-06-13T01:30:19Z",
       "last_reopened_at": "2026-06-12T23:45:23Z",
-      "current_down_seconds": 899,
+      "current_down_seconds": 0,
       "total_down_seconds": 6296,
       "downtime_events": [
         {
@@ -561,7 +576,8 @@
           "reopened_at": "2026-06-12T23:45:23Z",
           "duration_seconds": 6296
         }
-      ]
+      ],
+      "paused_at_park_close": "2026-06-13T01:00:00Z"
     },
     "16342": {
       "id": "16342",
@@ -667,29 +683,45 @@
     },
     "110": {
       "id": "110",
-      "is_open": false,
+      "is_open": null,
       "name": "Expedition Everest - Legend of the Forbidden Mountain",
       "last_seen_at": "2026-06-12T22:45:24Z",
       "last_changed_at": "2026-06-12T18:45:18Z",
-      "down_since": "2026-06-12T18:45:18Z",
+      "down_since": null,
       "last_down_at": "2026-06-12T18:45:18Z",
       "last_reopened_at": null,
-      "current_down_seconds": 14406,
-      "total_down_seconds": 0,
-      "downtime_events": []
+      "current_down_seconds": 0,
+      "total_down_seconds": 15282,
+      "downtime_events": [
+        {
+          "down_at": "2026-06-12T18:45:18Z",
+          "reopened_at": "2026-06-12T23:00:00Z",
+          "duration_seconds": 15282,
+          "ended_by": "park_close"
+        }
+      ],
+      "paused_at_park_close": "2026-06-12T23:00:00Z"
     },
     "112": {
       "id": "112",
-      "is_open": false,
+      "is_open": null,
       "name": "Kali River Rapids",
       "last_seen_at": "2026-06-12T22:45:24Z",
       "last_changed_at": "2026-06-12T21:15:24Z",
-      "down_since": "2026-06-12T21:15:24Z",
+      "down_since": null,
       "last_down_at": "2026-06-12T21:15:24Z",
       "last_reopened_at": null,
-      "current_down_seconds": 5400,
-      "total_down_seconds": 0,
-      "downtime_events": []
+      "current_down_seconds": 0,
+      "total_down_seconds": 6276,
+      "downtime_events": [
+        {
+          "down_at": "2026-06-12T21:15:24Z",
+          "reopened_at": "2026-06-12T23:00:00Z",
+          "duration_seconds": 6276,
+          "ended_by": "park_close"
+        }
+      ],
+      "paused_at_park_close": "2026-06-12T23:00:00Z"
     },
     "4439": {
       "id": "4439",
