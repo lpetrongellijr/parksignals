@@ -191,6 +191,36 @@
       "ride_name": null,
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T14:00:21Z",
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:129:2026-06-13T14:00:20Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Seven Dwarfs Mine Train",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T14:00:21Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:117:2026-06-13T14:00:20Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Toy Story Mania!",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T14:00:21Z",
+      "dedupe_key": "real_time_alert:reopened:EPCOT:159:2026-06-13T14:00:20Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Spaceship Earth",
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
