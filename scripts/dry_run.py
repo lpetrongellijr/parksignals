@@ -22,10 +22,29 @@ def load_dry_run_data(path):
         return json.load(f)
 
 
+def dedupe_repeated_bullets(output):
+    lines = []
+    seen_bullets_by_section = set()
+    current_section = None
+    for line in output.splitlines():
+        stripped = line.strip()
+        if stripped.endswith(":") and not stripped.startswith("-"):
+            current_section = stripped
+            seen_bullets_by_section = set()
+        if stripped.startswith("-"):
+            key = (current_section, stripped)
+            if key in seen_bullets_by_section:
+                continue
+            seen_bullets_by_section.add(key)
+        lines.append(line)
+    return "\n".join(lines)
+
+
 def normalize_dry_run_output(output):
-    return export_artifacts.normalize_post_hashtags(
+    normalized = export_artifacts.normalize_post_hashtags(
         export_artifacts.normalize_post_display_text(output)
     )
+    return dedupe_repeated_bullets(normalized)
 
 
 def main():
