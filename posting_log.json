@@ -171,6 +171,26 @@
       "ride_name": null,
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T13:45:22Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:130:2026-06-13T13:45:21Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Big Thunder Mountain Railroad",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T13:45:22Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:547a5827c5234977:2026-06-13",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
