@@ -129,9 +129,10 @@ def fetch_queue_times_rides(park_config):
 
 def fetch_rides(park_config, park_key=None):
     if park_config.get("data_source") == "themeparks_wiki":
-        if not park_key:
+        resolved_park_key = park_key or park_config.get("park_key")
+        if not resolved_park_key:
             raise ValueError("park_key is required for ThemeParks Wiki live data")
-        return themeparks_wiki.fetch_rides(park_key, park_config)
+        return themeparks_wiki.fetch_rides(resolved_park_key, park_config)
     return fetch_queue_times_rides(park_config)
 
 
@@ -384,7 +385,10 @@ def update_ride_state(ride_state, ride, observed_at, planned_closure=None):
             ride_state["current_down_seconds"] = 0
         return None
     if previous_status == current_status:
-        ride_state["current_down_seconds"] = elapsed_seconds(ride_state.get("down_since"), observed_at) or 0 if current_status is False else 0
+        if current_status is False:
+            ride_state["current_down_seconds"] = elapsed_seconds(ride_state.get("down_since"), observed_at) or 0
+        else:
+            ride_state["current_down_seconds"] = 0
         return None
     ride_state["last_changed_at"] = observed_at_text
     if current_status is False:
