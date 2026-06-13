@@ -1081,6 +1081,26 @@
       "ride_name": null,
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T00:15:18Z",
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:5476:2026-06-13T00:15:16Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Slinky Dog Dash",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T00:15:18Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:c066f50237e4113f:2026-06-12",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
