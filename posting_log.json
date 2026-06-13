@@ -411,6 +411,56 @@
       "ride_name": "Slinky Dog Dash",
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T22:00:27Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-13T22:00:25Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T22:00:27Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-13T22:00:25Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Gran Fiesta Tour Starring The Three Caballeros",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T22:00:27Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-13T22:00:25Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Astro Orbiter",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T22:00:27Z",
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-13T22:00:25Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kali River Rapids",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-13T22:00:27Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:faffcca17d60f595:2026-06-13",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
