@@ -90,7 +90,7 @@ class RunMonitorTest(unittest.TestCase):
         self.assertTrue(allowed)
         self.assertIsNone(reason)
 
-    def test_closing_grace_suppresses_after_last_accepted_monitor(self):
+    def test_closing_grace_allows_slightly_late_final_scheduled_monitor(self):
         park_config = {"park_name": "Magic Kingdom"}
         cache = {
             "parks": {
@@ -104,24 +104,29 @@ class RunMonitorTest(unittest.TestCase):
             }
         }
 
-        allowed, reason = run_monitor.monitoring_hours_status(
-            "magic_kingdom",
-            park_config,
+        for observed in (
             datetime(2026, 6, 15, 1, 45, tzinfo=timezone.utc),
-            cache,
-        )
-        self.assertTrue(allowed)
-        self.assertIsNone(reason)
+            datetime(2026, 6, 15, 1, 50, tzinfo=timezone.utc),
+        ):
+            allowed, reason = run_monitor.monitoring_hours_status(
+                "magic_kingdom",
+                park_config,
+                observed,
+                cache,
+            )
+            self.assertTrue(allowed)
+            self.assertIsNone(reason)
 
         allowed, reason = run_monitor.monitoring_hours_status(
             "magic_kingdom",
             park_config,
-            datetime(2026, 6, 15, 1, 46, tzinfo=timezone.utc),
+            datetime(2026, 6, 15, 1, 51, tzinfo=timezone.utc),
             cache,
         )
         self.assertFalse(allowed)
         self.assertIn("closing grace window", reason)
-        self.assertIn("last accepted monitor 21:45", reason)
+        self.assertIn("last scheduled monitor 21:45", reason)
+        self.assertIn("accepted through 21:50", reason)
 
     def test_park_status_marks_opening_grace_separately_from_closed(self):
         park_config = {"park_name": "Magic Kingdom"}
@@ -165,7 +170,7 @@ class RunMonitorTest(unittest.TestCase):
         status = run_monitor.park_status_for_park(
             "magic_kingdom",
             park_config,
-            datetime(2026, 6, 15, 1, 46, tzinfo=timezone.utc),
+            datetime(2026, 6, 15, 1, 51, tzinfo=timezone.utc),
             cache,
         )
 
