@@ -651,6 +651,36 @@
       "ride_name": null,
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-14T12:00:25Z",
+      "dedupe_key": "real_time_alert:down:Animal Kingdom:32e01181-9a5f-4936-8a77-0dace1de836c:2026-06-14T12:00:23Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kilimanjaro Safaris",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-14T12:00:25Z",
+      "dedupe_key": "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-14T12:00:23Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kali River Rapids",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-14T12:00:25Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Animal Kingdom:ea4bdb4a7f013244:2026-06-14",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Animal Kingdom",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
