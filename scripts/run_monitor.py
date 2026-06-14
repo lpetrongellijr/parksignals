@@ -15,6 +15,7 @@ import parksignals_analytics
 PARK_HOURS_CACHE_FILE = "park_hours_cache.json"
 LAST_RUN_SUMMARY_FILE = Path("outputs") / "last-run-summary.json"
 DEFAULT_PARK_TIMEZONE = "America/New_York"
+OPENING_GRACE_MINUTES = 15
 OFFICIAL_HOURS_UNAVAILABLE_REASON = (
     "official park hours unavailable; monitoring suppressed"
 )
@@ -26,8 +27,10 @@ POST_OUTPUT_REPLACEMENTS = {
     "Universal Hollywood Resort": "Universal Hollywood",
     "UHR": "Universal Hollywood",
     "DL": "Disneyland",
+    "Big Thunder Mountain Railroad": "Big Thunder Mountain",
     "Expedition Everest - Legend of the Forbidden Mountain": "Expedition Everest",
-    "The Twilight Zone™ Tower of Terror": "The Twilight Zone Tower of Terror",
+    "The Twilight Zone™ Tower of Terror": "Tower of Terror",
+    "The Twilight Zone Tower of Terror": "Tower of Terror",
     "Star Tours - The Adventures Continue": "Star Tours",
     "Star Tours – The Adventures Continue": "Star Tours",
     "Journey Into Imagination With Figment": "Journey Into Imagination",
@@ -43,7 +46,9 @@ POST_OUTPUT_REPLACEMENTS = {
     "#UniversalHollywoodResort": "#UniversalHollywood",
     "#UHR": "#UniversalHollywood",
     "#DL": "#Disneyland",
+    "#BigThunderMountainRailroad": "#BigThunderMountain",
     "#ExpeditionEverestLegendoftheForbiddenMountain": "#ExpeditionEverest",
+    "#TheTwilightZoneTowerofTerror": "#TowerofTerror",
     "#StarToursTheAdventuresContinue": "#StarTours",
     "#JourneyIntoImaginationWithFigment": "#JourneyIntoImagination",
     "#GranFiestaTourStarringTheThreeCaballeros": "#GranFiestaTour",
@@ -91,6 +96,21 @@ def is_time_in_window(current_time, opens_at, closes_at):
     return current_time >= opens_at or current_time < closes_at
 
 
+def local_datetime_for_time(local_observed_at, local_time):
+    return datetime.combine(local_observed_at.date(), local_time, tzinfo=local_observed_at.tzinfo)
+
+
+def monitoring_window_bounds(local_observed_at, opens_at, closes_at):
+    opens_on_date = local_datetime_for_time(local_observed_at, opens_at)
+    closes_on_date = local_datetime_for_time(local_observed_at, closes_at)
+    if closes_at <= opens_at:
+        closes_on_date = closes_on_date + timedelta(days=1)
+        if local_observed_at < opens_on_date and local_observed_at.time() < closes_at:
+            opens_on_date = opens_on_date - timedelta(days=1)
+            closes_on_date = closes_on_date - timedelta(days=1)
+    return opens_on_date, closes_on_date
+
+
 def load_park_hours_cache(path=PARK_HOURS_CACHE_FILE):
     try:
         with open(path, "r") as f:
@@ -131,7 +151,16 @@ def monitoring_hours_status(park_key, park_config, observed_at, cache=None):
     local_observed_at = observed_at.astimezone(ZoneInfo(timezone_name))
     opens_at = parse_local_time(hours["opens_at"])
     closes_at = parse_local_time(hours["closes_at"])
-    if is_time_in_window(local_observed_at.time(), opens_at, closes_at):
+    opens_at_dt, closes_at_dt = monitoring_window_bounds(local_observed_at, opens_at, closes_at)
+
+    if opens_at_dt <= local_observed_at < closes_at_dt:
+        grace_ends_at = opens_at_dt + timedelta(minutes=OPENING_GRACE_MINUTES)
+        if local_observed_at < grace_ends_at:
+            return False, (
+                f"inside {hours['source']} opening grace window "
+                f"({local_observed_at.strftime('%H:%M')} {timezone_name}; "
+                f"monitoring starts {grace_ends_at.strftime('%H:%M')})"
+            )
         return True, None
 
     return False, (
@@ -151,11 +180,14 @@ def park_status_for_park(park_key, park_config, observed_at, cache):
     )
     timezone_name = hours["timezone"] if hours else DEFAULT_PARK_TIMEZONE
     local_observed_at = observed_at.astimezone(ZoneInfo(timezone_name))
+    operating_status = "open" if monitoring_allowed else "closed"
+    if reason and "opening grace window" in reason:
+        operating_status = "opening_grace"
 
     return {
         "park_key": park_key,
         "park_name": park_config["park_name"],
-        "operating_status": "open" if monitoring_allowed else "closed",
+        "operating_status": operating_status,
         "monitoring_allowed": monitoring_allowed,
         "reason": reason,
         "observed_at_local": local_observed_at.isoformat(timespec="seconds"),
@@ -176,7 +208,7 @@ def most_recent_close_at(observed_at, hours):
 
 def close_active_downtime_at_park_close(park_key, state, park_status):
     hours = park_status.get("hours")
-    if not hours:
+    if not hours or park_status.get("operating_status") == "opening_grace":
         return
 
     close_at = most_recent_close_at(
