@@ -17,6 +17,7 @@ LAST_RUN_SUMMARY_FILE = Path("outputs") / "last-run-summary.json"
 DEFAULT_PARK_TIMEZONE = "America/New_York"
 OPENING_GRACE_MINUTES = 15
 CLOSING_GRACE_MINUTES = 15
+SCHEDULED_MONITOR_START_TOLERANCE_MINUTES = 5
 OFFICIAL_HOURS_UNAVAILABLE_REASON = (
     "official park hours unavailable; monitoring suppressed"
 )
@@ -163,12 +164,16 @@ def monitoring_hours_status(park_key, park_config, observed_at, cache=None):
                 f"monitoring starts {opening_grace_ends_at.strftime('%H:%M')})"
             )
 
-        closing_grace_starts_after = closes_at_dt - timedelta(minutes=CLOSING_GRACE_MINUTES)
-        if local_observed_at > closing_grace_starts_after:
+        last_scheduled_monitor_at = closes_at_dt - timedelta(minutes=CLOSING_GRACE_MINUTES)
+        final_monitor_accepted_until = last_scheduled_monitor_at + timedelta(
+            minutes=SCHEDULED_MONITOR_START_TOLERANCE_MINUTES
+        )
+        if local_observed_at > final_monitor_accepted_until:
             return False, (
                 f"inside {hours['source']} closing grace window "
                 f"({local_observed_at.strftime('%H:%M')} {timezone_name}; "
-                f"last accepted monitor {closing_grace_starts_after.strftime('%H:%M')})"
+                f"last scheduled monitor {last_scheduled_monitor_at.strftime('%H:%M')}; "
+                f"accepted through {final_monitor_accepted_until.strftime('%H:%M')})"
             )
 
         return True, None
