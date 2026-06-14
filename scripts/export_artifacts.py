@@ -323,15 +323,35 @@ def build_multi_ride_closures(last_run):
     return alerts
 
 
+def closure_is_covered_by_multi(candidate, multi_closures):
+    return any(
+        candidate.get("park_name") == alert.get("park_name")
+        and candidate.get("ride_name") in set(alert.get("rides", []))
+        for alert in multi_closures
+    )
+
+
+def suppress_single_closures_covered_by_multi(single_closures, multi_closures):
+    if not multi_closures:
+        return single_closures
+    return [
+        candidate
+        for candidate in single_closures
+        if not closure_is_covered_by_multi(candidate, multi_closures)
+    ]
+
+
 def build_post_candidates(summary, config, last_run, observed_at):
     park_lookup = enabled_park_lookup(config)
     single_closures, single_reopenings = build_single_ride_candidates(last_run, park_lookup)
+    raw_multi_closures = build_multi_ride_closures(last_run)
+    single_closures = suppress_single_closures_covered_by_multi(single_closures, raw_multi_closures)
     reliability_rankings = monthly_rankings(summary)
     monthly_ready = summary.get("monthly_reliability_ready", True)
     trends_ready = summary.get("trend_insights_ready", True)
     multi_closures = [
         with_trimmed_preview({"pillar": "real_time_alert", "type": "multi_ride_closure", **alert, "preview_text": build_multi_ride_closure_post(alert, park_lookup)})
-        for alert in build_multi_ride_closures(last_run)
+        for alert in raw_multi_closures
     ]
     daily_summary = with_trimmed_preview({
         "pillar": "daily_operations_summary",
