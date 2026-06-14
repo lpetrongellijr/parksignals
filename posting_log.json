@@ -1061,6 +1061,26 @@
       "ride_name": "Test Track",
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-14T17:30:20Z",
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-14T17:30:19Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "The Many Adventures of Winnie the Pooh",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-14T17:30:20Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-14T17:30:19Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Spaceship Earth",
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
