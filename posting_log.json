@@ -1701,6 +1701,26 @@
       "ride_name": "Seven Dwarfs Mine Train",
       "status": "dry_run_planned",
       "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-15T21:30:25Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-15T21:30:23Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Star Wars: Rise of the Resistance",
+      "status": "dry_run_planned",
+      "posting_enabled": false
+    },
+    {
+      "recorded_at": "2026-06-15T21:30:25Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:c68ea967e4e4775d:2026-06-15",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "dry_run_planned",
+      "posting_enabled": false
     }
   ]
 }
