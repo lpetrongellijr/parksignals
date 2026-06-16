@@ -168,7 +168,32 @@ class XIntegrationTest(unittest.TestCase):
         self.assertEqual([result["status"] for result in results], ["failed", "skipped", "skipped"])
         self.assertEqual(mock_publish.call_count, 1)
         self.assertEqual(sleep_calls, [])
-        self.assertIn("authentication or app-permission", results[1]["error"])
+        self.assertIn("authentication, app-permission, or credits", results[1]["error"])
+
+    @patch("x_integration.publish_post")
+    def test_dispatch_stops_after_x_credits_failure(self, mock_publish):
+        mock_publish.side_effect = x_integration.XIntegrationError(
+            "X post request failed with HTTP 402: CreditsDepleted"
+        )
+        sleep_calls = []
+        plan = {
+            "items": [
+                self.ready_item("real_time_alert", "down", "Tomorrowland Speedway"),
+                self.ready_item("real_time_alert", "down", "Astro Orbiter"),
+            ]
+        }
+
+        results = dispatch_posts.dispatch_ready_posts(
+            plan,
+            batch_size=1,
+            batch_delay_seconds=60,
+            sleep=sleep_calls.append,
+        )
+
+        self.assertEqual([result["status"] for result in results], ["failed", "skipped"])
+        self.assertEqual(mock_publish.call_count, 1)
+        self.assertEqual(sleep_calls, [])
+        self.assertIn("credits", results[1]["error"])
 
     def ready_item(self, pillar, post_type, text):
         return {
