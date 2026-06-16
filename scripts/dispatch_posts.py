@@ -22,9 +22,12 @@ POST_PRIORITY = {
     "trend_detection": 7,
     "active_projection": 8,
 }
-AUTH_CONFIGURATION_ERROR_MARKERS = (
+CONFIGURATION_ERROR_MARKERS = (
     "HTTP 401",
+    "HTTP 402",
     "HTTP 403",
+    "CreditsDepleted",
+    "does not have any credits",
     "oauth1-permissions",
     "not configured with the appropriate oauth1 app permissions",
     "Missing required X credentials",
@@ -93,15 +96,15 @@ def post_result_template(item, sequence, batch_number):
     }
 
 
-def is_auth_configuration_error(error):
+def is_configuration_error(error):
     error_text = str(error)
-    return any(marker in error_text for marker in AUTH_CONFIGURATION_ERROR_MARKERS)
+    return any(marker in error_text for marker in CONFIGURATION_ERROR_MARKERS)
 
 
-def skipped_after_auth_failure_result(item, sequence, batch_number):
+def skipped_after_configuration_failure_result(item, sequence, batch_number):
     result = post_result_template(item, sequence, batch_number)
     result["status"] = "skipped"
-    result["error"] = "Skipped because an earlier X post failed with an authentication or app-permission error."
+    result["error"] = "Skipped because an earlier X post failed with an authentication, app-permission, or credits error."
     return result
 
 
@@ -120,14 +123,14 @@ def dispatch_ready_posts(plan, batch_size=DEFAULT_BATCH_SIZE, batch_delay_second
         flush=True,
     )
 
-    stop_after_auth_failure = False
+    stop_after_configuration_failure = False
     for batch_index in range(total_batches):
         batch_number = batch_index + 1
         batch = posts[batch_index * batch_size:(batch_index + 1) * batch_size]
 
-        if stop_after_auth_failure:
+        if stop_after_configuration_failure:
             for item in batch:
-                results.append(skipped_after_auth_failure_result(item, len(results) + 1, batch_number))
+                results.append(skipped_after_configuration_failure_result(item, len(results) + 1, batch_number))
             continue
 
         if batch_index > 0 and batch_delay_seconds:
@@ -147,10 +150,10 @@ def dispatch_ready_posts(plan, batch_size=DEFAULT_BATCH_SIZE, batch_delay_second
                 result["status"] = "failed"
                 result["error"] = str(exc)
                 print(f"X post failed: {label}: {exc}", flush=True)
-                if is_auth_configuration_error(exc):
-                    stop_after_auth_failure = True
+                if is_configuration_error(exc):
+                    stop_after_configuration_failure = True
                     print(
-                        "Stopping remaining X dispatch attempts because X reported an authentication or app-permission error.",
+                        "Stopping remaining X dispatch attempts because X reported an authentication, app-permission, or credits error.",
                         flush=True,
                     )
             else:
