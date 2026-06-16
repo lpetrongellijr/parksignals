@@ -47,6 +47,11 @@ def write_text(path, content):
             f.write("\n")
 
 
+def github_warning(title, message):
+    safe_message = str(message).replace("\n", " ")
+    print(f"::warning title={title}::{safe_message}")
+
+
 def ready_posts(plan):
     ready = []
     for index, item in enumerate(plan.get("items", [])):
@@ -163,6 +168,14 @@ def build_results_text(results, batch_size=DEFAULT_BATCH_SIZE, batch_delay_secon
     return "\n".join(lines)
 
 
+def warn_for_failures(results):
+    for result in results:
+        if result.get("status") != "failed":
+            continue
+        label = result.get("ride_name") or result.get("type") or result.get("dedupe_key")
+        github_warning("X dispatch failed", f"{label}: {result.get('error')}")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", default="outputs")
@@ -181,6 +194,7 @@ def main():
         batch_delay_seconds=args.batch_delay_seconds,
     )
     posting_log = update_posting_log(posting_log, results)
+    results_text = build_results_text(results, args.batch_size, args.batch_delay_seconds)
 
     write_json(
         output_dir / "x-dispatch-results.json",
@@ -191,15 +205,12 @@ def main():
             "results": results,
         },
     )
-    write_text(
-        output_dir / "x-dispatch-results.txt",
-        build_results_text(results, args.batch_size, args.batch_delay_seconds),
-    )
+    write_text(output_dir / "x-dispatch-results.txt", results_text)
     write_json(Path(args.log), posting_log)
 
-    failed = [result for result in results if result["status"] == "failed"]
-    if failed:
-        raise SystemExit(1)
+    print("")
+    print(results_text)
+    warn_for_failures(results)
 
 
 if __name__ == "__main__":
