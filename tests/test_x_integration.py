@@ -125,6 +125,18 @@ class XIntegrationTest(unittest.TestCase):
         self.assertEqual(sleep_calls, [60, 60, 60])
         self.assertEqual(mock_publish.call_count, 4)
 
+    @patch("x_integration.publish_post")
+    def test_dispatch_failure_is_reported_in_results_text(self, mock_publish):
+        mock_publish.side_effect = x_integration.XIntegrationError("HTTP 401 Unauthorized")
+        plan = {"items": [self.ready_item("real_time_alert", "reopened", "Kali River Rapids")]}
+
+        results = dispatch_posts.dispatch_ready_posts(plan, batch_size=1, batch_delay_seconds=60)
+        text = dispatch_posts.build_results_text(results)
+
+        self.assertEqual(results[0]["status"], "failed")
+        self.assertIn("failed", text)
+        self.assertIn("HTTP 401 Unauthorized", text)
+
     def ready_item(self, pillar, post_type, text):
         return {
             "dedupe_key": f"{pillar}:{post_type}:{text}",
