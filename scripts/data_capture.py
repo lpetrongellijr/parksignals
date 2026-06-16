@@ -1,5 +1,7 @@
 import json
+from datetime import timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import parksignals
 import parksignals_analytics
@@ -31,7 +33,7 @@ def save_history(history, path=ANALYTICS_HISTORY_FILE):
 
 
 def local_date_key(observed_at, timezone_name=parksignals_analytics.PARK_ANALYTICS_TIMEZONE):
-    return observed_at.astimezone(parksignals_analytics.ZoneInfo(timezone_name)).date().isoformat()
+    return observed_at.astimezone(ZoneInfo(timezone_name)).date().isoformat()
 
 
 def blank_ride_record(ride_name):
@@ -73,6 +75,14 @@ def park_day_record(day, park_key, park_name):
             "rides": {},
         },
     )
+
+
+def accepted_park_keys(summaries):
+    return {
+        summary["park_key"]
+        for summary in summaries
+        if summary.get("park_key") and not summary.get("monitoring_suppressed")
+    }
 
 
 def add_wait_sample(ride_record, wait_time):
@@ -131,9 +141,11 @@ def update_samples(day, summaries):
             ride_record["down_event_count"] += 1
 
 
-def update_downtime_metrics(day, state, config, observed_at):
+def update_downtime_metrics(day, state, config, observed_at, park_keys):
     day_start = parksignals_analytics.local_day_start(observed_at)
     for park_key, park_config in parksignals.enabled_park_configs(config):
+        if park_key not in park_keys:
+            continue
         park_state = state.get(park_key, {})
         if not isinstance(park_state, dict):
             continue
@@ -164,7 +176,7 @@ def date_range_key(date_key, range_type):
         parsed = parksignals.parse_date(date_key)
         if parsed is None:
             return date_key
-        week_start = parsed - parksignals.timedelta(days=parsed.weekday())
+        week_start = parsed - timedelta(days=parsed.weekday())
         return week_start.isoformat()
     return date_key
 
@@ -272,7 +284,7 @@ def update_history(state, config, summaries, observed_at, path=ANALYTICS_HISTORY
     day["last_observed_at"] = observed_at_text
 
     update_samples(day, summaries)
-    update_downtime_metrics(day, state, config, observed_at)
+    update_downtime_metrics(day, state, config, observed_at, accepted_park_keys(summaries))
     save_history(history, path)
     write_history_summary(history, observed_at, output_dir)
     return history
