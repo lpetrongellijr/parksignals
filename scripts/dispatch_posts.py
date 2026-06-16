@@ -22,6 +22,13 @@ POST_PRIORITY = {
     "trend_detection": 7,
     "active_projection": 8,
 }
+AUTH_CONFIGURATION_ERROR_MARKERS = (
+    "HTTP 401",
+    "HTTP 403",
+    "oauth1-permissions",
+    "not configured with the appropriate oauth1 app permissions",
+    "Missing required X credentials",
+)
 
 
 def load_json(path, default):
@@ -86,6 +93,18 @@ def post_result_template(item, sequence, batch_number):
     }
 
 
+def is_auth_configuration_error(error):
+    error_text = str(error)
+    return any(marker in error_text for marker in AUTH_CONFIGURATION_ERROR_MARKERS)
+
+
+def skipped_after_auth_failure_result(item, sequence, batch_number):
+    result = post_result_template(item, sequence, batch_number)
+    result["status"] = "skipped"
+    result["error"] = "Skipped because an earlier X post failed with an authentication or app-permission error."
+    return result
+
+
 def dispatch_ready_posts(plan, batch_size=DEFAULT_BATCH_SIZE, batch_delay_seconds=DEFAULT_BATCH_DELAY_SECONDS, sleep=time.sleep):
     posts = ready_posts(plan)
     results = []
@@ -101,8 +120,16 @@ def dispatch_ready_posts(plan, batch_size=DEFAULT_BATCH_SIZE, batch_delay_second
         flush=True,
     )
 
+    stop_after_auth_failure = False
     for batch_index in range(total_batches):
         batch_number = batch_index + 1
+        batch = posts[batch_index * batch_size:(batch_index + 1) * batch_size]
+
+        if stop_after_auth_failure:
+            for item in batch:
+                results.append(skipped_after_auth_failure_result(item, len(results) + 1, batch_number))
+            continue
+
         if batch_index > 0 and batch_delay_seconds:
             print(
                 f"Waiting {batch_delay_seconds}s before X post batch {batch_number}/{total_batches}.",
@@ -110,7 +137,6 @@ def dispatch_ready_posts(plan, batch_size=DEFAULT_BATCH_SIZE, batch_delay_second
             )
             sleep(batch_delay_seconds)
 
-        batch = posts[batch_index * batch_size:(batch_index + 1) * batch_size]
         for item in batch:
             result = post_result_template(item, len(results) + 1, batch_number)
             label = item.get("ride_name") or item.get("type") or item.get("dedupe_key")
@@ -121,6 +147,12 @@ def dispatch_ready_posts(plan, batch_size=DEFAULT_BATCH_SIZE, batch_delay_second
                 result["status"] = "failed"
                 result["error"] = str(exc)
                 print(f"X post failed: {label}: {exc}", flush=True)
+                if is_auth_configuration_error(exc):
+                    stop_after_auth_failure = True
+                    print(
+                        "Stopping remaining X dispatch attempts because X reported an authentication or app-permission error.",
+                        flush=True,
+                    )
             else:
                 result["status"] = "posted"
                 result["tweet_id"] = posted.get("tweet_id")
