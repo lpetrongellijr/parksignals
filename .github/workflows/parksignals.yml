@@ -39,14 +39,37 @@ jobs:
 
       - name: Run ParkSignals
         run: |
+          set -o pipefail
           rm -rf outputs
           mkdir -p outputs
-          python scripts/run_monitor.py | tee outputs/monitor-summary.txt
-          python scripts/update_data_capture.py
-          python scripts/export_artifacts.py --output-dir outputs
-          python scripts/export_x_status.py --output-dir outputs
-          python scripts/plan_posts.py --output-dir outputs --post-context monitor
-          python scripts/dispatch_posts.py --output-dir outputs
+          : > outputs/run-timing.txt
+
+          run_timed() {
+            local name="$1"
+            shift
+            local started_at
+            local ended_at
+            local start_seconds
+            local end_seconds
+            local duration_seconds
+            started_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+            start_seconds=$(date -u +%s)
+            echo "Starting ${name} at ${started_at}"
+            "$@"
+            local status=$?
+            ended_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+            end_seconds=$(date -u +%s)
+            duration_seconds=$((end_seconds - start_seconds))
+            echo "- ${name}: ${duration_seconds}s (exit ${status}, ${started_at} to ${ended_at})" | tee -a outputs/run-timing.txt
+            return ${status}
+          }
+
+          run_timed "run_monitor" bash -o pipefail -c 'python scripts/run_monitor.py | tee outputs/monitor-summary.txt'
+          run_timed "update_data_capture" python scripts/update_data_capture.py
+          run_timed "export_artifacts" python scripts/export_artifacts.py --output-dir outputs
+          run_timed "export_x_status" python scripts/export_x_status.py --output-dir outputs
+          run_timed "plan_posts" python scripts/plan_posts.py --output-dir outputs --post-context monitor
+          run_timed "dispatch_posts" python scripts/dispatch_posts.py --output-dir outputs
 
       - name: Upload Monitor Outputs
         if: always()
