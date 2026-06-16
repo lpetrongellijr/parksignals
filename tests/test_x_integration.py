@@ -144,6 +144,32 @@ class XIntegrationTest(unittest.TestCase):
         self.assertIn("failed", text)
         self.assertIn("HTTP 401 Unauthorized", text)
 
+    @patch("x_integration.publish_post")
+    def test_dispatch_stops_after_x_permission_failure(self, mock_publish):
+        mock_publish.side_effect = x_integration.XIntegrationError(
+            "X post request failed with HTTP 403: oauth1-permissions"
+        )
+        sleep_calls = []
+        plan = {
+            "items": [
+                self.ready_item("real_time_alert", "down", "Astro Orbiter"),
+                self.ready_item("real_time_alert", "down", "Space Mountain"),
+                self.ready_item("real_time_alert", "down", "Pirates"),
+            ]
+        }
+
+        results = dispatch_posts.dispatch_ready_posts(
+            plan,
+            batch_size=1,
+            batch_delay_seconds=60,
+            sleep=sleep_calls.append,
+        )
+
+        self.assertEqual([result["status"] for result in results], ["failed", "skipped", "skipped"])
+        self.assertEqual(mock_publish.call_count, 1)
+        self.assertEqual(sleep_calls, [])
+        self.assertIn("authentication or app-permission", results[1]["error"])
+
     def ready_item(self, pillar, post_type, text):
         return {
             "dedupe_key": f"{pillar}:{post_type}:{text}",
