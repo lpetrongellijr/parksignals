@@ -1,5 +1,26 @@
 {
   "version": 1,
   "posted_keys": [],
-  "decisions": []
+  "decisions": [
+    {
+      "recorded_at": "2026-06-16T13:30:28Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-16T13:30:25Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Star Wars: Rise of the Resistance",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-16T13:30:28Z",
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-16T13:30:25Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kali River Rapids",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    }
+  ]
 }
