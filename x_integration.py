@@ -70,17 +70,19 @@ def connection_status():
     required = {name: env_value_present(name) for name in REQUIRED_SECRET_NAMES}
     optional = {name: env_value_present(name) for name in OPTIONAL_SECRET_NAMES}
     missing_required = [name for name, present in required.items() if not present]
+    enabled = posting_enabled()
 
     return {
         "posting_connected": False,
-        "posting_enabled": posting_enabled(),
+        "posting_enabled": enabled,
         "posting_transport_configured": True,
         "manual_connection_test_available": True,
         "ready_for_manual_connection_test": not missing_required,
         "required_credentials_present": required,
         "optional_credentials_present": optional,
         "missing_required_credentials": missing_required,
-        "safety_mode": "posting_disabled_until_PARKSIGNALS_X_POSTING_ENABLED_true",
+        "connection_test_status": "not_run",
+        "safety_mode": "live_posting_enabled" if enabled else "posting_disabled_until_PARKSIGNALS_X_POSTING_ENABLED_true",
     }
 
 
@@ -89,6 +91,7 @@ def verify_connection(timeout=DEFAULT_TIMEOUT_SECONDS):
     result = {
         **status,
         "connection_test_passed": False,
+        "connection_test_status": "failed",
         "connection_test_url": VERIFY_CREDENTIALS_URL,
         "http_status": None,
         "authenticated_user": None,
@@ -118,6 +121,7 @@ def verify_connection(timeout=DEFAULT_TIMEOUT_SECONDS):
     payload = response.json()
     result["posting_connected"] = True
     result["connection_test_passed"] = True
+    result["connection_test_status"] = "passed"
     result["authenticated_user"] = {
         "id": payload.get("id_str") or str(payload.get("id", "")),
         "username": payload.get("screen_name"),
@@ -131,6 +135,7 @@ def connection_status_text(status=None):
     lines = ["X connection status"]
     lines.append(f"Posting connected: {str(status['posting_connected']).lower()}")
     lines.append(f"Posting enabled: {str(status['posting_enabled']).lower()}")
+    lines.append("Connection test status: " + str(status.get("connection_test_status", "not_run")))
     lines.append(
         "Ready for manual connection test: "
         + str(status["ready_for_manual_connection_test"]).lower()
@@ -168,7 +173,12 @@ def connection_status_text(status=None):
             + ", ".join(status["missing_required_credentials"])
         )
     lines.append("")
-    lines.append("No posts can be sent while PARKSIGNALS_X_POSTING_ENABLED is not true.")
+    if status["posting_enabled"]:
+        lines.append("Live posting is enabled. Posts can be sent when policy allows and a candidate is ready.")
+    else:
+        lines.append("No posts can be sent while PARKSIGNALS_X_POSTING_ENABLED is not true.")
+    if status.get("connection_test_status") == "not_run":
+        lines.append("This status file checks configuration only; it does not call X unless a connection test is run.")
     return "\n".join(lines)
 
 
