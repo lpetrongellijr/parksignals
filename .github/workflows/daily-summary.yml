@@ -9,7 +9,7 @@ permissions:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   PARKSIGNALS_POST_CONTEXT: "daily_summary"
-  PARKSIGNALS_X_POSTING_ENABLED: "false"
+  PARKSIGNALS_X_POSTING_ENABLED: "true"
   X_API_KEY: ${{ secrets.X_API_KEY }}
   X_API_SECRET: ${{ secrets.X_API_SECRET }}
   X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
