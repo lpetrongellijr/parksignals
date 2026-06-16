@@ -34,6 +34,16 @@ class XIntegrationTest(unittest.TestCase):
         self.assertEqual(status["missing_required_credentials"], x_integration.REQUIRED_SECRET_NAMES)
         self.assertNotIn("api-key", x_integration.connection_status_text(status))
 
+    def test_connection_status_text_shows_live_posting_when_enabled(self):
+        env = {**TEST_ENV, "PARKSIGNALS_X_POSTING_ENABLED": "true"}
+        with patch.dict(os.environ, env, clear=True):
+            text = x_integration.connection_status_text()
+
+        self.assertIn("Posting enabled: true", text)
+        self.assertIn("Connection test status: not_run", text)
+        self.assertIn("Live posting is enabled", text)
+        self.assertNotIn("No posts can be sent while PARKSIGNALS_X_POSTING_ENABLED is not true", text)
+
     def test_publish_post_is_blocked_when_safety_switch_is_off(self):
         with patch.dict(os.environ, TEST_ENV, clear=True):
             with self.assertRaises(x_integration.XIntegrationError) as raised:
@@ -58,6 +68,7 @@ class XIntegrationTest(unittest.TestCase):
         self.assertTrue(status["connection_test_passed"])
         self.assertTrue(status["posting_connected"])
         self.assertFalse(status["posting_enabled"])
+        self.assertEqual(status["connection_test_status"], "passed")
         self.assertEqual(status["authenticated_user"]["username"], "ParkSignals")
         mock_get.assert_called_once()
 
