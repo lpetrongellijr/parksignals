@@ -31,16 +31,23 @@ class XIntegrationTest(unittest.TestCase):
             status = x_integration.connection_status()
 
         self.assertFalse(status["ready_for_manual_connection_test"])
+        self.assertIsNone(status["posting_connected"])
+        self.assertIsNone(status["connection_test_passed"])
         self.assertEqual(status["missing_required_credentials"], x_integration.REQUIRED_SECRET_NAMES)
         self.assertNotIn("api-key", x_integration.connection_status_text(status))
 
     def test_connection_status_text_shows_live_posting_when_enabled(self):
         env = {**TEST_ENV, "PARKSIGNALS_X_POSTING_ENABLED": "true"}
         with patch.dict(os.environ, env, clear=True):
-            text = x_integration.connection_status_text()
+            status = x_integration.connection_status()
+            text = x_integration.connection_status_text(status)
 
+        self.assertIsNone(status["posting_connected"])
+        self.assertEqual(status["connection_test_status"], "not_run")
+        self.assertIn("Posting connected: not tested", text)
         self.assertIn("Posting enabled: true", text)
         self.assertIn("Connection test status: not_run", text)
+        self.assertIn("Connection test passed: not tested", text)
         self.assertIn("Live posting is enabled", text)
         self.assertNotIn("No posts can be sent while PARKSIGNALS_X_POSTING_ENABLED is not true", text)
 
