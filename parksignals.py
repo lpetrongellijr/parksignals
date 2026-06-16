@@ -356,6 +356,8 @@ def update_ride_state(ride_state, ride, observed_at, planned_closure=None):
         if current_status is False:
             ride_state["down_since"] = observed_at_text
             ride_state["last_down_at"] = observed_at_text
+            ride_state["current_down_seconds"] = 0
+            return "down"
         else:
             ride_state["down_since"] = None
             ride_state["current_down_seconds"] = 0
