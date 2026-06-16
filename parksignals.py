@@ -198,7 +198,7 @@ def build_post(park_config, ride, reopened=False):
     if reopened:
         return (
             f"PARKSIGNALS // {resort_name}\n\n"
-            f"OK {park_name} UPDATE\n\n"
+            f"ALERT: {park_name}\n\n"
             f"{ride['name']} has reopened.\n\n"
             f"Posted wait: {ride['wait_time']} minutes\n\n"
             f"{tags}\n#Reopened"
