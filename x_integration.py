@@ -73,7 +73,7 @@ def connection_status():
     enabled = posting_enabled()
 
     return {
-        "posting_connected": False,
+        "posting_connected": None,
         "posting_enabled": enabled,
         "posting_transport_configured": True,
         "manual_connection_test_available": True,
@@ -82,6 +82,8 @@ def connection_status():
         "optional_credentials_present": optional,
         "missing_required_credentials": missing_required,
         "connection_test_status": "not_run",
+        "connection_test_passed": None,
+        "connection_test_note": "Monitor runs check configuration only; no live X connection test was performed.",
         "safety_mode": "live_posting_enabled" if enabled else "posting_disabled_until_PARKSIGNALS_X_POSTING_ENABLED_true",
     }
 
@@ -90,6 +92,7 @@ def verify_connection(timeout=DEFAULT_TIMEOUT_SECONDS):
     status = connection_status()
     result = {
         **status,
+        "posting_connected": False,
         "connection_test_passed": False,
         "connection_test_status": "failed",
         "connection_test_url": VERIFY_CREDENTIALS_URL,
@@ -130,10 +133,16 @@ def verify_connection(timeout=DEFAULT_TIMEOUT_SECONDS):
     return result
 
 
+def display_bool(value):
+    if value is None:
+        return "not tested"
+    return str(value).lower()
+
+
 def connection_status_text(status=None):
     status = status or connection_status()
     lines = ["X connection status"]
-    lines.append(f"Posting connected: {str(status['posting_connected']).lower()}")
+    lines.append(f"Posting connected: {display_bool(status['posting_connected'])}")
     lines.append(f"Posting enabled: {str(status['posting_enabled']).lower()}")
     lines.append("Connection test status: " + str(status.get("connection_test_status", "not_run")))
     lines.append(
@@ -141,7 +150,7 @@ def connection_status_text(status=None):
         + str(status["ready_for_manual_connection_test"]).lower()
     )
     if "connection_test_passed" in status:
-        lines.append("Connection test passed: " + str(status["connection_test_passed"]).lower())
+        lines.append("Connection test passed: " + display_bool(status["connection_test_passed"]))
     if status.get("http_status") is not None:
         lines.append(f"X HTTP status: {status['http_status']}")
     if status.get("authenticated_user"):
