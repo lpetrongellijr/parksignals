@@ -19,6 +19,7 @@ env:
 jobs:
   monitor:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
 
     steps:
       - name: Checkout Repo
@@ -38,6 +39,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run ParkSignals
+        timeout-minutes: 8
         run: |
           set -o pipefail
           rm -rf outputs
@@ -79,6 +81,7 @@ jobs:
           path: outputs/
 
       - name: Commit Updated State, Analytics History, And Posting Log
+        timeout-minutes: 4
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
