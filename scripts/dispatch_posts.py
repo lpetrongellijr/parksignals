@@ -95,23 +95,36 @@ def dispatch_ready_posts(plan, batch_size=DEFAULT_BATCH_SIZE, batch_delay_second
     batch_size = max(1, int(batch_size))
     batch_delay_seconds = max(0, int(batch_delay_seconds))
     total_batches = (len(posts) + batch_size - 1) // batch_size
+    print(
+        f"Dispatching {len(posts)} X post(s) in {total_batches} batch(es), "
+        f"{batch_delay_seconds}s cooldown between batches.",
+        flush=True,
+    )
 
     for batch_index in range(total_batches):
         batch_number = batch_index + 1
         if batch_index > 0 and batch_delay_seconds:
+            print(
+                f"Waiting {batch_delay_seconds}s before X post batch {batch_number}/{total_batches}.",
+                flush=True,
+            )
             sleep(batch_delay_seconds)
 
         batch = posts[batch_index * batch_size:(batch_index + 1) * batch_size]
         for item in batch:
             result = post_result_template(item, len(results) + 1, batch_number)
+            label = item.get("ride_name") or item.get("type") or item.get("dedupe_key")
+            print(f"Sending X post batch {batch_number}/{total_batches}: {label}", flush=True)
             try:
                 posted = x_integration.publish_post(item.get("preview_text", ""))
             except x_integration.XIntegrationError as exc:
                 result["status"] = "failed"
                 result["error"] = str(exc)
+                print(f"X post failed: {label}: {exc}", flush=True)
             else:
                 result["status"] = "posted"
                 result["tweet_id"] = posted.get("tweet_id")
+                print(f"X post sent: {label}", flush=True)
             results.append(result)
     return results
 
