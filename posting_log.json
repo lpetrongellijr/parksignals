@@ -13,6 +13,7 @@
     "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-17T15:45:32Z",
     "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-17T15:15:30Z",
     "real_time_alert:down:Magic Kingdom:3cba0cb4-e2a6-402c-93ee-c11ffcb127ef:2026-06-16T23:45:24Z",
+    "real_time_alert:down:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-17T23:00:38Z",
     "real_time_alert:down:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-17T13:45:23Z",
     "real_time_alert:down:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:00:34Z",
     "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-17T00:30:22Z",
@@ -1404,6 +1405,26 @@
       "park_name": "EPCOT",
       "ride_name": "Journey Into Imagination With Figment",
       "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-17T23:00:40Z",
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-17T23:00:38Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Jungle Cruise",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-17T23:00:38Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Jungle Cruise",
+      "status": "posted",
+      "tweet_id": "2067381945617781069",
       "posting_enabled": true
     }
   ]
