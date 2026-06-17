@@ -33,6 +33,7 @@
     "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-17T14:00:42Z",
     "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-17T01:00:21Z",
     "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-17T14:00:42Z",
+    "real_time_alert:reopened:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:15:24Z",
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-17T00:45:16Z"
   ],
   "decisions": [
@@ -1154,6 +1155,26 @@
       "ride_name": "\"it's a small world\"",
       "status": "posted",
       "tweet_id": "2067321534536921098",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-17T19:15:26Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:15:24Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "\"it's a small world\"",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:15:24Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "\"it's a small world\"",
+      "status": "posted",
+      "tweet_id": "2067325263298412949",
       "posting_enabled": true
     }
   ]
