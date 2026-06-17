@@ -21,12 +21,15 @@
     "real_time_alert:multi_ride_closure:Magic Kingdom:8642ea39d27b9e3a:2026-06-17",
     "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T13:15:22Z",
     "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:30:22Z",
+    "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T21:15:20Z",
     "real_time_alert:reopened:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-17T14:00:42Z",
     "real_time_alert:reopened:EPCOT:fb076275-0570-4d62-b2a9-4d6515130fa3:2026-06-17T18:15:28Z",
+    "real_time_alert:reopened:EPCOT:fb076275-0570-4d62-b2a9-4d6515130fa3:2026-06-17T21:15:20Z",
     "real_time_alert:reopened:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-17T01:30:19Z",
     "real_time_alert:reopened:Hollywood Studios:34c4916b-989b-4ff1-a7e3-a6a846a3484f:2026-06-17T13:15:22Z",
     "real_time_alert:reopened:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T00:30:22Z",
     "real_time_alert:reopened:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T14:30:32Z",
+    "real_time_alert:reopened:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T21:15:20Z",
     "real_time_alert:reopened:Hollywood Studios:3b290419-8ca2-44bc-a710-a6c83fca76ec:2026-06-16T23:45:24Z",
     "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-17T13:00:30Z",
     "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-17T16:30:35Z",
@@ -1259,6 +1262,66 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2067351710851281117",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-17T21:15:22Z",
+      "dedupe_key": "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T21:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Spaceship Earth",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-17T21:15:22Z",
+      "dedupe_key": "real_time_alert:reopened:EPCOT:fb076275-0570-4d62-b2a9-4d6515130fa3:2026-06-17T21:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "The Seas with Nemo & Friends",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-17T21:15:22Z",
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T21:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Slinky Dog Dash",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T21:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Spaceship Earth",
+      "status": "posted",
+      "tweet_id": "2067355447087005749",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:EPCOT:fb076275-0570-4d62-b2a9-4d6515130fa3:2026-06-17T21:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "The Seas with Nemo & Friends",
+      "status": "posted",
+      "tweet_id": "2067355699949064370",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T21:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Slinky Dog Dash",
+      "status": "posted",
+      "tweet_id": "2067355952957866389",
       "posting_enabled": true
     }
   ]
