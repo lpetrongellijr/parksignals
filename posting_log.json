@@ -15,6 +15,7 @@
     "real_time_alert:down:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-17T13:45:23Z",
     "real_time_alert:down:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:00:34Z",
     "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-17T00:30:22Z",
+    "real_time_alert:multi_ride_closure:EPCOT:39c4d866c4ffe2e1:2026-06-17",
     "real_time_alert:multi_ride_closure:EPCOT:dc56244169d43ab5:2026-06-17",
     "real_time_alert:multi_ride_closure:Hollywood Studios:48cc29a936105b08:2026-06-17",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8642ea39d27b9e3a:2026-06-17",
@@ -1238,6 +1239,26 @@
       "ride_name": "Kali River Rapids",
       "status": "posted",
       "tweet_id": "2067348161186992234",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-17T21:00:31Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:39c4d866c4ffe2e1:2026-06-17",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:39c4d866c4ffe2e1:2026-06-17",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2067351710851281117",
       "posting_enabled": true
     }
   ]
