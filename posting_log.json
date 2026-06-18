@@ -2,6 +2,7 @@
   "version": 1,
   "posted_keys": [
     "daily_operations_summary:wdw_daily_summary:2026-06-16",
+    "daily_operations_summary:wdw_daily_summary:2026-06-17",
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T12:15:17Z",
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T20:45:23Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:15:20Z",
@@ -1467,6 +1468,26 @@
       "ride_name": "Mickey & Minnie's Runaway Railway",
       "status": "posted",
       "tweet_id": "2067389443808301070",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-18T03:30:20Z",
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-17",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-17",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2067449811331170307",
       "posting_enabled": true
     }
   ]
