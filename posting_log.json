@@ -48,6 +48,7 @@
     "real_time_alert:reopened:Magic Kingdom:3cba0cb4-e2a6-402c-93ee-c11ffcb127ef:2026-06-17T01:45:24Z",
     "real_time_alert:reopened:Magic Kingdom:5a43d1a7-ad53-4d25-abfe-25625f0da304:2026-06-17T13:30:25Z",
     "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-17T14:00:42Z",
+    "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-18T13:30:21Z",
     "real_time_alert:reopened:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-17T23:15:18Z",
     "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-17T01:00:21Z",
     "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-17T14:00:42Z",
@@ -1593,6 +1594,26 @@
       "ride_name": "Kali River Rapids",
       "status": "posted",
       "tweet_id": "2067597281260457991",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-18T13:30:23Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-18T13:30:21Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Tiana's Bayou Adventure",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-18T13:30:21Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Tiana's Bayou Adventure",
+      "status": "posted",
+      "tweet_id": "2067600818421842200",
       "posting_enabled": true
     }
   ]
