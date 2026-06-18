@@ -9,6 +9,7 @@
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T12:15:19Z",
     "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T15:15:28Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:15:20Z",
+    "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:15:22Z",
     "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-17T22:15:22Z",
     "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-17T13:15:22Z",
     "real_time_alert:down:EPCOT:fb076275-0570-4d62-b2a9-4d6515130fa3:2026-06-17T17:15:18Z",
@@ -49,6 +50,7 @@
     "real_time_alert:reopened:Hollywood Studios:6e118e37-5002-408d-9d88-0b5d9cdb5d14:2026-06-17T23:30:26Z",
     "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-17T13:00:30Z",
     "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-17T16:30:35Z",
+    "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-18T16:15:22Z",
     "real_time_alert:reopened:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-17T16:00:27Z",
     "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-17T14:00:42Z",
     "real_time_alert:reopened:Magic Kingdom:3cba0cb4-e2a6-402c-93ee-c11ffcb127ef:2026-06-17T01:45:24Z",
@@ -1761,6 +1763,46 @@
       "ride_name": "Toy Story Mania!",
       "status": "posted",
       "tweet_id": "2067638621792850389",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-18T16:15:24Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:15:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Spaceship Earth",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-18T16:15:24Z",
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-18T16:15:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:15:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Spaceship Earth",
+      "status": "posted",
+      "tweet_id": "2067642345491738731",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-18T16:15:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
+      "status": "posted",
+      "tweet_id": "2067642598076895539",
       "posting_enabled": true
     }
   ]
