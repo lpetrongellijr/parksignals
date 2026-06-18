@@ -11,6 +11,7 @@
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:15:20Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:15:22Z",
     "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-17T22:15:22Z",
+    "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T18:15:21Z",
     "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-17T13:15:22Z",
     "real_time_alert:down:EPCOT:fb076275-0570-4d62-b2a9-4d6515130fa3:2026-06-17T17:15:18Z",
     "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-17T00:45:16Z",
@@ -1866,6 +1867,26 @@
       "ride_name": "Test Track",
       "status": "posted",
       "tweet_id": "2067653950296244557",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-18T18:15:24Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T18:15:21Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Journey Into Imagination With Figment",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T18:15:21Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Journey Into Imagination With Figment",
+      "status": "posted",
+      "tweet_id": "2067672542811218337",
       "posting_enabled": true
     }
   ]
