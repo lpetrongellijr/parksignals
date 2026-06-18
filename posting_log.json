@@ -52,6 +52,7 @@
     "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T20:45:19Z",
     "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T22:00:23Z",
     "real_time_alert:reopened:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-17T14:00:42Z",
+    "real_time_alert:reopened:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-18T23:15:21Z",
     "real_time_alert:reopened:EPCOT:e3549451-b284-453d-9c31-e3b1207abd79:2026-06-17T21:45:27Z",
     "real_time_alert:reopened:EPCOT:fb076275-0570-4d62-b2a9-4d6515130fa3:2026-06-17T18:15:28Z",
     "real_time_alert:reopened:EPCOT:fb076275-0570-4d62-b2a9-4d6515130fa3:2026-06-17T21:15:20Z",
@@ -2220,6 +2221,26 @@
       "ride_name": "Test Track",
       "status": "posted",
       "tweet_id": "2067744270434402529",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-18T23:15:23Z",
+      "dedupe_key": "real_time_alert:reopened:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-18T23:15:21Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Frozen Ever After",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-18T23:15:21Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Frozen Ever After",
+      "status": "posted",
+      "tweet_id": "2067748037917552824",
       "posting_enabled": true
     }
   ]
