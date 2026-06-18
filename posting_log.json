@@ -11,6 +11,7 @@
     "real_time_alert:down:EPCOT:1e735ffb-4868-47f1-b2cd-2ac1156cd5f0:2026-06-18T20:30:21Z",
     "real_time_alert:down:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T19:15:19Z",
     "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T15:15:28Z",
+    "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T22:45:17Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:15:20Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:15:22Z",
     "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-17T22:15:22Z",
@@ -76,7 +77,8 @@
     "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-17T14:00:42Z",
     "real_time_alert:reopened:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:15:24Z",
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-17T00:45:16Z",
-    "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T17:00:28Z"
+    "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T17:00:28Z",
+    "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T22:45:17Z"
   ],
   "decisions": [
     {
@@ -2157,6 +2159,46 @@
       "ride_name": "Journey Into Imagination With Figment",
       "status": "posted",
       "tweet_id": "2067729172638695923",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-18T22:45:20Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T22:45:17Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-18T22:45:20Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T22:45:17Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Tomorrowland Transit Authority PeopleMover",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T22:45:17Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "posted",
+      "tweet_id": "2067740475994325424",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T22:45:17Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Tomorrowland Transit Authority PeopleMover",
+      "status": "posted",
+      "tweet_id": "2067740728671781113",
       "posting_enabled": true
     }
   ]
