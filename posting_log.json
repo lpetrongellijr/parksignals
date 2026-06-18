@@ -7,6 +7,7 @@
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T12:15:17Z",
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T20:45:23Z",
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T12:15:19Z",
+    "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T15:15:28Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:15:20Z",
     "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-17T22:15:22Z",
     "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-17T13:15:22Z",
@@ -14,6 +15,7 @@
     "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-17T00:45:16Z",
     "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T20:45:23Z",
     "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-17T15:45:32Z",
+    "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-18T15:15:28Z",
     "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-17T15:15:30Z",
     "real_time_alert:down:Magic Kingdom:3cba0cb4-e2a6-402c-93ee-c11ffcb127ef:2026-06-16T23:45:24Z",
     "real_time_alert:down:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-18T13:15:18Z",
@@ -1635,6 +1637,46 @@
       "ride_name": "The Barnstormer",
       "status": "posted",
       "tweet_id": "2067619715824889995",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-18T15:15:31Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T15:15:28Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-18T15:15:31Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-18T15:15:28Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T15:15:28Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "posted",
+      "tweet_id": "2067627276213371037",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-18T15:15:28Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
+      "status": "posted",
+      "tweet_id": "2067627529159262556",
       "posting_enabled": true
     }
   ]
