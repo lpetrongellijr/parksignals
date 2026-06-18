@@ -7,6 +7,7 @@
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T12:15:17Z",
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T20:45:23Z",
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T12:15:19Z",
+    "real_time_alert:down:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T19:15:19Z",
     "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T15:15:28Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:15:20Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:15:22Z",
@@ -1908,6 +1909,26 @@
       "ride_name": "Journey Into Imagination With Figment",
       "status": "posted",
       "tweet_id": "2067676333618909227",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-18T19:15:21Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T19:15:19Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Gran Fiesta Tour Starring The Three Caballeros",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T19:15:19Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Gran Fiesta Tour Starring The Three Caballeros",
+      "status": "posted",
+      "tweet_id": "2067687633069785133",
       "posting_enabled": true
     }
   ]
