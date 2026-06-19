@@ -37,6 +37,7 @@
     "real_time_alert:down:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-19T02:45:19Z",
     "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-17T00:30:22Z",
     "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T15:45:19Z",
+    "real_time_alert:multi_ride_closure:Animal Kingdom:c21fa9d8c3e8c440:2026-06-19",
     "real_time_alert:multi_ride_closure:EPCOT:39c4d866c4ffe2e1:2026-06-17",
     "real_time_alert:multi_ride_closure:EPCOT:b573f9972b973f53:2026-06-18",
     "real_time_alert:multi_ride_closure:EPCOT:dc56244169d43ab5:2026-06-17",
@@ -2324,6 +2325,26 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2067812204339228977",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T12:15:23Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Animal Kingdom:c21fa9d8c3e8c440:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Animal Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Animal Kingdom:c21fa9d8c3e8c440:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Animal Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2067944329189171259",
       "posting_enabled": true
     }
   ]
