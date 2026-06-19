@@ -5,6 +5,7 @@
     "daily_operations_summary:wdw_daily_summary:2026-06-17",
     "daily_operations_summary:wdw_daily_summary:2026-06-18",
     "real_time_alert:down:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-18T12:30:29Z",
+    "real_time_alert:down:Animal Kingdom:7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0:2026-06-19T12:30:24Z",
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T12:15:17Z",
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T20:45:23Z",
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T12:15:19Z",
@@ -2345,6 +2346,26 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2067944329189171259",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T12:30:26Z",
+      "dedupe_key": "real_time_alert:down:Animal Kingdom:7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0:2026-06-19T12:30:24Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Na'vi River Journey",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Animal Kingdom:7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0:2026-06-19T12:30:24Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Na'vi River Journey",
+      "status": "posted",
+      "tweet_id": "2067948118747058587",
       "posting_enabled": true
     }
   ]
