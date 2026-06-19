@@ -54,6 +54,7 @@
     "real_time_alert:multi_ride_closure:Magic Kingdom:1b0348a4084952cc:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:4ef2ad0db09f123e:2026-06-19",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:5b7acf5a308f62df:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8642ea39d27b9e3a:2026-06-17",
     "real_time_alert:multi_ride_closure:Magic Kingdom:ffc6a5a1b0dd4fab:2026-06-19",
     "real_time_alert:reopened:Animal Kingdom:32e01181-9a5f-4936-8a77-0dace1de836c:2026-06-19T12:45:22Z",
@@ -3305,6 +3306,26 @@
       "ride_name": "Journey Into Imagination With Figment",
       "status": "posted",
       "tweet_id": "2068076715058884702",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T21:15:22Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:5b7acf5a308f62df:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:5b7acf5a308f62df:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068080222818173205",
       "posting_enabled": true
     }
   ]
