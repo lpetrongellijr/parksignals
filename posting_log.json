@@ -58,6 +58,7 @@
     "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:30:22Z",
     "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T21:15:20Z",
     "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:45:26Z",
+    "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-19T13:30:20Z",
     "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T18:30:25Z",
     "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T20:45:19Z",
     "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T22:00:23Z",
@@ -2471,6 +2472,26 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2067959681830822167",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T13:30:22Z",
+      "dedupe_key": "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-19T13:30:20Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Spaceship Earth",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-19T13:30:20Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Spaceship Earth",
+      "status": "posted",
+      "tweet_id": "2067963202038534158",
       "posting_enabled": true
     }
   ]
