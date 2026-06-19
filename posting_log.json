@@ -14,6 +14,7 @@
     "real_time_alert:down:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T19:15:19Z",
     "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T15:15:28Z",
     "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T22:45:17Z",
+    "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-19T17:30:22Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:15:20Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:15:22Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-19T13:45:19Z",
@@ -47,6 +48,7 @@
     "real_time_alert:multi_ride_closure:EPCOT:b573f9972b973f53:2026-06-18",
     "real_time_alert:multi_ride_closure:EPCOT:dc56244169d43ab5:2026-06-17",
     "real_time_alert:multi_ride_closure:Hollywood Studios:48cc29a936105b08:2026-06-17",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:4ef2ad0db09f123e:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8642ea39d27b9e3a:2026-06-17",
     "real_time_alert:reopened:Animal Kingdom:32e01181-9a5f-4936-8a77-0dace1de836c:2026-06-19T12:45:22Z",
@@ -2733,6 +2735,46 @@
       "ride_name": "Journey Into Imagination With Figment",
       "status": "posted",
       "tweet_id": "2068019827114135948",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T17:30:23Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-19T17:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T17:30:23Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-19T17:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "posted",
+      "tweet_id": "2068023605280010294",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068023857936474548",
       "posting_enabled": true
     }
   ]
