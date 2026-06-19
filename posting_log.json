@@ -44,7 +44,10 @@
     "real_time_alert:multi_ride_closure:EPCOT:dc56244169d43ab5:2026-06-17",
     "real_time_alert:multi_ride_closure:Hollywood Studios:48cc29a936105b08:2026-06-17",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8642ea39d27b9e3a:2026-06-17",
+    "real_time_alert:reopened:Animal Kingdom:32e01181-9a5f-4936-8a77-0dace1de836c:2026-06-19T12:45:22Z",
     "real_time_alert:reopened:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-18T13:00:28Z",
+    "real_time_alert:reopened:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-19T12:45:22Z",
+    "real_time_alert:reopened:Animal Kingdom:7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0:2026-06-19T12:45:22Z",
     "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T13:15:22Z",
     "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T13:15:18Z",
     "real_time_alert:reopened:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T20:30:21Z",
@@ -2366,6 +2369,66 @@
       "ride_name": "Na'vi River Journey",
       "status": "posted",
       "tweet_id": "2067948118747058587",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T12:45:25Z",
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-19T12:45:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Expedition Everest - Legend of the Forbidden Mountain",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T12:45:25Z",
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:32e01181-9a5f-4936-8a77-0dace1de836c:2026-06-19T12:45:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kilimanjaro Safaris",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T12:45:25Z",
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0:2026-06-19T12:45:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Na'vi River Journey",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-19T12:45:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Expedition Everest - Legend of the Forbidden Mountain",
+      "status": "posted",
+      "tweet_id": "2067951887631151398",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:32e01181-9a5f-4936-8a77-0dace1de836c:2026-06-19T12:45:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kilimanjaro Safaris",
+      "status": "posted",
+      "tweet_id": "2067952140191228254",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0:2026-06-19T12:45:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Na'vi River Journey",
+      "status": "posted",
+      "tweet_id": "2067952392839291162",
       "posting_enabled": true
     }
   ]
