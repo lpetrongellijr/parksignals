@@ -16,6 +16,7 @@
     "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T22:45:17Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:15:20Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:15:22Z",
+    "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-19T13:45:19Z",
     "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-17T22:15:22Z",
     "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T18:15:21Z",
     "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-17T13:15:22Z",
@@ -52,6 +53,7 @@
     "real_time_alert:reopened:Animal Kingdom:7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0:2026-06-19T12:45:22Z",
     "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T13:15:22Z",
     "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T13:15:18Z",
+    "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-19T13:45:19Z",
     "real_time_alert:reopened:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T20:30:21Z",
     "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T17:00:28Z",
     "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T23:00:23Z",
@@ -2492,6 +2494,46 @@
       "ride_name": "Spaceship Earth",
       "status": "posted",
       "tweet_id": "2067963202038534158",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T13:45:22Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-19T13:45:19Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Spaceship Earth",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T13:45:22Z",
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-19T13:45:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kali River Rapids",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-19T13:45:19Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Spaceship Earth",
+      "status": "posted",
+      "tweet_id": "2067966974978564150",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-19T13:45:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kali River Rapids",
+      "status": "posted",
+      "tweet_id": "2067967227597385833",
       "posting_enabled": true
     }
   ]
