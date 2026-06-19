@@ -39,10 +39,12 @@
     "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-17T00:30:22Z",
     "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T15:45:19Z",
     "real_time_alert:multi_ride_closure:Animal Kingdom:c21fa9d8c3e8c440:2026-06-19",
+    "real_time_alert:multi_ride_closure:EPCOT:36815bd7526fe27d:2026-06-19",
     "real_time_alert:multi_ride_closure:EPCOT:39c4d866c4ffe2e1:2026-06-17",
     "real_time_alert:multi_ride_closure:EPCOT:b573f9972b973f53:2026-06-18",
     "real_time_alert:multi_ride_closure:EPCOT:dc56244169d43ab5:2026-06-17",
     "real_time_alert:multi_ride_closure:Hollywood Studios:48cc29a936105b08:2026-06-17",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:4ef2ad0db09f123e:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8642ea39d27b9e3a:2026-06-17",
     "real_time_alert:reopened:Animal Kingdom:32e01181-9a5f-4936-8a77-0dace1de836c:2026-06-19T12:45:22Z",
     "real_time_alert:reopened:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-18T13:00:28Z",
@@ -2429,6 +2431,46 @@
       "ride_name": "Na'vi River Journey",
       "status": "posted",
       "tweet_id": "2067952392839291162",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T13:15:23Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:4ef2ad0db09f123e:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T13:15:23Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:36815bd7526fe27d:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:4ef2ad0db09f123e:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2067959429203730685",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:36815bd7526fe27d:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2067959681830822167",
       "posting_enabled": true
     }
   ]
