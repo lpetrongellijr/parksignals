@@ -402,27 +402,34 @@
     },
     "f5aad2d4-a419-4384-bd9a-42f86385c750": {
       "id": "f5aad2d4-a419-4384-bd9a-42f86385c750",
-      "is_open": false,
+      "is_open": null,
       "name": "\"it's a small world\"",
       "last_seen_at": "2026-06-19T02:45:19Z",
       "last_changed_at": "2026-06-19T02:45:19Z",
-      "down_since": "2026-06-19T02:45:19Z",
+      "down_since": null,
       "last_down_at": "2026-06-19T02:45:19Z",
       "last_reopened_at": "2026-06-17T19:15:24Z",
       "current_down_seconds": 0,
-      "total_down_seconds": 890,
+      "total_down_seconds": 1771,
       "downtime_events": [
         {
           "down_at": "2026-06-17T19:00:34Z",
           "reopened_at": "2026-06-17T19:15:24Z",
           "duration_seconds": 890,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-06-19T02:45:19Z",
+          "reopened_at": "2026-06-19T03:00:00Z",
+          "duration_seconds": 881,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-06-19T03:00:00Z"
     },
     "0d94ad60-72f0-4551-83a6-ebaecdd89737": {
       "id": "0d94ad60-72f0-4551-83a6-ebaecdd89737",
