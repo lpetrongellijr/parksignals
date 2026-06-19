@@ -62,6 +62,7 @@
     "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T13:15:22Z",
     "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T13:15:18Z",
     "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-19T13:45:19Z",
+    "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-19T19:15:19Z",
     "real_time_alert:reopened:EPCOT:1e735ffb-4868-47f1-b2cd-2ac1156cd5f0:2026-06-19T14:00:24Z",
     "real_time_alert:reopened:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T20:30:21Z",
     "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T17:00:28Z",
@@ -3066,6 +3067,26 @@
       "park_name": "Hollywood Studios",
       "ride_name": "Slinky Dog Dash",
       "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T19:15:23Z",
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-19T19:15:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kali River Rapids",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-19T19:15:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kali River Rapids",
+      "status": "posted",
+      "tweet_id": "2068050028569210980",
       "posting_enabled": true
     }
   ]
