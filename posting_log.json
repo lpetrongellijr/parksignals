@@ -49,6 +49,7 @@
     "real_time_alert:multi_ride_closure:EPCOT:b573f9972b973f53:2026-06-18",
     "real_time_alert:multi_ride_closure:EPCOT:dc56244169d43ab5:2026-06-17",
     "real_time_alert:multi_ride_closure:Hollywood Studios:48cc29a936105b08:2026-06-17",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:1b0348a4084952cc:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:4ef2ad0db09f123e:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8642ea39d27b9e3a:2026-06-17",
@@ -63,6 +64,7 @@
     "real_time_alert:reopened:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T20:30:21Z",
     "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T17:00:28Z",
     "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T23:00:23Z",
+    "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-19T18:15:17Z",
     "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:30:22Z",
     "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T21:15:20Z",
     "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:45:26Z",
@@ -105,7 +107,9 @@
     "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-17T01:00:21Z",
     "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-17T14:00:42Z",
     "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-19T18:00:24Z",
+    "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-19T18:15:17Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-19T18:00:24Z",
+    "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-19T18:15:17Z",
     "real_time_alert:reopened:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:15:24Z",
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-17T00:45:16Z",
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T17:00:28Z",
@@ -2880,6 +2884,86 @@
       "ride_name": "Dumbo the Flying Elephant",
       "status": "posted",
       "tweet_id": "2068031922065027093",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T18:15:19Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-19T18:15:17Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Tomorrowland Speedway",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T18:15:19Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-19T18:15:17Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Astro Orbiter",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T18:15:19Z",
+      "dedupe_key": "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-19T18:15:17Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-19T18:15:19Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:1b0348a4084952cc:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-19T18:15:17Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Tomorrowland Speedway",
+      "status": "posted",
+      "tweet_id": "2068034912368611426",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-19T18:15:17Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Astro Orbiter",
+      "status": "posted",
+      "tweet_id": "2068035165071282446",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-19T18:15:17Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "posted",
+      "tweet_id": "2068035417711026618",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:1b0348a4084952cc:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068035670191296702",
       "posting_enabled": true
     }
   ]
