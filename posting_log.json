@@ -203,46 +203,6 @@
   ],
   "decisions": [
     {
-      "recorded_at": "2026-06-16T13:30:28Z",
-      "dedupe_key": "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-16T13:30:25Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Hollywood Studios",
-      "ride_name": "Star Wars: Rise of the Resistance",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T13:30:28Z",
-      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-16T13:30:25Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Animal Kingdom",
-      "ride_name": "Kali River Rapids",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T13:45:27Z",
-      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-16T13:45:26Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Hollywood Studios",
-      "ride_name": "Star Wars: Rise of the Resistance",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T15:45:29Z",
-      "dedupe_key": "real_time_alert:down:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-16T15:45:26Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Hollywood Studios",
-      "ride_name": "Toy Story Mania!",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
       "recorded_at": "2026-06-16T16:45:27Z",
       "dedupe_key": "real_time_alert:reopened:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-16T16:45:25Z",
       "pillar": "real_time_alert",
@@ -5179,6 +5139,66 @@
       "type": "multi_ride_closure",
       "park_name": "Magic Kingdom",
       "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T21:30:21Z",
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:b2260923-9315-40fd-9c6b-44dd811dbe64:2026-06-20T21:30:19Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Space Mountain",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T21:30:21Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-20T21:30:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Seven Dwarfs Mine Train",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T21:30:21Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-20T21:30:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Big Thunder Mountain",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T21:30:21Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-20T21:30:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Jungle Cruise",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T21:30:21Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-20T21:30:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Tiana's Bayou Adventure",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T21:30:21Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-20T21:30:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Astro Orbiter",
       "status": "ready_to_post",
       "posting_enabled": true
     }
