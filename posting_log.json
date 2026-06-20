@@ -59,6 +59,7 @@
     "real_time_alert:multi_ride_closure:EPCOT:b573f9972b973f53:2026-06-18",
     "real_time_alert:multi_ride_closure:EPCOT:dc56244169d43ab5:2026-06-17",
     "real_time_alert:multi_ride_closure:Hollywood Studios:48cc29a936105b08:2026-06-17",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:0746c6551764c9de:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:1b0348a4084952cc:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:4ef2ad0db09f123e:2026-06-19",
@@ -3692,6 +3693,26 @@
       "ride_name": "TRON Lightcycle / Run",
       "status": "posted",
       "tweet_id": "2068148160891936792",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T02:00:27Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:0746c6551764c9de:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:0746c6551764c9de:2026-06-19",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068151966526849451",
       "posting_enabled": true
     }
   ]
