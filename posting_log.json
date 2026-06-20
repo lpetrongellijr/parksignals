@@ -36,6 +36,7 @@
     "real_time_alert:down:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-18T15:30:36Z",
     "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T20:45:23Z",
     "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-19T18:45:17Z",
+    "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-20T13:15:18Z",
     "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-17T15:45:32Z",
     "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-18T15:15:28Z",
     "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-19T23:30:23Z",
@@ -61,6 +62,7 @@
     "real_time_alert:multi_ride_closure:EPCOT:39c4d866c4ffe2e1:2026-06-17",
     "real_time_alert:multi_ride_closure:EPCOT:b573f9972b973f53:2026-06-18",
     "real_time_alert:multi_ride_closure:EPCOT:dc56244169d43ab5:2026-06-17",
+    "real_time_alert:multi_ride_closure:EPCOT:fb108ce66b75ce5f:2026-06-20",
     "real_time_alert:multi_ride_closure:Hollywood Studios:48cc29a936105b08:2026-06-17",
     "real_time_alert:multi_ride_closure:Magic Kingdom:0746c6551764c9de:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:1b0348a4084952cc:2026-06-19",
@@ -69,6 +71,7 @@
     "real_time_alert:multi_ride_closure:Magic Kingdom:4ef2ad0db09f123e:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:5b7acf5a308f62df:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8642ea39d27b9e3a:2026-06-17",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:c30ad53ff958555c:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:ffc6a5a1b0dd4fab:2026-06-19",
     "real_time_alert:reopened:Animal Kingdom:32e01181-9a5f-4936-8a77-0dace1de836c:2026-06-19T12:45:22Z",
     "real_time_alert:reopened:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-18T13:00:28Z",
@@ -3922,6 +3925,66 @@
       "ride_name": "Kali River Rapids",
       "status": "posted",
       "tweet_id": "2068306705746641021",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T13:15:21Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-20T13:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Slinky Dog Dash",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T13:15:21Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:c30ad53ff958555c:2026-06-20",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T13:15:21Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:fb108ce66b75ce5f:2026-06-20",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-20T13:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Slinky Dog Dash",
+      "status": "posted",
+      "tweet_id": "2068321811281097117",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:c30ad53ff958555c:2026-06-20",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068322064210198780",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:fb108ce66b75ce5f:2026-06-20",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068322317051249116",
       "posting_enabled": true
     }
   ]
