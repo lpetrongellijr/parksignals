@@ -73,6 +73,7 @@
     "real_time_alert:multi_ride_closure:Magic Kingdom:0746c6551764c9de:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:1b0348a4084952cc:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-19",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:3b65da623befc248:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:4ef2ad0db09f123e:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:5b7acf5a308f62df:2026-06-19",
@@ -134,6 +135,7 @@
     "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-17T14:00:42Z",
     "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-20T13:45:18Z",
     "real_time_alert:reopened:Magic Kingdom:352feb94-e52e-45eb-9c92-e4b44c6b1a9d:2026-06-20T13:45:18Z",
+    "real_time_alert:reopened:Magic Kingdom:352feb94-e52e-45eb-9c92-e4b44c6b1a9d:2026-06-20T17:15:22Z",
     "real_time_alert:reopened:Magic Kingdom:3cba0cb4-e2a6-402c-93ee-c11ffcb127ef:2026-06-17T01:45:24Z",
     "real_time_alert:reopened:Magic Kingdom:5a43d1a7-ad53-4d25-abfe-25625f0da304:2026-06-17T13:30:25Z",
     "real_time_alert:reopened:Magic Kingdom:5a43d1a7-ad53-4d25-abfe-25625f0da304:2026-06-19T22:30:22Z",
@@ -4482,6 +4484,46 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2068378449899561424",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T17:15:25Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:352feb94-e52e-45eb-9c92-e4b44c6b1a9d:2026-06-20T17:15:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Pirates of the Caribbean",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T17:15:25Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-20",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:352feb94-e52e-45eb-9c92-e4b44c6b1a9d:2026-06-20T17:15:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Pirates of the Caribbean",
+      "status": "posted",
+      "tweet_id": "2068382224060186790",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-20",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068382476813185427",
       "posting_enabled": true
     }
   ]
