@@ -4217,6 +4217,46 @@
       "status": "posted",
       "tweet_id": "2068331129544032386",
       "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T14:00:27Z",
+      "dedupe_key": "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-20T14:00:25Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kali River Rapids",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T14:00:27Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48:2026-06-20T14:00:25Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "The Barnstormer",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T14:00:27Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:e7a436ffe305136d:2026-06-20",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T14:00:27Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:666e8e5cf74ff905:2026-06-20",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
     }
   ]
 }
