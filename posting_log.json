@@ -12,6 +12,7 @@
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T12:15:19Z",
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T21:30:21Z",
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-19T17:45:18Z",
+    "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-20T12:15:18Z",
     "real_time_alert:down:EPCOT:1e735ffb-4868-47f1-b2cd-2ac1156cd5f0:2026-06-18T20:30:21Z",
     "real_time_alert:down:EPCOT:1e735ffb-4868-47f1-b2cd-2ac1156cd5f0:2026-06-19T21:30:22Z",
     "real_time_alert:down:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T19:15:19Z",
@@ -3901,6 +3902,26 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2068174590694580346",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T12:15:20Z",
+      "dedupe_key": "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-20T12:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kali River Rapids",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-20T12:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kali River Rapids",
+      "status": "posted",
+      "tweet_id": "2068306705746641021",
       "posting_enabled": true
     }
   ]
