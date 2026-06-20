@@ -171,6 +171,7 @@
     "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-19T21:00:23Z",
     "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-19T22:00:26Z",
     "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-20T02:30:24Z",
+    "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-20T18:30:22Z",
     "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-19T18:15:17Z",
     "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-20T02:30:24Z",
     "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-20T18:15:18Z",
@@ -4806,6 +4807,26 @@
       "ride_name": "Test Track",
       "status": "posted",
       "tweet_id": "2068398316912824427",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T18:30:23Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-20T18:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Seven Dwarfs Mine Train",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-20T18:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Seven Dwarfs Mine Train",
+      "status": "posted",
+      "tweet_id": "2068401092354830749",
       "posting_enabled": true
     }
   ]
