@@ -35,6 +35,7 @@
     "real_time_alert:down:EPCOT:fb076275-0570-4d62-b2a9-4d6515130fa3:2026-06-17T17:15:18Z",
     "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-17T00:45:16Z",
     "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T01:15:16Z",
+    "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T18:15:18Z",
     "real_time_alert:down:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-18T15:30:36Z",
     "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T20:45:23Z",
     "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-19T18:45:17Z",
@@ -100,6 +101,7 @@
     "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-19T23:45:17Z",
     "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-20T13:45:18Z",
     "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-20T16:00:24Z",
+    "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-20T18:15:18Z",
     "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:30:22Z",
     "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T21:15:20Z",
     "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:45:26Z",
@@ -151,6 +153,7 @@
     "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-20T18:00:24Z",
     "real_time_alert:reopened:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-17T23:15:18Z",
     "real_time_alert:reopened:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-19T20:00:24Z",
+    "real_time_alert:reopened:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-20T18:15:18Z",
     "real_time_alert:reopened:Magic Kingdom:86a41273-5f15-4b54-93b6-829f140e5161:2026-06-19T15:00:35Z",
     "real_time_alert:reopened:Magic Kingdom:890fa430-89c0-4a3f-96c9-11597888005e:2026-06-19T18:00:24Z",
     "real_time_alert:reopened:Magic Kingdom:890fa430-89c0-4a3f-96c9-11597888005e:2026-06-20T02:30:24Z",
@@ -170,10 +173,12 @@
     "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-20T02:30:24Z",
     "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-19T18:15:17Z",
     "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-20T02:30:24Z",
+    "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-20T18:15:18Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-19T18:00:24Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-19T19:45:26Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-20T02:30:24Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-20T13:30:19Z",
+    "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-20T18:15:18Z",
     "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-19T18:15:17Z",
     "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-20T17:30:20Z",
     "real_time_alert:reopened:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:15:24Z",
@@ -4701,6 +4706,106 @@
       "ride_name": "Dumbo the Flying Elephant",
       "status": "posted",
       "tweet_id": "2068394060096970948",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T18:15:20Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T18:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Star Wars: Rise of the Resistance",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T18:15:20Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-20T18:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Big Thunder Mountain",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T18:15:20Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-20T18:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Jungle Cruise",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T18:15:20Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-20T18:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Astro Orbiter",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T18:15:20Z",
+      "dedupe_key": "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-20T18:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T18:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Star Wars: Rise of the Resistance",
+      "status": "posted",
+      "tweet_id": "2068397305758421076",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-20T18:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Big Thunder Mountain",
+      "status": "posted",
+      "tweet_id": "2068397558519755169",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-20T18:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Jungle Cruise",
+      "status": "posted",
+      "tweet_id": "2068397811339800952",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-20T18:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Astro Orbiter",
+      "status": "posted",
+      "tweet_id": "2068398064122151164",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-20T18:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "posted",
+      "tweet_id": "2068398316912824427",
       "posting_enabled": true
     }
   ]
