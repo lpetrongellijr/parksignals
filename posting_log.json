@@ -4,6 +4,7 @@
     "daily_operations_summary:wdw_daily_summary:2026-06-16",
     "daily_operations_summary:wdw_daily_summary:2026-06-17",
     "daily_operations_summary:wdw_daily_summary:2026-06-18",
+    "daily_operations_summary:wdw_daily_summary:2026-06-19",
     "real_time_alert:down:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-18T12:30:29Z",
     "real_time_alert:down:Animal Kingdom:7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0:2026-06-19T12:30:24Z",
     "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T12:15:17Z",
@@ -3880,6 +3881,26 @@
       "park_name": "Magic Kingdom",
       "ride_name": "Tomorrowland Speedway",
       "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T03:30:21Z",
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-19",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-19",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068174590694580346",
       "posting_enabled": true
     }
   ]
