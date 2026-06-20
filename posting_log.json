@@ -84,6 +84,7 @@
     "real_time_alert:multi_ride_closure:Magic Kingdom:3b65da623befc248:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:4ef2ad0db09f123e:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:5b7acf5a308f62df:2026-06-19",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:7393bd78f4c3c9e5:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8464a5a7fe79afba:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8642ea39d27b9e3a:2026-06-17",
     "real_time_alert:multi_ride_closure:Magic Kingdom:c30ad53ff958555c:2026-06-20",
@@ -5099,6 +5100,26 @@
       "ride_name": "Kali River Rapids",
       "status": "posted",
       "tweet_id": "2068435040317350204",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T21:00:27Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:7393bd78f4c3c9e5:2026-06-20",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:7393bd78f4c3c9e5:2026-06-20",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068438854970081333",
       "posting_enabled": true
     }
   ]
