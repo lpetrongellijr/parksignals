@@ -21,6 +21,7 @@
     "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T22:45:17Z",
     "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-19T17:30:22Z",
     "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-20T15:30:21Z",
+    "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-20T19:30:22Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:15:20Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:15:22Z",
     "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-19T13:45:19Z",
@@ -58,6 +59,7 @@
     "real_time_alert:down:Magic Kingdom:924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48:2026-06-20T13:45:18Z",
     "real_time_alert:down:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-17T13:45:23Z",
     "real_time_alert:down:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-19T20:30:21Z",
+    "real_time_alert:down:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-20T19:30:22Z",
     "real_time_alert:down:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-20T02:30:24Z",
     "real_time_alert:down:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:00:34Z",
     "real_time_alert:down:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-19T02:45:19Z",
@@ -4869,6 +4871,66 @@
       "ride_name": "Star Wars: Rise of the Resistance",
       "status": "posted",
       "tweet_id": "2068412653718941739",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T19:30:29Z",
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-20T19:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Seven Dwarfs Mine Train",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T19:30:29Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-20T19:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T19:30:29Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T19:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Star Wars: Rise of the Resistance",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T19:30:29Z",
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:32e01181-9a5f-4936-8a77-0dace1de836c:2026-06-20T19:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kilimanjaro Safaris",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-20T19:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Seven Dwarfs Mine Train",
+      "status": "posted",
+      "tweet_id": "2068416217606758475",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-20T19:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Test Track",
+      "status": "posted",
+      "tweet_id": "2068416470430941628",
       "posting_enabled": true
     }
   ]
