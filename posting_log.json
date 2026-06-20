@@ -30,6 +30,7 @@
     "real_time_alert:down:EPCOT:e3549451-b284-453d-9c31-e3b1207abd79:2026-06-19T00:45:18Z",
     "real_time_alert:down:EPCOT:fb076275-0570-4d62-b2a9-4d6515130fa3:2026-06-17T17:15:18Z",
     "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-17T00:45:16Z",
+    "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T01:15:16Z",
     "real_time_alert:down:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-18T15:30:36Z",
     "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T20:45:23Z",
     "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-19T18:45:17Z",
@@ -3650,6 +3651,26 @@
       "park_name": "Hollywood Studios",
       "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
       "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-20T01:15:17Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T01:15:16Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Star Wars: Rise of the Resistance",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T01:15:16Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Star Wars: Rise of the Resistance",
+      "status": "posted",
+      "tweet_id": "2068140601044791358",
       "posting_enabled": true
     }
   ]
