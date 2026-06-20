@@ -725,15 +725,15 @@
     },
     "ffcfeaa2-1416-4920-a1ed-543c1a1695c4": {
       "id": "ffcfeaa2-1416-4920-a1ed-543c1a1695c4",
-      "is_open": false,
+      "is_open": null,
       "name": "Tomorrowland Transit Authority PeopleMover",
       "last_seen_at": "2026-06-20T02:45:16Z",
       "last_changed_at": "2026-06-20T00:00:24Z",
-      "down_since": "2026-06-20T00:00:24Z",
+      "down_since": null,
       "last_down_at": "2026-06-20T00:00:24Z",
       "last_reopened_at": "2026-06-18T23:45:19Z",
-      "current_down_seconds": 9892,
-      "total_down_seconds": 10798,
+      "current_down_seconds": 0,
+      "total_down_seconds": 21574,
       "downtime_events": [
         {
           "down_at": "2026-06-16T23:00:24Z",
@@ -764,12 +764,19 @@
           "reopened_at": "2026-06-18T23:45:19Z",
           "duration_seconds": 901,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-06-20T00:00:24Z",
+          "reopened_at": "2026-06-20T03:00:00Z",
+          "duration_seconds": 10776,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-06-20T03:00:00Z"
     },
     "f163ddcd-43e1-488d-8276-2381c1db0a39": {
       "id": "f163ddcd-43e1-488d-8276-2381c1db0a39",
