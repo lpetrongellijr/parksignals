@@ -228,16 +228,6 @@
   "decisions": [
     {
       "recorded_at": "2026-06-17T00:30:24Z",
-      "dedupe_key": "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-17T00:30:22Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Tomorrowland Transit Authority PeopleMover",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-17T00:30:24Z",
       "dedupe_key": "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:30:22Z",
       "pillar": "real_time_alert",
       "type": "reopened",
@@ -5224,6 +5214,16 @@
       "ride_name": "Big Thunder Mountain",
       "status": "posted",
       "tweet_id": "2068714384759673333",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T16:45:20Z",
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-21T16:45:18Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Haunted Mansion",
+      "status": "ready_to_post",
       "posting_enabled": true
     }
   ]
