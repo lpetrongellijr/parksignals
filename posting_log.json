@@ -96,6 +96,7 @@
     "real_time_alert:multi_ride_closure:Magic Kingdom:3b65da623befc248:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:4ef2ad0db09f123e:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:5b7acf5a308f62df:2026-06-19",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:5e0df573e6cdb067:2026-06-21",
     "real_time_alert:multi_ride_closure:Magic Kingdom:5f5ab0d1b6553d2f:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:7393bd78f4c3c9e5:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8464a5a7fe79afba:2026-06-20",
@@ -153,6 +154,7 @@
     "real_time_alert:reopened:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T19:45:19Z",
     "real_time_alert:reopened:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-21T00:30:25Z",
     "real_time_alert:reopened:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-18T16:00:34Z",
+    "real_time_alert:reopened:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-21T18:15:17Z",
     "real_time_alert:reopened:Hollywood Studios:34c4916b-989b-4ff1-a7e3-a6a846a3484f:2026-06-17T13:15:22Z",
     "real_time_alert:reopened:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T00:30:22Z",
     "real_time_alert:reopened:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T14:30:32Z",
@@ -232,46 +234,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-17T01:30:19Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Hollywood Studios",
-      "ride_name": "Star Wars: Rise of the Resistance",
-      "status": "posted",
-      "tweet_id": "2067057228280951224",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-17T01:45:25Z",
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:3cba0cb4-e2a6-402c-93ee-c11ffcb127ef:2026-06-17T01:45:24Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Under the Sea - Journey of The Little Mermaid",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:3cba0cb4-e2a6-402c-93ee-c11ffcb127ef:2026-06-17T01:45:24Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Under the Sea - Journey of The Little Mermaid",
-      "status": "posted",
-      "tweet_id": "2067061020695077361",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-17T03:30:22Z",
-      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-16",
-      "pillar": "daily_operations_summary",
-      "type": "wdw_daily_summary",
-      "park_name": null,
-      "ride_name": null,
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-16",
       "pillar": "daily_operations_summary",
@@ -5230,6 +5192,46 @@
       "ride_name": "Na'vi River Journey",
       "status": "posted",
       "tweet_id": "2068756199345209662",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T18:15:20Z",
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-21T18:15:17Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Toy Story Mania!",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T18:15:20Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:5e0df573e6cdb067:2026-06-21",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-21T18:15:17Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Toy Story Mania!",
+      "status": "posted",
+      "tweet_id": "2068759691744743935",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:5e0df573e6cdb067:2026-06-21",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068759944669680035",
       "posting_enabled": true
     }
   ]
