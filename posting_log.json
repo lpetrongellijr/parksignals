@@ -52,6 +52,7 @@
     "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-21T00:30:25Z",
     "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-17T15:15:30Z",
     "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-19T23:15:17Z",
+    "real_time_alert:down:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-21T14:45:15Z",
     "real_time_alert:down:Magic Kingdom:352feb94-e52e-45eb-9c92-e4b44c6b1a9d:2026-06-20T16:00:24Z",
     "real_time_alert:down:Magic Kingdom:3cba0cb4-e2a6-402c-93ee-c11ffcb127ef:2026-06-16T23:45:24Z",
     "real_time_alert:down:Magic Kingdom:5a43d1a7-ad53-4d25-abfe-25625f0da304:2026-06-19T22:00:26Z",
@@ -222,26 +223,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "recorded_at": "2026-06-16T23:30:24Z",
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-16T23:30:22Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Jungle Cruise",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T23:30:24Z",
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-16T23:30:22Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Tomorrowland Speedway",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-16T23:45:27Z",
       "dedupe_key": "real_time_alert:down:Magic Kingdom:3cba0cb4-e2a6-402c-93ee-c11ffcb127ef:2026-06-16T23:45:24Z",
@@ -5220,6 +5201,26 @@
       "ride_name": "Kali River Rapids",
       "status": "posted",
       "tweet_id": "2068699303070306773",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T14:45:17Z",
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-21T14:45:15Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Haunted Mansion",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-21T14:45:15Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Haunted Mansion",
+      "status": "posted",
+      "tweet_id": "2068706831954829689",
       "posting_enabled": true
     }
   ]
