@@ -81,6 +81,29 @@ def latest_ride_details(last_run):
     }
 
 
+
+def latest_updates(last_run, state, config, observed_at):
+    updates = []
+    for summary in last_run.get("run_summaries", []):
+        park_key = summary.get("park_key")
+        park_config = config.get("parks", {}).get(park_key, {})
+        for transition in summary.get("transitions", []):
+            ride_id = str(transition.get("ride_id"))
+            ride_state = state.get(park_key, {}).get(ride_id, {})
+            transition_type = transition.get("type")
+            timestamp_key = "last_reopened_at" if transition_type == "reopened" else "last_down_at"
+            updates.append({
+                "type": transition_type,
+                "ride_id": ride_id,
+                "ride_name": display_name(transition.get("ride_name") or ride_id),
+                "park_id": park_key,
+                "park_name": park_config.get("park_name", park_key.replace("_", " ").title()),
+                "park_slug": PARK_SLUGS.get(park_key, park_key.replace("_", "-")),
+                "observed_at": ride_state.get(timestamp_key) or iso_timestamp(observed_at),
+            })
+    return sorted(updates, key=lambda update: update["observed_at"], reverse=True)[:12]
+
+
 def export_snapshot(output_path=OUTPUT_FILE):
     config = load_json(Path("parks_config.json"), {})
     state = load_json(Path("state.json"), {})
@@ -148,6 +171,7 @@ def export_snapshot(output_path=OUTPUT_FILE):
         "source": "ParkSignals monitoring data",
         "parks": parks,
         "closures": closures,
+        "latest_updates": latest_updates(last_run, state, config, observed_at),
         "downtime_today": downtime,
     }
     output_path.parent.mkdir(parents=True, exist_ok=True)
