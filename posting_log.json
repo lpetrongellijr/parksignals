@@ -74,6 +74,7 @@
     "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-17T00:30:22Z",
     "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T15:45:19Z",
     "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-20T00:00:24Z",
+    "real_time_alert:multi_ride_closure:Animal Kingdom:4ff3a67bc64a49a6:2026-06-21",
     "real_time_alert:multi_ride_closure:Animal Kingdom:53781c1308589511:2026-06-20",
     "real_time_alert:multi_ride_closure:Animal Kingdom:c21fa9d8c3e8c440:2026-06-19",
     "real_time_alert:multi_ride_closure:EPCOT:36815bd7526fe27d:2026-06-19",
@@ -217,26 +218,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "recorded_at": "2026-06-16T22:30:29Z",
-      "dedupe_key": "real_time_alert:down:Hollywood Studios:3b290419-8ca2-44bc-a710-a6c83fca76ec:2026-06-16T22:30:27Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Hollywood Studios",
-      "ride_name": "Star Tours \u2013 The Adventures Continue",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T23:00:26Z",
-      "dedupe_key": "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-16T23:00:24Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Tomorrowland Transit Authority PeopleMover",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-16T23:00:26Z",
       "dedupe_key": "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-16T23:00:24Z",
@@ -5215,6 +5196,26 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2068536987858911247",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T12:15:22Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Animal Kingdom:4ff3a67bc64a49a6:2026-06-21",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Animal Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Animal Kingdom:4ff3a67bc64a49a6:2026-06-21",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Animal Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068669104333132016",
       "posting_enabled": true
     }
   ]
