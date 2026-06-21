@@ -166,6 +166,7 @@
     "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-17T14:00:42Z",
     "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-20T13:45:18Z",
     "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-21T15:00:24Z",
+    "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-21T17:15:18Z",
     "real_time_alert:reopened:Magic Kingdom:352feb94-e52e-45eb-9c92-e4b44c6b1a9d:2026-06-20T13:45:18Z",
     "real_time_alert:reopened:Magic Kingdom:352feb94-e52e-45eb-9c92-e4b44c6b1a9d:2026-06-20T17:15:22Z",
     "real_time_alert:reopened:Magic Kingdom:3cba0cb4-e2a6-402c-93ee-c11ffcb127ef:2026-06-17T01:45:24Z",
@@ -226,26 +227,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "recorded_at": "2026-06-17T00:30:24Z",
-      "dedupe_key": "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:30:22Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Spaceship Earth",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-17T00:30:24Z",
-      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T00:30:22Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Hollywood Studios",
-      "ride_name": "Slinky Dog Dash",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "dedupe_key": "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-17T00:30:22Z",
       "pillar": "real_time_alert",
@@ -5224,6 +5205,26 @@
       "park_name": "Magic Kingdom",
       "ride_name": "Haunted Mansion",
       "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T17:15:20Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-21T17:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Haunted Mansion",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-21T17:15:18Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Haunted Mansion",
+      "status": "posted",
+      "tweet_id": "2068744593731121649",
       "posting_enabled": true
     }
   ]
