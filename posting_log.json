@@ -215,6 +215,7 @@
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-20T13:30:19Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-20T18:15:18Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-20T20:30:21Z",
+    "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T15:15:16Z",
     "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-19T18:15:17Z",
     "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-20T17:30:20Z",
     "real_time_alert:reopened:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:15:24Z",
@@ -225,26 +226,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "recorded_at": "2026-06-17T00:15:22Z",
-      "dedupe_key": "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:15:20Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "EPCOT",
-      "ride_name": "Spaceship Earth",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-17T00:15:20Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "EPCOT",
-      "ride_name": "Spaceship Earth",
-      "status": "posted",
-      "tweet_id": "2067038355544485900",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-17T00:30:24Z",
       "dedupe_key": "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-17T00:30:22Z",
@@ -5223,6 +5204,26 @@
       "ride_name": "Astro Orbiter",
       "status": "posted",
       "tweet_id": "2068710895996264622",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T15:15:18Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T15:15:16Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Big Thunder Mountain",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T15:15:16Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Big Thunder Mountain",
+      "status": "posted",
+      "tweet_id": "2068714384759673333",
       "posting_enabled": true
     }
   ]
