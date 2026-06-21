@@ -43,6 +43,7 @@
     "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T01:15:16Z",
     "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T18:15:18Z",
     "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T23:00:22Z",
+    "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-21T21:00:23Z",
     "real_time_alert:down:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-18T15:30:36Z",
     "real_time_alert:down:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-21T18:00:24Z",
     "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T20:45:23Z",
@@ -250,86 +251,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "dedupe_key": "real_time_alert:reopened:EPCOT:fb076275-0570-4d62-b2a9-4d6515130fa3:2026-06-17T18:15:28Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "The Seas with Nemo & Friends",
-      "status": "posted",
-      "tweet_id": "2067310185136157097",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-17T19:00:37Z",
-      "dedupe_key": "real_time_alert:down:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:00:34Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Magic Kingdom",
-      "ride_name": "\"it's a small world\"",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:down:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:00:34Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Magic Kingdom",
-      "ride_name": "\"it's a small world\"",
-      "status": "posted",
-      "tweet_id": "2067321534536921098",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-17T19:15:26Z",
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:15:24Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "\"it's a small world\"",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:f5aad2d4-a419-4384-bd9a-42f86385c750:2026-06-17T19:15:24Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "\"it's a small world\"",
-      "status": "posted",
-      "tweet_id": "2067325263298412949",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-17T20:30:35Z",
-      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:dc56244169d43ab5:2026-06-17",
-      "pillar": "real_time_alert",
-      "type": "multi_ride_closure",
-      "park_name": "EPCOT",
-      "ride_name": null,
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:dc56244169d43ab5:2026-06-17",
-      "pillar": "real_time_alert",
-      "type": "multi_ride_closure",
-      "park_name": "EPCOT",
-      "ride_name": null,
-      "status": "posted",
-      "tweet_id": "2067344177336066233",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-17T20:45:25Z",
-      "dedupe_key": "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T20:45:23Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Hollywood Studios",
-      "ride_name": "Slinky Dog Dash",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-17T20:45:25Z",
       "dedupe_key": "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-17T20:45:23Z",
@@ -5248,6 +5169,86 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2068797938877223071",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T21:00:25Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-21T21:00:23Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Star Wars: Rise of the Resistance",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T21:00:25Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T21:00:23Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Big Thunder Mountain",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T21:00:25Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-21T21:00:23Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Tiana's Bayou Adventure",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T21:00:25Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48:2026-06-21T21:00:23Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "The Barnstormer",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T21:00:25Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:890fa430-89c0-4a3f-96c9-11597888005e:2026-06-21T21:00:23Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Dumbo the Flying Elephant",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T21:00:25Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-21T21:00:23Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Tomorrowland Speedway",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T21:00:25Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:96455de6-f4f1-403c-9391-bf8396979149:2026-06-21T21:00:23Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "The Magic Carpets of Aladdin",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-21T21:00:23Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Star Wars: Rise of the Resistance",
+      "status": "posted",
+      "tweet_id": "2068801235961213127",
       "posting_enabled": true
     }
   ]
