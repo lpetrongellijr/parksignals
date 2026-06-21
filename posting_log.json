@@ -5,6 +5,7 @@
     "daily_operations_summary:wdw_daily_summary:2026-06-17",
     "daily_operations_summary:wdw_daily_summary:2026-06-18",
     "daily_operations_summary:wdw_daily_summary:2026-06-19",
+    "daily_operations_summary:wdw_daily_summary:2026-06-20",
     "real_time_alert:down:Animal Kingdom:32e01181-9a5f-4936-8a77-0dace1de836c:2026-06-20T19:15:18Z",
     "real_time_alert:down:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-18T12:30:29Z",
     "real_time_alert:down:Animal Kingdom:7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0:2026-06-19T12:30:24Z",
@@ -216,26 +217,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "recorded_at": "2026-06-16T22:00:27Z",
-      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:57695ef106ca0b4a:2026-06-16",
-      "pillar": "real_time_alert",
-      "type": "multi_ride_closure",
-      "park_name": "Magic Kingdom",
-      "ride_name": null,
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T22:15:19Z",
-      "dedupe_key": "real_time_alert:down:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-16T22:15:17Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Tiana's Bayou Adventure",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-16T22:30:29Z",
       "dedupe_key": "real_time_alert:down:Hollywood Studios:3b290419-8ca2-44bc-a710-a6c83fca76ec:2026-06-16T22:30:27Z",
@@ -5214,6 +5195,26 @@
       "ride_name": "Tiana's Bayou Adventure",
       "status": "posted",
       "tweet_id": "2068521892303327453",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T03:30:23Z",
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-20",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-20",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068536987858911247",
       "posting_enabled": true
     }
   ]
