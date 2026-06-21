@@ -85,6 +85,7 @@
     "real_time_alert:multi_ride_closure:Hollywood Studios:48cc29a936105b08:2026-06-17",
     "real_time_alert:multi_ride_closure:Magic Kingdom:0746c6551764c9de:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:1b0348a4084952cc:2026-06-19",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:231b22bd7e5fa32d:2026-06-21",
     "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:3b65da623befc248:2026-06-19",
@@ -218,26 +219,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "recorded_at": "2026-06-16T23:00:26Z",
-      "dedupe_key": "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-16T23:00:24Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Test Track",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T23:00:26Z",
-      "dedupe_key": "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-16T23:00:24Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Spaceship Earth",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-16T23:15:20Z",
       "dedupe_key": "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-16T23:15:18Z",
@@ -5216,6 +5197,26 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2068669104333132016",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T13:15:22Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:231b22bd7e5fa32d:2026-06-21",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:231b22bd7e5fa32d:2026-06-21",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068684203219419296",
       "posting_enabled": true
     }
   ]
