@@ -68,6 +68,7 @@ jobs:
 
           run_timed "run_monitor" bash -o pipefail -c 'python scripts/run_monitor.py | tee outputs/monitor-summary.txt'
           run_timed "update_data_capture" python scripts/update_data_capture.py
+          run_timed "export_public_site_data" python scripts/export_public_site_data.py
           run_timed "export_artifacts" python scripts/export_artifacts.py --output-dir outputs
           run_timed "export_x_status" python scripts/export_x_status.py --output-dir outputs
           run_timed "plan_posts" python scripts/plan_posts.py --output-dir outputs --post-context monitor
@@ -80,17 +81,17 @@ jobs:
           name: parksignals-monitor-outputs
           path: outputs/
 
-      - name: Commit Updated State, Analytics History, And Posting Log
+      - name: Commit Updated State, Analytics History, Posting Log, And Public Data
         timeout-minutes: 4
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add state.json analytics_history.json posting_log.json
+          git add state.json analytics_history.json posting_log.json public/data/latest.json
           if git diff --cached --quiet; then
-            echo "No state, analytics history, or posting log changes"
+            echo "No state, analytics history, posting log, or public data changes"
             exit 0
           fi
-          git commit -m "Update ride state analytics history and posting log"
+          git commit -m "Update ParkSignals state and public data"
           git status --short
           git reset --hard HEAD
           git clean -fdX
