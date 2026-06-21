@@ -212,6 +212,7 @@
     "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-20T18:00:24Z",
     "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-21T02:30:22Z",
     "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-21T20:30:21Z",
+    "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-21T22:30:22Z",
     "real_time_alert:reopened:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-17T23:15:18Z",
     "real_time_alert:reopened:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-19T20:00:24Z",
     "real_time_alert:reopened:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-20T18:15:18Z",
@@ -252,6 +253,7 @@
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T15:15:16Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T19:45:17Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T20:30:21Z",
+    "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T22:30:22Z",
     "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-19T18:15:17Z",
     "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-20T17:30:20Z",
     "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-21T20:30:21Z",
@@ -263,66 +265,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "dedupe_key": "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T12:15:19Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Animal Kingdom",
-      "ride_name": "Kali River Rapids",
-      "status": "posted",
-      "tweet_id": "2067581939306090592",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T12:30:30Z",
-      "dedupe_key": "real_time_alert:down:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-18T12:30:29Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Animal Kingdom",
-      "ride_name": "Expedition Everest - Legend of the Forbidden Mountain",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:down:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-18T12:30:29Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Animal Kingdom",
-      "ride_name": "Expedition Everest - Legend of the Forbidden Mountain",
-      "status": "posted",
-      "tweet_id": "2067585749218680895",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T13:00:30Z",
-      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-18T13:00:28Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Animal Kingdom",
-      "ride_name": "Expedition Everest - Legend of the Forbidden Mountain",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-18T13:00:28Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Animal Kingdom",
-      "ride_name": "Expedition Everest - Legend of the Forbidden Mountain",
-      "status": "posted",
-      "tweet_id": "2067593296923578626",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T13:15:20Z",
-      "dedupe_key": "real_time_alert:down:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-18T13:15:18Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Tiana's Bayou Adventure",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-18T13:15:20Z",
       "dedupe_key": "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T13:15:18Z",
@@ -5261,6 +5203,66 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2068820082256499102",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T22:30:23Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T22:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Big Thunder Mountain",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T22:30:23Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-21T22:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Tiana's Bayou Adventure",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T22:30:23Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:890fa430-89c0-4a3f-96c9-11597888005e:2026-06-21T22:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Dumbo the Flying Elephant",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T22:30:23Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-21T22:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Tomorrowland Speedway",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T22:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Big Thunder Mountain",
+      "status": "posted",
+      "tweet_id": "2068823878810382781",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-21T22:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Tiana's Bayou Adventure",
+      "status": "posted",
+      "tweet_id": "2068824132817469819",
       "posting_enabled": true
     }
   ]
