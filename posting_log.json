@@ -87,6 +87,7 @@
     "real_time_alert:multi_ride_closure:Magic Kingdom:3b65da623befc248:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:4ef2ad0db09f123e:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:5b7acf5a308f62df:2026-06-19",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:5f5ab0d1b6553d2f:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:7393bd78f4c3c9e5:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8464a5a7fe79afba:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8642ea39d27b9e3a:2026-06-17",
@@ -151,6 +152,7 @@
     "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-17T16:30:35Z",
     "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-18T16:15:22Z",
     "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-19T19:30:20Z",
+    "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-21T01:15:20Z",
     "real_time_alert:reopened:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-17T16:00:27Z",
     "real_time_alert:reopened:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-20T00:00:24Z",
     "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-17T14:00:42Z",
@@ -210,46 +212,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T22:45:17Z"
   ],
   "decisions": [
-    {
-      "recorded_at": "2026-06-16T20:00:37Z",
-      "dedupe_key": "real_time_alert:reopened:EPCOT:1e735ffb-4868-47f1-b2cd-2ac1156cd5f0:2026-06-16T20:00:36Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Remy's Ratatouille Adventure",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T20:45:28Z",
-      "dedupe_key": "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-16T20:45:26Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "EPCOT",
-      "ride_name": "Spaceship Earth",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T21:00:26Z",
-      "dedupe_key": "real_time_alert:reopened:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-16T21:00:24Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Spaceship Earth",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T21:00:26Z",
-      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-16T21:00:24Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Animal Kingdom",
-      "ride_name": "Expedition Everest - Legend of the Forbidden Mountain",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-16T21:15:22Z",
       "dedupe_key": "real_time_alert:down:EPCOT:1e735ffb-4868-47f1-b2cd-2ac1156cd5f0:2026-06-16T21:15:19Z",
@@ -5208,6 +5170,46 @@
       "ride_name": "Star Wars: Rise of the Resistance",
       "status": "posted",
       "tweet_id": "2068491956658090344",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T01:15:22Z",
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-21T01:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T01:15:22Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:5f5ab0d1b6553d2f:2026-06-20",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-21T01:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
+      "status": "posted",
+      "tweet_id": "2068503008183234777",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:5f5ab0d1b6553d2f:2026-06-20",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068503260881670459",
       "posting_enabled": true
     }
   ]
