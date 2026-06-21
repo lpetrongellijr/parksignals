@@ -257,6 +257,7 @@
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T19:45:17Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T20:30:21Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T22:30:22Z",
+    "real_time_alert:reopened:Magic Kingdom:e39b831b-7731-49bb-815b-289b4f49a9fd:2026-06-21T23:15:19Z",
     "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-19T18:15:17Z",
     "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-20T17:30:20Z",
     "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-21T20:30:21Z",
@@ -268,26 +269,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "recorded_at": "2026-06-18T15:30:38Z",
-      "dedupe_key": "real_time_alert:down:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-18T15:30:36Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Hollywood Studios",
-      "ride_name": "Toy Story Mania!",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T15:30:38Z",
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48:2026-06-18T15:30:36Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "The Barnstormer",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "dedupe_key": "real_time_alert:down:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-18T15:30:36Z",
       "pillar": "real_time_alert",
@@ -5266,6 +5247,26 @@
       "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
       "status": "posted",
       "tweet_id": "2068831453018993124",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T23:15:21Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:e39b831b-7731-49bb-815b-289b4f49a9fd:2026-06-21T23:15:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Walt Disney World Railroad",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:e39b831b-7731-49bb-815b-289b4f49a9fd:2026-06-21T23:15:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Walt Disney World Railroad",
+      "status": "posted",
+      "tweet_id": "2068835192391749751",
       "posting_enabled": true
     }
   ]
