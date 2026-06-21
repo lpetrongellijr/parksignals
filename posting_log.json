@@ -110,6 +110,7 @@
     "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-20T13:30:19Z",
     "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-20T20:45:15Z",
     "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-20T21:45:17Z",
+    "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-21T14:15:19Z",
     "real_time_alert:reopened:EPCOT:1e735ffb-4868-47f1-b2cd-2ac1156cd5f0:2026-06-19T14:00:24Z",
     "real_time_alert:reopened:EPCOT:1e735ffb-4868-47f1-b2cd-2ac1156cd5f0:2026-06-19T22:00:26Z",
     "real_time_alert:reopened:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T20:30:21Z",
@@ -221,26 +222,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "recorded_at": "2026-06-16T23:15:20Z",
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-16T23:15:18Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Tomorrowland Transit Authority PeopleMover",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T23:15:20Z",
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:d9d12438-d999-4482-894b-8955fdb20ccf:2026-06-16T23:15:18Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Astro Orbiter",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-16T23:30:24Z",
       "dedupe_key": "real_time_alert:reopened:Magic Kingdom:796b0a25-c51e-456e-9bb8-50a324e301b3:2026-06-16T23:30:22Z",
@@ -5219,6 +5200,26 @@
       "ride_name": "Big Thunder Mountain",
       "status": "posted",
       "tweet_id": "2068695547272134847",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T14:15:22Z",
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-21T14:15:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kali River Rapids",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-21T14:15:19Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Animal Kingdom",
+      "ride_name": "Kali River Rapids",
+      "status": "posted",
+      "tweet_id": "2068699303070306773",
       "posting_enabled": true
     }
   ]
