@@ -48,6 +48,7 @@
     "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-17T15:45:32Z",
     "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-18T15:15:28Z",
     "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-19T23:30:23Z",
+    "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-21T00:30:25Z",
     "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-17T15:15:30Z",
     "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-19T23:15:17Z",
     "real_time_alert:down:Magic Kingdom:352feb94-e52e-45eb-9c92-e4b44c6b1a9d:2026-06-20T16:00:24Z",
@@ -137,6 +138,7 @@
     "real_time_alert:reopened:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-17T01:30:19Z",
     "real_time_alert:reopened:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T19:15:18Z",
     "real_time_alert:reopened:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-20T19:45:19Z",
+    "real_time_alert:reopened:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-21T00:30:25Z",
     "real_time_alert:reopened:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-18T16:00:34Z",
     "real_time_alert:reopened:Hollywood Studios:34c4916b-989b-4ff1-a7e3-a6a846a3484f:2026-06-17T13:15:22Z",
     "real_time_alert:reopened:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-17T00:30:22Z",
@@ -208,46 +210,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T22:45:17Z"
   ],
   "decisions": [
-    {
-      "recorded_at": "2026-06-16T19:30:26Z",
-      "dedupe_key": "real_time_alert:down:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-16T19:30:23Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Seven Dwarfs Mine Train",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T19:30:26Z",
-      "dedupe_key": "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-16T19:30:23Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Hollywood Studios",
-      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T19:45:21Z",
-      "dedupe_key": "real_time_alert:down:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-16T19:45:19Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Animal Kingdom",
-      "ride_name": "Expedition Everest - Legend of the Forbidden Mountain",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-16T19:45:21Z",
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-16T19:45:19Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Seven Dwarfs Mine Train",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-16T20:00:37Z",
       "dedupe_key": "real_time_alert:reopened:EPCOT:1e735ffb-4868-47f1-b2cd-2ac1156cd5f0:2026-06-16T20:00:36Z",
@@ -5206,6 +5168,46 @@
       "ride_name": "TRON Lightcycle / Run",
       "status": "posted",
       "tweet_id": "2068469292530585919",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T00:30:27Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-21T00:30:25Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T00:30:27Z",
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-21T00:30:25Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Star Wars: Rise of the Resistance",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-21T00:30:25Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
+      "status": "posted",
+      "tweet_id": "2068491704001556927",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:1a2e70d9-50d5-4140-b69e-799e950f7d18:2026-06-21T00:30:25Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Star Wars: Rise of the Resistance",
+      "status": "posted",
+      "tweet_id": "2068491956658090344",
       "posting_enabled": true
     }
   ]
