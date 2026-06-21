@@ -88,6 +88,7 @@
     "real_time_alert:multi_ride_closure:Animal Kingdom:c21fa9d8c3e8c440:2026-06-19",
     "real_time_alert:multi_ride_closure:EPCOT:36815bd7526fe27d:2026-06-19",
     "real_time_alert:multi_ride_closure:EPCOT:39c4d866c4ffe2e1:2026-06-17",
+    "real_time_alert:multi_ride_closure:EPCOT:547a5827c5234977:2026-06-21",
     "real_time_alert:multi_ride_closure:EPCOT:b573f9972b973f53:2026-06-18",
     "real_time_alert:multi_ride_closure:EPCOT:dc56244169d43ab5:2026-06-17",
     "real_time_alert:multi_ride_closure:EPCOT:fb108ce66b75ce5f:2026-06-20",
@@ -106,6 +107,7 @@
     "real_time_alert:multi_ride_closure:Magic Kingdom:8464a5a7fe79afba:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8642ea39d27b9e3a:2026-06-17",
     "real_time_alert:multi_ride_closure:Magic Kingdom:c30ad53ff958555c:2026-06-20",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:cb9e4cdeed06fa1e:2026-06-21",
     "real_time_alert:multi_ride_closure:Magic Kingdom:ffc6a5a1b0dd4fab:2026-06-19",
     "real_time_alert:reopened:Animal Kingdom:32e01181-9a5f-4936-8a77-0dace1de836c:2026-06-19T12:45:22Z",
     "real_time_alert:reopened:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-18T13:00:28Z",
@@ -240,46 +242,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "dedupe_key": "real_time_alert:down:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-17T13:45:23Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Seven Dwarfs Mine Train",
-      "status": "posted",
-      "tweet_id": "2067242213717737714",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-17T14:00:44Z",
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-17T14:00:42Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Seven Dwarfs Mine Train",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-17T14:00:44Z",
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-17T14:00:42Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Haunted Mansion",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-17T14:00:44Z",
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:73cb9445-0695-47a3-87ce-d08ae36b5f3c:2026-06-17T14:00:42Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Tiana's Bayou Adventure",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-17T14:00:44Z",
       "dedupe_key": "real_time_alert:reopened:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-17T14:00:42Z",
@@ -5238,6 +5200,46 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2068783097382895951",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T20:00:25Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:cb9e4cdeed06fa1e:2026-06-21",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T20:00:25Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:547a5827c5234977:2026-06-21",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:cb9e4cdeed06fa1e:2026-06-21",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068786137707983050",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:547a5827c5234977:2026-06-21",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "EPCOT",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068786390381334678",
       "posting_enabled": true
     }
   ]
