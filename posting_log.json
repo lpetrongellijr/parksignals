@@ -102,6 +102,7 @@
     "real_time_alert:multi_ride_closure:Magic Kingdom:1b0348a4084952cc:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:20ffbfa6e33cb2cd:2026-06-21",
     "real_time_alert:multi_ride_closure:Magic Kingdom:231b22bd7e5fa32d:2026-06-21",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:3176c8747017f877:2026-06-21",
     "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-19",
     "real_time_alert:multi_ride_closure:Magic Kingdom:350937d7987124fd:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:3b65da623befc248:2026-06-19",
@@ -262,26 +263,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-17",
-      "pillar": "daily_operations_summary",
-      "type": "wdw_daily_summary",
-      "park_name": null,
-      "ride_name": null,
-      "status": "posted",
-      "tweet_id": "2067449811331170307",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T12:15:22Z",
-      "dedupe_key": "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T12:15:19Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Animal Kingdom",
-      "ride_name": "Kali River Rapids",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "dedupe_key": "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T12:15:19Z",
       "pillar": "real_time_alert",
@@ -5260,6 +5241,26 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2068817603263623272",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-21T22:15:18Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:3176c8747017f877:2026-06-21",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:3176c8747017f877:2026-06-21",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068820082256499102",
       "posting_enabled": true
     }
   ]
