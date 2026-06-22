@@ -40,6 +40,7 @@
     "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-18T21:00:26Z",
     "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-20T00:15:19Z",
     "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-21T19:45:17Z",
+    "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-22T13:15:20Z",
     "real_time_alert:down:EPCOT:8f353879-d6ac-4211-9352-4029efb47c18:2026-06-19T22:45:19Z",
     "real_time_alert:down:EPCOT:8f353879-d6ac-4211-9352-4029efb47c18:2026-06-20T13:30:19Z",
     "real_time_alert:down:EPCOT:e3549451-b284-453d-9c31-e3b1207abd79:2026-06-19T00:45:18Z",
@@ -57,6 +58,7 @@
     "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-20T16:30:20Z",
     "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-21T17:30:19Z",
     "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-21T22:00:24Z",
+    "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-22T13:15:20Z",
     "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-17T15:45:32Z",
     "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-18T15:15:28Z",
     "real_time_alert:down:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-19T23:30:23Z",
@@ -120,6 +122,7 @@
     "real_time_alert:multi_ride_closure:Magic Kingdom:5f5ab0d1b6553d2f:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:6478bc16926e0b0a:2026-06-21",
     "real_time_alert:multi_ride_closure:Magic Kingdom:7393bd78f4c3c9e5:2026-06-20",
+    "real_time_alert:multi_ride_closure:Magic Kingdom:77d6648ea8bd64da:2026-06-22",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8464a5a7fe79afba:2026-06-20",
     "real_time_alert:multi_ride_closure:Magic Kingdom:8642ea39d27b9e3a:2026-06-17",
     "real_time_alert:multi_ride_closure:Magic Kingdom:c30ad53ff958555c:2026-06-20",
@@ -278,66 +281,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "recorded_at": "2026-06-18T20:30:23Z",
-      "dedupe_key": "real_time_alert:down:EPCOT:1e735ffb-4868-47f1-b2cd-2ac1156cd5f0:2026-06-18T20:30:21Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "EPCOT",
-      "ride_name": "Remy's Ratatouille Adventure",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T20:30:23Z",
-      "dedupe_key": "real_time_alert:reopened:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T20:30:21Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Gran Fiesta Tour Starring The Three Caballeros",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:down:EPCOT:1e735ffb-4868-47f1-b2cd-2ac1156cd5f0:2026-06-18T20:30:21Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "EPCOT",
-      "ride_name": "Remy's Ratatouille Adventure",
-      "status": "posted",
-      "tweet_id": "2067706513116844324",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:reopened:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T20:30:21Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Gran Fiesta Tour Starring The Three Caballeros",
-      "status": "posted",
-      "tweet_id": "2067706765739749391",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T20:45:21Z",
-      "dedupe_key": "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T20:45:19Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Journey Into Imagination With Figment",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T20:45:19Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Journey Into Imagination With Figment",
-      "status": "posted",
-      "tweet_id": "2067710280251977809",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-18T21:00:28Z",
       "dedupe_key": "real_time_alert:down:Magic Kingdom:924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48:2026-06-18T21:00:26Z",
@@ -5276,6 +5219,66 @@
       "ride_name": "Expedition Everest - Legend of the Forbidden Mountain",
       "status": "posted",
       "tweet_id": "2069039048254013552",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T13:15:22Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-22T13:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Frozen Ever After",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T13:15:22Z",
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-22T13:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Slinky Dog Dash",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T13:15:22Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:77d6648ea8bd64da:2026-06-22",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-22T13:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Frozen Ever After",
+      "status": "posted",
+      "tweet_id": "2069046591948804584",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Hollywood Studios:399aa0a1-98e2-4d2b-b297-2b451e9665e1:2026-06-22T13:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Slinky Dog Dash",
+      "status": "posted",
+      "tweet_id": "2069046844580110378",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Magic Kingdom:77d6648ea8bd64da:2026-06-22",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Magic Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2069047097148559725",
       "posting_enabled": true
     }
   ]
