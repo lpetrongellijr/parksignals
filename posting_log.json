@@ -271,26 +271,6 @@
   ],
   "decisions": [
     {
-      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-18T16:00:34Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Hollywood Studios",
-      "ride_name": "Toy Story Mania!",
-      "status": "posted",
-      "tweet_id": "2067638621792850389",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T16:15:24Z",
-      "dedupe_key": "real_time_alert:down:EPCOT:480fde8f-fe58-4bfb-b3ab-052a39d4db7c:2026-06-18T16:15:22Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "EPCOT",
-      "ride_name": "Spaceship Earth",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
       "recorded_at": "2026-06-18T16:15:24Z",
       "dedupe_key": "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-18T16:15:22Z",
       "pillar": "real_time_alert",
@@ -5267,6 +5247,26 @@
       "type": "reopened",
       "park_name": "Magic Kingdom",
       "ride_name": "Seven Dwarfs Mine Train",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T00:30:25Z",
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:b2260923-9315-40fd-9c6b-44dd811dbe64:2026-06-22T00:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Space Mountain",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T00:30:25Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:273ddb8d-e7b5-4e34-8657-1113f49262a5:2026-06-22T00:30:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Prince Charming Regal Carrousel",
       "status": "ready_to_post",
       "posting_enabled": true
     }
