@@ -97,6 +97,7 @@
     "real_time_alert:multi_ride_closure:Animal Kingdom:4ff3a67bc64a49a6:2026-06-21",
     "real_time_alert:multi_ride_closure:Animal Kingdom:53781c1308589511:2026-06-20",
     "real_time_alert:multi_ride_closure:Animal Kingdom:53781c1308589511:2026-06-21",
+    "real_time_alert:multi_ride_closure:Animal Kingdom:53781c1308589511:2026-06-22",
     "real_time_alert:multi_ride_closure:Animal Kingdom:c21fa9d8c3e8c440:2026-06-19",
     "real_time_alert:multi_ride_closure:EPCOT:36815bd7526fe27d:2026-06-19",
     "real_time_alert:multi_ride_closure:EPCOT:39c4d866c4ffe2e1:2026-06-17",
@@ -276,26 +277,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "dedupe_key": "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T18:30:25Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Journey Into Imagination With Figment",
-      "status": "posted",
-      "tweet_id": "2067676333618909227",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T19:15:21Z",
-      "dedupe_key": "real_time_alert:down:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T19:15:19Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "EPCOT",
-      "ride_name": "Gran Fiesta Tour Starring The Three Caballeros",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "dedupe_key": "real_time_alert:down:EPCOT:22f48b73-01df-460e-8969-9eb2b4ae836c:2026-06-18T19:15:19Z",
       "pillar": "real_time_alert",
@@ -5274,6 +5255,26 @@
       "ride_name": null,
       "status": "posted",
       "tweet_id": "2068899368992723080",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T12:15:21Z",
+      "dedupe_key": "real_time_alert:multi_ride_closure:Animal Kingdom:53781c1308589511:2026-06-22",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Animal Kingdom",
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:multi_ride_closure:Animal Kingdom:53781c1308589511:2026-06-22",
+      "pillar": "real_time_alert",
+      "type": "multi_ride_closure",
+      "park_name": "Animal Kingdom",
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2069031486502625296",
       "posting_enabled": true
     }
   ]
