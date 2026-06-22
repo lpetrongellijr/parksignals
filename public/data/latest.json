@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-22T11:45:19Z",
+  "generated_at": "2026-06-22T12:00:27Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -624,7 +624,7 @@
       "id": "animal_kingdom",
       "slug": "animal-kingdom",
       "name": "Animal Kingdom",
-      "status": "closed",
+      "status": "opening_grace",
       "monitoring_active": false,
       "hours": {
         "source": "themeparks_wiki",
@@ -641,7 +641,7 @@
           "id": "24cf863c-b6ba-4826-a056-0b698989cbf7",
           "name": "Avatar Flight of Passage",
           "status": "park_closed",
-          "wait_time_minutes": 60,
+          "wait_time_minutes": 50,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
