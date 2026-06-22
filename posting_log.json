@@ -69,6 +69,7 @@
     "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-17T15:15:30Z",
     "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-19T23:15:17Z",
     "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-21T21:30:19Z",
+    "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-22T15:45:22Z",
     "real_time_alert:down:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-21T14:45:15Z",
     "real_time_alert:down:Magic Kingdom:273ddb8d-e7b5-4e34-8657-1113f49262a5:2026-06-22T02:00:23Z",
     "real_time_alert:down:Magic Kingdom:352feb94-e52e-45eb-9c92-e4b44c6b1a9d:2026-06-20T16:00:24Z",
@@ -289,36 +290,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "dedupe_key": "real_time_alert:down:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T22:45:17Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "EPCOT",
-      "ride_name": "Test Track",
-      "status": "posted",
-      "tweet_id": "2067740475994325424",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T22:45:17Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Tomorrowland Transit Authority PeopleMover",
-      "status": "posted",
-      "tweet_id": "2067740728671781113",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T23:00:25Z",
-      "dedupe_key": "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T23:00:23Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Test Track",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "dedupe_key": "real_time_alert:reopened:EPCOT:37ae57c5-feaf-4e47-8f27-4b385be200f0:2026-06-18T23:00:23Z",
       "pillar": "real_time_alert",
@@ -5287,6 +5258,36 @@
       "ride_name": "Space Mountain",
       "status": "posted",
       "tweet_id": "2069080610627580088",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T15:45:24Z",
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-22T15:45:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "The Many Adventures of Winnie the Pooh",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T15:45:24Z",
+      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:e516f303-e82d-4fd3-8fbf-8e6ab624cf89:2026-06-22T15:45:22Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Hollywood Studios",
+      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-22T15:45:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "The Many Adventures of Winnie the Pooh",
+      "status": "posted",
+      "tweet_id": "2069084348305793165",
       "posting_enabled": true
     }
   ]
