@@ -36,6 +36,7 @@
     "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-17T22:15:22Z",
     "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T18:15:21Z",
     "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-19T16:00:22Z",
+    "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-22T13:45:22Z",
     "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-17T13:15:22Z",
     "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-18T21:00:26Z",
     "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-20T00:15:19Z",
@@ -282,26 +283,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "dedupe_key": "real_time_alert:down:Magic Kingdom:924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48:2026-06-18T21:00:26Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Magic Kingdom",
-      "ride_name": "The Barnstormer",
-      "status": "posted",
-      "tweet_id": "2067714084595012008",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:down:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-18T21:00:26Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "EPCOT",
-      "ride_name": "Frozen Ever After",
-      "status": "posted",
-      "tweet_id": "2067714337180139528",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-18T21:15:22Z",
       "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:b573f9972b973f53:2026-06-18",
@@ -5280,6 +5261,26 @@
       "ride_name": "Slinky Dog Dash",
       "status": "posted",
       "tweet_id": "2069050404332294344",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T13:45:24Z",
+      "dedupe_key": "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-22T13:45:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Journey Into Imagination With Figment",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-22T13:45:22Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "EPCOT",
+      "ride_name": "Journey Into Imagination With Figment",
+      "status": "posted",
+      "tweet_id": "2069054150323982680",
       "posting_enabled": true
     }
   ]
