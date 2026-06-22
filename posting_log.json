@@ -271,26 +271,6 @@
   ],
   "decisions": [
     {
-      "dedupe_key": "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T15:45:19Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Tomorrowland Transit Authority PeopleMover",
-      "status": "posted",
-      "tweet_id": "2067634783052554508",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T16:00:36Z",
-      "dedupe_key": "real_time_alert:reopened:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-18T16:00:34Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Hollywood Studios",
-      "ride_name": "Toy Story Mania!",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
       "dedupe_key": "real_time_alert:reopened:Hollywood Studios:20b5daa8-e1ea-436f-830c-2d7d18d929b5:2026-06-18T16:00:34Z",
       "pillar": "real_time_alert",
       "type": "reopened",
@@ -5268,6 +5248,26 @@
       "ride_name": "Remy's Ratatouille Adventure",
       "status": "posted",
       "tweet_id": "2068842729027649537",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T00:15:21Z",
+      "dedupe_key": "real_time_alert:down:Magic Kingdom:273ddb8d-e7b5-4e34-8657-1113f49262a5:2026-06-22T00:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "down",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Prince Charming Regal Carrousel",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T00:15:21Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:9d4d5229-7142-44b6-b4fb-528920969a2c:2026-06-22T00:15:20Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Seven Dwarfs Mine Train",
+      "status": "ready_to_post",
       "posting_enabled": true
     }
   ]
