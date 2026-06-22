@@ -6,6 +6,7 @@
     "daily_operations_summary:wdw_daily_summary:2026-06-18",
     "daily_operations_summary:wdw_daily_summary:2026-06-19",
     "daily_operations_summary:wdw_daily_summary:2026-06-20",
+    "daily_operations_summary:wdw_daily_summary:2026-06-21",
     "real_time_alert:down:Animal Kingdom:32e01181-9a5f-4936-8a77-0dace1de836c:2026-06-20T19:15:18Z",
     "real_time_alert:down:Animal Kingdom:4f391f0e-52be-4f9d-99d6-b3ae0373b43c:2026-06-21T21:15:21Z",
     "real_time_alert:down:Animal Kingdom:64a6915f-a835-4226-ba5c-8389fc4cade3:2026-06-18T12:30:29Z",
@@ -275,26 +276,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "dedupe_key": "real_time_alert:down:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T18:15:21Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "EPCOT",
-      "ride_name": "Journey Into Imagination With Figment",
-      "status": "posted",
-      "tweet_id": "2067672542811218337",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T18:30:27Z",
-      "dedupe_key": "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T18:30:25Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Journey Into Imagination With Figment",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "dedupe_key": "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T18:30:25Z",
       "pillar": "real_time_alert",
@@ -5273,6 +5254,26 @@
       "ride_name": "Prince Charming Regal Carrousel",
       "status": "posted",
       "tweet_id": "2068884274611159499",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T03:30:22Z",
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-21",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "daily_operations_summary:wdw_daily_summary:2026-06-21",
+      "pillar": "daily_operations_summary",
+      "type": "wdw_daily_summary",
+      "park_name": null,
+      "ride_name": null,
+      "status": "posted",
+      "tweet_id": "2068899368992723080",
       "posting_enabled": true
     }
   ]
