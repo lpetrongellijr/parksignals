@@ -172,9 +172,11 @@
     "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-19T17:15:19Z",
     "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-19T21:00:23Z",
     "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-20T13:45:18Z",
+    "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-22T14:00:29Z",
     "real_time_alert:reopened:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-17T14:00:42Z",
     "real_time_alert:reopened:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-18T23:15:21Z",
     "real_time_alert:reopened:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-21T20:45:17Z",
+    "real_time_alert:reopened:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-22T14:00:29Z",
     "real_time_alert:reopened:EPCOT:8f353879-d6ac-4211-9352-4029efb47c18:2026-06-19T23:15:17Z",
     "real_time_alert:reopened:EPCOT:8f353879-d6ac-4211-9352-4029efb47c18:2026-06-20T13:45:18Z",
     "real_time_alert:reopened:EPCOT:e3549451-b284-453d-9c31-e3b1207abd79:2026-06-17T21:45:27Z",
@@ -205,6 +207,7 @@
     "real_time_alert:reopened:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-20T00:00:24Z",
     "real_time_alert:reopened:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-21T02:00:23Z",
     "real_time_alert:reopened:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-21T22:00:24Z",
+    "real_time_alert:reopened:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-22T14:00:29Z",
     "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-17T14:00:42Z",
     "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-20T13:45:18Z",
     "real_time_alert:reopened:Magic Kingdom:2551a77d-023f-4ab1-9a19-8afec0190f39:2026-06-21T15:00:24Z",
@@ -271,6 +274,7 @@
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T19:45:17Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T20:30:21Z",
     "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-21T22:30:22Z",
+    "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-22T14:00:29Z",
     "real_time_alert:reopened:Magic Kingdom:e39b831b-7731-49bb-815b-289b4f49a9fd:2026-06-21T23:15:19Z",
     "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-19T18:15:17Z",
     "real_time_alert:reopened:Magic Kingdom:f163ddcd-43e1-488d-8276-2381c1db0a39:2026-06-20T17:30:20Z",
@@ -283,86 +287,6 @@
     "real_time_alert:reopened:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-21T01:30:20Z"
   ],
   "decisions": [
-    {
-      "recorded_at": "2026-06-18T21:15:22Z",
-      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:b573f9972b973f53:2026-06-18",
-      "pillar": "real_time_alert",
-      "type": "multi_ride_closure",
-      "park_name": "EPCOT",
-      "ride_name": null,
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:multi_ride_closure:EPCOT:b573f9972b973f53:2026-06-18",
-      "pillar": "real_time_alert",
-      "type": "multi_ride_closure",
-      "park_name": "EPCOT",
-      "ride_name": null,
-      "status": "posted",
-      "tweet_id": "2067717835732684905",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T21:30:23Z",
-      "dedupe_key": "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T21:30:21Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Animal Kingdom",
-      "ride_name": "Kali River Rapids",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "dedupe_key": "real_time_alert:down:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T21:30:21Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Animal Kingdom",
-      "ride_name": "Kali River Rapids",
-      "status": "posted",
-      "tweet_id": "2067721612284068197",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T21:45:20Z",
-      "dedupe_key": "real_time_alert:down:Magic Kingdom:ffcfeaa2-1416-4920-a1ed-543c1a1695c4:2026-06-18T21:45:17Z",
-      "pillar": "real_time_alert",
-      "type": "down",
-      "park_name": "Magic Kingdom",
-      "ride_name": "Tomorrowland Transit Authority PeopleMover",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T21:45:20Z",
-      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48:2026-06-18T21:45:17Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Magic Kingdom",
-      "ride_name": "The Barnstormer",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T21:45:20Z",
-      "dedupe_key": "real_time_alert:reopened:EPCOT:1e735ffb-4868-47f1-b2cd-2ac1156cd5f0:2026-06-18T21:45:17Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "EPCOT",
-      "ride_name": "Remy's Ratatouille Adventure",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
-    {
-      "recorded_at": "2026-06-18T21:45:20Z",
-      "dedupe_key": "real_time_alert:reopened:Animal Kingdom:d58d9262-ec95-4161-80a0-07ca43b2f5f3:2026-06-18T21:45:17Z",
-      "pillar": "real_time_alert",
-      "type": "reopened",
-      "park_name": "Animal Kingdom",
-      "ride_name": "Kali River Rapids",
-      "status": "ready_to_post",
-      "posting_enabled": true
-    },
     {
       "recorded_at": "2026-06-18T22:00:25Z",
       "dedupe_key": "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-18T22:00:23Z",
@@ -5281,6 +5205,86 @@
       "ride_name": "Journey Into Imagination With Figment",
       "status": "posted",
       "tweet_id": "2069054150323982680",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T14:00:31Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-22T14:00:29Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Big Thunder Mountain",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T14:00:31Z",
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-22T14:00:29Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "The Many Adventures of Winnie the Pooh",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T14:00:31Z",
+      "dedupe_key": "real_time_alert:reopened:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-22T14:00:29Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Frozen Ever After",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "recorded_at": "2026-06-22T14:00:31Z",
+      "dedupe_key": "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-22T14:00:29Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Journey Into Imagination With Figment",
+      "status": "ready_to_post",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:de3309ca-97d5-4211-bffe-739fed47e92f:2026-06-22T14:00:29Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "Big Thunder Mountain",
+      "status": "posted",
+      "tweet_id": "2069057954184343926",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:Magic Kingdom:0d94ad60-72f0-4551-83a6-ebaecdd89737:2026-06-22T14:00:29Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "Magic Kingdom",
+      "ride_name": "The Many Adventures of Winnie the Pooh",
+      "status": "posted",
+      "tweet_id": "2069058207201554793",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:EPCOT:8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0:2026-06-22T14:00:29Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Frozen Ever After",
+      "status": "posted",
+      "tweet_id": "2069058459832877493",
+      "posting_enabled": true
+    },
+    {
+      "dedupe_key": "real_time_alert:reopened:EPCOT:75449e85-c410-4cef-a368-9d2ea5d52b58:2026-06-22T14:00:29Z",
+      "pillar": "real_time_alert",
+      "type": "reopened",
+      "park_name": "EPCOT",
+      "ride_name": "Journey Into Imagination With Figment",
+      "status": "posted",
+      "tweet_id": "2069058712388722873",
       "posting_enabled": true
     }
   ]
