@@ -4996,14 +4996,111 @@
     },
     "2026-06-23": {
       "date": "2026-06-23",
-      "last_observed_at": "2026-06-23T12:00:25Z",
-      "parks": {},
-      "runs_captured": 33,
+      "last_observed_at": "2026-06-23T12:15:21Z",
+      "parks": {
+        "animal_kingdom": {
+          "park_name": "Animal Kingdom",
+          "rides": {
+            "24cf863c-b6ba-4826-a056-0b698989cbf7": {
+              "average_wait_time": 65.0,
+              "down_event_count": 0,
+              "down_samples": 0,
+              "downtime_seconds": 0,
+              "max_wait_time": 65,
+              "min_wait_time": 65,
+              "open_samples": 1,
+              "planned_closure_samples": 0,
+              "ride_name": "Avatar Flight of Passage",
+              "samples": 1,
+              "unknown_samples": 0,
+              "wait_time_samples": 1,
+              "wait_time_total": 65
+            },
+            "32e01181-9a5f-4936-8a77-0dace1de836c": {
+              "average_wait_time": 25.0,
+              "down_event_count": 0,
+              "down_samples": 0,
+              "downtime_seconds": 0,
+              "max_wait_time": 25,
+              "min_wait_time": 25,
+              "open_samples": 1,
+              "planned_closure_samples": 0,
+              "ride_name": "Kilimanjaro Safaris",
+              "samples": 1,
+              "unknown_samples": 0,
+              "wait_time_samples": 1,
+              "wait_time_total": 25
+            },
+            "4f391f0e-52be-4f9d-99d6-b3ae0373b43c": {
+              "average_wait_time": null,
+              "down_event_count": 0,
+              "down_samples": 0,
+              "downtime_seconds": 0,
+              "max_wait_time": null,
+              "min_wait_time": null,
+              "open_samples": 1,
+              "planned_closure_samples": 0,
+              "ride_name": "Wildlife Express Train",
+              "samples": 1,
+              "unknown_samples": 0,
+              "wait_time_samples": 0,
+              "wait_time_total": 0
+            },
+            "64a6915f-a835-4226-ba5c-8389fc4cade3": {
+              "average_wait_time": null,
+              "down_event_count": 1,
+              "down_samples": 1,
+              "downtime_seconds": 0,
+              "max_wait_time": null,
+              "min_wait_time": null,
+              "open_samples": 0,
+              "planned_closure_samples": 0,
+              "ride_name": "Expedition Everest - Legend of the Forbidden Mountain",
+              "samples": 1,
+              "unknown_samples": 0,
+              "wait_time_samples": 0,
+              "wait_time_total": 0
+            },
+            "7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0": {
+              "average_wait_time": 20.0,
+              "down_event_count": 0,
+              "down_samples": 0,
+              "downtime_seconds": 0,
+              "max_wait_time": 20,
+              "min_wait_time": 20,
+              "open_samples": 1,
+              "planned_closure_samples": 0,
+              "ride_name": "Na'vi River Journey",
+              "samples": 1,
+              "unknown_samples": 0,
+              "wait_time_samples": 1,
+              "wait_time_total": 20
+            },
+            "d58d9262-ec95-4161-80a0-07ca43b2f5f3": {
+              "average_wait_time": null,
+              "down_event_count": 1,
+              "down_samples": 1,
+              "downtime_seconds": 0,
+              "max_wait_time": null,
+              "min_wait_time": null,
+              "open_samples": 0,
+              "planned_closure_samples": 0,
+              "ride_name": "Kali River Rapids",
+              "samples": 1,
+              "unknown_samples": 0,
+              "wait_time_samples": 0,
+              "wait_time_total": 0
+            }
+          },
+          "samples": 1
+        }
+      },
+      "runs_captured": 34,
       "timezone": "America/New_York"
     }
   },
   "first_observed_at": "2026-06-16T04:02:28Z",
-  "last_observed_at": "2026-06-23T12:00:25Z",
-  "runs_captured": 706,
+  "last_observed_at": "2026-06-23T12:15:21Z",
+  "runs_captured": 707,
   "schema_version": 1
 }
