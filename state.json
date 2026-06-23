@@ -1579,15 +1579,15 @@
     },
     "e39b831b-7731-49bb-815b-289b4f49a9fd": {
       "id": "e39b831b-7731-49bb-815b-289b4f49a9fd",
-      "is_open": false,
+      "is_open": null,
       "name": "Walt Disney World Railroad",
       "last_seen_at": "2026-06-23T01:45:18Z",
       "last_changed_at": "2026-06-23T01:00:22Z",
-      "down_since": "2026-06-23T01:00:22Z",
+      "down_since": null,
       "last_down_at": "2026-06-23T01:00:22Z",
       "last_reopened_at": "2026-06-21T23:15:19Z",
-      "current_down_seconds": 2696,
-      "total_down_seconds": 15275,
+      "current_down_seconds": 0,
+      "total_down_seconds": 18853,
       "downtime_events": [
         {
           "down_at": "2026-06-21T20:00:23Z",
@@ -1606,13 +1606,19 @@
           "reopened_at": "2026-06-22T03:00:00Z",
           "duration_seconds": 7174,
           "ended_by": "park_close"
+        },
+        {
+          "down_at": "2026-06-23T01:00:22Z",
+          "reopened_at": "2026-06-23T02:00:00Z",
+          "duration_seconds": 3578,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "CLOSED",
-      "paused_at_park_close": "2026-06-22T03:00:00Z"
+      "paused_at_park_close": "2026-06-23T02:00:00Z"
     }
   },
   "epcot": {
@@ -2373,15 +2379,15 @@
     },
     "e516f303-e82d-4fd3-8fbf-8e6ab624cf89": {
       "id": "e516f303-e82d-4fd3-8fbf-8e6ab624cf89",
-      "is_open": false,
+      "is_open": null,
       "name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
       "last_seen_at": "2026-06-23T01:45:18Z",
       "last_changed_at": "2026-06-22T20:30:23Z",
-      "down_since": "2026-06-22T20:30:23Z",
+      "down_since": null,
       "last_down_at": "2026-06-22T20:30:23Z",
       "last_reopened_at": "2026-06-22T15:45:22Z",
-      "current_down_seconds": 18895,
-      "total_down_seconds": 36859,
+      "current_down_seconds": 0,
+      "total_down_seconds": 56636,
       "downtime_events": [
         {
           "down_at": "2026-06-16T19:30:23Z",
@@ -2436,13 +2442,19 @@
           "reopened_at": "2026-06-22T15:45:22Z",
           "duration_seconds": 2686,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-06-22T20:30:23Z",
+          "reopened_at": "2026-06-23T02:00:00Z",
+          "duration_seconds": 19777,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-06-22T01:00:00Z"
+      "paused_at_park_close": "2026-06-23T02:00:00Z"
     },
     "6e118e37-5002-408d-9d88-0b5d9cdb5d14": {
       "id": "6e118e37-5002-408d-9d88-0b5d9cdb5d14",
