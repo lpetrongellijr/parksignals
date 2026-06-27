@@ -1069,15 +1069,15 @@
     },
     "73cb9445-0695-47a3-87ce-d08ae36b5f3c": {
       "id": "73cb9445-0695-47a3-87ce-d08ae36b5f3c",
-      "is_open": false,
+      "is_open": null,
       "name": "Tiana's Bayou Adventure",
       "last_seen_at": "2026-06-27T02:45:17Z",
       "last_changed_at": "2026-06-27T01:15:17Z",
-      "down_since": "2026-06-27T01:15:17Z",
+      "down_since": null,
       "last_down_at": "2026-06-27T01:15:17Z",
       "last_reopened_at": "2026-06-24T23:30:26Z",
-      "current_down_seconds": 5400,
-      "total_down_seconds": 37847,
+      "current_down_seconds": 0,
+      "total_down_seconds": 44130,
       "downtime_events": [
         {
           "down_at": "2026-06-16T22:15:17Z",
@@ -1168,12 +1168,19 @@
           "reopened_at": "2026-06-24T23:30:26Z",
           "duration_seconds": 906,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-06-27T01:15:17Z",
+          "reopened_at": "2026-06-27T03:00:00Z",
+          "duration_seconds": 6283,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-06-27T03:00:00Z"
     },
     "72c7343a-f7fb-4f66-95df-c91016de7338": {
       "id": "72c7343a-f7fb-4f66-95df-c91016de7338",
@@ -2019,15 +2026,15 @@
     },
     "e39b831b-7731-49bb-815b-289b4f49a9fd": {
       "id": "e39b831b-7731-49bb-815b-289b4f49a9fd",
-      "is_open": false,
+      "is_open": null,
       "name": "Walt Disney World Railroad",
       "last_seen_at": "2026-06-27T02:45:17Z",
       "last_changed_at": "2026-06-27T01:00:20Z",
-      "down_since": "2026-06-27T01:00:20Z",
+      "down_since": null,
       "last_down_at": "2026-06-27T01:00:20Z",
       "last_reopened_at": "2026-06-26T19:45:15Z",
-      "current_down_seconds": 6297,
-      "total_down_seconds": 54780,
+      "current_down_seconds": 0,
+      "total_down_seconds": 61960,
       "downtime_events": [
         {
           "down_at": "2026-06-21T20:00:23Z",
@@ -2082,13 +2089,19 @@
           "reopened_at": "2026-06-26T19:45:15Z",
           "duration_seconds": 5399,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-06-27T01:00:20Z",
+          "reopened_at": "2026-06-27T03:00:00Z",
+          "duration_seconds": 7180,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "CLOSED",
-      "paused_at_park_close": "2026-06-26T03:00:00Z"
+      "paused_at_park_close": "2026-06-27T03:00:00Z"
     }
   },
   "epcot": {
