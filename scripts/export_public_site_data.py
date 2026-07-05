@@ -8,6 +8,7 @@ from zoneinfo import ZoneInfo
 
 OUTPUT_FILE = Path("public") / "data" / "latest.json"
 HISTORY_OUTPUT_FILE = Path("public") / "data" / "history.json"
+INTRADAY_OUTPUT_FILE = Path("public") / "data" / "intraday.json"
 PARK_TIMEZONE = ZoneInfo("America/New_York")
 PARK_SLUGS = {
     "magic_kingdom": "magic-kingdom",
@@ -80,6 +81,53 @@ def latest_ride_details(last_run):
         }
         for summary in last_run.get("run_summaries", [])
     }
+
+
+def export_intraday_samples(last_run, config, observed_at, output_path=INTRADAY_OUTPUT_FILE):
+    local_date = observed_at.astimezone(PARK_TIMEZONE).date().isoformat()
+    existing = load_json(output_path, {})
+    if existing.get("date") != local_date:
+        existing = {"schema_version": 1, "date": local_date, "timezone": "America/New_York", "samples": []}
+
+    samples = existing.setdefault("samples", [])
+    seen = {
+        (sample.get("observed_at"), sample.get("ride_id"))
+        for sample in samples
+    }
+    observed_at_text = iso_timestamp(observed_at)
+    for summary in last_run.get("run_summaries", []):
+        if summary.get("monitoring_suppressed"):
+            continue
+        park_key = summary.get("park_key")
+        if not park_key:
+            continue
+        park_config = config.get("parks", {}).get(park_key, {})
+        for ride in summary.get("ride_ids", []):
+            wait_time = ride.get("wait_time")
+            if not isinstance(wait_time, int):
+                continue
+            ride_id = str(ride.get("id"))
+            key = (observed_at_text, ride_id)
+            if key in seen:
+                continue
+            samples.append({
+                "observed_at": observed_at_text,
+                "ride_id": ride_id,
+                "ride_name": display_name(ride.get("name") or ride_id),
+                "park_id": park_key,
+                "park_name": park_config.get("park_name", park_key.replace("_", " ").title()),
+                "park_slug": PARK_SLUGS.get(park_key, park_key.replace("_", "-")),
+                "wait_time_minutes": wait_time,
+            })
+            seen.add(key)
+
+    existing["generated_at"] = observed_at_text
+    existing["samples"] = sorted(samples, key=lambda sample: (sample["observed_at"], sample["park_slug"], sample["ride_name"]))
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w") as file:
+        json.dump(existing, file, indent=2)
+        file.write("\n")
+    print(f"Wrote public website intraday samples to {output_path}")
 
 
 
@@ -180,6 +228,7 @@ def export_snapshot(output_path=OUTPUT_FILE):
         json.dump(payload, file, indent=2)
         file.write("\n")
     print(f"Wrote public website snapshot to {output_path}")
+    export_intraday_samples(last_run, config, observed_at)
 
 
 def public_history(output_path=HISTORY_OUTPUT_FILE):
