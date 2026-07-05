@@ -88,7 +88,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add state.json analytics_history.json posting_log.json public/data/latest.json
+          git add state.json analytics_history.json posting_log.json public/data/latest.json public/data/history.json
           if git diff --cached --quiet; then
             echo "No state, analytics history, posting log, or public data changes"
             exit 0

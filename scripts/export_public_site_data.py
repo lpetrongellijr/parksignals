@@ -7,6 +7,7 @@ from zoneinfo import ZoneInfo
 
 
 OUTPUT_FILE = Path("public") / "data" / "latest.json"
+HISTORY_OUTPUT_FILE = Path("public") / "data" / "history.json"
 PARK_TIMEZONE = ZoneInfo("America/New_York")
 PARK_SLUGS = {
     "magic_kingdom": "magic-kingdom",
@@ -181,5 +182,56 @@ def export_snapshot(output_path=OUTPUT_FILE):
     print(f"Wrote public website snapshot to {output_path}")
 
 
+def public_history(output_path=HISTORY_OUTPUT_FILE):
+    history = load_json(Path("analytics_history.json"), {})
+    generated_at = parse_timestamp(history.get("last_observed_at")) or datetime.now(timezone.utc)
+    days = []
+
+    for date, day in sorted(history.get("days", {}).items()):
+        rides = []
+        for park_key, park in day.get("parks", {}).items():
+            for ride_id, ride in park.get("rides", {}).items():
+                average_wait = ride.get("average_wait_time")
+                max_wait = ride.get("max_wait_time") or 0
+                busyness_score = None
+                if isinstance(average_wait, (int, float)) and max_wait:
+                    busyness_score = min(100, round((average_wait / max_wait) * 100))
+                rides.append({
+                    "date": date,
+                    "ride_id": str(ride_id),
+                    "ride_name": display_name(ride.get("ride_name") or str(ride_id)),
+                    "park_id": park_key,
+                    "park_name": park.get("park_name", park_key.replace("_", " ").title()),
+                    "park_slug": PARK_SLUGS.get(park_key, park_key.replace("_", "-")),
+                    "samples": int(ride.get("samples") or 0),
+                    "open_samples": int(ride.get("open_samples") or 0),
+                    "down_event_count": int(ride.get("down_event_count") or 0),
+                    "downtime_seconds": int(ride.get("downtime_seconds") or 0),
+                    "average_wait_minutes": round(average_wait) if isinstance(average_wait, (int, float)) else None,
+                    "min_wait_minutes": ride.get("min_wait_time"),
+                    "max_wait_minutes": ride.get("max_wait_time"),
+                    "busyness_score": busyness_score,
+                })
+        days.append({
+            "date": date,
+            "last_observed_at": day.get("last_observed_at"),
+            "rides": sorted(rides, key=lambda ride: (ride["park_name"], ride["ride_name"])),
+        })
+
+    payload = {
+        "schema_version": 1,
+        "generated_at": iso_timestamp(generated_at),
+        "timezone": "America/New_York",
+        "source": "ParkSignals daily analytics history",
+        "days": days,
+    }
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w") as file:
+        json.dump(payload, file, indent=2)
+        file.write("\n")
+    print(f"Wrote public website history to {output_path}")
+
+
 if __name__ == "__main__":
     export_snapshot()
+    public_history()
