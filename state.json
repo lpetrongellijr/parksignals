@@ -2541,15 +2541,15 @@
     },
     "ffcfeaa2-1416-4920-a1ed-543c1a1695c4": {
       "id": "ffcfeaa2-1416-4920-a1ed-543c1a1695c4",
-      "is_open": false,
+      "is_open": null,
       "name": "Tomorrowland Transit Authority PeopleMover",
       "last_seen_at": "2026-07-06T02:45:18Z",
       "last_changed_at": "2026-07-06T00:45:16Z",
-      "down_since": "2026-07-06T00:45:16Z",
+      "down_since": null,
       "last_down_at": "2026-07-06T00:45:16Z",
       "last_reopened_at": "2026-07-05T13:20:27Z",
-      "current_down_seconds": 7202,
-      "total_down_seconds": 65979,
+      "current_down_seconds": 0,
+      "total_down_seconds": 74063,
       "downtime_events": [
         {
           "down_at": "2026-06-16T23:00:24Z",
@@ -2670,13 +2670,19 @@
           "reopened_at": "2026-07-05T13:20:27Z",
           "duration_seconds": 312,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-06T00:45:16Z",
+          "reopened_at": "2026-07-06T03:00:00Z",
+          "duration_seconds": 8084,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-06-20T03:00:00Z"
+      "paused_at_park_close": "2026-07-06T03:00:00Z"
     },
     "f163ddcd-43e1-488d-8276-2381c1db0a39": {
       "id": "f163ddcd-43e1-488d-8276-2381c1db0a39",
@@ -3244,15 +3250,15 @@
     },
     "e39b831b-7731-49bb-815b-289b4f49a9fd": {
       "id": "e39b831b-7731-49bb-815b-289b4f49a9fd",
-      "is_open": false,
+      "is_open": null,
       "name": "Walt Disney World Railroad",
       "last_seen_at": "2026-07-06T02:45:18Z",
       "last_changed_at": "2026-07-05T23:05:14Z",
-      "down_since": "2026-07-05T23:05:14Z",
+      "down_since": null,
       "last_down_at": "2026-07-05T23:05:14Z",
       "last_reopened_at": "2026-07-05T20:55:17Z",
-      "current_down_seconds": 13204,
-      "total_down_seconds": 408696,
+      "current_down_seconds": 0,
+      "total_down_seconds": 422782,
       "downtime_events": [
         {
           "down_at": "2026-06-21T20:00:23Z",
@@ -3385,13 +3391,19 @@
           "reopened_at": "2026-07-05T20:55:17Z",
           "duration_seconds": 5692,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-05T23:05:14Z",
+          "reopened_at": "2026-07-06T03:00:00Z",
+          "duration_seconds": 14086,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "CLOSED",
-      "paused_at_park_close": "2026-07-05T03:00:00Z"
+      "paused_at_park_close": "2026-07-06T03:00:00Z"
     }
   },
   "epcot": {
