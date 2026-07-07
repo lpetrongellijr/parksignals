@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-07T12:25:18Z",
+  "generated_at": "2026-07-07T12:30:42Z",
   "timezone": "America/New_York",
   "source": "ParkSignals daily analytics history",
   "days": [
@@ -14616,7 +14616,7 @@
     },
     {
       "date": "2026-07-07",
-      "last_observed_at": "2026-07-07T12:25:18Z",
+      "last_observed_at": "2026-07-07T12:30:42Z",
       "rides": [
         {
           "date": "2026-07-07",
@@ -14625,14 +14625,14 @@
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom",
-          "samples": 3,
-          "open_samples": 3,
+          "samples": 4,
+          "open_samples": 4,
           "down_event_count": 0,
           "downtime_seconds": 0,
           "average_wait_minutes": 58,
           "min_wait_minutes": 55,
           "max_wait_minutes": 60,
-          "busyness_score": 97
+          "busyness_score": 96
         },
         {
           "date": "2026-07-07",
@@ -14641,14 +14641,14 @@
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom",
-          "samples": 3,
-          "open_samples": 3,
+          "samples": 4,
+          "open_samples": 4,
           "down_event_count": 0,
           "downtime_seconds": 0,
-          "average_wait_minutes": 7,
+          "average_wait_minutes": 8,
           "min_wait_minutes": 5,
           "max_wait_minutes": 10,
-          "busyness_score": 67
+          "busyness_score": 75
         },
         {
           "date": "2026-07-07",
@@ -14657,10 +14657,10 @@
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom",
-          "samples": 3,
+          "samples": 4,
           "open_samples": 0,
           "down_event_count": 1,
-          "downtime_seconds": 600,
+          "downtime_seconds": 924,
           "average_wait_minutes": null,
           "min_wait_minutes": null,
           "max_wait_minutes": null,
@@ -14673,8 +14673,8 @@
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom",
-          "samples": 3,
-          "open_samples": 3,
+          "samples": 4,
+          "open_samples": 4,
           "down_event_count": 0,
           "downtime_seconds": 0,
           "average_wait_minutes": 15,
@@ -14689,14 +14689,14 @@
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom",
-          "samples": 3,
-          "open_samples": 3,
+          "samples": 4,
+          "open_samples": 4,
           "down_event_count": 0,
           "downtime_seconds": 0,
-          "average_wait_minutes": 18,
+          "average_wait_minutes": 20,
           "min_wait_minutes": 15,
-          "max_wait_minutes": 20,
-          "busyness_score": 92
+          "max_wait_minutes": 25,
+          "busyness_score": 80
         },
         {
           "date": "2026-07-07",
@@ -14705,8 +14705,8 @@
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom",
-          "samples": 3,
-          "open_samples": 3,
+          "samples": 4,
+          "open_samples": 4,
           "down_event_count": 0,
           "downtime_seconds": 0,
           "average_wait_minutes": 5,
