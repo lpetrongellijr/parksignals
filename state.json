@@ -3425,15 +3425,15 @@
     },
     "e39b831b-7731-49bb-815b-289b4f49a9fd": {
       "id": "e39b831b-7731-49bb-815b-289b4f49a9fd",
-      "is_open": false,
+      "is_open": null,
       "name": "Walt Disney World Railroad",
       "last_seen_at": "2026-07-07T02:45:21Z",
       "last_changed_at": "2026-07-06T20:00:39Z",
-      "down_since": "2026-07-06T20:00:39Z",
+      "down_since": null,
       "last_down_at": "2026-07-06T20:00:39Z",
       "last_reopened_at": "2026-07-06T15:35:19Z",
-      "current_down_seconds": 24282,
-      "total_down_seconds": 431171,
+      "current_down_seconds": 0,
+      "total_down_seconds": 456332,
       "downtime_events": [
         {
           "down_at": "2026-06-21T20:00:23Z",
@@ -3578,13 +3578,19 @@
           "reopened_at": "2026-07-06T15:35:19Z",
           "duration_seconds": 8389,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-06T20:00:39Z",
+          "reopened_at": "2026-07-07T03:00:00Z",
+          "duration_seconds": 25161,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "CLOSED",
-      "paused_at_park_close": "2026-07-06T03:00:00Z"
+      "paused_at_park_close": "2026-07-07T03:00:00Z"
     }
   },
   "epcot": {
