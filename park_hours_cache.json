@@ -1,7 +1,7 @@
 {
   "parks": {
     "magic_kingdom": {
-      "date": "2026-07-06",
+      "date": "2026-07-07",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -10,13 +10,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-07-06T08:30:00-04:00",
-          "closingTime": "2026-07-06T09:00:00-04:00",
+          "openingTime": "2026-07-07T08:30:00-04:00",
+          "closingTime": "2026-07-07T09:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-07-06",
+        "date": "2026-07-07",
         "type": "OPERATING",
         "purchases": [
           {
@@ -28,7 +28,7 @@
               "currency": "USD",
               "formatted": "$12.00"
             },
-            "available": true
+            "available": false
           },
           {
             "id": "lightninglane_411504498",
@@ -64,12 +64,12 @@
             "available": true
           }
         ],
-        "closingTime": "2026-07-06T23:00:00-04:00",
-        "openingTime": "2026-07-06T09:00:00-04:00"
+        "closingTime": "2026-07-07T23:00:00-04:00",
+        "openingTime": "2026-07-07T09:00:00-04:00"
       }
     },
     "epcot": {
-      "date": "2026-07-06",
+      "date": "2026-07-07",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -78,19 +78,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-07-06T08:30:00-04:00",
-          "closingTime": "2026-07-06T09:00:00-04:00",
+          "openingTime": "2026-07-07T08:30:00-04:00",
+          "closingTime": "2026-07-07T09:00:00-04:00",
           "description": "Early Entry"
-        },
-        {
-          "type": "TICKETED_EVENT",
-          "openingTime": "2026-07-06T21:00:00-04:00",
-          "closingTime": "2026-07-06T23:00:00-04:00",
-          "description": "Extended Evening"
         }
       ],
       "raw": {
-        "date": "2026-07-06",
+        "date": "2026-07-07",
         "type": "OPERATING",
         "purchases": [
           {
@@ -102,16 +96,16 @@
               "currency": "USD",
               "formatted": "$18.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007838",
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 2400,
+              "amount": 2100,
               "currency": "USD",
-              "formatted": "$24.00"
+              "formatted": "$21.00"
             },
             "available": true
           },
@@ -120,19 +114,19 @@
             "name": "Lightning Lane Premier Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 21900,
+              "amount": 18900,
               "currency": "USD",
-              "formatted": "$219.00"
+              "formatted": "$189.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-07-06T21:00:00-04:00",
-        "openingTime": "2026-07-06T09:00:00-04:00"
+        "closingTime": "2026-07-07T21:00:00-04:00",
+        "openingTime": "2026-07-07T09:00:00-04:00"
       }
     },
     "hollywood_studios": {
-      "date": "2026-07-06",
+      "date": "2026-07-07",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -141,13 +135,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-07-06T08:30:00-04:00",
-          "closingTime": "2026-07-06T09:00:00-04:00",
+          "openingTime": "2026-07-07T08:30:00-04:00",
+          "closingTime": "2026-07-07T09:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-07-06",
+        "date": "2026-07-07",
         "type": "OPERATING",
         "purchases": [
           {
@@ -159,7 +153,7 @@
               "currency": "USD",
               "formatted": "$20.00"
             },
-            "available": true
+            "available": false
           },
           {
             "id": "lightninglanemultipass_80007998",
@@ -177,19 +171,19 @@
             "name": "Lightning Lane Premier Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 31900,
+              "amount": 28900,
               "currency": "USD",
-              "formatted": "$319.00"
+              "formatted": "$289.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-07-06T21:00:00-04:00",
-        "openingTime": "2026-07-06T09:00:00-04:00"
+        "closingTime": "2026-07-07T21:00:00-04:00",
+        "openingTime": "2026-07-07T09:00:00-04:00"
       }
     },
     "animal_kingdom": {
-      "date": "2026-07-06",
+      "date": "2026-07-07",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "08:00",
@@ -198,13 +192,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-07-06T07:30:00-04:00",
-          "closingTime": "2026-07-06T08:00:00-04:00",
+          "openingTime": "2026-07-07T07:30:00-04:00",
+          "closingTime": "2026-07-07T08:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-07-06",
+        "date": "2026-07-07",
         "type": "OPERATING",
         "purchases": [
           {
@@ -228,15 +222,26 @@
               "formatted": "$16.00"
             },
             "available": true
+          },
+          {
+            "id": "premierpass_80007823",
+            "name": "Lightning Lane Premier Pass",
+            "type": "PACKAGE",
+            "price": {
+              "amount": 13900,
+              "currency": "USD",
+              "formatted": "$139.00"
+            },
+            "available": true
           }
         ],
-        "closingTime": "2026-07-06T18:00:00-04:00",
-        "openingTime": "2026-07-06T08:00:00-04:00"
+        "closingTime": "2026-07-07T18:00:00-04:00",
+        "openingTime": "2026-07-07T08:00:00-04:00"
       }
     }
   },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-07-06T22:57:35Z",
+  "generated_at": "2026-07-07T04:01:02Z",
   "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
   "last_fetch_status": "ok",
