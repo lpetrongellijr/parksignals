@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-08T11:55:18Z",
+  "generated_at": "2026-07-08T12:00:48Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -624,7 +624,7 @@
       "id": "animal_kingdom",
       "slug": "animal-kingdom",
       "name": "Animal Kingdom",
-      "status": "closed",
+      "status": "opening_grace",
       "monitoring_active": false,
       "hours": {
         "source": "themeparks_wiki",
@@ -706,7 +706,7 @@
           "id": "4f391f0e-52be-4f9d-99d6-b3ae0373b43c",
           "name": "Wildlife Express Train",
           "status": "park_closed",
-          "wait_time_minutes": null,
+          "wait_time_minutes": 5,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
