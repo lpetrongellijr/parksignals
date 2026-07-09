@@ -943,15 +943,15 @@
     },
     "9d4d5229-7142-44b6-b4fb-528920969a2c": {
       "id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
-      "is_open": false,
+      "is_open": null,
       "name": "Seven Dwarfs Mine Train",
       "last_seen_at": "2026-07-09T02:45:19Z",
       "last_changed_at": "2026-07-09T01:50:40Z",
-      "down_since": "2026-07-09T01:50:40Z",
+      "down_since": null,
       "last_down_at": "2026-07-09T01:50:40Z",
       "last_reopened_at": "2026-07-09T01:35:18Z",
-      "current_down_seconds": 3279,
-      "total_down_seconds": 179024,
+      "current_down_seconds": 0,
+      "total_down_seconds": 183184,
       "downtime_events": [
         {
           "down_at": "2026-06-16T19:30:23Z",
@@ -1144,24 +1144,31 @@
           "reopened_at": "2026-07-09T01:35:18Z",
           "duration_seconds": 2998,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-09T01:50:40Z",
+          "reopened_at": "2026-07-09T03:00:00Z",
+          "duration_seconds": 4160,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-07-09T03:00:00Z"
     },
     "de3309ca-97d5-4211-bffe-739fed47e92f": {
       "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
-      "is_open": false,
+      "is_open": null,
       "name": "Big Thunder Mountain",
       "last_seen_at": "2026-07-09T02:45:19Z",
       "last_changed_at": "2026-07-09T00:45:20Z",
-      "down_since": "2026-07-09T00:45:20Z",
+      "down_since": null,
       "last_down_at": "2026-07-09T00:45:20Z",
       "last_reopened_at": "2026-07-08T23:50:40Z",
-      "current_down_seconds": 7199,
-      "total_down_seconds": 138931,
+      "current_down_seconds": 0,
+      "total_down_seconds": 147011,
       "downtime_events": [
         {
           "down_at": "2026-06-16T22:00:24Z",
@@ -1348,12 +1355,19 @@
           "reopened_at": "2026-07-08T23:50:40Z",
           "duration_seconds": 4852,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-09T00:45:20Z",
+          "reopened_at": "2026-07-09T03:00:00Z",
+          "duration_seconds": 8080,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-07-09T03:00:00Z"
     },
     "352feb94-e52e-45eb-9c92-e4b44c6b1a9d": {
       "id": "352feb94-e52e-45eb-9c92-e4b44c6b1a9d",
@@ -1609,15 +1623,15 @@
     },
     "796b0a25-c51e-456e-9bb8-50a324e301b3": {
       "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
-      "is_open": false,
+      "is_open": null,
       "name": "Jungle Cruise",
       "last_seen_at": "2026-07-09T02:45:19Z",
       "last_changed_at": "2026-07-09T00:45:20Z",
-      "down_since": "2026-07-09T00:45:20Z",
+      "down_since": null,
       "last_down_at": "2026-07-09T00:45:20Z",
       "last_reopened_at": "2026-07-08T23:50:40Z",
-      "current_down_seconds": 7199,
-      "total_down_seconds": 114342,
+      "current_down_seconds": 0,
+      "total_down_seconds": 122422,
       "downtime_events": [
         {
           "down_at": "2026-06-16T22:00:24Z",
@@ -1780,12 +1794,19 @@
           "reopened_at": "2026-07-08T23:50:40Z",
           "duration_seconds": 4852,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-09T00:45:20Z",
+          "reopened_at": "2026-07-09T03:00:00Z",
+          "duration_seconds": 8080,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-07-09T03:00:00Z"
     },
     "86a41273-5f15-4b54-93b6-829f140e5161": {
       "id": "86a41273-5f15-4b54-93b6-829f140e5161",
@@ -1873,15 +1894,15 @@
     },
     "73cb9445-0695-47a3-87ce-d08ae36b5f3c": {
       "id": "73cb9445-0695-47a3-87ce-d08ae36b5f3c",
-      "is_open": false,
+      "is_open": null,
       "name": "Tiana's Bayou Adventure",
       "last_seen_at": "2026-07-09T02:45:19Z",
       "last_changed_at": "2026-07-09T01:50:40Z",
-      "down_since": "2026-07-09T01:50:40Z",
+      "down_since": null,
       "last_down_at": "2026-07-09T01:50:40Z",
       "last_reopened_at": "2026-07-09T01:40:41Z",
-      "current_down_seconds": 3279,
-      "total_down_seconds": 121777,
+      "current_down_seconds": 0,
+      "total_down_seconds": 125937,
       "downtime_events": [
         {
           "down_at": "2026-06-16T22:15:17Z",
@@ -2050,13 +2071,19 @@
           "reopened_at": "2026-07-09T01:40:41Z",
           "duration_seconds": 3321,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-09T01:50:40Z",
+          "reopened_at": "2026-07-09T03:00:00Z",
+          "duration_seconds": 4160,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-06-30T02:00:00Z"
+      "paused_at_park_close": "2026-07-09T03:00:00Z"
     },
     "72c7343a-f7fb-4f66-95df-c91016de7338": {
       "id": "72c7343a-f7fb-4f66-95df-c91016de7338",
@@ -2493,15 +2520,15 @@
     },
     "924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48": {
       "id": "924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48",
-      "is_open": false,
+      "is_open": null,
       "name": "The Barnstormer",
       "last_seen_at": "2026-07-09T02:45:19Z",
       "last_changed_at": "2026-07-09T01:45:21Z",
-      "down_since": "2026-07-09T01:45:21Z",
+      "down_since": null,
       "last_down_at": "2026-07-09T01:45:21Z",
       "last_reopened_at": "2026-07-09T01:35:18Z",
-      "current_down_seconds": 3598,
-      "total_down_seconds": 121514,
+      "current_down_seconds": 0,
+      "total_down_seconds": 125993,
       "downtime_events": [
         {
           "down_at": "2026-06-16T22:00:24Z",
@@ -2700,24 +2727,31 @@
           "reopened_at": "2026-07-09T01:35:18Z",
           "duration_seconds": 2998,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-09T01:45:21Z",
+          "reopened_at": "2026-07-09T03:00:00Z",
+          "duration_seconds": 4479,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-07-09T03:00:00Z"
     },
     "890fa430-89c0-4a3f-96c9-11597888005e": {
       "id": "890fa430-89c0-4a3f-96c9-11597888005e",
-      "is_open": false,
+      "is_open": null,
       "name": "Dumbo the Flying Elephant",
       "last_seen_at": "2026-07-09T02:45:19Z",
       "last_changed_at": "2026-07-09T01:45:21Z",
-      "down_since": "2026-07-09T01:45:21Z",
+      "down_since": null,
       "last_down_at": "2026-07-09T01:45:21Z",
       "last_reopened_at": "2026-07-09T01:35:18Z",
-      "current_down_seconds": 3598,
-      "total_down_seconds": 94290,
+      "current_down_seconds": 0,
+      "total_down_seconds": 98769,
       "downtime_events": [
         {
           "down_at": "2026-06-16T22:00:24Z",
@@ -2844,12 +2878,19 @@
           "reopened_at": "2026-07-09T01:35:18Z",
           "duration_seconds": 2998,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-09T01:45:21Z",
+          "reopened_at": "2026-07-09T03:00:00Z",
+          "duration_seconds": 4479,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-07-09T03:00:00Z"
     },
     "ffcfeaa2-1416-4920-a1ed-543c1a1695c4": {
       "id": "ffcfeaa2-1416-4920-a1ed-543c1a1695c4",
@@ -3016,15 +3057,15 @@
     },
     "f163ddcd-43e1-488d-8276-2381c1db0a39": {
       "id": "f163ddcd-43e1-488d-8276-2381c1db0a39",
-      "is_open": false,
+      "is_open": null,
       "name": "Tomorrowland Speedway",
       "last_seen_at": "2026-07-09T02:45:19Z",
       "last_changed_at": "2026-07-09T01:50:40Z",
-      "down_since": "2026-07-09T01:50:40Z",
+      "down_since": null,
       "last_down_at": "2026-07-09T01:50:40Z",
       "last_reopened_at": "2026-07-09T01:35:18Z",
-      "current_down_seconds": 3279,
-      "total_down_seconds": 91261,
+      "current_down_seconds": 0,
+      "total_down_seconds": 95421,
       "downtime_events": [
         {
           "down_at": "2026-06-16T22:00:24Z",
@@ -3151,24 +3192,31 @@
           "reopened_at": "2026-07-09T01:35:18Z",
           "duration_seconds": 2998,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-09T01:50:40Z",
+          "reopened_at": "2026-07-09T03:00:00Z",
+          "duration_seconds": 4160,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-07-09T03:00:00Z"
     },
     "d9d12438-d999-4482-894b-8955fdb20ccf": {
       "id": "d9d12438-d999-4482-894b-8955fdb20ccf",
-      "is_open": false,
+      "is_open": null,
       "name": "Astro Orbiter",
       "last_seen_at": "2026-07-09T02:45:19Z",
       "last_changed_at": "2026-07-09T01:45:21Z",
-      "down_since": "2026-07-09T01:45:21Z",
+      "down_since": null,
       "last_down_at": "2026-07-09T01:45:21Z",
       "last_reopened_at": "2026-07-09T01:40:41Z",
-      "current_down_seconds": 3598,
-      "total_down_seconds": 104170,
+      "current_down_seconds": 0,
+      "total_down_seconds": 108649,
       "downtime_events": [
         {
           "down_at": "2026-06-16T22:00:24Z",
@@ -3295,12 +3343,19 @@
           "reopened_at": "2026-07-09T01:40:41Z",
           "duration_seconds": 3321,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-09T01:45:21Z",
+          "reopened_at": "2026-07-09T03:00:00Z",
+          "duration_seconds": 4479,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-07-09T03:00:00Z"
     },
     "8183f3f2-1b59-4b9c-b634-6a863bdf8d84": {
       "id": "8183f3f2-1b59-4b9c-b634-6a863bdf8d84",
@@ -3473,15 +3528,15 @@
     },
     "96455de6-f4f1-403c-9391-bf8396979149": {
       "id": "96455de6-f4f1-403c-9391-bf8396979149",
-      "is_open": false,
+      "is_open": null,
       "name": "The Magic Carpets of Aladdin",
       "last_seen_at": "2026-07-09T02:45:19Z",
       "last_changed_at": "2026-07-09T01:45:21Z",
-      "down_since": "2026-07-09T01:45:21Z",
+      "down_since": null,
       "last_down_at": "2026-07-09T01:45:21Z",
       "last_reopened_at": "2026-07-09T01:35:18Z",
-      "current_down_seconds": 3598,
-      "total_down_seconds": 75894,
+      "current_down_seconds": 0,
+      "total_down_seconds": 80373,
       "downtime_events": [
         {
           "down_at": "2026-06-21T20:00:23Z",
@@ -3578,24 +3633,31 @@
           "reopened_at": "2026-07-09T01:35:18Z",
           "duration_seconds": 3277,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-09T01:45:21Z",
+          "reopened_at": "2026-07-09T03:00:00Z",
+          "duration_seconds": 4479,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-07-09T03:00:00Z"
     },
     "273ddb8d-e7b5-4e34-8657-1113f49262a5": {
       "id": "273ddb8d-e7b5-4e34-8657-1113f49262a5",
-      "is_open": false,
+      "is_open": null,
       "name": "Prince Charming Regal Carrousel",
       "last_seen_at": "2026-07-09T02:45:19Z",
       "last_changed_at": "2026-07-09T02:05:20Z",
-      "down_since": "2026-07-09T02:05:20Z",
+      "down_since": null,
       "last_down_at": "2026-07-09T02:05:20Z",
       "last_reopened_at": "2026-07-08T02:25:22Z",
-      "current_down_seconds": 2399,
-      "total_down_seconds": 261412,
+      "current_down_seconds": 0,
+      "total_down_seconds": 264692,
       "downtime_events": [
         {
           "down_at": "2026-06-22T00:15:20Z",
@@ -3668,24 +3730,31 @@
           "reopened_at": "2026-07-08T02:25:22Z",
           "duration_seconds": 881,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-09T02:05:20Z",
+          "reopened_at": "2026-07-09T03:00:00Z",
+          "duration_seconds": 3280,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-07-09T03:00:00Z"
     },
     "e39b831b-7731-49bb-815b-289b4f49a9fd": {
       "id": "e39b831b-7731-49bb-815b-289b4f49a9fd",
-      "is_open": false,
+      "is_open": null,
       "name": "Walt Disney World Railroad",
       "last_seen_at": "2026-07-09T02:45:19Z",
       "last_changed_at": "2026-07-09T00:45:20Z",
-      "down_since": "2026-07-09T00:45:20Z",
+      "down_since": null,
       "last_down_at": "2026-07-09T00:45:20Z",
       "last_reopened_at": "2026-07-08T23:55:16Z",
-      "current_down_seconds": 7199,
-      "total_down_seconds": 469486,
+      "current_down_seconds": 0,
+      "total_down_seconds": 477566,
       "downtime_events": [
         {
           "down_at": "2026-06-21T20:00:23Z",
@@ -3848,13 +3917,19 @@
           "reopened_at": "2026-07-08T23:55:16Z",
           "duration_seconds": 5397,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-09T00:45:20Z",
+          "reopened_at": "2026-07-09T03:00:00Z",
+          "duration_seconds": 8080,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "CLOSED",
-      "paused_at_park_close": "2026-07-08T03:00:00Z"
+      "paused_at_park_close": "2026-07-09T03:00:00Z"
     }
   },
   "epcot": {
