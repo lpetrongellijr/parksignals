@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: parksignals-main-writes
+  cancel-in-progress: false
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -47,11 +51,17 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
+
+          cp park_hours_cache.json /tmp/parksignals-park-hours-cache.json
+          git fetch origin main
+          git reset --hard origin/main
+          git clean -fdX
+          cp /tmp/parksignals-park-hours-cache.json park_hours_cache.json
+
           git add park_hours_cache.json
           if git diff --cached --quiet; then
             echo "No park hours cache changes"
             exit 0
           fi
           git commit -m "Update park hours cache"
-          git pull --rebase origin main
           git push

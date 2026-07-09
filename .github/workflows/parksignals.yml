@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: parksignals-main-writes
+  cancel-in-progress: false
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   PARKSIGNALS_POST_CONTEXT: "monitor"
@@ -88,15 +92,31 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
+
+          mkdir -p /tmp/parksignals-generated
+          cp state.json /tmp/parksignals-generated/state.json
+          cp analytics_history.json /tmp/parksignals-generated/analytics_history.json
+          cp posting_log.json /tmp/parksignals-generated/posting_log.json
+          cp public/data/latest.json /tmp/parksignals-generated/latest.json
+          cp public/data/history.json /tmp/parksignals-generated/history.json
+          cp public/data/intraday.json /tmp/parksignals-generated/intraday.json
+
+          git fetch origin main
+          git reset --hard origin/main
+          git clean -fdX
+
+          cp /tmp/parksignals-generated/state.json state.json
+          cp /tmp/parksignals-generated/analytics_history.json analytics_history.json
+          cp /tmp/parksignals-generated/posting_log.json posting_log.json
+          mkdir -p public/data
+          cp /tmp/parksignals-generated/latest.json public/data/latest.json
+          cp /tmp/parksignals-generated/history.json public/data/history.json
+          cp /tmp/parksignals-generated/intraday.json public/data/intraday.json
+
           git add state.json analytics_history.json posting_log.json public/data/latest.json public/data/history.json public/data/intraday.json
           if git diff --cached --quiet; then
             echo "No state, analytics history, posting log, or public data changes"
             exit 0
           fi
           git commit -m "Update ParkSignals state and public data"
-          git status --short
-          git reset --hard HEAD
-          git clean -fdX
-          git fetch origin main
-          git rebase origin/main
           git push
