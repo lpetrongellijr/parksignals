@@ -17,6 +17,16 @@
       "resort_hashtag": "WaltDisneyWorld",
       "park_hashtag": "MagicKingdom",
       "planned_closures": [],
+      "ride_operating_hours": [
+        {
+          "ride_name": "Walt Disney World Railroad",
+          "opens_at": "09:00",
+          "closes_at": "20:00",
+          "timezone": "America/New_York",
+          "reason": "scheduled ride operating hours",
+          "source": "configured_ride_operating_hours"
+        }
+      ],
       "ride_name_aliases": {
         "TRON Lightcycle / Run": [
           "TRON Lightcycle / Run Presented by Enterprise"
