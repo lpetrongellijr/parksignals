@@ -175,8 +175,9 @@ def export_snapshot(output_path=OUTPUT_FILE):
             if not isinstance(ride_state, dict):
                 continue
             is_open = ride_state.get("is_open")
+            planned_closure = bool(ride_state.get("planned_closure_active"))
             status = "park_closed" if not park_is_open else (
-                "open" if is_open is True else "unavailable" if is_open is False else "unknown"
+                "closed" if planned_closure else "open" if is_open is True else "unavailable" if is_open is False else "unknown"
             )
             ride = {
                 "id": ride_id,
@@ -185,7 +186,7 @@ def export_snapshot(output_path=OUTPUT_FILE):
                 "wait_time_minutes": ride_details.get(park_key, {}).get(ride_id, {}).get("wait_time_minutes"),
                 "downtime_today_seconds": downtime_today(ride_state, observed_at),
                 "current_downtime_seconds": int(ride_state.get("current_down_seconds") or 0),
-                "planned_closure": bool(ride_state.get("planned_closure_active")),
+                "planned_closure": planned_closure,
                 "last_seen_at": ride_state.get("last_seen_at"),
                 "park_id": park_key,
                 "park_name": park_config.get("park_name", park_key.replace("_", " ").title()),
