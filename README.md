@@ -3,27 +3,22 @@
 Automated Disney & Universal ride downtime monitoring system.
 
 ## Features
-- Pulls live ride data from Queue-Times
+- Pulls live ride data from ThemeParks Wiki
 - Detects ride downtime/reopenings
 - Persists ride state by park
 - Tracks downtime timestamps and completed downtime events for future summaries
-- Excludes configured planned closures/refurbishments from alerts and reliability analytics
+- Excludes configured planned closures/refurbishments from reliability analytics
 - Runs from GitHub Actions workflows triggered by cron-job.org
-- Produces workflow artifacts for monitor summaries, post previews, post safety plans, park status, ride ID maps, analytics inputs, and disabled X connection readiness
+- Produces workflow artifacts for monitor summaries, park status, ride ID maps, analytics inputs, and public website data
 
 ## Park configuration
 ParkSignals is configured in `parks_config.json`. Magic Kingdom, EPCOT,
 Hollywood Studios, and Animal Kingdom are enabled by default, with each park's
 monitored attractions listed under `major_rides`.
 
-Each park also defines post metadata such as `resort_name`, `resort_hashtag`,
-and `park_hashtag` so alert text can follow the master template system in
-`docs/MASTER_POST_TEMPLATES.md`.
-
 Each park may also define `planned_closures`. These are refurbishments or other
-known maintenance windows that should be visible in logs but excluded from alert
-posts, multi-ride alerts, daily summaries, monthly reliability, trend insights,
-and projections. Example:
+known maintenance windows that should be visible in logs but excluded from daily
+summaries, monthly reliability, trend insights, and projections. Example:
 
 ```json
 "planned_closures": [
@@ -37,7 +32,7 @@ and projections. Example:
 ]
 ```
 
-`ride_name` should match the Queue-Times ride name already listed in
+`ride_name` should match the ThemeParks Wiki ride name already listed in
 `major_rides`. `ride_ids` can also be used if a name changes.
 
 ParkSignals uses official Disney daily park hours when `park_hours_cache.json`
@@ -81,7 +76,7 @@ tracked in-hours value so normal nightly closures do not become fake downtime.
 Current park open/closed-for-monitoring status is reported separately in
 `park-status.txt`, `park-status.json`, and `last-run-summary.json`.
 
-Each ride record also stores the Queue-Times `id` and current `name`, so the
+Each ride record also stores the ThemeParks Wiki `id` and current `name`, so the
 numeric keys in `state.json` can be read without looking them up elsewhere.
 
 If a test run happens after normal monitoring hours and marks many rides as
@@ -90,7 +85,7 @@ suite; the tests should remain so future changes keep this behavior covered.
 
 ## Monitoring logs and artifacts
 Every run prints a monitor summary to the GitHub Actions log. The summary shows
-which parks were checked, how many configured rides matched Queue-Times, current
+which parks were checked, how many configured rides matched ThemeParks Wiki, current
 open/unavailable/planned counts, any status changes, and a ride ID map such as:
 
 ```text
@@ -106,7 +101,7 @@ was suppressed.
 
 If a run is outside resolved monitoring hours, the log also prints a
 `Downtime tracking suppressed` section. That means the workflow ran and observed
-Queue-Times data, but intentionally skipped downtime state changes.
+live ride data, but intentionally skipped downtime state changes.
 
 The monitor workflow also uploads output artifacts from `outputs/`:
 
@@ -114,94 +109,35 @@ The monitor workflow also uploads output artifacts from `outputs/`:
 - `last-run-summary.json`
 - `park-status.txt`
 - `park-status.json`
-- `content-pillar-readiness.txt`
-- `post-candidates.json`
-- `post-previews.txt`
-- `post-dispatch-plan.txt`
-- `post-dispatch-plan.json`
-- `x-connection-status.txt`
-- `x-connection-status.json`
+- `analytics-readiness.txt`
 - `analytics-summary.json`
 - `ride-id-map.json`
 - `daily-summary.txt`
 
 `park-status.txt` is the quickest way to confirm whether a park is open for
-monitoring or closed/outside regular hours. `post-previews.txt` is the easiest
-review file for draft post text. It shows draft text for the currently available
-post candidates across single-ride alerts, multi-ride alerts, daily summaries,
-monthly reliability, trend insights, and projection insights. `post-candidates.json`
-carries the same candidates in structured form for future automated posting.
-Posting remains disconnected.
-
-`post-dispatch-plan.txt` applies the posting safety policy and explains whether
-each candidate would post in dry-run mode or be skipped. It includes skip reasons
-such as missing X credentials, park closed for monitoring, duplicate posted key,
-empty summary, disabled pillar, or text over the configured character limit.
-
-`x-connection-status.txt` reports whether the X credentials are present in
-GitHub Actions secrets. It never prints secret values. Posting is still blocked
-unless `PARKSIGNALS_X_POSTING_ENABLED` is explicitly set to `true`, and the
-workflows currently set it to `false`.
+monitoring or closed/outside regular hours. `analytics-readiness.txt` explains
+whether there is enough history for trends and monthly reliability.
 
 To confirm the monitor is working, open the latest ParkSignals Monitor workflow
 run in GitHub Actions and review the "Run ParkSignals" step or download the
 `parksignals-monitor-outputs` artifact.
 
-The same log also prints a content pillar readiness section:
+The same log also prints an analytics readiness section:
 
-- real-time single ride closure/reopen events
-- active multi-ride closure candidates
-- multi-ride reopening candidates from the current run
 - daily downtime summary inputs
 - monthly reliability ranking inputs once 30 days of history are available
 - trend inputs once 7 days of history are available
 - active downtime projection inputs
 
-These are generated as operational logs and artifacts only. They prepare the
-data needed for future automated posting and insight workflows without
-connecting X posting yet.
-
-## Posting safety
-Posting is controlled by `posting_policy.json` and recorded in `posting_log.json`.
-The current policy keeps real posting disabled and dry-run planning enabled.
-
-Safety features now in place:
-
-- Global posting switch is off by default.
-- Workflows hard-set `PARKSIGNALS_X_POSTING_ENABLED=false`.
-- Per-pillar and per-post-type toggles exist in `posting_policy.json`.
-- Candidates are blocked if required X credentials are missing.
-- Real-time posts are blocked outside park monitoring hours.
-- Empty daily summaries and empty analytics posts are blocked.
-- Over-length posts are blocked using `max_post_characters`.
-- Duplicate protection checks `posted_keys` and prior confirmed posted decisions.
-- Dry-run decisions are logged, while real posted keys remain separate for future live posting.
-
-## X connection readiness
-Add X credentials as GitHub Actions repository secrets only. Do not commit them
-and do not paste them into issues, logs, or chat.
-
-Required secrets for future posting readiness:
-
-- `X_API_KEY`
-- `X_API_SECRET`
-- `X_ACCESS_TOKEN`
-- `X_ACCESS_TOKEN_SECRET`
-
-Optional secret:
-
-- `X_BEARER_TOKEN`
-
-After the next Monitor or Daily Summary run, download the artifact and open
-`x-connection-status.txt`. If all required credentials are present, it will show
-`Ready for manual connection test: true`. That still does not post anything.
+Posting and X integration have been removed. ParkSignals now captures operational
+data for analytics and the public website only.
 
 ## Dry runs
 Use dry-run mode to test closures and reopenings against sample data without
-calling Queue-Times or saving `state.json`:
+calling live APIs or saving `state.json`:
 
 ```bash
-python scripts/dry_run.py --data samples/dry_run_queue_times.json --output-dir outputs
+python scripts/dry_run.py --data samples/dry_run_themeparks_wiki.json --output-dir outputs
 ```
 
 ## Tests
@@ -217,8 +153,7 @@ that uploads sample output artifacts.
 ## Daily summaries
 The separate `ParkSignals Daily Summary` workflow runs once per day from
 cron-job.org and can also be started manually. It generates daily summary
-artifacts from the current persisted state without saving state or posting
-externally.
+artifacts from the current persisted state.
 
 Trend insight previews require at least 7 days of collected state history.
 Monthly reliability previews require at least 30 days of collected state history
@@ -231,6 +166,6 @@ Check the next generated artifacts tomorrow and confirm:
 
 - `park-status.txt` shows `official hours unavailable` if the official cache is missing or stale.
 - The GitHub Actions run shows a `Park hours missing` warning if official hours are unavailable.
-- `content-pillar-readiness.txt` holds trend previews until 7 days of history are available.
-- `content-pillar-readiness.txt` holds monthly reliability previews until 30 days of history are available.
+- `analytics-readiness.txt` holds trend insights until 7 days of history are available.
+- `analytics-readiness.txt` holds monthly reliability until 30 days of history are available.
 - `analytics-summary.json` includes `data_age_days`, `trend_insights_ready`, and `monthly_reliability_ready`.

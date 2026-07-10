@@ -153,30 +153,12 @@ class ParkSignalsSupportTest(unittest.TestCase):
         }
 
         summary = parksignals_analytics.collect_content_pillar_summary(state, config, observed)
-        candidates = export_artifacts.build_post_candidates(
-            summary,
-            {
-                "default_parks": ["epcot"],
-                "parks": {
-                    "epcot": {
-                        "enabled": True,
-                        "park_name": "EPCOT",
-                        "resort_name": "Walt Disney World",
-                        "major_rides": ["Spaceship Earth"],
-                    }
-                },
-            },
-            {"run_summaries": []},
-            "2026-06-12T01:30:00Z",
-        )
+        readiness = export_artifacts.build_readiness_summary(summary)
 
         self.assertFalse(summary["trend_insights_ready"])
         self.assertFalse(summary["monthly_reliability_ready"])
         self.assertEqual(summary["elevated_trends"], [])
         self.assertEqual(summary["monthly_top"], [])
-        self.assertEqual(candidates["insights"]["elevated_trends"], [])
-        self.assertEqual(candidates["monthly_reliability_rankings"], [])
-        readiness = export_artifacts.build_readiness_summary(summary, candidates)
         self.assertIn("Waiting for 7 days of history", readiness)
         self.assertIn("Waiting for 30 days of history", readiness)
 
@@ -239,237 +221,6 @@ class ParkSignalsSupportTest(unittest.TestCase):
         self.assertEqual(summary["daily_window_start"], "2026-06-10T04:00:00Z")
         self.assertEqual(summary["daily_top"][0]["downtime_seconds"], 6230)
 
-    def test_daily_operations_post_omits_operations_word_and_keeps_resort_hashtag(self):
-        summary = {
-            "daily_top": [
-                {
-                    "ride_name": "Rock ’n’ Roller Coaster Starring The Muppets",
-                    "park_name": "Hollywood Studios",
-                    "downtime_seconds": 6230,
-                },
-                {
-                    "ride_name": "Guardians of the Galaxy: Cosmic Rewind",
-                    "park_name": "EPCOT",
-                    "downtime_seconds": 5400,
-                },
-                {
-                    "ride_name": "Avatar Flight of Passage",
-                    "park_name": "Animal Kingdom",
-                    "downtime_seconds": 3600,
-                },
-            ],
-            "stable_park": ("Magic Kingdom", 0),
-        }
-
-        post = export_artifacts.build_wdw_daily_post(summary, "2026-06-10T23:30:00Z")
-
-        self.assertTrue(post.startswith("PARKSIGNALS // Disney World"))
-        self.assertIn("Disney World Summary - ", post)
-        self.assertNotIn("Operations Summary", post)
-        self.assertNotIn("Most stable park", post)
-        self.assertIn("#DisneyWorld", post)
-        self.assertNotIn("#DailyOps", post)
-        self.assertNotIn("#Analytics", post)
-        self.assertLessEqual(len(post), 280)
-
-    def test_daily_and_reliability_posts_limit_rankings_to_top_three(self):
-        metrics = [
-            {"ride_name": "Ride One", "park_name": "Magic Kingdom", "downtime_seconds": 4000},
-            {"ride_name": "Ride Two", "park_name": "EPCOT", "downtime_seconds": 3000},
-            {"ride_name": "Ride Three", "park_name": "Hollywood Studios", "downtime_seconds": 2000},
-            {"ride_name": "Ride Four", "park_name": "Animal Kingdom", "downtime_seconds": 1000},
-        ]
-        summary = {
-            "daily_top": metrics,
-            "monthly_top": metrics,
-            "monthly_window_label": "June 2026",
-            "monthly_reliability_ready": True,
-            "trend_insights_ready": True,
-            "thirty_day_top": metrics,
-            "stable_park": None,
-            "active_multi_ride_alerts": [],
-            "elevated_trends": [],
-            "active_projections": [],
-        }
-        config = {
-            "default_parks": ["magic_kingdom"],
-            "parks": {
-                "magic_kingdom": {
-                    "enabled": True,
-                    "park_name": "Magic Kingdom",
-                    "resort_name": "Walt Disney World",
-                    "major_rides": [],
-                }
-            },
-        }
-
-        daily_post = export_artifacts.build_wdw_daily_post(summary, "2026-06-10T23:30:00Z")
-        reliability_post = export_artifacts.build_thirty_day_post(summary)
-        candidates = export_artifacts.build_post_candidates(
-            summary,
-            config,
-            {"run_summaries": []},
-            "2026-06-10T23:30:00Z",
-        )
-
-        self.assertIn("Ride Three", daily_post)
-        self.assertNotIn("Ride Four", daily_post)
-        self.assertTrue(reliability_post.startswith("PARKSIGNALS // Disney World"))
-        self.assertIn("Disney World Reliability - June 2026", reliability_post)
-        self.assertNotIn("over the past 30 days", reliability_post)
-        self.assertNotIn("#Analytics", reliability_post)
-        self.assertIn("Ride Three", reliability_post)
-        self.assertNotIn("Ride Four", reliability_post)
-        self.assertEqual(candidates["monthly_reliability_rankings"][0]["type"], "wdw_monthly_reliability")
-        self.assertEqual(len(candidates["daily_summaries"][0]["metrics"]), 3)
-        self.assertEqual(len(candidates["thirty_day_rankings"][0]["metrics"]), 3)
-
-    def test_post_candidates_normalize_resort_display_names_and_hashtags(self):
-        config = {
-            "default_parks": ["magic_kingdom"],
-            "parks": {
-                "magic_kingdom": {
-                    "enabled": True,
-                    "park_name": "Magic Kingdom",
-                    "resort_name": "Walt Disney World",
-                    "resort_hashtag": "WaltDisneyWorld",
-                    "park_hashtag": "MagicKingdom",
-                    "major_rides": [],
-                }
-            },
-        }
-        last_run = {
-            "run_summaries": [
-                {
-                    "park_key": "magic_kingdom",
-                    "park_name": "Magic Kingdom",
-                    "ride_ids": [
-                        {"id": "1", "name": "Space Mountain", "wait_time": 20},
-                    ],
-                    "transitions": [
-                        {"type": "reopened", "ride_id": "1", "ride_name": "Space Mountain"},
-                    ],
-                }
-            ]
-        }
-        summary = {
-            "daily_top": [],
-            "monthly_top": [],
-            "monthly_window_label": "June 2026",
-            "monthly_reliability_ready": True,
-            "trend_insights_ready": True,
-            "thirty_day_top": [],
-            "stable_park": None,
-            "active_multi_ride_alerts": [
-                {"park_name": "Magic Kingdom", "rides": ["Space Mountain", "TRON Lightcycle / Run"]},
-            ],
-            "elevated_trends": [
-                {
-                    "park_key": "magic_kingdom",
-                    "park_name": "Magic Kingdom",
-                    "ride_name": "Space Mountain",
-                }
-            ],
-            "active_projections": [
-                {
-                    "park_key": "magic_kingdom",
-                    "park_name": "Magic Kingdom",
-                    "ride_name": "Space Mountain",
-                    "current_down_seconds": 900,
-                    "projected_total_seconds": 1800,
-                }
-            ],
-        }
-
-        candidates = export_artifacts.build_post_candidates(
-            summary,
-            config,
-            last_run,
-            "2026-06-10T23:30:00Z",
-        )
-        posts = [
-            candidates["single_ride_reopenings"][0]["preview_text"],
-            candidates["multi_ride_closures"][0]["preview_text"],
-            candidates["insights"]["elevated_trends"][0]["preview_text"],
-            candidates["insights"]["active_projections"][0]["preview_text"],
-        ]
-
-        for post in posts:
-            self.assertIn("PARKSIGNALS // Disney World", post)
-            self.assertIn("#DisneyWorld", post)
-            self.assertNotIn("PARKSIGNALS // Walt Disney World", post)
-            self.assertNotIn("#WaltDisneyWorld", post)
-            self.assertNotIn("#Reopened", post)
-            self.assertNotIn("#OpsAlert", post)
-            self.assertNotIn("#AIInsight", post)
-            self.assertNotIn("#Operations", post)
-
-    def test_display_name_normalization_supports_other_resorts(self):
-        self.assertEqual(
-            export_artifacts.normalize_post_display_text("UOR / Universal Orlando Resort"),
-            "Universal Orlando / Universal Orlando",
-        )
-        self.assertEqual(
-            export_artifacts.normalize_post_display_text("UHR / Universal Hollywood Resort"),
-            "Universal Hollywood / Universal Hollywood",
-        )
-        self.assertEqual(
-            export_artifacts.normalize_post_display_text("DL / Disneyland"),
-            "Disneyland / Disneyland",
-        )
-        self.assertEqual(export_artifacts.normalize_hashtag("#UOR"), "#UniversalOrlando")
-        self.assertEqual(export_artifacts.normalize_hashtag("#UHR"), "#UniversalHollywood")
-        self.assertEqual(export_artifacts.normalize_hashtag("#WaltDisneyWorld"), "#DisneyWorld")
-        self.assertEqual(export_artifacts.normalize_hashtag("#DL"), "#Disneyland")
-
-    def test_trend_insight_uses_parksignals_header(self):
-        park_lookup = {
-            "hollywood_studios": {
-                "park_name": "Hollywood Studios",
-                "resort_name": "Walt Disney World",
-                "resort_hashtag": "WaltDisneyWorld",
-                "park_hashtag": "HollywoodStudios",
-            }
-        }
-        metric = {
-            "park_key": "hollywood_studios",
-            "park_name": "Hollywood Studios",
-            "ride_name": "Slinky Dog Dash",
-        }
-
-        post = export_artifacts.normalize_post_hashtags(
-            export_artifacts.build_trend_post(metric, park_lookup)
-        )
-
-        self.assertTrue(post.startswith("PARKSIGNALS // Disney World"))
-        self.assertIn("elevated downtime frequency", post)
-        self.assertIn("#DisneyWorld", post)
-        self.assertNotIn("#AIInsight", post)
-
-    def test_hashtag_trimming_applies_to_any_post_candidate(self):
-        post = "\n".join([
-            "PARKSIGNALS // Disney World",
-            "",
-            "ALERT: Hollywood Studios",
-            "",
-            "Currently unavailable:",
-            "- Rock ’n’ Roller Coaster Starring The Muppets",
-            "- Mickey & Minnie’s Runaway Railway",
-            "- Millennium Falcon: Smugglers Run",
-            "- Toy Story Mania",
-            "- Slinky Dog Dash",
-            "",
-            "#DisneyWorld",
-            "#HollywoodStudios",
-            "#ToyStoryMania",
-        ])
-
-        trimmed = export_artifacts.trim_post_hashtags(post)
-
-        self.assertIn("#DisneyWorld", trimmed)
-        self.assertNotIn("#ToyStoryMania", trimmed)
-        self.assertLessEqual(len(trimmed), 280)
-
     def test_export_helpers_write_readable_outputs(self):
         state = {
             "magic_kingdom": {
@@ -480,17 +231,6 @@ class ParkSignalsSupportTest(unittest.TestCase):
                     "downtime_events": [],
                 }
             }
-        }
-        config = {
-            "default_parks": ["magic_kingdom"],
-            "parks": {
-                "magic_kingdom": {
-                    "enabled": True,
-                    "park_name": "Magic Kingdom",
-                    "resort_name": "Walt Disney World",
-                    "major_rides": ["Space Mountain"],
-                }
-            },
         }
         summary = {
             "daily_top": [],
@@ -506,15 +246,8 @@ class ParkSignalsSupportTest(unittest.TestCase):
         }
 
         self.assertNotIn("Most stable park", export_artifacts.build_daily_summary(summary))
-        candidates = export_artifacts.build_post_candidates(
-            summary,
-            config,
-            {"run_summaries": []},
-            "2026-06-09T12:00:00Z",
-        )
-        previews = export_artifacts.build_post_previews(candidates)
-        self.assertIn("Monthly Reliability", previews)
-        self.assertFalse(candidates["posting_connected"])
+        readiness = export_artifacts.build_readiness_summary(summary)
+        self.assertIn("Analytics readiness", readiness)
         ride_map = export_artifacts.build_ride_id_map(state)
         self.assertEqual(ride_map["magic_kingdom"][0]["name"], "Space Mountain")
 

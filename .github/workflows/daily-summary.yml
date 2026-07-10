@@ -14,13 +14,6 @@ concurrency:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-  PARKSIGNALS_POST_CONTEXT: "daily_summary"
-  PARKSIGNALS_X_POSTING_ENABLED: ${{ vars.PARKSIGNALS_X_POSTING_ENABLED }}
-  X_API_KEY: ${{ secrets.X_API_KEY }}
-  X_API_SECRET: ${{ secrets.X_API_SECRET }}
-  X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
-  X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
-  X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
 
 jobs:
   daily-summary:
@@ -48,9 +41,6 @@ jobs:
           rm -rf outputs
           mkdir -p outputs
           python scripts/export_artifacts.py --output-dir outputs
-          python scripts/export_x_status.py --output-dir outputs
-          python scripts/plan_posts.py --output-dir outputs --post-context daily_summary
-          python scripts/dispatch_posts.py --output-dir outputs
 
       - name: Upload Daily Summary Outputs
         if: always()
@@ -58,22 +48,3 @@ jobs:
         with:
           name: parksignals-daily-summary
           path: outputs/
-
-      - name: Commit Posting Log
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-
-          cp posting_log.json /tmp/parksignals-posting-log.json
-          git fetch origin main
-          git reset --hard origin/main
-          git clean -fdX
-          cp /tmp/parksignals-posting-log.json posting_log.json
-
-          git add posting_log.json
-          if git diff --cached --quiet; then
-            echo "No posting log changes"
-            exit 0
-          fi
-          git commit -m "Update posting log"
-          git push

@@ -13,7 +13,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.modules.setdefault("requests", types.SimpleNamespace(get=lambda *args, **kwargs: None))
 
 import parksignals
-import export_artifacts
 import parksignals_analytics
 import run_monitor
 
@@ -42,10 +41,7 @@ def dedupe_repeated_bullets(output):
 
 
 def normalize_dry_run_output(output):
-    normalized = export_artifacts.normalize_post_hashtags(
-        export_artifacts.normalize_post_display_text(output)
-    )
-    return dedupe_repeated_bullets(normalized)
+    return dedupe_repeated_bullets(output)
 
 
 def main():

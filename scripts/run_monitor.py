@@ -1,7 +1,5 @@
-import io
 import json
 import sys
-from contextlib import redirect_stdout
 from datetime import datetime, time, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -21,70 +19,10 @@ SCHEDULED_MONITOR_START_TOLERANCE_MINUTES = 5
 OFFICIAL_HOURS_UNAVAILABLE_REASON = (
     "official park hours unavailable; monitoring suppressed"
 )
-POST_OUTPUT_REPLACEMENTS = {
-    "Walt Disney World": "Disney World",
-    "WDW": "Disney World",
-    "Universal Orlando Resort": "Universal Orlando",
-    "UOR": "Universal Orlando",
-    "Universal Hollywood Resort": "Universal Hollywood",
-    "UHR": "Universal Hollywood",
-    "DL": "Disneyland",
-    "Big Thunder Mountain Railroad": "Big Thunder Mountain",
-    "Expedition Everest - Legend of the Forbidden Mountain": "Expedition Everest",
-    "The Twilight Zone™ Tower of Terror": "Tower of Terror",
-    "The Twilight Zone Tower of Terror": "Tower of Terror",
-    "Star Tours - The Adventures Continue": "Star Tours",
-    "Star Tours – The Adventures Continue": "Star Tours",
-    "Journey Into Imagination With Figment": "Journey Into Imagination",
-    "Gran Fiesta Tour Starring The Three Caballeros": "Gran Fiesta Tour",
-    "Tomorrowland Transit Authority PeopleMover": "PeopleMover",
-    "Rock ’n’ Roller Coaster Starring The Muppets": "Rock ’n’ Roller Coaster",
-    "Walt Disney’s Carousel of Progress": "Carousel of Progress",
-    "Walt Disney's Carousel of Progress": "Carousel of Progress",
-    "#WaltDisneyWorld": "#DisneyWorld",
-    "#WDW": "#DisneyWorld",
-    "#UniversalOrlandoResort": "#UniversalOrlando",
-    "#UOR": "#UniversalOrlando",
-    "#UniversalHollywoodResort": "#UniversalHollywood",
-    "#UHR": "#UniversalHollywood",
-    "#DL": "#Disneyland",
-    "#BigThunderMountainRailroad": "#BigThunderMountain",
-    "#ExpeditionEverestLegendoftheForbiddenMountain": "#ExpeditionEverest",
-    "#TheTwilightZoneTowerofTerror": "#TowerofTerror",
-    "#StarToursTheAdventuresContinue": "#StarTours",
-    "#JourneyIntoImaginationWithFigment": "#JourneyIntoImagination",
-    "#GranFiestaTourStarringTheThreeCaballeros": "#GranFiestaTour",
-    "#TomorrowlandTransitAuthorityPeopleMover": "#PeopleMover",
-    "#RocknRollerCoasterStarringTheMuppets": "#RocknRollerCoaster",
-    "#WaltDisneysCarouselofProgress": "#CarouselofProgress",
-}
-REMOVED_POST_HASHTAGS = {"#down", "#reopened"}
 
 
 def github_warning(title, message):
     print(f"::warning title={title}::{message}")
-
-
-def clean_monitor_output(output):
-    cleaned = output
-    for source, replacement in POST_OUTPUT_REPLACEMENTS.items():
-        cleaned = cleaned.replace(source, replacement)
-    lines = []
-    for line in cleaned.splitlines():
-        if line.strip().lower() in REMOVED_POST_HASHTAGS:
-            continue
-        lines.append(line)
-    return "\n".join(lines) + ("\n" if cleaned.endswith("\n") else "")
-
-
-def run_monitor_park_with_clean_output(park_key, park_config, state, observed_at):
-    buffer = io.StringIO()
-    with redirect_stdout(buffer):
-        summary = parksignals.monitor_park(park_key, park_config, state, observed_at)
-    cleaned_output = clean_monitor_output(buffer.getvalue())
-    if cleaned_output:
-        print(cleaned_output, end="")
-    return summary
 
 
 def parse_local_time(value):
@@ -374,18 +312,17 @@ def print_suppression_notes(summaries):
 
 def print_content_pillar_summary(pillar_summary, run_summaries):
     print("")
-    print("Content pillar readiness")
-    print("1. Real-time single ride closures/reopenings: supported")
+    print("Analytics readiness")
 
     multi_closures = pillar_summary["active_multi_ride_alerts"]
     if multi_closures:
-        print("1C. Multi-ride closure candidates:")
+        print("Current multi-ride operational issues:")
         for alert in multi_closures:
             print(f"  {alert['park_name']}:")
             for ride_name in alert["rides"][:5]:
                 print(f"    - {ride_name}")
     else:
-        print("1C. Multi-ride closure candidates: none active")
+        print("Current multi-ride operational issues: none active")
 
     print("")
     print("2. Daily summary inputs:")
@@ -456,7 +393,6 @@ def write_last_run_summary(observed_at, summaries, pillar_summary, hours_cache, 
     LAST_RUN_SUMMARY_FILE.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "observed_at": parksignals.isoformat(observed_at),
-        "posting_connected": False,
         "park_statuses": park_statuses,
         "run_summaries": summaries,
         "content_pillar_summary": pillar_summary,
@@ -479,7 +415,7 @@ def run():
         park_status = park_status_for_park(park_key, park_config, observed_at, hours_cache)
         park_statuses.append(park_status)
         if park_status["monitoring_allowed"]:
-            summary = run_monitor_park_with_clean_output(park_key, park_config, state, observed_at)
+            summary = parksignals.monitor_park(park_key, park_config, state, observed_at)
             summary["park_key"] = park_key
             summary["park_operating_status"] = "open"
             summary["monitoring_suppressed"] = False

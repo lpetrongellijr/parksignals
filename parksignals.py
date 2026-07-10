@@ -181,36 +181,6 @@ def prune_downtime_events(ride_state, observed_at):
     ride_state["downtime_events"] = retained_events[-MAX_DOWNTIME_EVENTS_PER_RIDE:]
 
 
-def hashtag(value):
-    return "#" + "".join(character for character in value if character.isalnum())
-
-
-def ride_hashtag(ride_name):
-    return hashtag(ride_name.replace("&", "and"))
-
-
-def build_post(park_config, ride, reopened=False):
-    park_name = park_config["park_name"]
-    resort_name = park_config["resort_name"]
-    resort_hashtag = park_config.get("resort_hashtag", hashtag(resort_name)[1:])
-    park_tag = park_config.get("park_hashtag", hashtag(park_name)[1:])
-    tags = f"#{resort_hashtag}\n#{park_tag}\n{ride_hashtag(ride['name'])}"
-    if reopened:
-        return (
-            f"PARKSIGNALS // {resort_name}\n\n"
-            f"ALERT: {park_name}\n\n"
-            f"{ride['name']} has reopened.\n\n"
-            f"Posted wait: {ride['wait_time']} minutes\n\n"
-            f"{tags}\n#Reopened"
-        )
-    return (
-        f"PARKSIGNALS // {resort_name}\n\n"
-        f"ALERT: {park_name}\n\n"
-        f"{ride['name']} is temporarily unavailable.\n\n"
-        f"{tags}\n#Down"
-    )
-
-
 def normalize_ride_state(raw_state, observed_at):
     if isinstance(raw_state, dict):
         raw_state.setdefault("id", None)
@@ -461,8 +431,6 @@ def monitor_park(park_key, park_config, state, observed_at):
             summary["down_rides"].append({"name": ride["name"], "duration_seconds": park_state[ride_id].get("current_down_seconds", 0)})
         if transition is not None:
             summary["transitions"].append({"type": transition, "ride_id": ride_id, "ride_name": ride["name"]})
-            print(build_post(park_config, ride, reopened=transition == "reopened"))
-            print("-" * 50)
     summary["missing_configured_rides"] = sorted(major_rides - matched_ride_names)
     return summary
 
