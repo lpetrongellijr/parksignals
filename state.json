@@ -2201,15 +2201,15 @@
     },
     "f5aad2d4-a419-4384-bd9a-42f86385c750": {
       "id": "f5aad2d4-a419-4384-bd9a-42f86385c750",
-      "is_open": false,
+      "is_open": null,
       "name": "\"it's a small world\"",
       "last_seen_at": "2026-07-10T02:45:22Z",
       "last_changed_at": "2026-07-10T01:20:46Z",
-      "down_since": "2026-07-10T01:20:46Z",
+      "down_since": null,
       "last_down_at": "2026-07-10T01:20:46Z",
       "last_reopened_at": "2026-07-09T21:05:18Z",
-      "current_down_seconds": 5076,
-      "total_down_seconds": 26739,
+      "current_down_seconds": 0,
+      "total_down_seconds": 32693,
       "downtime_events": [
         {
           "down_at": "2026-06-17T19:00:34Z",
@@ -2288,13 +2288,19 @@
           "reopened_at": "2026-07-09T21:05:18Z",
           "duration_seconds": 1483,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-10T01:20:46Z",
+          "reopened_at": "2026-07-10T03:00:00Z",
+          "duration_seconds": 5954,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-06-19T03:00:00Z"
+      "paused_at_park_close": "2026-07-10T03:00:00Z"
     },
     "0d94ad60-72f0-4551-83a6-ebaecdd89737": {
       "id": "0d94ad60-72f0-4551-83a6-ebaecdd89737",
@@ -3836,15 +3842,15 @@
     },
     "e39b831b-7731-49bb-815b-289b4f49a9fd": {
       "id": "e39b831b-7731-49bb-815b-289b4f49a9fd",
-      "is_open": false,
+      "is_open": null,
       "name": "Walt Disney World Railroad",
       "last_seen_at": "2026-07-10T02:45:22Z",
       "last_changed_at": "2026-07-10T00:45:26Z",
-      "down_since": "2026-07-10T00:45:26Z",
+      "down_since": null,
       "last_down_at": "2026-07-10T00:45:26Z",
       "last_reopened_at": "2026-07-08T23:55:16Z",
-      "current_down_seconds": 7196,
-      "total_down_seconds": 477566,
+      "current_down_seconds": 0,
+      "total_down_seconds": 485640,
       "downtime_events": [
         {
           "down_at": "2026-06-21T20:00:23Z",
@@ -4013,13 +4019,19 @@
           "reopened_at": "2026-07-09T03:00:00Z",
           "duration_seconds": 8080,
           "ended_by": "park_close"
+        },
+        {
+          "down_at": "2026-07-10T00:45:26Z",
+          "reopened_at": "2026-07-10T03:00:00Z",
+          "duration_seconds": 8074,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "CLOSED",
-      "paused_at_park_close": "2026-07-09T03:00:00Z"
+      "paused_at_park_close": "2026-07-10T03:00:00Z"
     }
   },
   "epcot": {
