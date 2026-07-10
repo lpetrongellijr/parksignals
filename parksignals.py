@@ -50,6 +50,16 @@ def parse_date(value):
         return None
 
 
+def parse_local_time(value):
+    if not value:
+        return None
+    try:
+        hour, minute = str(value).split(":", 1)
+        return int(hour), int(minute)
+    except (TypeError, ValueError):
+        return None
+
+
 def elapsed_seconds(started_at, ended_at):
     start = parse_timestamp(started_at)
     if start is None:
@@ -271,8 +281,47 @@ def configured_planned_closure_for_ride(park_config, ride, observed_at):
     return None
 
 
+def scheduled_operating_hours_for_ride(park_config, ride, observed_at):
+    ride_name = ride.get("name")
+    ride_id = str(ride.get("id"))
+    for entry in park_config.get("ride_operating_hours", []):
+        names = ride_names_for_planned_closure(entry)
+        ids = {str(value) for value in entry.get("ride_ids", [])}
+        if ride_name not in names and ride_id not in ids:
+            continue
+        opens_at = parse_local_time(entry.get("opens_at"))
+        closes_at = parse_local_time(entry.get("closes_at"))
+        if not opens_at or not closes_at:
+            continue
+        timezone_name = entry.get("timezone", DEFAULT_PARK_TIMEZONE)
+        local_observed = observed_at.astimezone(ZoneInfo(timezone_name))
+        open_dt = local_observed.replace(hour=opens_at[0], minute=opens_at[1], second=0, microsecond=0)
+        close_dt = local_observed.replace(hour=closes_at[0], minute=closes_at[1], second=0, microsecond=0)
+        if close_dt <= open_dt:
+            close_dt += timedelta(days=1)
+        if open_dt <= local_observed < close_dt:
+            return None
+        effective_at = observed_at if local_observed < open_dt else close_dt.astimezone(timezone.utc)
+        return {
+            "ride_name": ride_name,
+            "starts_on": None,
+            "ends_on": None,
+            "reason": entry.get("reason", "scheduled ride operating hours"),
+            "source": entry.get("source", "configured_ride_operating_hours"),
+            "opens_at": entry.get("opens_at"),
+            "closes_at": entry.get("closes_at"),
+            "timezone": timezone_name,
+            "effective_at": isoformat(effective_at),
+        }
+    return None
+
+
 def planned_closure_for_ride(park_config, ride, observed_at):
-    return ride.get("planned_closure") or configured_planned_closure_for_ride(park_config, ride, observed_at)
+    return (
+        ride.get("planned_closure")
+        or configured_planned_closure_for_ride(park_config, ride, observed_at)
+        or scheduled_operating_hours_for_ride(park_config, ride, observed_at)
+    )
 
 
 def close_operational_downtime(ride_state, ended_at, ended_by):
@@ -291,8 +340,9 @@ def close_operational_downtime(ride_state, ended_at, ended_by):
 
 def mark_planned_closure(ride_state, ride, observed_at, planned_closure):
     observed_at_text = isoformat(observed_at)
+    effective_at = parse_timestamp(planned_closure.get("effective_at")) or observed_at
     if ride_state.get("is_open") is False and ride_state.get("down_since"):
-        close_operational_downtime(ride_state, observed_at, "planned_closure_start")
+        close_operational_downtime(ride_state, effective_at, "planned_closure_start")
     ride_state["id"] = ride["id"]
     ride_state["name"] = ride["name"]
     ride_state["is_open"] = None

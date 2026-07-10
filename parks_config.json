@@ -164,6 +164,16 @@
       "resort_hashtag": "WaltDisneyWorld",
       "park_hashtag": "AnimalKingdom",
       "planned_closures": [],
+      "ride_operating_hours": [
+        {
+          "ride_name": "Wildlife Express Train",
+          "opens_at": "09:30",
+          "closes_at": "16:30",
+          "timezone": "America/New_York",
+          "reason": "scheduled ride operating hours",
+          "source": "configured_ride_operating_hours"
+        }
+      ],
       "ride_name_aliases": {
         "Avatar Flight of Passage": [
           "Avatar Flight of Passage"

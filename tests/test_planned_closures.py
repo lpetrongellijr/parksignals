@@ -125,6 +125,105 @@ class PlannedClosureTest(unittest.TestCase):
         self.assertEqual(summary["daily_top"], [])
         self.assertEqual(summary["active_multi_ride_alerts"], [])
 
+    def test_scheduled_ride_closure_does_not_count_as_downtime(self):
+        observed = datetime(2026, 7, 10, 21, 0, tzinfo=timezone.utc)
+        park_config = {
+            "enabled": True,
+            "park_name": "Animal Kingdom",
+            "major_rides": ["Wildlife Express Train"],
+            "ride_operating_hours": [
+                {
+                    "ride_name": "Wildlife Express Train",
+                    "opens_at": "09:30",
+                    "closes_at": "16:30",
+                    "timezone": "America/New_York",
+                    "reason": "scheduled ride operating hours",
+                }
+            ],
+        }
+        state = {
+            "animal_kingdom": {
+                "wildlife": {
+                    "id": "wildlife",
+                    "name": "Wildlife Express Train",
+                    "is_open": True,
+                    "last_seen_at": "2026-07-10T20:15:00Z",
+                    "current_down_seconds": 0,
+                    "downtime_events": [],
+                }
+            }
+        }
+        original_fetch_rides = parksignals.fetch_rides
+        parksignals.fetch_rides = lambda config, park_key=None: [
+            {
+                "id": "wildlife",
+                "name": "Wildlife Express Train",
+                "is_open": False,
+                "wait_time": None,
+            }
+        ]
+        try:
+            summary = parksignals.monitor_park("animal_kingdom", park_config, state, observed)
+        finally:
+            parksignals.fetch_rides = original_fetch_rides
+
+        ride_state = state["animal_kingdom"]["wildlife"]
+        self.assertEqual(summary["down_count"], 0)
+        self.assertEqual(summary["planned_closure_count"], 1)
+        self.assertEqual(summary["transitions"], [])
+        self.assertTrue(ride_state["planned_closure_active"])
+        self.assertEqual(ride_state["planned_closure"]["source"], "configured_ride_operating_hours")
+        self.assertIsNone(ride_state["down_since"])
+
+    def test_scheduled_ride_closure_stops_active_downtime_at_ride_close(self):
+        observed = datetime(2026, 7, 10, 21, 0, tzinfo=timezone.utc)
+        park_config = {
+            "enabled": True,
+            "park_name": "Animal Kingdom",
+            "major_rides": ["Wildlife Express Train"],
+            "ride_operating_hours": [
+                {
+                    "ride_name": "Wildlife Express Train",
+                    "opens_at": "09:30",
+                    "closes_at": "16:30",
+                    "timezone": "America/New_York",
+                    "reason": "scheduled ride operating hours",
+                }
+            ],
+        }
+        state = {
+            "animal_kingdom": {
+                "wildlife": {
+                    "id": "wildlife",
+                    "name": "Wildlife Express Train",
+                    "is_open": False,
+                    "down_since": "2026-07-10T20:00:00Z",
+                    "last_seen_at": "2026-07-10T20:15:00Z",
+                    "current_down_seconds": 900,
+                    "total_down_seconds": 0,
+                    "downtime_events": [],
+                }
+            }
+        }
+        original_fetch_rides = parksignals.fetch_rides
+        parksignals.fetch_rides = lambda config, park_key=None: [
+            {
+                "id": "wildlife",
+                "name": "Wildlife Express Train",
+                "is_open": False,
+                "wait_time": None,
+            }
+        ]
+        try:
+            parksignals.monitor_park("animal_kingdom", park_config, state, observed)
+        finally:
+            parksignals.fetch_rides = original_fetch_rides
+
+        ride_state = state["animal_kingdom"]["wildlife"]
+        self.assertEqual(ride_state["downtime_events"][0]["reopened_at"], "2026-07-10T20:30:00Z")
+        self.assertEqual(ride_state["downtime_events"][0]["duration_seconds"], 1800)
+        self.assertTrue(ride_state["planned_closure_active"])
+
 
 if __name__ == "__main__":
     unittest.main()
