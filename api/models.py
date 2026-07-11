@@ -86,6 +86,39 @@ class OperationalStatus(BaseModel):
     latestUpdates: List[Dict[str, Any]] = Field(default_factory=list)
 
 
+class RideEvent(BaseModel):
+    observed_at: str
+    event_type: str
+    ride_id: str
+    ride_name: str
+    park_id: str
+    park_name: str
+    park_slug: str
+
+
+class WaitSample(BaseModel):
+    observed_at: str
+    ride_id: str
+    ride_name: str
+    park_id: str
+    park_name: str
+    park_slug: str
+    wait_time_minutes: int
+    status: Optional[str] = None
+
+
+class ParkHoursHistory(BaseModel):
+    date: str
+    park_id: str
+    park_name: Optional[str] = None
+    park_slug: str
+    timezone: str
+    opens_at: Optional[str] = None
+    closes_at: Optional[str] = None
+    source: Optional[str] = None
+    last_observed_at: Optional[str] = None
+
+
 class ErrorResponse(BaseModel):
     error: str
     detail: str

@@ -152,6 +152,74 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/OperationalStatus"
+  /api/history/ride-events:
+    get:
+      tags: [History]
+      operationId: listRideEvents
+      summary: List archived ride open and close events
+      parameters:
+        - $ref: "#/components/parameters/ParkQuery"
+        - $ref: "#/components/parameters/RideQuery"
+        - $ref: "#/components/parameters/StartDate"
+        - $ref: "#/components/parameters/EndDate"
+      responses:
+        "200":
+          description: Ride events.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RideEvent"
+  /api/history/wait-samples:
+    get:
+      tags: [History]
+      operationId: listWaitSamples
+      summary: List archived wait samples
+      parameters:
+        - $ref: "#/components/parameters/ParkQuery"
+        - $ref: "#/components/parameters/RideQuery"
+        - $ref: "#/components/parameters/StartDate"
+        - $ref: "#/components/parameters/EndDate"
+      responses:
+        "200":
+          description: Wait samples.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/WaitSample"
+  /api/history/park-hours:
+    get:
+      tags: [History]
+      operationId: listParkHoursHistory
+      summary: List archived park operating hours
+      parameters:
+        - $ref: "#/components/parameters/ParkQuery"
+        - $ref: "#/components/parameters/StartDate"
+        - $ref: "#/components/parameters/EndDate"
+      responses:
+        "200":
+          description: Park hours history.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ParkHoursHistory"
+  /api/history/daily-ride-metrics:
+    get:
+      tags: [History]
+      operationId: getDailyRideMetrics
+      summary: Get since-start daily ride metrics
+      responses:
+        "200":
+          description: Daily ride metrics archive.
+          content:
+            application/json:
+              schema:
+                type: object
 components:
   parameters:
     ParkId:
@@ -161,6 +229,36 @@ components:
       description: Park id or slug, such as magic-kingdom.
       schema:
         type: string
+    ParkQuery:
+      name: park
+      in: query
+      required: false
+      description: Optional park id or slug, such as magic-kingdom.
+      schema:
+        type: string
+    RideQuery:
+      name: ride
+      in: query
+      required: false
+      description: Optional ride id or slug, such as space-mountain.
+      schema:
+        type: string
+    StartDate:
+      name: startDate
+      in: query
+      required: false
+      description: Inclusive YYYY-MM-DD start date.
+      schema:
+        type: string
+        format: date
+    EndDate:
+      name: endDate
+      in: query
+      required: false
+      description: Inclusive YYYY-MM-DD end date.
+      schema:
+        type: string
+        format: date
   responses:
     NotFound:
       description: Requested resource was not found.
@@ -329,6 +427,68 @@ components:
           type: array
           items:
             type: object
+    RideEvent:
+      type: object
+      required: [observed_at, event_type, ride_id, ride_name, park_id, park_name, park_slug]
+      properties:
+        observed_at:
+          type: string
+        event_type:
+          type: string
+          enum: [down, reopened]
+        ride_id:
+          type: string
+        ride_name:
+          type: string
+        park_id:
+          type: string
+        park_name:
+          type: string
+        park_slug:
+          type: string
+    WaitSample:
+      type: object
+      required: [observed_at, ride_id, ride_name, park_id, park_name, park_slug, wait_time_minutes]
+      properties:
+        observed_at:
+          type: string
+        ride_id:
+          type: string
+        ride_name:
+          type: string
+        park_id:
+          type: string
+        park_name:
+          type: string
+        park_slug:
+          type: string
+        wait_time_minutes:
+          type: integer
+        status:
+          type: [string, "null"]
+    ParkHoursHistory:
+      type: object
+      required: [date, park_id, park_slug, timezone]
+      properties:
+        date:
+          type: string
+          format: date
+        park_id:
+          type: string
+        park_name:
+          type: [string, "null"]
+        park_slug:
+          type: string
+        timezone:
+          type: string
+        opens_at:
+          type: [string, "null"]
+        closes_at:
+          type: [string, "null"]
+        source:
+          type: [string, "null"]
+        last_observed_at:
+          type: [string, "null"]
     ErrorResponse:
       type: object
       required: [error, detail]
@@ -337,4 +497,3 @@ components:
           type: string
         detail:
           type: string
-

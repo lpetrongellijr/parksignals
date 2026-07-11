@@ -9,6 +9,11 @@ from zoneinfo import ZoneInfo
 OUTPUT_FILE = Path("public") / "data" / "latest.json"
 HISTORY_OUTPUT_FILE = Path("public") / "data" / "history.json"
 INTRADAY_OUTPUT_FILE = Path("public") / "data" / "intraday.json"
+ARCHIVE_DIR = Path("public") / "data" / "archive"
+ARCHIVE_WAIT_SAMPLES_FILE = ARCHIVE_DIR / "wait-samples.jsonl"
+ARCHIVE_RIDE_EVENTS_FILE = ARCHIVE_DIR / "ride-events.jsonl"
+ARCHIVE_PARK_HOURS_FILE = ARCHIVE_DIR / "park-hours.jsonl"
+ARCHIVE_DAILY_RIDE_METRICS_FILE = ARCHIVE_DIR / "daily-ride-metrics.json"
 PARK_TIMEZONE = ZoneInfo("America/New_York")
 PARK_SLUGS = {
     "magic_kingdom": "magic-kingdom",
@@ -35,6 +40,42 @@ def load_json(path, default):
             return json.load(file)
     except (FileNotFoundError, json.JSONDecodeError):
         return default
+
+
+def load_jsonl(path):
+    rows = []
+    try:
+        with open(path, "r") as file:
+            for line in file:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    rows.append(json.loads(line))
+                except json.JSONDecodeError:
+                    continue
+    except FileNotFoundError:
+        return []
+    return rows
+
+
+def append_jsonl(path, rows, key_fields):
+    existing_keys = {
+        tuple(row.get(field) for field in key_fields)
+        for row in load_jsonl(path)
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    appended = 0
+    with open(path, "a") as file:
+        for row in rows:
+            key = tuple(row.get(field) for field in key_fields)
+            if key in existing_keys:
+                continue
+            json.dump(row, file, sort_keys=True)
+            file.write("\n")
+            existing_keys.add(key)
+            appended += 1
+    return appended
 
 
 def parse_timestamp(value):
@@ -156,6 +197,87 @@ def export_intraday_samples(last_run, config, observed_at, output_path=INTRADAY_
     print(f"Wrote public website intraday samples to {output_path}")
 
 
+def archive_wait_samples(last_run, config, observed_at, output_path=ARCHIVE_WAIT_SAMPLES_FILE):
+    observed_at_text = iso_timestamp(observed_at)
+    rows = []
+    for summary in last_run.get("run_summaries", []):
+        if summary.get("monitoring_suppressed"):
+            continue
+        park_key = summary.get("park_key")
+        if not park_key:
+            continue
+        park_config = config.get("parks", {}).get(park_key, {})
+        for ride in summary.get("ride_ids", []):
+            wait_time = ride.get("wait_time")
+            if not isinstance(wait_time, int):
+                continue
+            ride_id = str(ride.get("id"))
+            rows.append({
+                "observed_at": observed_at_text,
+                "ride_id": ride_id,
+                "ride_name": display_name(ride.get("name") or ride_id),
+                "park_id": park_key,
+                "park_name": park_config.get("park_name", park_key.replace("_", " ").title()),
+                "park_slug": PARK_SLUGS.get(park_key, park_key.replace("_", "-")),
+                "wait_time_minutes": wait_time,
+                "status": ride.get("status"),
+            })
+    appended = append_jsonl(output_path, rows, ("observed_at", "ride_id"))
+    print(f"Wrote {appended} archived wait samples to {output_path}")
+
+
+def archive_ride_events(last_run, config, observed_at, output_path=ARCHIVE_RIDE_EVENTS_FILE):
+    observed_at_text = iso_timestamp(observed_at)
+    rows = []
+    for summary in last_run.get("run_summaries", []):
+        if summary.get("monitoring_suppressed"):
+            continue
+        park_key = summary.get("park_key")
+        if not park_key:
+            continue
+        park_config = config.get("parks", {}).get(park_key, {})
+        for transition in summary.get("transitions", []):
+            ride_id = str(transition.get("ride_id"))
+            event_type = transition.get("type")
+            if event_type not in {"down", "reopened"}:
+                continue
+            rows.append({
+                "observed_at": observed_at_text,
+                "event_type": event_type,
+                "ride_id": ride_id,
+                "ride_name": display_name(transition.get("ride_name") or ride_id),
+                "park_id": park_key,
+                "park_name": park_config.get("park_name", park_key.replace("_", " ").title()),
+                "park_slug": PARK_SLUGS.get(park_key, park_key.replace("_", "-")),
+            })
+    appended = append_jsonl(output_path, rows, ("observed_at", "ride_id", "event_type"))
+    print(f"Wrote {appended} archived ride events to {output_path}")
+
+
+def archive_park_hours(last_run, observed_at, output_path=ARCHIVE_PARK_HOURS_FILE):
+    rows = []
+    for park_status in last_run.get("park_statuses", []):
+        park_key = park_status.get("park_key")
+        hours = park_status.get("hours")
+        if not park_key or not isinstance(hours, dict):
+            continue
+        timezone_name = hours.get("timezone") or "America/New_York"
+        local_date = observed_at.astimezone(ZoneInfo(timezone_name)).date().isoformat()
+        rows.append({
+            "date": local_date,
+            "park_id": park_key,
+            "park_name": park_status.get("park_name"),
+            "park_slug": PARK_SLUGS.get(park_key, park_key.replace("_", "-")),
+            "timezone": timezone_name,
+            "opens_at": hours.get("opens_at"),
+            "closes_at": hours.get("closes_at"),
+            "source": hours.get("source"),
+            "last_observed_at": iso_timestamp(observed_at),
+        })
+    appended = append_jsonl(output_path, rows, ("date", "park_id", "opens_at", "closes_at"))
+    print(f"Wrote {appended} archived park-hour rows to {output_path}")
+
+
 
 def latest_updates(last_run, state, config, observed_at):
     updates = []
@@ -257,6 +379,9 @@ def export_snapshot(output_path=OUTPUT_FILE):
         file.write("\n")
     print(f"Wrote public website snapshot to {output_path}")
     export_intraday_samples(last_run, config, observed_at)
+    archive_wait_samples(last_run, config, observed_at)
+    archive_ride_events(last_run, config, observed_at)
+    archive_park_hours(last_run, observed_at)
 
 
 def public_history(output_path=HISTORY_OUTPUT_FILE):
@@ -307,6 +432,22 @@ def public_history(output_path=HISTORY_OUTPUT_FILE):
         json.dump(payload, file, indent=2)
         file.write("\n")
     print(f"Wrote public website history to {output_path}")
+    archive_daily_ride_metrics(payload)
+
+
+def archive_daily_ride_metrics(history_payload, output_path=ARCHIVE_DAILY_RIDE_METRICS_FILE):
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "schema_version": 1,
+        "generated_at": history_payload.get("generated_at"),
+        "timezone": history_payload.get("timezone", "America/New_York"),
+        "source": "ParkSignals since-start daily ride metrics",
+        "days": history_payload.get("days", []),
+    }
+    with open(output_path, "w") as file:
+        json.dump(payload, file, indent=2)
+        file.write("\n")
+    print(f"Wrote archived daily ride metrics to {output_path}")
 
 
 if __name__ == "__main__":

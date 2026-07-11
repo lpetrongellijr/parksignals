@@ -142,6 +142,13 @@ It also writes public website data to `public/data/`:
 - `history.json`
 - `intraday.json`
 
+Since-start API archive data is written to `public/data/archive/`:
+
+- `wait-samples.jsonl`: raw wait samples from each accepted monitor run.
+- `ride-events.jsonl`: ride down/reopened transition events.
+- `park-hours.jsonl`: observed regular operating hours by park/date.
+- `daily-ride-metrics.json`: daily ride metrics built from `analytics_history.json`.
+
 `park-status.txt` is the quickest way to confirm whether a park is open for
 monitoring or closed/outside regular hours. `analytics-readiness.txt` explains
 whether there is enough history for trends and monthly reliability.
@@ -284,6 +291,42 @@ Returns overall operational status for all parks:
 curl http://localhost:8000/api/status
 ```
 
+`GET /api/history/ride-events`
+
+Returns archived ride down/reopened events since the archive started. Supports
+optional `park`, `ride`, `startDate`, and `endDate` filters:
+
+```bash
+curl "http://localhost:8000/api/history/ride-events?park=magic-kingdom&ride=space-mountain"
+```
+
+`GET /api/history/wait-samples`
+
+Returns archived raw wait samples. Supports optional `park`, `ride`,
+`startDate`, and `endDate` filters:
+
+```bash
+curl "http://localhost:8000/api/history/wait-samples?park=epcot&startDate=2026-07-10"
+```
+
+`GET /api/history/park-hours`
+
+Returns archived regular park operating hours. Supports optional `park`,
+`startDate`, and `endDate` filters:
+
+```bash
+curl "http://localhost:8000/api/history/park-hours?park=animal-kingdom"
+```
+
+`GET /api/history/daily-ride-metrics`
+
+Returns since-start daily ride metrics, currently generated from
+`analytics_history.json`:
+
+```bash
+curl http://localhost:8000/api/history/daily-ride-metrics
+```
+
 ### Custom GPT Action notes
 
 Use `docs/openapi.yaml` as the starting schema for a Custom GPT Action. Replace
@@ -301,6 +344,10 @@ The GPT can answer current park and ride questions from:
 - `/api/rides?park=magic-kingdom` for ride lists
 - `/api/rides/{rideId}` for ride-specific history and intraday context
 - `/api/forecast` for derived crowd/timing guidance
+- `/api/history/daily-ride-metrics` for since-start daily reliability and wait summaries
+- `/api/history/wait-samples` for raw wait samples
+- `/api/history/ride-events` for ride open/close event history
+- `/api/history/park-hours` for historical park operating hours
 
 Because the API is anonymous read-only at first, no authentication schema is
 required for the initial Custom GPT Action. If API key auth is enabled later,

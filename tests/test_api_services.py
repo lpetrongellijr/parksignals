@@ -78,6 +78,39 @@ class ParkSignalsDataServiceTests(unittest.TestCase):
         (self.data_dir / "latest.json").write_text(json.dumps(latest))
         (self.data_dir / "history.json").write_text(json.dumps(history))
         (self.data_dir / "intraday.json").write_text(json.dumps(intraday))
+        archive_dir = self.data_dir / "archive"
+        archive_dir.mkdir()
+        (archive_dir / "wait-samples.jsonl").write_text(json.dumps({
+            "observed_at": "2026-07-11T01:40:34Z",
+            "ride_id": "ride-1",
+            "ride_name": "Space Mountain",
+            "park_id": "magic_kingdom",
+            "park_name": "Magic Kingdom",
+            "park_slug": "magic-kingdom",
+            "wait_time_minutes": 35,
+            "status": "open",
+        }) + "\n")
+        (archive_dir / "ride-events.jsonl").write_text(json.dumps({
+            "observed_at": "2026-07-11T01:35:34Z",
+            "event_type": "reopened",
+            "ride_id": "ride-1",
+            "ride_name": "Space Mountain",
+            "park_id": "magic_kingdom",
+            "park_name": "Magic Kingdom",
+            "park_slug": "magic-kingdom",
+        }) + "\n")
+        (archive_dir / "park-hours.jsonl").write_text(json.dumps({
+            "date": "2026-07-10",
+            "park_id": "magic_kingdom",
+            "park_name": "Magic Kingdom",
+            "park_slug": "magic-kingdom",
+            "timezone": "America/New_York",
+            "opens_at": "09:00",
+            "closes_at": "23:00",
+            "source": "themeparks_wiki",
+            "last_observed_at": "2026-07-11T01:40:34Z",
+        }) + "\n")
+        (archive_dir / "daily-ride-metrics.json").write_text(json.dumps(history))
         self.service = ParkSignalsDataService(data_dir=self.data_dir, cache_ttl_seconds=60)
 
     def tearDown(self):
@@ -111,6 +144,24 @@ class ParkSignalsDataServiceTests(unittest.TestCase):
     def test_missing_park_raises_not_found(self):
         with self.assertRaises(NotFoundError):
             self.service.resolve_park("not-a-park")
+
+    def test_archive_wait_samples_can_filter_by_ride(self):
+        samples = self.service.wait_samples(ride_id="space-mountain")
+
+        self.assertEqual(1, len(samples))
+        self.assertEqual(35, samples[0]["wait_time_minutes"])
+
+    def test_archive_ride_events_can_filter_by_park(self):
+        events = self.service.ride_events(park_id="magic-kingdom")
+
+        self.assertEqual(1, len(events))
+        self.assertEqual("reopened", events[0]["event_type"])
+
+    def test_archive_park_hours_can_filter_by_date(self):
+        hours = self.service.park_hours_history(park_id="magic-kingdom", start_date="2026-07-10", end_date="2026-07-10")
+
+        self.assertEqual(1, len(hours))
+        self.assertEqual("23:00", hours[0]["closes_at"])
 
 
 if __name__ == "__main__":

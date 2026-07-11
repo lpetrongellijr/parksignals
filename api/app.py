@@ -15,10 +15,13 @@ from .models import (
     ErrorResponse,
     ForecastInfo,
     OperationalStatus,
+    ParkHoursHistory,
     ParkDetail,
     ParkSummary,
+    RideEvent,
     RideDetail,
     RideSummary,
+    WaitSample,
     WaitInfo,
 )
 from .services import ApiError, NotFoundError, ParkSignalsDataService, ValidationError
@@ -176,6 +179,66 @@ async def forecast(data: ParkSignalsDataService = Depends(service)):
 )
 async def status(data: ParkSignalsDataService = Depends(service)):
     return data.operational_status()
+
+
+@app.get(
+    "/api/history/ride-events",
+    response_model=List[RideEvent],
+    responses={404: {"model": ErrorResponse}, 500: {"model": ErrorResponse}},
+    tags=["History"],
+    dependencies=[Depends(optional_api_key)],
+)
+async def ride_events(
+    park: Annotated[Optional[str], Query(description="Optional park id or slug")] = None,
+    ride: Annotated[Optional[str], Query(description="Optional ride id or slug")] = None,
+    startDate: Annotated[Optional[str], Query(description="Inclusive YYYY-MM-DD start date")] = None,
+    endDate: Annotated[Optional[str], Query(description="Inclusive YYYY-MM-DD end date")] = None,
+    data: ParkSignalsDataService = Depends(service),
+):
+    return data.ride_events(park_id=park, ride_id=ride, start_date=startDate, end_date=endDate)
+
+
+@app.get(
+    "/api/history/wait-samples",
+    response_model=List[WaitSample],
+    responses={404: {"model": ErrorResponse}, 500: {"model": ErrorResponse}},
+    tags=["History"],
+    dependencies=[Depends(optional_api_key)],
+)
+async def wait_samples(
+    park: Annotated[Optional[str], Query(description="Optional park id or slug")] = None,
+    ride: Annotated[Optional[str], Query(description="Optional ride id or slug")] = None,
+    startDate: Annotated[Optional[str], Query(description="Inclusive YYYY-MM-DD start date")] = None,
+    endDate: Annotated[Optional[str], Query(description="Inclusive YYYY-MM-DD end date")] = None,
+    data: ParkSignalsDataService = Depends(service),
+):
+    return data.wait_samples(park_id=park, ride_id=ride, start_date=startDate, end_date=endDate)
+
+
+@app.get(
+    "/api/history/park-hours",
+    response_model=List[ParkHoursHistory],
+    responses={404: {"model": ErrorResponse}, 500: {"model": ErrorResponse}},
+    tags=["History"],
+    dependencies=[Depends(optional_api_key)],
+)
+async def park_hours_history(
+    park: Annotated[Optional[str], Query(description="Optional park id or slug")] = None,
+    startDate: Annotated[Optional[str], Query(description="Inclusive YYYY-MM-DD start date")] = None,
+    endDate: Annotated[Optional[str], Query(description="Inclusive YYYY-MM-DD end date")] = None,
+    data: ParkSignalsDataService = Depends(service),
+):
+    return data.park_hours_history(park_id=park, start_date=startDate, end_date=endDate)
+
+
+@app.get(
+    "/api/history/daily-ride-metrics",
+    responses={500: {"model": ErrorResponse}},
+    tags=["History"],
+    dependencies=[Depends(optional_api_key)],
+)
+async def daily_ride_metrics(data: ParkSignalsDataService = Depends(service)):
+    return data.daily_ride_metrics()
 
 
 # Alias used by some ASGI hosts.

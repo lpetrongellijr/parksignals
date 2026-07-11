@@ -154,6 +154,25 @@ class ParkSignalsDataService:
     def intraday(self):
         return self._load_json("intraday.json")
 
+    def archive_json(self, name):
+        return self._load_json(str(Path("archive") / name))
+
+    def archive_jsonl(self, name):
+        path = self.data_dir / "archive" / name
+        if not path.exists():
+            return []
+        rows = []
+        with open(path, "r") as file:
+            for line in file:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    rows.append(json.loads(line))
+                except json.JSONDecodeError:
+                    logger.warning("Skipping invalid JSONL row in %s", path)
+        return rows
+
     def parks(self):
         return list(self.latest().get("parks", []))
 
@@ -244,7 +263,8 @@ class ParkSignalsDataService:
 
     def ride_history(self, ride_id):
         records = []
-        for day in self.history().get("days", []):
+        daily_metrics = self.daily_ride_metrics()
+        for day in daily_metrics.get("days", []):
             for ride in day.get("rides", []):
                 if str(ride.get("ride_id")) == str(ride_id):
                     records.append(dict(ride))
@@ -256,6 +276,50 @@ class ParkSignalsDataService:
             for sample in self.intraday().get("samples", [])
             if str(sample.get("ride_id")) == str(ride_id)
         ]
+
+    def daily_ride_metrics(self):
+        try:
+            return self.archive_json("daily-ride-metrics.json")
+        except NotFoundError:
+            return self.history()
+
+    def wait_samples(self, park_id=None, ride_id=None, start_date=None, end_date=None):
+        rows = self.archive_jsonl("wait-samples.jsonl")
+        return self._filter_time_rows(rows, park_id=park_id, ride_id=ride_id, start_date=start_date, end_date=end_date)
+
+    def ride_events(self, park_id=None, ride_id=None, start_date=None, end_date=None):
+        rows = self.archive_jsonl("ride-events.jsonl")
+        return self._filter_time_rows(rows, park_id=park_id, ride_id=ride_id, start_date=start_date, end_date=end_date)
+
+    def park_hours_history(self, park_id=None, start_date=None, end_date=None):
+        rows = self.archive_jsonl("park-hours.jsonl")
+        if park_id:
+            park = self.resolve_park(park_id)
+            ids = {park.get("id"), park.get("slug")}
+            rows = [row for row in rows if row.get("park_id") in ids or row.get("park_slug") in ids]
+        if start_date:
+            rows = [row for row in rows if str(row.get("date", "")) >= start_date]
+        if end_date:
+            rows = [row for row in rows if str(row.get("date", "")) <= end_date]
+        return rows
+
+    def _filter_time_rows(self, rows, park_id=None, ride_id=None, start_date=None, end_date=None):
+        if park_id:
+            park = self.resolve_park(park_id)
+            ids = {park.get("id"), park.get("slug")}
+            rows = [row for row in rows if row.get("park_id") in ids or row.get("park_slug") in ids]
+        if ride_id:
+            try:
+                ride = self.resolve_ride(ride_id)
+                ids = {ride.get("id"), slugify(str(ride.get("name", "")))}
+            except NotFoundError:
+                ids = {ride_id}
+            rows = [row for row in rows if row.get("ride_id") in ids or slugify(str(row.get("ride_name", ""))) in ids]
+        if start_date:
+            rows = [row for row in rows if str(row.get("observed_at", ""))[:10] >= start_date]
+        if end_date:
+            rows = [row for row in rows if str(row.get("observed_at", ""))[:10] <= end_date]
+        return rows
 
     def waits(self, park_id=None):
         rides = self.rides_for_park(park_id) if park_id else self.all_rides()
@@ -309,4 +373,3 @@ class ParkSignalsDataService:
             "activeClosures": len(latest.get("closures", [])),
             "latestUpdates": latest.get("latest_updates", []),
         }
-
