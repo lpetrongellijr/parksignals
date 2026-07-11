@@ -67,7 +67,7 @@ async def request_logging(request: Request, call_next):
     return response
 
 
-async def optional_api_key(x_api_key: Annotated[Optional[str], Header()] = None):
+async def optional_api_key(x_api_key: Annotated[Optional[str], Header(include_in_schema=False)] = None):
     if not settings.api_key_required:
         return
     if not settings.api_key or x_api_key != settings.api_key:
