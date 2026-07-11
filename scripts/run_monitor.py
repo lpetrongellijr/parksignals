@@ -13,9 +13,6 @@ import parksignals_analytics
 PARK_HOURS_CACHE_FILE = "park_hours_cache.json"
 LAST_RUN_SUMMARY_FILE = Path("outputs") / "last-run-summary.json"
 DEFAULT_PARK_TIMEZONE = "America/New_York"
-OPENING_GRACE_MINUTES = 15
-CLOSING_GRACE_MINUTES = 15
-SCHEDULED_MONITOR_START_TOLERANCE_MINUTES = 5
 OFFICIAL_HOURS_UNAVAILABLE_REASON = (
     "official park hours unavailable; monitoring suppressed"
 )
@@ -94,26 +91,6 @@ def monitoring_hours_status(park_key, park_config, observed_at, cache=None):
     opens_at_dt, closes_at_dt = monitoring_window_bounds(local_observed_at, opens_at, closes_at)
 
     if opens_at_dt <= local_observed_at < closes_at_dt:
-        opening_grace_ends_at = opens_at_dt + timedelta(minutes=OPENING_GRACE_MINUTES)
-        if local_observed_at < opening_grace_ends_at:
-            return False, (
-                f"inside {hours['source']} opening grace window "
-                f"({local_observed_at.strftime('%H:%M')} {timezone_name}; "
-                f"monitoring starts {opening_grace_ends_at.strftime('%H:%M')})"
-            )
-
-        last_scheduled_monitor_at = closes_at_dt - timedelta(minutes=CLOSING_GRACE_MINUTES)
-        final_monitor_accepted_until = last_scheduled_monitor_at + timedelta(
-            minutes=SCHEDULED_MONITOR_START_TOLERANCE_MINUTES
-        )
-        if local_observed_at > final_monitor_accepted_until:
-            return False, (
-                f"inside {hours['source']} closing grace window "
-                f"({local_observed_at.strftime('%H:%M')} {timezone_name}; "
-                f"last scheduled monitor {last_scheduled_monitor_at.strftime('%H:%M')}; "
-                f"accepted through {final_monitor_accepted_until.strftime('%H:%M')})"
-            )
-
         return True, None
 
     return False, (
@@ -134,10 +111,6 @@ def park_status_for_park(park_key, park_config, observed_at, cache):
     timezone_name = hours["timezone"] if hours else DEFAULT_PARK_TIMEZONE
     local_observed_at = observed_at.astimezone(ZoneInfo(timezone_name))
     operating_status = "open" if monitoring_allowed else "closed"
-    if reason and "opening grace window" in reason:
-        operating_status = "opening_grace"
-    if reason and "closing grace window" in reason:
-        operating_status = "closing_grace"
 
     return {
         "park_key": park_key,
@@ -163,7 +136,7 @@ def most_recent_close_at(observed_at, hours):
 
 def close_active_downtime_at_park_close(park_key, state, park_status):
     hours = park_status.get("hours")
-    if not hours or park_status.get("operating_status") in {"opening_grace", "closing_grace"}:
+    if not hours:
         return
 
     close_at = most_recent_close_at(

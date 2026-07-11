@@ -53,7 +53,7 @@ class RunMonitorTest(unittest.TestCase):
         self.assertFalse(allowed)
         self.assertIn("official park hours unavailable", reason)
 
-    def test_opening_grace_suppresses_first_park_monitor_window(self):
+    def test_monitoring_starts_at_official_open(self):
         park_config = {"park_name": "Magic Kingdom"}
         cache = {
             "parks": {
@@ -77,8 +77,8 @@ class RunMonitorTest(unittest.TestCase):
                 observed,
                 cache,
             )
-            self.assertFalse(allowed)
-            self.assertIn("opening grace window", reason)
+            self.assertTrue(allowed)
+            self.assertIsNone(reason)
 
         allowed, reason = run_monitor.monitoring_hours_status(
             "magic_kingdom",
@@ -90,7 +90,7 @@ class RunMonitorTest(unittest.TestCase):
         self.assertTrue(allowed)
         self.assertIsNone(reason)
 
-    def test_closing_grace_allows_slightly_late_final_scheduled_monitor(self):
+    def test_monitoring_runs_until_official_close(self):
         park_config = {"park_name": "Magic Kingdom"}
         cache = {
             "parks": {
@@ -107,6 +107,7 @@ class RunMonitorTest(unittest.TestCase):
         for observed in (
             datetime(2026, 6, 15, 1, 45, tzinfo=timezone.utc),
             datetime(2026, 6, 15, 1, 50, tzinfo=timezone.utc),
+            datetime(2026, 6, 15, 1, 59, tzinfo=timezone.utc),
         ):
             allowed, reason = run_monitor.monitoring_hours_status(
                 "magic_kingdom",
@@ -120,15 +121,13 @@ class RunMonitorTest(unittest.TestCase):
         allowed, reason = run_monitor.monitoring_hours_status(
             "magic_kingdom",
             park_config,
-            datetime(2026, 6, 15, 1, 51, tzinfo=timezone.utc),
+            datetime(2026, 6, 15, 2, 0, tzinfo=timezone.utc),
             cache,
         )
         self.assertFalse(allowed)
-        self.assertIn("closing grace window", reason)
-        self.assertIn("last scheduled monitor 21:45", reason)
-        self.assertIn("accepted through 21:50", reason)
+        self.assertIn("outside themeparks_wiki monitoring hours", reason)
 
-    def test_park_status_marks_opening_grace_separately_from_closed(self):
+    def test_park_status_marks_official_open_as_open(self):
         park_config = {"park_name": "Magic Kingdom"}
         cache = {
             "parks": {
@@ -149,11 +148,11 @@ class RunMonitorTest(unittest.TestCase):
             cache,
         )
 
-        self.assertEqual(status["operating_status"], "opening_grace")
-        self.assertFalse(status["monitoring_allowed"])
-        self.assertIn("opening grace window", status["reason"])
+        self.assertEqual(status["operating_status"], "open")
+        self.assertTrue(status["monitoring_allowed"])
+        self.assertIsNone(status["reason"])
 
-    def test_park_status_marks_closing_grace_separately_from_closed(self):
+    def test_park_status_marks_official_close_as_closed(self):
         park_config = {"park_name": "Magic Kingdom"}
         cache = {
             "parks": {
@@ -170,13 +169,13 @@ class RunMonitorTest(unittest.TestCase):
         status = run_monitor.park_status_for_park(
             "magic_kingdom",
             park_config,
-            datetime(2026, 6, 15, 1, 51, tzinfo=timezone.utc),
+            datetime(2026, 6, 15, 2, 0, tzinfo=timezone.utc),
             cache,
         )
 
-        self.assertEqual(status["operating_status"], "closing_grace")
+        self.assertEqual(status["operating_status"], "closed")
         self.assertFalse(status["monitoring_allowed"])
-        self.assertIn("closing grace window", status["reason"])
+        self.assertIn("outside themeparks_wiki monitoring hours", status["reason"])
 
     def test_official_hours_override_configured_fallback(self):
         observed = datetime(2026, 6, 10, 1, 30, tzinfo=timezone.utc)

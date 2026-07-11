@@ -45,6 +45,32 @@ def iso_timestamp(value):
     return value.astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
 
 
+def parse_local_time(value):
+    if not value or not isinstance(value, str):
+        return None
+    try:
+        hour, minute = value.split(":", 1)
+        return time(int(hour), int(minute))
+    except ValueError:
+        return None
+
+
+def within_regular_hours(hours, observed_at):
+    if not isinstance(hours, dict):
+        return None
+    timezone_name = hours.get("timezone") or "America/New_York"
+    opens_at = parse_local_time(hours.get("opens_at"))
+    closes_at = parse_local_time(hours.get("closes_at"))
+    if not opens_at or not closes_at:
+        return None
+    local_time = observed_at.astimezone(ZoneInfo(timezone_name)).time()
+    if opens_at == closes_at:
+        return True
+    if opens_at < closes_at:
+        return opens_at <= local_time < closes_at
+    return local_time >= opens_at or local_time < closes_at
+
+
 def display_name(name):
     return DISPLAY_NAMES.get(name, name)
 
@@ -169,7 +195,8 @@ def export_snapshot(output_path=OUTPUT_FILE):
         park_config = config.get("parks", {}).get(park_key, {})
         park_status = status_by_key.get(park_key, {})
         operating_status = park_status.get("operating_status", "unknown")
-        park_is_open = operating_status == "open"
+        hours_are_open = within_regular_hours(park_status.get("hours"), observed_at)
+        park_is_open = hours_are_open if hours_are_open is not None else operating_status == "open"
         rides = []
         for ride_id, ride_state in state.get(park_key, {}).items():
             if not isinstance(ride_state, dict):
