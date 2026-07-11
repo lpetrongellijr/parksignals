@@ -42,6 +42,9 @@ app = FastAPI(
     docs_url="/api/docs",
     redoc_url="/api/redoc",
     openapi_url="/api/openapi.json",
+    servers=[
+        {"url": settings.public_api_base_url, "description": "ParkSignals API"},
+    ],
 )
 
 app.add_middleware(

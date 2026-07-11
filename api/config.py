@@ -31,6 +31,7 @@ def _int_env(name, default):
 class Settings:
     version: str = os.getenv("PARKSIGNALS_API_VERSION", "1.0")
     environment: str = os.getenv("PARKSIGNALS_API_ENV", "local")
+    public_api_base_url: str = os.getenv("PARKSIGNALS_PUBLIC_API_BASE_URL", "https://parksignals-api.onrender.com").rstrip("/")
     data_dir: Path = Path(os.getenv("PARKSIGNALS_DATA_DIR", ROOT_DIR / "public" / "data"))
     cache_ttl_seconds: int = _int_env("PARKSIGNALS_API_CACHE_TTL_SECONDS", 30)
     cors_origins: tuple[str, ...] = tuple(

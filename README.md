@@ -196,6 +196,7 @@ Then open:
 Environment variables:
 
 - `PARKSIGNALS_DATA_DIR`: directory containing `latest.json`, `history.json`, and `intraday.json`; defaults to `public/data`.
+- `PARKSIGNALS_PUBLIC_API_BASE_URL`: public API URL used in generated OpenAPI docs; defaults to `https://parksignals-api.onrender.com`.
 - `PARKSIGNALS_API_CACHE_TTL_SECONDS`: in-process JSON cache duration; defaults to `30`.
 - `PARKSIGNALS_CORS_ORIGINS`: comma-separated allowed CORS origins; defaults to `*`.
 - `PARKSIGNALS_API_KEY_REQUIRED`: set to `true` later to require an API key.
@@ -329,12 +330,12 @@ curl http://localhost:8000/api/history/daily-ride-metrics
 
 ### Custom GPT Action notes
 
-Use `docs/openapi.yaml` as the starting schema for a Custom GPT Action. Replace
-the placeholder server URL with the deployed API base URL, for example:
+Use `https://parksignals-api.onrender.com/api/openapi.json` as the schema URL
+for a Custom GPT Action. The generated schema includes the deployed Render URL:
 
 ```yaml
 servers:
-  - url: https://api.parksignals.com
+  - url: https://parksignals-api.onrender.com
 ```
 
 The GPT can answer current park and ride questions from:

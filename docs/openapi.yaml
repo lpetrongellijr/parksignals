@@ -8,8 +8,8 @@ info:
     collected by the ParkSignals monitor. Request handlers do not scrape
     provider websites or call ThemeParks Wiki directly.
 servers:
-  - url: https://api.parksignals.com
-    description: Production API placeholder
+  - url: https://parksignals-api.onrender.com
+    description: ParkSignals API
   - url: http://localhost:8000
     description: Local development
 paths:
