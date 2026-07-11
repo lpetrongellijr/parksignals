@@ -2338,15 +2338,15 @@
     },
     "0d94ad60-72f0-4551-83a6-ebaecdd89737": {
       "id": "0d94ad60-72f0-4551-83a6-ebaecdd89737",
-      "is_open": false,
+      "is_open": null,
       "name": "The Many Adventures of Winnie the Pooh",
       "last_seen_at": "2026-07-11T02:55:24Z",
       "last_changed_at": "2026-07-11T02:40:40Z",
-      "down_since": "2026-07-11T02:40:40Z",
+      "down_since": null,
       "last_down_at": "2026-07-11T02:40:40Z",
       "last_reopened_at": "2026-07-10T16:50:33Z",
-      "current_down_seconds": 884,
-      "total_down_seconds": 83957,
+      "current_down_seconds": 0,
+      "total_down_seconds": 85117,
       "downtime_events": [
         {
           "down_at": "2026-06-17T15:15:30Z",
@@ -2539,12 +2539,19 @@
           "reopened_at": "2026-07-10T16:50:33Z",
           "duration_seconds": 2396,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-11T02:40:40Z",
+          "reopened_at": "2026-07-11T03:00:00Z",
+          "duration_seconds": 1160,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-07-11T03:00:00Z"
     },
     "3cba0cb4-e2a6-402c-93ee-c11ffcb127ef": {
       "id": "3cba0cb4-e2a6-402c-93ee-c11ffcb127ef",
