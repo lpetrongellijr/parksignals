@@ -168,6 +168,144 @@ calling live APIs or saving `state.json`:
 python scripts/dry_run.py --data samples/dry_run_themeparks_wiki.json --output-dir outputs
 ```
 
+## Public REST API
+ParkSignals includes a read-only JSON REST API in `api/`. The API exposes the
+cached data already written to `public/data/`; it does not scrape websites or
+call ThemeParks Wiki during request handling.
+
+Install dependencies and start the API locally:
+
+```bash
+python -m pip install -r requirements.txt
+uvicorn api.app:app --reload --host 0.0.0.0 --port 8000
+```
+
+Then open:
+
+- Swagger UI: `http://localhost:8000/api/docs`
+- OpenAPI JSON: `http://localhost:8000/api/openapi.json`
+- Static OpenAPI spec: `docs/openapi.yaml`
+
+Environment variables:
+
+- `PARKSIGNALS_DATA_DIR`: directory containing `latest.json`, `history.json`, and `intraday.json`; defaults to `public/data`.
+- `PARKSIGNALS_API_CACHE_TTL_SECONDS`: in-process JSON cache duration; defaults to `30`.
+- `PARKSIGNALS_CORS_ORIGINS`: comma-separated allowed CORS origins; defaults to `*`.
+- `PARKSIGNALS_API_KEY_REQUIRED`: set to `true` later to require an API key.
+- `PARKSIGNALS_API_KEY`: expected API key value when API key auth is enabled.
+
+Authentication is anonymous read-only by default. The API already has an
+`X-API-Key` hook so key-based access can be enabled later without changing every
+endpoint.
+
+### API endpoints
+
+`GET /api/health`
+
+Returns API health:
+
+```bash
+curl http://localhost:8000/api/health
+```
+
+`GET /api/parks`
+
+Returns every Disney World park with id, name, status, operating hours, crowd
+score, and last updated timestamp:
+
+```bash
+curl http://localhost:8000/api/parks
+```
+
+`GET /api/parks/{parkId}`
+
+Returns detailed park data. `parkId` can be a public slug such as
+`magic-kingdom` or the internal id such as `magic_kingdom`.
+
+```bash
+curl http://localhost:8000/api/parks/magic-kingdom
+```
+
+`GET /api/rides`
+
+Returns all rides with ride id, name, park, wait, status, Lightning Lane field,
+virtual queue field, and last updated timestamp. Lightning Lane and virtual
+queue fields are currently `null` unless future data capture adds them.
+
+```bash
+curl http://localhost:8000/api/rides
+```
+
+Filter by park:
+
+```bash
+curl "http://localhost:8000/api/rides?park=magic-kingdom"
+```
+
+`GET /api/rides/{rideId}`
+
+Returns complete ride details, including current fields, downtime fields,
+history, and intraday samples. `rideId` can be the ThemeParks Wiki id or a
+slugified ride name.
+
+```bash
+curl http://localhost:8000/api/rides/space-mountain
+```
+
+`GET /api/waits`
+
+Returns wait-time-only records:
+
+```bash
+curl http://localhost:8000/api/waits
+```
+
+Filter waits by park:
+
+```bash
+curl "http://localhost:8000/api/waits?park=epcot"
+```
+
+`GET /api/forecast`
+
+Returns derived ParkSignals forecast data. Forecasts are currently based on
+current average waits and official park hours, with method metadata included in
+each response.
+
+```bash
+curl http://localhost:8000/api/forecast
+```
+
+`GET /api/status`
+
+Returns overall operational status for all parks:
+
+```bash
+curl http://localhost:8000/api/status
+```
+
+### Custom GPT Action notes
+
+Use `docs/openapi.yaml` as the starting schema for a Custom GPT Action. Replace
+the placeholder server URL with the deployed API base URL, for example:
+
+```yaml
+servers:
+  - url: https://api.parksignals.com
+```
+
+The GPT can answer current park and ride questions from:
+
+- `/api/status` for a compact all-parks read
+- `/api/parks/{parkId}` for park-specific answers
+- `/api/rides?park=magic-kingdom` for ride lists
+- `/api/rides/{rideId}` for ride-specific history and intraday context
+- `/api/forecast` for derived crowd/timing guidance
+
+Because the API is anonymous read-only at first, no authentication schema is
+required for the initial Custom GPT Action. If API key auth is enabled later,
+send the key in an `X-API-Key` header.
+
 ## Tests
 Run the test suite locally with:
 

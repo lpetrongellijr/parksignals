@@ -1,0 +1,340 @@
+openapi: 3.1.0
+info:
+  title: ParkSignals API
+  version: "1.0"
+  summary: Public REST API for ParkSignals data.
+  description: >
+    ParkSignals exposes cached park, ride, wait, status, and forecast data
+    collected by the ParkSignals monitor. Request handlers do not scrape
+    provider websites or call ThemeParks Wiki directly.
+servers:
+  - url: https://api.parksignals.com
+    description: Production API placeholder
+  - url: http://localhost:8000
+    description: Local development
+paths:
+  /api/health:
+    get:
+      tags: [System]
+      operationId: getHealth
+      summary: API health check
+      responses:
+        "200":
+          description: API is healthy.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status, version]
+                properties:
+                  status:
+                    type: string
+                    const: ok
+                  version:
+                    type: string
+                    example: "1.0"
+  /api/parks:
+    get:
+      tags: [Parks]
+      operationId: listParks
+      summary: List Disney World parks
+      responses:
+        "200":
+          description: Parks.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ParkSummary"
+  /api/parks/{parkId}:
+    get:
+      tags: [Parks]
+      operationId: getPark
+      summary: Get detailed park data
+      parameters:
+        - $ref: "#/components/parameters/ParkId"
+      responses:
+        "200":
+          description: Park detail.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ParkDetail"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/rides:
+    get:
+      tags: [Rides]
+      operationId: listRides
+      summary: List rides
+      parameters:
+        - name: park
+          in: query
+          required: false
+          description: Optional park id or slug, such as magic-kingdom.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Rides.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RideSummary"
+  /api/rides/{rideId}:
+    get:
+      tags: [Rides]
+      operationId: getRide
+      summary: Get complete ride data
+      parameters:
+        - name: rideId
+          in: path
+          required: true
+          description: ThemeParks Wiki ride id or ParkSignals ride slug.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ride detail.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RideDetail"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/waits:
+    get:
+      tags: [Waits]
+      operationId: listWaits
+      summary: List wait time data
+      parameters:
+        - name: park
+          in: query
+          required: false
+          description: Optional park id or slug, such as magic-kingdom.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Waits.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/WaitInfo"
+  /api/forecast:
+    get:
+      tags: [Forecast]
+      operationId: listForecasts
+      summary: List ParkSignals forecast data
+      responses:
+        "200":
+          description: Forecast data.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ForecastInfo"
+  /api/status:
+    get:
+      tags: [Status]
+      operationId: getOperationalStatus
+      summary: Overall operational status
+      responses:
+        "200":
+          description: Operational status.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OperationalStatus"
+components:
+  parameters:
+    ParkId:
+      name: parkId
+      in: path
+      required: true
+      description: Park id or slug, such as magic-kingdom.
+      schema:
+        type: string
+  responses:
+    NotFound:
+      description: Requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+  schemas:
+    OperatingHours:
+      type: object
+      properties:
+        source:
+          type: [string, "null"]
+        timezone:
+          type: [string, "null"]
+        opensAt:
+          type: [string, "null"]
+        closesAt:
+          type: [string, "null"]
+    ParkReference:
+      type: object
+      required: [id, name]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    ParkSummary:
+      type: object
+      required: [id, name, status]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+        operatingHours:
+          $ref: "#/components/schemas/OperatingHours"
+        crowdScore:
+          type: [integer, "null"]
+          minimum: 0
+          maximum: 100
+        lastUpdated:
+          type: [string, "null"]
+    ParkDetail:
+      allOf:
+        - $ref: "#/components/schemas/ParkSummary"
+        - type: object
+          required: [slug, trackedRideCount, openRideCount, unavailableRideCount, rides]
+          properties:
+            slug:
+              type: string
+            trackedRideCount:
+              type: integer
+            openRideCount:
+              type: integer
+            unavailableRideCount:
+              type: integer
+            averageWaitMinutes:
+              type: [integer, "null"]
+            rides:
+              type: array
+              items:
+                $ref: "#/components/schemas/RideSummary"
+    RideSummary:
+      type: object
+      required: [id, name, park, status]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        park:
+          $ref: "#/components/schemas/ParkReference"
+        currentWait:
+          type: [integer, "null"]
+        status:
+          type: string
+        lightningLaneAvailability:
+          type: ["null", object, string, boolean]
+        virtualQueueStatus:
+          type: ["null", object, string, boolean]
+        lastUpdated:
+          type: [string, "null"]
+    RideDetail:
+      allOf:
+        - $ref: "#/components/schemas/RideSummary"
+        - type: object
+          required: [parkSlug, downtimeTodaySeconds, currentDowntimeSeconds, plannedClosure, history, intradaySamples]
+          properties:
+            parkSlug:
+              type: string
+            downtimeTodaySeconds:
+              type: integer
+            currentDowntimeSeconds:
+              type: integer
+            plannedClosure:
+              type: boolean
+            history:
+              type: array
+              items:
+                type: object
+            intradaySamples:
+              type: array
+              items:
+                type: object
+    WaitInfo:
+      type: object
+      required: [rideId, rideName, park, status]
+      properties:
+        rideId:
+          type: string
+        rideName:
+          type: string
+        park:
+          $ref: "#/components/schemas/ParkReference"
+        currentWait:
+          type: [integer, "null"]
+        status:
+          type: string
+        lastUpdated:
+          type: [string, "null"]
+    ForecastInfo:
+      type: object
+      required: [park, crowdPrediction, confidenceScore, method]
+      properties:
+        park:
+          $ref: "#/components/schemas/ParkReference"
+        crowdPrediction:
+          type: string
+          enum: [unknown, light, moderate, heavy]
+        crowdScore:
+          type: [integer, "null"]
+          minimum: 0
+          maximum: 100
+        recommendedArrivalTime:
+          type: [string, "null"]
+        recommendedDepartureTime:
+          type: [string, "null"]
+        confidenceScore:
+          type: integer
+          minimum: 0
+          maximum: 100
+        method:
+          type: string
+        lastUpdated:
+          type: [string, "null"]
+    OperationalStatus:
+      type: object
+      required: [activeClosures, parks]
+      properties:
+        generatedAt:
+          type: [string, "null"]
+        timezone:
+          type: [string, "null"]
+        source:
+          type: [string, "null"]
+        parks:
+          type: array
+          items:
+            $ref: "#/components/schemas/ParkSummary"
+        activeClosures:
+          type: integer
+        latestUpdates:
+          type: array
+          items:
+            type: object
+    ErrorResponse:
+      type: object
+      required: [error, detail]
+      properties:
+        error:
+          type: string
+        detail:
+          type: string
+
