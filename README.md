@@ -8,8 +8,9 @@ Automated Disney & Universal ride downtime monitoring system.
 - Persists ride state by park
 - Tracks downtime timestamps and completed downtime events for future summaries
 - Excludes configured planned closures/refurbishments from reliability analytics
+- Supports configured ride-specific operating hours, such as rides that close before the park
 - Runs from GitHub Actions workflows triggered by cron-job.org
-- Produces workflow artifacts for monitor summaries, park status, ride ID maps, analytics inputs, and public website data
+- Produces workflow artifacts and public website data
 
 ## Park configuration
 ParkSignals is configured in `parks_config.json`. Magic Kingdom, EPCOT,
@@ -35,6 +36,23 @@ summaries, monthly reliability, trend insights, and projections. Example:
 `ride_name` should match the ThemeParks Wiki ride name already listed in
 `major_rides`. `ride_ids` can also be used if a name changes.
 
+Each park may also define `ride_operating_hours` for attractions that regularly
+close before or open after the park's regular operating day. These scheduled
+ride closures are shown as closed, but they are not counted as downtime. Example:
+
+```json
+"ride_operating_hours": [
+  {
+    "ride_name": "Wildlife Express Train",
+    "opens_at": "09:30",
+    "closes_at": "16:30",
+    "timezone": "America/New_York",
+    "reason": "scheduled ride operating hours",
+    "source": "configured_ride_operating_hours"
+  }
+]
+```
+
 ParkSignals uses official Disney daily park hours when `park_hours_cache.json`
 has current data for the park. The `ParkSignals Park Hours` workflow refreshes
 that cache from cron-job.org, currently starting at 7:00 AM Eastern and then
@@ -46,6 +64,10 @@ Official hours are required for downtime monitoring. If official hours are
 missing or stale for a park, the monitor marks that park closed for monitoring,
 emits a GitHub Actions warning named `Park hours missing`, and suppresses
 downtime state changes. There are no generic fallback operating hours.
+
+There are no opening or closing grace periods. If official hours say the park is
+open, monitoring runs. If official hours say the park is closed, monitoring is
+suppressed.
 
 Special-ticket events do not extend the monitoring window. The official-hours
 parser uses the regular `Park Hours` entry only, so events like Mickey's
@@ -113,6 +135,12 @@ The monitor workflow also uploads output artifacts from `outputs/`:
 - `analytics-summary.json`
 - `ride-id-map.json`
 - `daily-summary.txt`
+
+It also writes public website data to `public/data/`:
+
+- `latest.json`
+- `history.json`
+- `intraday.json`
 
 `park-status.txt` is the quickest way to confirm whether a park is open for
 monitoring or closed/outside regular hours. `analytics-readiness.txt` explains
