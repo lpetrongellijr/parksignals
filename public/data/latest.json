@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-14T11:55:26Z",
+  "generated_at": "2026-07-14T12:00:54Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -624,8 +624,8 @@
       "id": "animal_kingdom",
       "slug": "animal-kingdom",
       "name": "Animal Kingdom",
-      "status": "closed",
-      "monitoring_active": false,
+      "status": "open",
+      "monitoring_active": true,
       "hours": {
         "source": "themeparks_wiki",
         "timezone": "America/New_York",
@@ -633,19 +633,19 @@
         "closes_at": "19:00"
       },
       "tracked_ride_count": 6,
-      "open_ride_count": 0,
-      "unavailable_ride_count": 0,
-      "average_wait_minutes": null,
+      "open_ride_count": 3,
+      "unavailable_ride_count": 2,
+      "average_wait_minutes": 20,
       "rides": [
         {
           "id": "24cf863c-b6ba-4826-a056-0b698989cbf7",
           "name": "Avatar Flight of Passage",
-          "status": "park_closed",
+          "status": "open",
           "wait_time_minutes": 50,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-07-13T22:55:23Z",
+          "last_seen_at": "2026-07-14T12:00:54Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -653,12 +653,12 @@
         {
           "id": "64a6915f-a835-4226-ba5c-8389fc4cade3",
           "name": "Expedition Everest",
-          "status": "park_closed",
+          "status": "open",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-07-13T22:55:23Z",
+          "last_seen_at": "2026-07-14T12:00:54Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -666,12 +666,12 @@
         {
           "id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
           "name": "Kali River Rapids",
-          "status": "park_closed",
+          "status": "unavailable",
           "wait_time_minutes": null,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-07-13T22:55:23Z",
+          "last_seen_at": "2026-07-14T12:00:54Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -679,12 +679,12 @@
         {
           "id": "32e01181-9a5f-4936-8a77-0dace1de836c",
           "name": "Kilimanjaro Safaris",
-          "status": "park_closed",
+          "status": "unavailable",
           "wait_time_minutes": null,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-07-13T22:55:23Z",
+          "last_seen_at": "2026-07-14T12:00:54Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -692,12 +692,12 @@
         {
           "id": "7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0",
           "name": "Na'vi River Journey",
-          "status": "park_closed",
+          "status": "open",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-07-13T22:55:23Z",
+          "last_seen_at": "2026-07-14T12:00:54Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -705,12 +705,12 @@
         {
           "id": "4f391f0e-52be-4f9d-99d6-b3ae0373b43c",
           "name": "Wildlife Express Train",
-          "status": "park_closed",
+          "status": "closed",
           "wait_time_minutes": null,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": true,
-          "last_seen_at": "2026-07-13T22:55:23Z",
+          "last_seen_at": "2026-07-14T12:00:54Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -718,7 +718,53 @@
       ]
     }
   ],
-  "closures": [],
-  "latest_updates": [],
+  "closures": [
+    {
+      "id": "32e01181-9a5f-4936-8a77-0dace1de836c",
+      "name": "Kilimanjaro Safaris",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 0,
+      "current_downtime_seconds": 0,
+      "planned_closure": false,
+      "last_seen_at": "2026-07-14T12:00:54Z",
+      "park_id": "animal_kingdom",
+      "park_name": "Animal Kingdom",
+      "park_slug": "animal-kingdom"
+    },
+    {
+      "id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
+      "name": "Kali River Rapids",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 0,
+      "current_downtime_seconds": 0,
+      "planned_closure": false,
+      "last_seen_at": "2026-07-14T12:00:54Z",
+      "park_id": "animal_kingdom",
+      "park_name": "Animal Kingdom",
+      "park_slug": "animal-kingdom"
+    }
+  ],
+  "latest_updates": [
+    {
+      "type": "down",
+      "ride_id": "32e01181-9a5f-4936-8a77-0dace1de836c",
+      "ride_name": "Kilimanjaro Safaris",
+      "park_id": "animal_kingdom",
+      "park_name": "Animal Kingdom",
+      "park_slug": "animal-kingdom",
+      "observed_at": "2026-07-14T12:00:54Z"
+    },
+    {
+      "type": "down",
+      "ride_id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
+      "ride_name": "Kali River Rapids",
+      "park_id": "animal_kingdom",
+      "park_name": "Animal Kingdom",
+      "park_slug": "animal-kingdom",
+      "observed_at": "2026-07-14T12:00:54Z"
+    }
+  ],
   "downtime_today": []
 }
