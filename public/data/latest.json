@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-15T02:55:27Z",
+  "generated_at": "2026-07-15T03:00:52Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -8,8 +8,8 @@
       "id": "magic_kingdom",
       "slug": "magic-kingdom",
       "name": "Magic Kingdom",
-      "status": "open",
-      "monitoring_active": true,
+      "status": "closed",
+      "monitoring_active": false,
       "hours": {
         "source": "themeparks_wiki",
         "timezone": "America/New_York",
@@ -17,14 +17,14 @@
         "closes_at": "23:00"
       },
       "tracked_ride_count": 23,
-      "open_ride_count": 21,
+      "open_ride_count": 0,
       "unavailable_ride_count": 0,
-      "average_wait_minutes": 15,
+      "average_wait_minutes": null,
       "rides": [
         {
           "id": "f5aad2d4-a419-4384-bd9a-42f86385c750",
           "name": "\"it's a small world\"",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
@@ -37,7 +37,7 @@
         {
           "id": "d9d12438-d999-4482-894b-8955fdb20ccf",
           "name": "Astro Orbiter",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 3273,
           "current_downtime_seconds": 0,
@@ -50,8 +50,8 @@
         {
           "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
           "name": "Big Thunder Mountain",
-          "status": "open",
-          "wait_time_minutes": 15,
+          "status": "park_closed",
+          "wait_time_minutes": null,
           "downtime_today_seconds": 3728,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -63,8 +63,8 @@
         {
           "id": "72c7343a-f7fb-4f66-95df-c91016de7338",
           "name": "Buzz Lightyear\u2019s Space Ranger Spin",
-          "status": "open",
-          "wait_time_minutes": 5,
+          "status": "park_closed",
+          "wait_time_minutes": null,
           "downtime_today_seconds": 326,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -76,7 +76,7 @@
         {
           "id": "8183f3f2-1b59-4b9c-b634-6a863bdf8d84",
           "name": "Carousel of Progress",
-          "status": "closed",
+          "status": "park_closed",
           "wait_time_minutes": null,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
@@ -89,7 +89,7 @@
         {
           "id": "890fa430-89c0-4a3f-96c9-11597888005e",
           "name": "Dumbo the Flying Elephant",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 2993,
           "current_downtime_seconds": 0,
@@ -102,7 +102,7 @@
         {
           "id": "2551a77d-023f-4ab1-9a19-8afec0190f39",
           "name": "Haunted Mansion",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 13,
           "downtime_today_seconds": 409,
           "current_downtime_seconds": 0,
@@ -115,7 +115,7 @@
         {
           "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
           "name": "Jungle Cruise",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 10,
           "downtime_today_seconds": 4319,
           "current_downtime_seconds": 0,
@@ -128,7 +128,7 @@
         {
           "id": "0aae716c-af13-4439-b638-d75fb1649df3",
           "name": "Mad Tea Party",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
@@ -141,7 +141,7 @@
         {
           "id": "ffcfeaa2-1416-4920-a1ed-543c1a1695c4",
           "name": "PeopleMover",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
@@ -154,7 +154,7 @@
         {
           "id": "86a41273-5f15-4b54-93b6-829f140e5161",
           "name": "Peter Pan's Flight",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 35,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
@@ -167,7 +167,7 @@
         {
           "id": "352feb94-e52e-45eb-9c92-e4b44c6b1a9d",
           "name": "Pirates of the Caribbean",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 1192,
           "current_downtime_seconds": 0,
@@ -180,7 +180,7 @@
         {
           "id": "273ddb8d-e7b5-4e34-8657-1113f49262a5",
           "name": "Prince Charming Regal Carrousel",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 1801,
           "current_downtime_seconds": 0,
@@ -193,8 +193,8 @@
         {
           "id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
           "name": "Seven Dwarfs Mine Train",
-          "status": "open",
-          "wait_time_minutes": 50,
+          "status": "park_closed",
+          "wait_time_minutes": 7,
           "downtime_today_seconds": 13744,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -206,7 +206,7 @@
         {
           "id": "b2260923-9315-40fd-9c6b-44dd811dbe64",
           "name": "Space Mountain",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 15,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
@@ -219,7 +219,7 @@
         {
           "id": "924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48",
           "name": "The Barnstormer",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 3873,
           "current_downtime_seconds": 0,
@@ -232,7 +232,7 @@
         {
           "id": "96455de6-f4f1-403c-9391-bf8396979149",
           "name": "The Magic Carpets of Aladdin",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 3118,
           "current_downtime_seconds": 0,
@@ -245,7 +245,7 @@
         {
           "id": "0d94ad60-72f0-4551-83a6-ebaecdd89737",
           "name": "The Many Adventures of Winnie the Pooh",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 10,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
@@ -258,7 +258,7 @@
         {
           "id": "73cb9445-0695-47a3-87ce-d08ae36b5f3c",
           "name": "Tiana's Bayou Adventure",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 10,
           "downtime_today_seconds": 2801,
           "current_downtime_seconds": 0,
@@ -271,7 +271,7 @@
         {
           "id": "f163ddcd-43e1-488d-8276-2381c1db0a39",
           "name": "Tomorrowland Speedway",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 2993,
           "current_downtime_seconds": 0,
@@ -284,7 +284,7 @@
         {
           "id": "5a43d1a7-ad53-4d25-abfe-25625f0da304",
           "name": "TRON Lightcycle / Run",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 95,
           "downtime_today_seconds": 5403,
           "current_downtime_seconds": 0,
@@ -297,7 +297,7 @@
         {
           "id": "3cba0cb4-e2a6-402c-93ee-c11ffcb127ef",
           "name": "Under the Sea - Journey of The Little Mermaid",
-          "status": "open",
+          "status": "park_closed",
           "wait_time_minutes": 5,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
@@ -310,7 +310,7 @@
         {
           "id": "e39b831b-7731-49bb-815b-289b4f49a9fd",
           "name": "Walt Disney World Railroad",
-          "status": "closed",
+          "status": "park_closed",
           "wait_time_minutes": null,
           "downtime_today_seconds": 4319,
           "current_downtime_seconds": 0,
@@ -719,26 +719,7 @@
     }
   ],
   "closures": [],
-  "latest_updates": [
-    {
-      "type": "reopened",
-      "ride_id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
-      "ride_name": "Seven Dwarfs Mine Train",
-      "park_id": "magic_kingdom",
-      "park_name": "Magic Kingdom",
-      "park_slug": "magic-kingdom",
-      "observed_at": "2026-07-15T02:55:27Z"
-    },
-    {
-      "type": "reopened",
-      "ride_id": "2551a77d-023f-4ab1-9a19-8afec0190f39",
-      "ride_name": "Haunted Mansion",
-      "park_id": "magic_kingdom",
-      "park_name": "Magic Kingdom",
-      "park_slug": "magic-kingdom",
-      "observed_at": "2026-07-15T02:55:27Z"
-    }
-  ],
+  "latest_updates": [],
   "downtime_today": [
     {
       "id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
@@ -769,8 +750,8 @@
     {
       "id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
       "name": "Seven Dwarfs Mine Train",
-      "status": "open",
-      "wait_time_minutes": 50,
+      "status": "park_closed",
+      "wait_time_minutes": 7,
       "downtime_today_seconds": 13744,
       "current_downtime_seconds": 0,
       "planned_closure": false,
@@ -808,7 +789,7 @@
     {
       "id": "5a43d1a7-ad53-4d25-abfe-25625f0da304",
       "name": "TRON Lightcycle / Run",
-      "status": "open",
+      "status": "park_closed",
       "wait_time_minutes": 95,
       "downtime_today_seconds": 5403,
       "current_downtime_seconds": 0,
@@ -821,7 +802,7 @@
     {
       "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
       "name": "Jungle Cruise",
-      "status": "open",
+      "status": "park_closed",
       "wait_time_minutes": 10,
       "downtime_today_seconds": 4319,
       "current_downtime_seconds": 0,
@@ -834,7 +815,7 @@
     {
       "id": "e39b831b-7731-49bb-815b-289b4f49a9fd",
       "name": "Walt Disney World Railroad",
-      "status": "closed",
+      "status": "park_closed",
       "wait_time_minutes": null,
       "downtime_today_seconds": 4319,
       "current_downtime_seconds": 0,
@@ -847,7 +828,7 @@
     {
       "id": "924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48",
       "name": "The Barnstormer",
-      "status": "open",
+      "status": "park_closed",
       "wait_time_minutes": 5,
       "downtime_today_seconds": 3873,
       "current_downtime_seconds": 0,
@@ -860,8 +841,8 @@
     {
       "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
       "name": "Big Thunder Mountain",
-      "status": "open",
-      "wait_time_minutes": 15,
+      "status": "park_closed",
+      "wait_time_minutes": null,
       "downtime_today_seconds": 3728,
       "current_downtime_seconds": 0,
       "planned_closure": false,
@@ -873,7 +854,7 @@
     {
       "id": "d9d12438-d999-4482-894b-8955fdb20ccf",
       "name": "Astro Orbiter",
-      "status": "open",
+      "status": "park_closed",
       "wait_time_minutes": 5,
       "downtime_today_seconds": 3273,
       "current_downtime_seconds": 0,
@@ -886,7 +867,7 @@
     {
       "id": "96455de6-f4f1-403c-9391-bf8396979149",
       "name": "The Magic Carpets of Aladdin",
-      "status": "open",
+      "status": "park_closed",
       "wait_time_minutes": 5,
       "downtime_today_seconds": 3118,
       "current_downtime_seconds": 0,
@@ -925,7 +906,7 @@
     {
       "id": "890fa430-89c0-4a3f-96c9-11597888005e",
       "name": "Dumbo the Flying Elephant",
-      "status": "open",
+      "status": "park_closed",
       "wait_time_minutes": 5,
       "downtime_today_seconds": 2993,
       "current_downtime_seconds": 0,
@@ -938,7 +919,7 @@
     {
       "id": "f163ddcd-43e1-488d-8276-2381c1db0a39",
       "name": "Tomorrowland Speedway",
-      "status": "open",
+      "status": "park_closed",
       "wait_time_minutes": 5,
       "downtime_today_seconds": 2993,
       "current_downtime_seconds": 0,
@@ -951,7 +932,7 @@
     {
       "id": "73cb9445-0695-47a3-87ce-d08ae36b5f3c",
       "name": "Tiana's Bayou Adventure",
-      "status": "open",
+      "status": "park_closed",
       "wait_time_minutes": 10,
       "downtime_today_seconds": 2801,
       "current_downtime_seconds": 0,
@@ -977,7 +958,7 @@
     {
       "id": "273ddb8d-e7b5-4e34-8657-1113f49262a5",
       "name": "Prince Charming Regal Carrousel",
-      "status": "open",
+      "status": "park_closed",
       "wait_time_minutes": 5,
       "downtime_today_seconds": 1801,
       "current_downtime_seconds": 0,
@@ -990,7 +971,7 @@
     {
       "id": "352feb94-e52e-45eb-9c92-e4b44c6b1a9d",
       "name": "Pirates of the Caribbean",
-      "status": "open",
+      "status": "park_closed",
       "wait_time_minutes": 5,
       "downtime_today_seconds": 1192,
       "current_downtime_seconds": 0,
@@ -1016,7 +997,7 @@
     {
       "id": "2551a77d-023f-4ab1-9a19-8afec0190f39",
       "name": "Haunted Mansion",
-      "status": "open",
+      "status": "park_closed",
       "wait_time_minutes": 13,
       "downtime_today_seconds": 409,
       "current_downtime_seconds": 0,
@@ -1029,8 +1010,8 @@
     {
       "id": "72c7343a-f7fb-4f66-95df-c91016de7338",
       "name": "Buzz Lightyear\u2019s Space Ranger Spin",
-      "status": "open",
-      "wait_time_minutes": 5,
+      "status": "park_closed",
+      "wait_time_minutes": null,
       "downtime_today_seconds": 326,
       "current_downtime_seconds": 0,
       "planned_closure": false,
