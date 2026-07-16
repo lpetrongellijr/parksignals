@@ -3583,15 +3583,15 @@
     },
     "890fa430-89c0-4a3f-96c9-11597888005e": {
       "id": "890fa430-89c0-4a3f-96c9-11597888005e",
-      "is_open": false,
+      "is_open": null,
       "name": "Dumbo the Flying Elephant",
       "last_seen_at": "2026-07-16T02:55:27Z",
       "last_changed_at": "2026-07-16T01:45:29Z",
-      "down_since": "2026-07-16T01:45:29Z",
+      "down_since": null,
       "last_down_at": "2026-07-16T01:45:29Z",
       "last_reopened_at": "2026-07-14T22:20:45Z",
-      "current_down_seconds": 4198,
-      "total_down_seconds": 116800,
+      "current_down_seconds": 0,
+      "total_down_seconds": 121271,
       "downtime_events": [
         {
           "down_at": "2026-06-16T22:00:24Z",
@@ -3748,13 +3748,19 @@
           "reopened_at": "2026-07-14T22:20:45Z",
           "duration_seconds": 2993,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-16T01:45:29Z",
+          "reopened_at": "2026-07-16T03:00:00Z",
+          "duration_seconds": 4471,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-07-09T03:00:00Z"
+      "paused_at_park_close": "2026-07-16T03:00:00Z"
     },
     "ffcfeaa2-1416-4920-a1ed-543c1a1695c4": {
       "id": "ffcfeaa2-1416-4920-a1ed-543c1a1695c4",
