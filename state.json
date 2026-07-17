@@ -4,7 +4,7 @@
       "id": "24cf863c-b6ba-4826-a056-0b698989cbf7",
       "is_open": true,
       "name": "Avatar Flight of Passage",
-      "last_seen_at": "2026-07-17T12:00:44Z",
+      "last_seen_at": "2026-07-17T12:05:32Z",
       "last_changed_at": "2026-06-30T16:00:27Z",
       "down_since": null,
       "last_down_at": "2026-06-30T15:45:20Z",
@@ -58,7 +58,7 @@
       "id": "64a6915f-a835-4226-ba5c-8389fc4cade3",
       "is_open": true,
       "name": "Expedition Everest - Legend of the Forbidden Mountain",
-      "last_seen_at": "2026-07-17T12:00:44Z",
+      "last_seen_at": "2026-07-17T12:05:32Z",
       "last_changed_at": "2026-07-14T22:15:28Z",
       "down_since": null,
       "last_down_at": "2026-07-14T21:25:29Z",
@@ -273,15 +273,15 @@
     },
     "32e01181-9a5f-4936-8a77-0dace1de836c": {
       "id": "32e01181-9a5f-4936-8a77-0dace1de836c",
-      "is_open": false,
+      "is_open": true,
       "name": "Kilimanjaro Safaris",
-      "last_seen_at": "2026-07-17T12:00:44Z",
-      "last_changed_at": "2026-07-17T12:00:44Z",
-      "down_since": "2026-07-17T12:00:44Z",
+      "last_seen_at": "2026-07-17T12:05:32Z",
+      "last_changed_at": "2026-07-17T12:05:32Z",
+      "down_since": null,
       "last_down_at": "2026-07-17T12:00:44Z",
-      "last_reopened_at": "2026-07-16T12:05:30Z",
+      "last_reopened_at": "2026-07-17T12:05:32Z",
       "current_down_seconds": 0,
-      "total_down_seconds": 5599,
+      "total_down_seconds": 5887,
       "downtime_events": [
         {
           "down_at": "2026-06-19T12:15:20Z",
@@ -324,18 +324,24 @@
           "reopened_at": "2026-07-16T12:05:30Z",
           "duration_seconds": 275,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-17T12:00:44Z",
+          "reopened_at": "2026-07-17T12:05:32Z",
+          "duration_seconds": 288,
+          "ended_by": "reopened"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "CLOSED"
+      "source_status": "OPERATING"
     },
     "7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0": {
       "id": "7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0",
       "is_open": true,
       "name": "Na'vi River Journey",
-      "last_seen_at": "2026-07-17T12:00:44Z",
+      "last_seen_at": "2026-07-17T12:05:32Z",
       "last_changed_at": "2026-07-14T13:00:56Z",
       "down_since": null,
       "last_down_at": "2026-07-14T12:50:47Z",
@@ -401,12 +407,12 @@
       "id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
       "is_open": false,
       "name": "Kali River Rapids",
-      "last_seen_at": "2026-07-17T12:00:44Z",
+      "last_seen_at": "2026-07-17T12:05:32Z",
       "last_changed_at": "2026-07-17T12:00:44Z",
       "down_since": "2026-07-17T12:00:44Z",
       "last_down_at": "2026-07-17T12:00:44Z",
       "last_reopened_at": "2026-07-16T21:20:35Z",
-      "current_down_seconds": 0,
+      "current_down_seconds": 288,
       "total_down_seconds": 309088,
       "downtime_events": [
         {
@@ -784,10 +790,10 @@
     },
     "4f391f0e-52be-4f9d-99d6-b3ae0373b43c": {
       "id": "4f391f0e-52be-4f9d-99d6-b3ae0373b43c",
-      "is_open": null,
+      "is_open": true,
       "name": "Wildlife Express Train",
-      "last_seen_at": "2026-07-17T12:00:44Z",
-      "last_changed_at": "2026-07-16T12:05:30Z",
+      "last_seen_at": "2026-07-17T12:05:32Z",
+      "last_changed_at": "2026-07-17T12:05:32Z",
       "down_since": null,
       "last_down_at": "2026-07-13T13:31:52Z",
       "last_reopened_at": "2026-07-13T14:05:26Z",
@@ -915,20 +921,10 @@
           "ended_by": "reopened"
         }
       ],
-      "planned_closure_active": true,
-      "planned_closure": {
-        "ride_name": "Wildlife Express Train",
-        "starts_on": null,
-        "ends_on": null,
-        "reason": "scheduled ride operating hours",
-        "source": "configured_ride_operating_hours",
-        "opens_at": "09:30",
-        "closes_at": "16:30",
-        "timezone": "America/New_York",
-        "effective_at": "2026-07-17T12:00:44Z"
-      },
+      "planned_closure_active": false,
+      "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "CLOSED",
+      "source_status": "OPERATING",
       "paused_at_park_close": "2026-07-09T22:00:00Z"
     }
   },
