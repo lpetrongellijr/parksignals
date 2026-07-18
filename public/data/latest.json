@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-18T04:00:41Z",
+  "generated_at": "2026-07-18T04:05:34Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -10,7 +10,12 @@
       "name": "Magic Kingdom",
       "status": "closed",
       "monitoring_active": false,
-      "hours": null,
+      "hours": {
+        "source": "themeparks_wiki",
+        "timezone": "America/New_York",
+        "opens_at": "09:00",
+        "closes_at": "23:00"
+      },
       "tracked_ride_count": 23,
       "open_ride_count": 0,
       "unavailable_ride_count": 0,
@@ -323,7 +328,12 @@
       "name": "EPCOT",
       "status": "closed",
       "monitoring_active": false,
-      "hours": null,
+      "hours": {
+        "source": "themeparks_wiki",
+        "timezone": "America/New_York",
+        "opens_at": "09:00",
+        "closes_at": "21:00"
+      },
       "tracked_ride_count": 11,
       "open_ride_count": 0,
       "unavailable_ride_count": 0,
@@ -480,7 +490,12 @@
       "name": "Hollywood Studios",
       "status": "closed",
       "monitoring_active": false,
-      "hours": null,
+      "hours": {
+        "source": "themeparks_wiki",
+        "timezone": "America/New_York",
+        "opens_at": "09:00",
+        "closes_at": "21:00"
+      },
       "tracked_ride_count": 9,
       "open_ride_count": 0,
       "unavailable_ride_count": 0,
@@ -611,7 +626,12 @@
       "name": "Animal Kingdom",
       "status": "closed",
       "monitoring_active": false,
-      "hours": null,
+      "hours": {
+        "source": "themeparks_wiki",
+        "timezone": "America/New_York",
+        "opens_at": "08:00",
+        "closes_at": "19:00"
+      },
       "tracked_ride_count": 6,
       "open_ride_count": 0,
       "unavailable_ride_count": 0,
