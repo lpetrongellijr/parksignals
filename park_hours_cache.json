@@ -1,7 +1,7 @@
 {
   "parks": {
     "magic_kingdom": {
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -10,13 +10,19 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-07-21T08:30:00-04:00",
-          "closingTime": "2026-07-21T09:00:00-04:00",
+          "openingTime": "2026-07-22T08:30:00-04:00",
+          "closingTime": "2026-07-22T09:00:00-04:00",
           "description": "Early Entry"
+        },
+        {
+          "type": "TICKETED_EVENT",
+          "openingTime": "2026-07-22T23:00:00-04:00",
+          "closingTime": "2026-07-23T01:00:00-04:00",
+          "description": "Extended Evening"
         }
       ],
       "raw": {
-        "date": "2026-07-21",
+        "date": "2026-07-22",
         "type": "OPERATING",
         "purchases": [
           {
@@ -64,12 +70,12 @@
             "available": true
           }
         ],
-        "closingTime": "2026-07-21T23:00:00-04:00",
-        "openingTime": "2026-07-21T09:00:00-04:00"
+        "closingTime": "2026-07-22T23:00:00-04:00",
+        "openingTime": "2026-07-22T09:00:00-04:00"
       }
     },
     "epcot": {
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -78,13 +84,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-07-21T08:30:00-04:00",
-          "closingTime": "2026-07-21T09:00:00-04:00",
+          "openingTime": "2026-07-22T08:30:00-04:00",
+          "closingTime": "2026-07-22T09:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-07-21",
+        "date": "2026-07-22",
         "type": "OPERATING",
         "purchases": [
           {
@@ -96,16 +102,16 @@
               "currency": "USD",
               "formatted": "$18.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007838",
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 2400,
+              "amount": 2100,
               "currency": "USD",
-              "formatted": "$24.00"
+              "formatted": "$21.00"
             },
             "available": true
           },
@@ -121,27 +127,33 @@
             "available": true
           }
         ],
-        "closingTime": "2026-07-21T21:00:00-04:00",
-        "openingTime": "2026-07-21T09:00:00-04:00"
+        "closingTime": "2026-07-22T21:00:00-04:00",
+        "openingTime": "2026-07-22T09:00:00-04:00"
       }
     },
     "hollywood_studios": {
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
-      "closes_at": "22:00",
+      "closes_at": "21:00",
       "selected_schedule_type": "OPERATING",
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-07-21T08:30:00-04:00",
-          "closingTime": "2026-07-21T09:00:00-04:00",
+          "openingTime": "2026-07-22T08:30:00-04:00",
+          "closingTime": "2026-07-22T09:00:00-04:00",
           "description": "Early Entry"
+        },
+        {
+          "type": "TICKETED_EVENT",
+          "openingTime": "2026-07-22T21:30:00-04:00",
+          "closingTime": "2026-07-23T00:30:00-04:00",
+          "description": "Special Ticketed Event"
         }
       ],
       "raw": {
-        "date": "2026-07-21",
+        "date": "2026-07-22",
         "type": "OPERATING",
         "purchases": [
           {
@@ -178,12 +190,12 @@
             "available": true
           }
         ],
-        "closingTime": "2026-07-21T22:00:00-04:00",
-        "openingTime": "2026-07-21T09:00:00-04:00"
+        "closingTime": "2026-07-22T21:00:00-04:00",
+        "openingTime": "2026-07-22T09:00:00-04:00"
       }
     },
     "animal_kingdom": {
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "08:00",
@@ -192,13 +204,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-07-21T07:30:00-04:00",
-          "closingTime": "2026-07-21T08:00:00-04:00",
+          "openingTime": "2026-07-22T07:30:00-04:00",
+          "closingTime": "2026-07-22T08:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-07-21",
+        "date": "2026-07-22",
         "type": "OPERATING",
         "purchases": [
           {
@@ -235,13 +247,13 @@
             "available": true
           }
         ],
-        "closingTime": "2026-07-21T19:00:00-04:00",
-        "openingTime": "2026-07-21T08:00:00-04:00"
+        "closingTime": "2026-07-22T19:00:00-04:00",
+        "openingTime": "2026-07-22T08:00:00-04:00"
       }
     }
   },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-07-21T22:42:22Z",
+  "generated_at": "2026-07-22T04:01:09Z",
   "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
   "last_fetch_status": "ok",
