@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T12:00:51Z",
+  "generated_at": "2026-07-22T12:05:37Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -635,17 +635,17 @@
       "tracked_ride_count": 6,
       "open_ride_count": 5,
       "unavailable_ride_count": 1,
-      "average_wait_minutes": 25,
+      "average_wait_minutes": 24,
       "rides": [
         {
           "id": "24cf863c-b6ba-4826-a056-0b698989cbf7",
           "name": "Avatar Flight of Passage",
           "status": "open",
-          "wait_time_minutes": 90,
+          "wait_time_minutes": 85,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-07-22T12:00:51Z",
+          "last_seen_at": "2026-07-22T12:05:37Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -658,7 +658,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-07-22T12:00:51Z",
+          "last_seen_at": "2026-07-22T12:05:37Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -668,10 +668,10 @@
           "name": "Kali River Rapids",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 0,
-          "current_downtime_seconds": 0,
+          "downtime_today_seconds": 286,
+          "current_downtime_seconds": 286,
           "planned_closure": false,
-          "last_seen_at": "2026-07-22T12:00:51Z",
+          "last_seen_at": "2026-07-22T12:05:37Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -684,7 +684,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-07-22T12:00:51Z",
+          "last_seen_at": "2026-07-22T12:05:37Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -697,7 +697,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-07-22T12:00:51Z",
+          "last_seen_at": "2026-07-22T12:05:37Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -710,7 +710,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-07-22T12:00:51Z",
+          "last_seen_at": "2026-07-22T12:05:37Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -724,25 +724,29 @@
       "name": "Kali River Rapids",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 0,
-      "current_downtime_seconds": 0,
+      "downtime_today_seconds": 286,
+      "current_downtime_seconds": 286,
       "planned_closure": false,
-      "last_seen_at": "2026-07-22T12:00:51Z",
+      "last_seen_at": "2026-07-22T12:05:37Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
     }
   ],
-  "latest_updates": [
+  "latest_updates": [],
+  "downtime_today": [
     {
-      "type": "down",
-      "ride_id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
-      "ride_name": "Kali River Rapids",
+      "id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
+      "name": "Kali River Rapids",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 286,
+      "current_downtime_seconds": 286,
+      "planned_closure": false,
+      "last_seen_at": "2026-07-22T12:05:37Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
-      "park_slug": "animal-kingdom",
-      "observed_at": "2026-07-22T12:00:51Z"
+      "park_slug": "animal-kingdom"
     }
-  ],
-  "downtime_today": []
+  ]
 }
