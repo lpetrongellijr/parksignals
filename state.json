@@ -1410,15 +1410,15 @@
     },
     "9d4d5229-7142-44b6-b4fb-528920969a2c": {
       "id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
-      "is_open": false,
+      "is_open": null,
       "name": "Seven Dwarfs Mine Train",
       "last_seen_at": "2026-07-23T02:55:35Z",
       "last_changed_at": "2026-07-23T02:35:34Z",
-      "down_since": "2026-07-23T02:35:34Z",
+      "down_since": null,
       "last_down_at": "2026-07-23T02:35:34Z",
       "last_reopened_at": "2026-07-22T20:15:43Z",
-      "current_down_seconds": 1201,
-      "total_down_seconds": 267652,
+      "current_down_seconds": 0,
+      "total_down_seconds": 269118,
       "downtime_events": [
         {
           "down_at": "2026-06-16T19:30:23Z",
@@ -1779,13 +1779,19 @@
           "reopened_at": "2026-07-22T20:15:43Z",
           "duration_seconds": 5102,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-23T02:35:34Z",
+          "reopened_at": "2026-07-23T03:00:00Z",
+          "duration_seconds": 1466,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-07-09T03:00:00Z"
+      "paused_at_park_close": "2026-07-23T03:00:00Z"
     },
     "de3309ca-97d5-4211-bffe-739fed47e92f": {
       "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
@@ -4206,15 +4212,15 @@
     },
     "924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48": {
       "id": "924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48",
-      "is_open": false,
+      "is_open": null,
       "name": "The Barnstormer",
       "last_seen_at": "2026-07-23T02:55:35Z",
       "last_changed_at": "2026-07-23T02:55:35Z",
-      "down_since": "2026-07-23T02:55:35Z",
+      "down_since": null,
       "last_down_at": "2026-07-23T02:55:35Z",
       "last_reopened_at": "2026-07-20T19:15:35Z",
       "current_down_seconds": 0,
-      "total_down_seconds": 175056,
+      "total_down_seconds": 175321,
       "downtime_events": [
         {
           "down_at": "2026-06-16T22:00:24Z",
@@ -4509,13 +4515,19 @@
           "reopened_at": "2026-07-20T19:15:35Z",
           "duration_seconds": 8093,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-23T02:55:35Z",
+          "reopened_at": "2026-07-23T03:00:00Z",
+          "duration_seconds": 265,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-07-09T03:00:00Z"
+      "paused_at_park_close": "2026-07-23T03:00:00Z"
     },
     "890fa430-89c0-4a3f-96c9-11597888005e": {
       "id": "890fa430-89c0-4a3f-96c9-11597888005e",
@@ -5447,15 +5459,15 @@
     },
     "8183f3f2-1b59-4b9c-b634-6a863bdf8d84": {
       "id": "8183f3f2-1b59-4b9c-b634-6a863bdf8d84",
-      "is_open": false,
+      "is_open": null,
       "name": "Walt Disney's Carousel of Progress",
       "last_seen_at": "2026-07-23T02:55:35Z",
       "last_changed_at": "2026-07-22T19:55:34Z",
-      "down_since": "2026-07-22T19:55:34Z",
+      "down_since": null,
       "last_down_at": "2026-07-22T19:55:34Z",
       "last_reopened_at": "2026-07-03T21:45:20Z",
-      "current_down_seconds": 25201,
-      "total_down_seconds": 23107,
+      "current_down_seconds": 0,
+      "total_down_seconds": 48573,
       "downtime_events": [
         {
           "down_at": "2026-06-23T23:45:18Z",
@@ -5504,12 +5516,19 @@
           "reopened_at": "2026-07-06T14:55:25Z",
           "duration_seconds": 5995,
           "ended_by": "planned_closure_start"
+        },
+        {
+          "down_at": "2026-07-22T19:55:34Z",
+          "reopened_at": "2026-07-23T03:00:00Z",
+          "duration_seconds": 25466,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "CLOSED"
+      "source_status": "CLOSED",
+      "paused_at_park_close": "2026-07-23T03:00:00Z"
     },
     "0aae716c-af13-4439-b638-d75fb1649df3": {
       "id": "0aae716c-af13-4439-b638-d75fb1649df3",
