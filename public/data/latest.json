@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-24T03:25:41Z",
+  "generated_at": "2026-07-24T03:31:15Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -460,7 +460,7 @@
           "id": "37ae57c5-feaf-4e47-8f27-4b385be200f0",
           "name": "Test Track",
           "status": "park_closed",
-          "wait_time_minutes": 45,
+          "wait_time_minutes": 55,
           "downtime_today_seconds": 301,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -1011,7 +1011,7 @@
       "id": "37ae57c5-feaf-4e47-8f27-4b385be200f0",
       "name": "Test Track",
       "status": "park_closed",
-      "wait_time_minutes": 45,
+      "wait_time_minutes": 55,
       "downtime_today_seconds": 301,
       "current_downtime_seconds": 0,
       "planned_closure": false,
