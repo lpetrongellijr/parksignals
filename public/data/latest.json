@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-24T11:35:35Z",
+  "generated_at": "2026-07-24T11:40:38Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -654,7 +654,7 @@
           "id": "64a6915f-a835-4226-ba5c-8389fc4cade3",
           "name": "Expedition Everest",
           "status": "park_closed",
-          "wait_time_minutes": null,
+          "wait_time_minutes": 5,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
