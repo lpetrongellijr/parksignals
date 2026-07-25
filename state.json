@@ -1319,15 +1319,15 @@
     },
     "b2260923-9315-40fd-9c6b-44dd811dbe64": {
       "id": "b2260923-9315-40fd-9c6b-44dd811dbe64",
-      "is_open": false,
+      "is_open": null,
       "name": "Space Mountain",
       "last_seen_at": "2026-07-25T02:55:39Z",
       "last_changed_at": "2026-07-25T02:50:41Z",
-      "down_since": "2026-07-25T02:50:41Z",
+      "down_since": null,
       "last_down_at": "2026-07-25T02:50:41Z",
       "last_reopened_at": "2026-07-25T00:30:42Z",
-      "current_down_seconds": 298,
-      "total_down_seconds": 100437,
+      "current_down_seconds": 0,
+      "total_down_seconds": 100996,
       "downtime_events": [
         {
           "down_at": "2026-06-16T18:30:32Z",
@@ -1472,13 +1472,19 @@
           "reopened_at": "2026-07-25T00:30:42Z",
           "duration_seconds": 304,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-25T02:50:41Z",
+          "reopened_at": "2026-07-25T03:00:00Z",
+          "duration_seconds": 559,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-07-14T02:00:00Z"
+      "paused_at_park_close": "2026-07-25T03:00:00Z"
     },
     "9d4d5229-7142-44b6-b4fb-528920969a2c": {
       "id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
