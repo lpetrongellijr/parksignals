@@ -2756,15 +2756,15 @@
     },
     "2551a77d-023f-4ab1-9a19-8afec0190f39": {
       "id": "2551a77d-023f-4ab1-9a19-8afec0190f39",
-      "is_open": false,
+      "is_open": null,
       "name": "Haunted Mansion",
       "last_seen_at": "2026-07-29T02:55:45Z",
       "last_changed_at": "2026-07-29T02:50:49Z",
-      "down_since": "2026-07-29T02:50:49Z",
+      "down_since": null,
       "last_down_at": "2026-07-29T02:50:49Z",
       "last_reopened_at": "2026-07-28T13:05:43Z",
-      "current_down_seconds": 296,
-      "total_down_seconds": 82971,
+      "current_down_seconds": 0,
+      "total_down_seconds": 83522,
       "downtime_events": [
         {
           "down_at": "2026-06-17T13:15:22Z",
@@ -3065,12 +3065,19 @@
           "reopened_at": "2026-07-28T13:05:43Z",
           "duration_seconds": 286,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-07-29T02:50:49Z",
+          "reopened_at": "2026-07-29T03:00:00Z",
+          "duration_seconds": 551,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN"
+      "source_status": "DOWN",
+      "paused_at_park_close": "2026-07-29T03:00:00Z"
     },
     "796b0a25-c51e-456e-9bb8-50a324e301b3": {
       "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
