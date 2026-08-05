@@ -1493,15 +1493,15 @@
     },
     "b2260923-9315-40fd-9c6b-44dd811dbe64": {
       "id": "b2260923-9315-40fd-9c6b-44dd811dbe64",
-      "is_open": false,
+      "is_open": null,
       "name": "Space Mountain",
       "last_seen_at": "2026-08-05T02:55:59Z",
       "last_changed_at": "2026-08-05T02:26:01Z",
-      "down_since": "2026-08-05T02:26:01Z",
+      "down_since": null,
       "last_down_at": "2026-08-05T02:26:01Z",
       "last_reopened_at": "2026-08-03T20:51:43Z",
-      "current_down_seconds": 1798,
-      "total_down_seconds": 198997,
+      "current_down_seconds": 0,
+      "total_down_seconds": 201036,
       "downtime_events": [
         {
           "down_at": "2026-06-21T19:45:17Z",
@@ -1712,13 +1712,19 @@
           "reopened_at": "2026-08-04T03:00:00Z",
           "duration_seconds": 2032,
           "ended_by": "park_close"
+        },
+        {
+          "down_at": "2026-08-05T02:26:01Z",
+          "reopened_at": "2026-08-05T03:00:00Z",
+          "duration_seconds": 2039,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-04T03:00:00Z"
+      "paused_at_park_close": "2026-08-05T03:00:00Z"
     },
     "9d4d5229-7142-44b6-b4fb-528920969a2c": {
       "id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
@@ -4650,15 +4656,15 @@
     },
     "0d94ad60-72f0-4551-83a6-ebaecdd89737": {
       "id": "0d94ad60-72f0-4551-83a6-ebaecdd89737",
-      "is_open": false,
+      "is_open": null,
       "name": "The Many Adventures of Winnie the Pooh",
       "last_seen_at": "2026-08-05T02:55:59Z",
       "last_changed_at": "2026-08-05T02:51:05Z",
-      "down_since": "2026-08-05T02:51:05Z",
+      "down_since": null,
       "last_down_at": "2026-08-05T02:51:05Z",
       "last_reopened_at": "2026-08-04T13:41:16Z",
-      "current_down_seconds": 294,
-      "total_down_seconds": 168593,
+      "current_down_seconds": 0,
+      "total_down_seconds": 169128,
       "downtime_events": [
         {
           "down_at": "2026-06-21T21:30:19Z",
@@ -5043,13 +5049,19 @@
           "reopened_at": "2026-08-04T13:41:16Z",
           "duration_seconds": 2391,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-08-05T02:51:05Z",
+          "reopened_at": "2026-08-05T03:00:00Z",
+          "duration_seconds": 535,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-07-11T03:00:00Z"
+      "paused_at_park_close": "2026-08-05T03:00:00Z"
     },
     "3cba0cb4-e2a6-402c-93ee-c11ffcb127ef": {
       "id": "3cba0cb4-e2a6-402c-93ee-c11ffcb127ef",
