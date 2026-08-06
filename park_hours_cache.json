@@ -1,7 +1,7 @@
 {
   "parks": {
     "magic_kingdom": {
-      "date": "2026-08-05",
+      "date": "2026-08-06",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -10,19 +10,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-08-05T08:30:00-04:00",
-          "closingTime": "2026-08-05T09:00:00-04:00",
+          "openingTime": "2026-08-06T08:30:00-04:00",
+          "closingTime": "2026-08-06T09:00:00-04:00",
           "description": "Early Entry"
-        },
-        {
-          "type": "TICKETED_EVENT",
-          "openingTime": "2026-08-05T23:00:00-04:00",
-          "closingTime": "2026-08-06T01:00:00-04:00",
-          "description": "Extended Evening"
         }
       ],
       "raw": {
-        "date": "2026-08-05",
+        "date": "2026-08-06",
         "type": "OPERATING",
         "purchases": [
           {
@@ -59,12 +53,12 @@
             "available": true
           }
         ],
-        "closingTime": "2026-08-05T23:00:00-04:00",
-        "openingTime": "2026-08-05T09:00:00-04:00"
+        "closingTime": "2026-08-06T23:00:00-04:00",
+        "openingTime": "2026-08-06T09:00:00-04:00"
       }
     },
     "epcot": {
-      "date": "2026-08-05",
+      "date": "2026-08-06",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -73,13 +67,19 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-08-05T08:30:00-04:00",
-          "closingTime": "2026-08-05T09:00:00-04:00",
+          "openingTime": "2026-08-06T08:30:00-04:00",
+          "closingTime": "2026-08-06T09:00:00-04:00",
           "description": "Early Entry"
+        },
+        {
+          "type": "TICKETED_EVENT",
+          "openingTime": "2026-08-06T21:30:00-04:00",
+          "closingTime": "2026-08-07T00:30:00-04:00",
+          "description": "Special Ticketed Event"
         }
       ],
       "raw": {
-        "date": "2026-08-05",
+        "date": "2026-08-06",
         "type": "OPERATING",
         "purchases": [
           {
@@ -87,20 +87,20 @@
             "name": "Lightning Lane for Guardians of the Galaxy: Cosmic Rewind",
             "type": "ATTRACTION",
             "price": {
-              "amount": 1800,
+              "amount": 1900,
               "currency": "USD",
-              "formatted": "$18.00"
+              "formatted": "$19.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007838",
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 2100,
+              "amount": 2400,
               "currency": "USD",
-              "formatted": "$21.00"
+              "formatted": "$24.00"
             },
             "available": true
           },
@@ -109,40 +109,34 @@
             "name": "Lightning Lane Premier Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 18900,
+              "amount": 21900,
               "currency": "USD",
-              "formatted": "$189.00"
+              "formatted": "$219.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-08-05T21:00:00-04:00",
-        "openingTime": "2026-08-05T09:00:00-04:00"
+        "closingTime": "2026-08-06T21:00:00-04:00",
+        "openingTime": "2026-08-06T09:00:00-04:00"
       }
     },
     "hollywood_studios": {
-      "date": "2026-08-05",
+      "date": "2026-08-06",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
-      "closes_at": "21:00",
+      "closes_at": "22:00",
       "selected_schedule_type": "OPERATING",
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-08-05T08:30:00-04:00",
-          "closingTime": "2026-08-05T09:00:00-04:00",
+          "openingTime": "2026-08-06T08:30:00-04:00",
+          "closingTime": "2026-08-06T09:00:00-04:00",
           "description": "Early Entry"
-        },
-        {
-          "type": "TICKETED_EVENT",
-          "openingTime": "2026-08-05T21:30:00-04:00",
-          "closingTime": "2026-08-06T00:30:00-04:00",
-          "description": "Special Ticketed Event"
         }
       ],
       "raw": {
-        "date": "2026-08-05",
+        "date": "2026-08-06",
         "type": "OPERATING",
         "purchases": [
           {
@@ -150,11 +144,11 @@
             "name": "Lightning Lane for Star Wars: Rise of the Resistance",
             "type": "ATTRACTION",
             "price": {
-              "amount": 2000,
+              "amount": 2400,
               "currency": "USD",
-              "formatted": "$20.00"
+              "formatted": "$24.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007998",
@@ -179,12 +173,12 @@
             "available": true
           }
         ],
-        "closingTime": "2026-08-05T21:00:00-04:00",
-        "openingTime": "2026-08-05T09:00:00-04:00"
+        "closingTime": "2026-08-06T22:00:00-04:00",
+        "openingTime": "2026-08-06T09:00:00-04:00"
       }
     },
     "animal_kingdom": {
-      "date": "2026-08-05",
+      "date": "2026-08-06",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "08:00",
@@ -193,13 +187,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-08-05T07:30:00-04:00",
-          "closingTime": "2026-08-05T08:00:00-04:00",
+          "openingTime": "2026-08-06T07:30:00-04:00",
+          "closingTime": "2026-08-06T08:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-08-05",
+        "date": "2026-08-06",
         "type": "OPERATING",
         "purchases": [
           {
@@ -211,7 +205,7 @@
               "currency": "USD",
               "formatted": "$15.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007823",
@@ -236,13 +230,13 @@
             "available": true
           }
         ],
-        "closingTime": "2026-08-05T19:00:00-04:00",
-        "openingTime": "2026-08-05T08:00:00-04:00"
+        "closingTime": "2026-08-06T19:00:00-04:00",
+        "openingTime": "2026-08-06T08:00:00-04:00"
       }
     }
   },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-08-05T22:47:16Z",
+  "generated_at": "2026-08-06T04:02:49Z",
   "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
   "last_fetch_status": "ok",
