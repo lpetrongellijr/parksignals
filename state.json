@@ -5078,15 +5078,15 @@
     },
     "3cba0cb4-e2a6-402c-93ee-c11ffcb127ef": {
       "id": "3cba0cb4-e2a6-402c-93ee-c11ffcb127ef",
-      "is_open": false,
+      "is_open": null,
       "name": "Under the Sea - Journey of The Little Mermaid",
       "last_seen_at": "2026-08-07T02:56:00Z",
       "last_changed_at": "2026-08-06T23:01:03Z",
-      "down_since": "2026-08-06T23:01:03Z",
+      "down_since": null,
       "last_down_at": "2026-08-06T23:01:03Z",
       "last_reopened_at": "2026-08-05T19:41:11Z",
-      "current_down_seconds": 14097,
-      "total_down_seconds": 52276,
+      "current_down_seconds": 0,
+      "total_down_seconds": 66613,
       "downtime_events": [
         {
           "down_at": "2026-06-26T13:15:23Z",
@@ -5237,12 +5237,19 @@
           "reopened_at": "2026-08-05T19:41:11Z",
           "duration_seconds": 7800,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-08-06T23:01:03Z",
+          "reopened_at": "2026-08-07T03:00:00Z",
+          "duration_seconds": 14337,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "CLOSED"
+      "source_status": "CLOSED",
+      "paused_at_park_close": "2026-08-07T03:00:00Z"
     },
     "924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48": {
       "id": "924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48",
