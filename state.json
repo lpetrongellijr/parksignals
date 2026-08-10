@@ -1471,15 +1471,15 @@
     },
     "b2260923-9315-40fd-9c6b-44dd811dbe64": {
       "id": "b2260923-9315-40fd-9c6b-44dd811dbe64",
-      "is_open": false,
+      "is_open": null,
       "name": "Space Mountain",
       "last_seen_at": "2026-08-10T02:56:08Z",
       "last_changed_at": "2026-08-10T01:21:10Z",
-      "down_since": "2026-08-10T01:21:10Z",
+      "down_since": null,
       "last_down_at": "2026-08-10T01:21:10Z",
       "last_reopened_at": "2026-08-09T21:41:08Z",
-      "current_down_seconds": 5698,
-      "total_down_seconds": 254365,
+      "current_down_seconds": 0,
+      "total_down_seconds": 260295,
       "downtime_events": [
         {
           "down_at": "2026-06-27T20:45:18Z",
@@ -1702,13 +1702,19 @@
           "reopened_at": "2026-08-09T21:41:08Z",
           "duration_seconds": 3009,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-08-10T01:21:10Z",
+          "reopened_at": "2026-08-10T03:00:00Z",
+          "duration_seconds": 5930,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-07T22:00:00Z"
+      "paused_at_park_close": "2026-08-10T03:00:00Z"
     },
     "9d4d5229-7142-44b6-b4fb-528920969a2c": {
       "id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
@@ -2151,15 +2157,15 @@
     },
     "de3309ca-97d5-4211-bffe-739fed47e92f": {
       "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
-      "is_open": false,
+      "is_open": null,
       "name": "Big Thunder Mountain",
       "last_seen_at": "2026-08-10T02:56:08Z",
       "last_changed_at": "2026-08-10T02:01:22Z",
-      "down_since": "2026-08-10T02:01:22Z",
+      "down_since": null,
       "last_down_at": "2026-08-10T02:01:22Z",
       "last_reopened_at": "2026-08-09T17:41:08Z",
-      "current_down_seconds": 3286,
-      "total_down_seconds": 322824,
+      "current_down_seconds": 0,
+      "total_down_seconds": 326342,
       "downtime_events": [
         {
           "down_at": "2026-06-26T22:45:17Z",
@@ -2562,13 +2568,19 @@
           "reopened_at": "2026-08-09T17:41:08Z",
           "duration_seconds": 3601,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-08-10T02:01:22Z",
+          "reopened_at": "2026-08-10T03:00:00Z",
+          "duration_seconds": 3518,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-09T03:00:00Z"
+      "paused_at_park_close": "2026-08-10T03:00:00Z"
     },
     "352feb94-e52e-45eb-9c92-e4b44c6b1a9d": {
       "id": "352feb94-e52e-45eb-9c92-e4b44c6b1a9d",
