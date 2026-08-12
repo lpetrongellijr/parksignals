@@ -4,7 +4,7 @@
       "id": "24cf863c-b6ba-4826-a056-0b698989cbf7",
       "is_open": true,
       "name": "Avatar Flight of Passage",
-      "last_seen_at": "2026-08-11T21:56:11Z",
+      "last_seen_at": "2026-08-12T12:01:25Z",
       "last_changed_at": "2026-08-02T15:25:58Z",
       "down_since": null,
       "last_down_at": "2026-08-02T14:40:56Z",
@@ -70,7 +70,7 @@
       "id": "64a6915f-a835-4226-ba5c-8389fc4cade3",
       "is_open": true,
       "name": "Expedition Everest - Legend of the Forbidden Mountain",
-      "last_seen_at": "2026-08-11T21:56:11Z",
+      "last_seen_at": "2026-08-12T12:01:25Z",
       "last_changed_at": "2026-08-11T21:41:17Z",
       "down_since": null,
       "last_down_at": "2026-08-11T19:21:12Z",
@@ -78,12 +78,6 @@
       "current_down_seconds": 0,
       "total_down_seconds": 285371,
       "downtime_events": [
-        {
-          "down_at": "2026-06-27T21:30:19Z",
-          "reopened_at": "2026-06-27T22:00:00Z",
-          "duration_seconds": 1781,
-          "ended_by": "park_close"
-        },
         {
           "down_at": "2026-06-28T21:30:21Z",
           "reopened_at": "2026-06-28T22:00:00Z",
@@ -413,7 +407,7 @@
       "id": "32e01181-9a5f-4936-8a77-0dace1de836c",
       "is_open": true,
       "name": "Kilimanjaro Safaris",
-      "last_seen_at": "2026-08-11T21:56:11Z",
+      "last_seen_at": "2026-08-12T12:01:25Z",
       "last_changed_at": "2026-08-09T12:01:15Z",
       "down_since": null,
       "last_down_at": "2026-08-08T23:31:09Z",
@@ -516,7 +510,7 @@
       "id": "7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0",
       "is_open": true,
       "name": "Na'vi River Journey",
-      "last_seen_at": "2026-08-11T21:56:11Z",
+      "last_seen_at": "2026-08-12T12:01:25Z",
       "last_changed_at": "2026-08-07T21:06:08Z",
       "down_since": null,
       "last_down_at": "2026-08-07T20:41:09Z",
@@ -593,22 +587,16 @@
     },
     "d58d9262-ec95-4161-80a0-07ca43b2f5f3": {
       "id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
-      "is_open": true,
+      "is_open": false,
       "name": "Kali River Rapids",
-      "last_seen_at": "2026-08-11T21:56:11Z",
-      "last_changed_at": "2026-08-11T20:24:02Z",
-      "down_since": null,
-      "last_down_at": "2026-08-11T19:06:18Z",
+      "last_seen_at": "2026-08-12T12:01:25Z",
+      "last_changed_at": "2026-08-12T12:01:25Z",
+      "down_since": "2026-08-12T12:01:25Z",
+      "last_down_at": "2026-08-12T12:01:25Z",
       "last_reopened_at": "2026-08-11T20:24:02Z",
       "current_down_seconds": 0,
       "total_down_seconds": 509598,
       "downtime_events": [
-        {
-          "down_at": "2026-06-27T21:30:19Z",
-          "reopened_at": "2026-06-27T22:00:00Z",
-          "duration_seconds": 1781,
-          "ended_by": "park_close"
-        },
         {
           "down_at": "2026-06-28T12:15:19Z",
           "reopened_at": "2026-06-28T13:15:17Z",
@@ -1123,27 +1111,21 @@
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "OPERATING",
+      "source_status": "CLOSED",
       "paused_at_park_close": "2026-08-09T00:00:00Z"
     },
     "4f391f0e-52be-4f9d-99d6-b3ae0373b43c": {
       "id": "4f391f0e-52be-4f9d-99d6-b3ae0373b43c",
-      "is_open": null,
+      "is_open": true,
       "name": "Wildlife Express Train",
-      "last_seen_at": "2026-08-11T21:56:11Z",
-      "last_changed_at": "2026-08-11T12:46:17Z",
+      "last_seen_at": "2026-08-12T12:01:25Z",
+      "last_changed_at": "2026-08-12T12:01:25Z",
       "down_since": null,
       "last_down_at": "2026-08-10T16:21:18Z",
       "last_reopened_at": "2026-08-10T17:31:34Z",
       "current_down_seconds": 0,
       "total_down_seconds": 73042,
       "downtime_events": [
-        {
-          "down_at": "2026-06-27T21:15:15Z",
-          "reopened_at": "2026-06-27T22:00:00Z",
-          "duration_seconds": 2685,
-          "ended_by": "park_close"
-        },
         {
           "down_at": "2026-06-28T21:15:17Z",
           "reopened_at": "2026-06-28T22:00:00Z",
@@ -1235,20 +1217,10 @@
           "ended_by": "reopened"
         }
       ],
-      "planned_closure_active": true,
-      "planned_closure": {
-        "ride_name": "Wildlife Express Train",
-        "starts_on": null,
-        "ends_on": null,
-        "reason": "scheduled ride operating hours",
-        "source": "configured_ride_operating_hours",
-        "opens_at": "09:30",
-        "closes_at": "16:30",
-        "timezone": "America/New_York",
-        "effective_at": "2026-08-11T20:30:00Z"
-      },
+      "planned_closure_active": false,
+      "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "CLOSED",
+      "source_status": "OPERATING",
       "paused_at_park_close": "2026-07-09T22:00:00Z"
     }
   },
