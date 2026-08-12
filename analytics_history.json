@@ -41812,25 +41812,25 @@
     },
     "2026-08-12": {
       "date": "2026-08-12",
-      "last_observed_at": "2026-08-12T12:11:27Z",
+      "last_observed_at": "2026-08-12T12:16:14Z",
       "parks": {
         "animal_kingdom": {
           "park_name": "Animal Kingdom",
           "rides": {
             "24cf863c-b6ba-4826-a056-0b698989cbf7": {
-              "average_wait_time": 73.3,
+              "average_wait_time": 77.5,
               "down_event_count": 0,
               "down_samples": 0,
               "downtime_seconds": 0,
               "max_wait_time": 90,
               "min_wait_time": 60,
-              "open_samples": 3,
+              "open_samples": 4,
               "planned_closure_samples": 0,
               "ride_name": "Avatar Flight of Passage",
-              "samples": 3,
+              "samples": 4,
               "unknown_samples": 0,
-              "wait_time_samples": 3,
-              "wait_time_total": 220
+              "wait_time_samples": 4,
+              "wait_time_total": 310
             },
             "32e01181-9a5f-4936-8a77-0dace1de836c": {
               "average_wait_time": 15.0,
@@ -41839,13 +41839,13 @@
               "downtime_seconds": 0,
               "max_wait_time": 15,
               "min_wait_time": 15,
-              "open_samples": 3,
+              "open_samples": 4,
               "planned_closure_samples": 0,
               "ride_name": "Kilimanjaro Safaris",
-              "samples": 3,
+              "samples": 4,
               "unknown_samples": 0,
-              "wait_time_samples": 3,
-              "wait_time_total": 45
+              "wait_time_samples": 4,
+              "wait_time_total": 60
             },
             "4f391f0e-52be-4f9d-99d6-b3ae0373b43c": {
               "average_wait_time": 5.0,
@@ -41854,28 +41854,28 @@
               "downtime_seconds": 0,
               "max_wait_time": 5,
               "min_wait_time": 5,
-              "open_samples": 3,
+              "open_samples": 4,
               "planned_closure_samples": 0,
               "ride_name": "Wildlife Express Train",
-              "samples": 3,
+              "samples": 4,
               "unknown_samples": 0,
-              "wait_time_samples": 2,
-              "wait_time_total": 10
+              "wait_time_samples": 3,
+              "wait_time_total": 15
             },
             "64a6915f-a835-4226-ba5c-8389fc4cade3": {
-              "average_wait_time": 8.3,
+              "average_wait_time": 11.2,
               "down_event_count": 0,
               "down_samples": 0,
               "downtime_seconds": 0,
-              "max_wait_time": 15,
+              "max_wait_time": 20,
               "min_wait_time": 5,
-              "open_samples": 3,
+              "open_samples": 4,
               "planned_closure_samples": 0,
               "ride_name": "Expedition Everest - Legend of the Forbidden Mountain",
-              "samples": 3,
+              "samples": 4,
               "unknown_samples": 0,
-              "wait_time_samples": 3,
-              "wait_time_total": 25
+              "wait_time_samples": 4,
+              "wait_time_total": 45
             },
             "7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0": {
               "average_wait_time": 10.0,
@@ -41884,39 +41884,39 @@
               "downtime_seconds": 0,
               "max_wait_time": 10,
               "min_wait_time": 10,
-              "open_samples": 3,
+              "open_samples": 4,
               "planned_closure_samples": 0,
               "ride_name": "Na'vi River Journey",
-              "samples": 3,
+              "samples": 4,
               "unknown_samples": 0,
-              "wait_time_samples": 3,
-              "wait_time_total": 30
+              "wait_time_samples": 4,
+              "wait_time_total": 40
             },
             "d58d9262-ec95-4161-80a0-07ca43b2f5f3": {
               "average_wait_time": null,
               "down_event_count": 1,
-              "down_samples": 3,
-              "downtime_seconds": 602,
+              "down_samples": 4,
+              "downtime_seconds": 889,
               "max_wait_time": null,
               "min_wait_time": null,
               "open_samples": 0,
               "planned_closure_samples": 0,
               "ride_name": "Kali River Rapids",
-              "samples": 3,
+              "samples": 4,
               "unknown_samples": 0,
               "wait_time_samples": 0,
               "wait_time_total": 0
             }
           },
-          "samples": 3
+          "samples": 4
         }
       },
-      "runs_captured": 106,
+      "runs_captured": 107,
       "timezone": "America/New_York"
     }
   },
   "first_observed_at": "2026-06-16T04:02:28Z",
-  "last_observed_at": "2026-08-12T12:11:27Z",
-  "runs_captured": 13117,
+  "last_observed_at": "2026-08-12T12:16:14Z",
+  "runs_captured": 13118,
   "schema_version": 1
 }
