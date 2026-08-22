@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-22T01:21:31Z",
+  "generated_at": "2026-08-22T01:26:33Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -25,7 +25,7 @@
           "id": "f5aad2d4-a419-4384-bd9a-42f86385c750",
           "name": "\"it's a small world\"",
           "status": "park_closed",
-          "wait_time_minutes": 10,
+          "wait_time_minutes": 5,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -116,7 +116,7 @@
           "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
           "name": "Jungle Cruise",
           "status": "park_closed",
-          "wait_time_minutes": 5,
+          "wait_time_minutes": 10,
           "downtime_today_seconds": 86,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -155,7 +155,7 @@
           "id": "86a41273-5f15-4b54-93b6-829f140e5161",
           "name": "Peter Pan's Flight",
           "status": "park_closed",
-          "wait_time_minutes": 20,
+          "wait_time_minutes": 25,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -499,17 +499,17 @@
       "tracked_ride_count": 9,
       "open_ride_count": 9,
       "unavailable_ride_count": 0,
-      "average_wait_minutes": 45,
+      "average_wait_minutes": 44,
       "rides": [
         {
           "id": "d56506e2-6ad3-443a-8065-fea37987248d",
           "name": "Alien Swirling Saucers",
           "status": "open",
-          "wait_time_minutes": 20,
+          "wait_time_minutes": 25,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-22T01:21:31Z",
+          "last_seen_at": "2026-08-22T01:26:33Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -518,11 +518,11 @@
           "id": "6e118e37-5002-408d-9d88-0b5d9cdb5d14",
           "name": "Mickey & Minnie's Runaway Railway",
           "status": "open",
-          "wait_time_minutes": 55,
+          "wait_time_minutes": 45,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-22T01:21:31Z",
+          "last_seen_at": "2026-08-22T01:26:33Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -535,7 +535,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-22T01:21:31Z",
+          "last_seen_at": "2026-08-22T01:26:33Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -548,7 +548,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-22T01:21:31Z",
+          "last_seen_at": "2026-08-22T01:26:33Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -561,7 +561,7 @@
           "downtime_today_seconds": 3307,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-22T01:21:31Z",
+          "last_seen_at": "2026-08-22T01:26:33Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -574,7 +574,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-22T01:21:31Z",
+          "last_seen_at": "2026-08-22T01:26:33Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -587,7 +587,7 @@
           "downtime_today_seconds": 2094,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-22T01:21:31Z",
+          "last_seen_at": "2026-08-22T01:26:33Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -600,7 +600,7 @@
           "downtime_today_seconds": 2402,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-22T01:21:31Z",
+          "last_seen_at": "2026-08-22T01:26:33Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -613,7 +613,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-22T01:21:31Z",
+          "last_seen_at": "2026-08-22T01:26:33Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -820,7 +820,7 @@
       "downtime_today_seconds": 3307,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-22T01:21:31Z",
+      "last_seen_at": "2026-08-22T01:26:33Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -846,7 +846,7 @@
       "downtime_today_seconds": 2402,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-22T01:21:31Z",
+      "last_seen_at": "2026-08-22T01:26:33Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -872,7 +872,7 @@
       "downtime_today_seconds": 2094,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-22T01:21:31Z",
+      "last_seen_at": "2026-08-22T01:26:33Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -1024,7 +1024,7 @@
       "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
       "name": "Jungle Cruise",
       "status": "park_closed",
-      "wait_time_minutes": 5,
+      "wait_time_minutes": 10,
       "downtime_today_seconds": 86,
       "current_downtime_seconds": 0,
       "planned_closure": false,
