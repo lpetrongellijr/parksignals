@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T02:51:39Z",
+  "generated_at": "2026-08-24T02:56:37Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -51,7 +51,7 @@
           "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
           "name": "Big Thunder Mountain",
           "status": "park_closed",
-          "wait_time_minutes": 30,
+          "wait_time_minutes": 15,
           "downtime_today_seconds": 12293,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -855,7 +855,7 @@
       "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
       "name": "Big Thunder Mountain",
       "status": "park_closed",
-      "wait_time_minutes": 30,
+      "wait_time_minutes": 15,
       "downtime_today_seconds": 12293,
       "current_downtime_seconds": 0,
       "planned_closure": false,
