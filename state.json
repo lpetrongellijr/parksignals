@@ -12336,15 +12336,15 @@
     },
     "e516f303-e82d-4fd3-8fbf-8e6ab624cf89": {
       "id": "e516f303-e82d-4fd3-8fbf-8e6ab624cf89",
-      "is_open": false,
+      "is_open": null,
       "name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
       "last_seen_at": "2026-08-24T01:26:42Z",
       "last_changed_at": "2026-08-23T23:56:13Z",
-      "down_since": "2026-08-23T23:56:13Z",
+      "down_since": null,
       "last_down_at": "2026-08-23T23:56:13Z",
       "last_reopened_at": "2026-08-22T17:16:23Z",
-      "current_down_seconds": 5429,
-      "total_down_seconds": 225995,
+      "current_down_seconds": 0,
+      "total_down_seconds": 231622,
       "downtime_events": [
         {
           "down_at": "2026-07-10T20:25:21Z",
@@ -12453,13 +12453,19 @@
           "reopened_at": "2026-08-22T17:16:23Z",
           "duration_seconds": 883,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-08-23T23:56:13Z",
+          "reopened_at": "2026-08-24T01:30:00Z",
+          "duration_seconds": 5627,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-08T02:00:00Z"
+      "paused_at_park_close": "2026-08-24T01:30:00Z"
     },
     "6e118e37-5002-408d-9d88-0b5d9cdb5d14": {
       "id": "6e118e37-5002-408d-9d88-0b5d9cdb5d14",
