@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T02:11:41Z",
+  "generated_at": "2026-08-24T02:13:22Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -116,7 +116,7 @@
           "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
           "name": "Jungle Cruise",
           "status": "park_closed",
-          "wait_time_minutes": 5,
+          "wait_time_minutes": 0,
           "downtime_today_seconds": 18590,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -777,7 +777,7 @@
       "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
       "name": "Jungle Cruise",
       "status": "park_closed",
-      "wait_time_minutes": 5,
+      "wait_time_minutes": 0,
       "downtime_today_seconds": 18590,
       "current_downtime_seconds": 0,
       "planned_closure": false,
