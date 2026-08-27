@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T03:02:09Z",
+  "generated_at": "2026-08-27T03:06:45Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -557,7 +557,7 @@
           "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
           "name": "Slinky Dog Dash",
           "status": "park_closed",
-          "wait_time_minutes": null,
+          "wait_time_minutes": 20,
           "downtime_today_seconds": 13700,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -855,7 +855,7 @@
       "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
       "name": "Slinky Dog Dash",
       "status": "park_closed",
-      "wait_time_minutes": null,
+      "wait_time_minutes": 20,
       "downtime_today_seconds": 13700,
       "current_downtime_seconds": 0,
       "planned_closure": false,
