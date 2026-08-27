@@ -39,7 +39,7 @@
               "currency": "USD",
               "formatted": "$19.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007944",
@@ -108,17 +108,6 @@
               "formatted": "$18.00"
             },
             "available": true
-          },
-          {
-            "id": "premierpass_80007838",
-            "name": "Lightning Lane Premier Pass",
-            "type": "PACKAGE",
-            "price": {
-              "amount": 16900,
-              "currency": "USD",
-              "formatted": "$169.00"
-            },
-            "available": true
           }
         ],
         "closingTime": "2026-08-26T21:00:00-04:00",
@@ -171,17 +160,6 @@
               "formatted": "$22.00"
             },
             "available": true
-          },
-          {
-            "id": "premierpass_80007998",
-            "name": "Lightning Lane Premier Pass",
-            "type": "PACKAGE",
-            "price": {
-              "amount": 26900,
-              "currency": "USD",
-              "formatted": "$269.00"
-            },
-            "available": true
           }
         ],
         "closingTime": "2026-08-26T21:00:00-04:00",
@@ -222,7 +200,7 @@
               "currency": "USD",
               "formatted": "$15.00"
             },
-            "available": true
+            "available": false
           },
           {
             "id": "lightninglanemultipass_80007823",
@@ -233,18 +211,7 @@
               "currency": "USD",
               "formatted": "$16.00"
             },
-            "available": true
-          },
-          {
-            "id": "premierpass_80007823",
-            "name": "Lightning Lane Premier Pass",
-            "type": "PACKAGE",
-            "price": {
-              "amount": 11900,
-              "currency": "USD",
-              "formatted": "$119.00"
-            },
-            "available": true
+            "available": false
           }
         ],
         "closingTime": "2026-08-26T18:00:00-04:00",
@@ -253,7 +220,7 @@
     }
   },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-08-26T22:03:58Z",
+  "generated_at": "2026-08-27T02:19:47Z",
   "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
   "last_fetch_status": "ok",
