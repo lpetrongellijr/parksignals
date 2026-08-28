@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-28T23:26:54Z",
+  "generated_at": "2026-08-28T23:32:02Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -51,7 +51,7 @@
           "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
           "name": "Big Thunder Mountain",
           "status": "park_closed",
-          "wait_time_minutes": 20,
+          "wait_time_minutes": 35,
           "downtime_today_seconds": 6893,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -155,7 +155,7 @@
           "id": "86a41273-5f15-4b54-93b6-829f140e5161",
           "name": "Peter Pan's Flight",
           "status": "park_closed",
-          "wait_time_minutes": 20,
+          "wait_time_minutes": 25,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -194,7 +194,7 @@
           "id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
           "name": "Seven Dwarfs Mine Train",
           "status": "park_closed",
-          "wait_time_minutes": 25,
+          "wait_time_minutes": 35,
           "downtime_today_seconds": 5685,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -337,7 +337,7 @@
       "tracked_ride_count": 11,
       "open_ride_count": 10,
       "unavailable_ride_count": 1,
-      "average_wait_minutes": 30,
+      "average_wait_minutes": 32,
       "rides": [
         {
           "id": "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0",
@@ -347,7 +347,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -360,7 +360,7 @@
           "downtime_today_seconds": 591,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -373,7 +373,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -386,7 +386,7 @@
           "downtime_today_seconds": 287,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -399,7 +399,7 @@
           "downtime_today_seconds": 1776,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -412,7 +412,7 @@
           "downtime_today_seconds": 597,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -421,11 +421,11 @@
           "id": "1e735ffb-4868-47f1-b2cd-2ac1156cd5f0",
           "name": "Remy's Ratatouille Adventure",
           "status": "open",
-          "wait_time_minutes": 65,
+          "wait_time_minutes": 75,
           "downtime_today_seconds": 876,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -438,7 +438,7 @@
           "downtime_today_seconds": 1199,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -451,7 +451,7 @@
           "downtime_today_seconds": 3599,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -461,10 +461,10 @@
           "name": "Test Track",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 16507,
-          "current_downtime_seconds": 14408,
+          "downtime_today_seconds": 16815,
+          "current_downtime_seconds": 14716,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -473,11 +473,11 @@
           "id": "fb076275-0570-4d62-b2a9-4d6515130fa3",
           "name": "The Seas with Nemo & Friends",
           "status": "open",
-          "wait_time_minutes": 5,
+          "wait_time_minutes": 10,
           "downtime_today_seconds": 2703,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -499,7 +499,7 @@
       "tracked_ride_count": 9,
       "open_ride_count": 8,
       "unavailable_ride_count": 1,
-      "average_wait_minutes": 42,
+      "average_wait_minutes": 43,
       "rides": [
         {
           "id": "d56506e2-6ad3-443a-8065-fea37987248d",
@@ -509,7 +509,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -522,7 +522,7 @@
           "downtime_today_seconds": 2987,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -535,7 +535,7 @@
           "downtime_today_seconds": 2405,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -548,7 +548,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -558,10 +558,10 @@
           "name": "Slinky Dog Dash",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 12291,
-          "current_downtime_seconds": 12291,
+          "downtime_today_seconds": 12599,
+          "current_downtime_seconds": 12599,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -574,7 +574,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -587,7 +587,7 @@
           "downtime_today_seconds": 5403,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -600,7 +600,7 @@
           "downtime_today_seconds": 897,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -609,11 +609,11 @@
           "id": "20b5daa8-e1ea-436f-830c-2d7d18d929b5",
           "name": "Toy Story Mania!",
           "status": "open",
-          "wait_time_minutes": 35,
+          "wait_time_minutes": 40,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-28T23:26:54Z",
+          "last_seen_at": "2026-08-28T23:32:02Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -724,10 +724,10 @@
       "name": "Test Track",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 16507,
-      "current_downtime_seconds": 14408,
+      "downtime_today_seconds": 16815,
+      "current_downtime_seconds": 14716,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -737,26 +737,16 @@
       "name": "Slinky Dog Dash",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 12291,
-      "current_downtime_seconds": 12291,
+      "downtime_today_seconds": 12599,
+      "current_downtime_seconds": 12599,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
     }
   ],
-  "latest_updates": [
-    {
-      "type": "reopened",
-      "ride_id": "480fde8f-fe58-4bfb-b3ab-052a39d4db7c",
-      "ride_name": "Spaceship Earth",
-      "park_id": "epcot",
-      "park_name": "EPCOT",
-      "park_slug": "epcot",
-      "observed_at": "2026-08-28T23:26:54Z"
-    }
-  ],
+  "latest_updates": [],
   "downtime_today": [
     {
       "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
@@ -776,10 +766,10 @@
       "name": "Test Track",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 16507,
-      "current_downtime_seconds": 14408,
+      "downtime_today_seconds": 16815,
+      "current_downtime_seconds": 14716,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -789,10 +779,10 @@
       "name": "Slinky Dog Dash",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 12291,
-      "current_downtime_seconds": 12291,
+      "downtime_today_seconds": 12599,
+      "current_downtime_seconds": 12599,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -827,7 +817,7 @@
       "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
       "name": "Big Thunder Mountain",
       "status": "park_closed",
-      "wait_time_minutes": 20,
+      "wait_time_minutes": 35,
       "downtime_today_seconds": 6893,
       "current_downtime_seconds": 0,
       "planned_closure": false,
@@ -866,7 +856,7 @@
       "id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
       "name": "Seven Dwarfs Mine Train",
       "status": "park_closed",
-      "wait_time_minutes": 25,
+      "wait_time_minutes": 35,
       "downtime_today_seconds": 5685,
       "current_downtime_seconds": 0,
       "planned_closure": false,
@@ -961,7 +951,7 @@
       "downtime_today_seconds": 5403,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -974,7 +964,7 @@
       "downtime_today_seconds": 3599,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -987,7 +977,7 @@
       "downtime_today_seconds": 2987,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -996,11 +986,11 @@
       "id": "fb076275-0570-4d62-b2a9-4d6515130fa3",
       "name": "The Seas with Nemo & Friends",
       "status": "open",
-      "wait_time_minutes": 5,
+      "wait_time_minutes": 10,
       "downtime_today_seconds": 2703,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -1026,7 +1016,7 @@
       "downtime_today_seconds": 2405,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -1052,7 +1042,7 @@
       "downtime_today_seconds": 1776,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -1078,7 +1068,7 @@
       "downtime_today_seconds": 1199,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -1117,7 +1107,7 @@
       "downtime_today_seconds": 897,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -1126,11 +1116,11 @@
       "id": "1e735ffb-4868-47f1-b2cd-2ac1156cd5f0",
       "name": "Remy's Ratatouille Adventure",
       "status": "open",
-      "wait_time_minutes": 65,
+      "wait_time_minutes": 75,
       "downtime_today_seconds": 876,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -1156,7 +1146,7 @@
       "downtime_today_seconds": 597,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -1169,7 +1159,7 @@
       "downtime_today_seconds": 591,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -1182,7 +1172,7 @@
       "downtime_today_seconds": 287,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-28T23:26:54Z",
+      "last_seen_at": "2026-08-28T23:32:02Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
