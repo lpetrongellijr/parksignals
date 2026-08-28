@@ -7381,15 +7381,15 @@
     },
     "273ddb8d-e7b5-4e34-8657-1113f49262a5": {
       "id": "273ddb8d-e7b5-4e34-8657-1113f49262a5",
-      "is_open": false,
+      "is_open": null,
       "name": "Prince Charming Regal Carrousel",
       "last_seen_at": "2026-08-28T01:56:45Z",
       "last_changed_at": "2026-08-28T01:51:48Z",
-      "down_since": "2026-08-28T01:51:48Z",
+      "down_since": null,
       "last_down_at": "2026-08-28T01:51:48Z",
       "last_reopened_at": "2026-08-27T17:42:22Z",
-      "current_down_seconds": 297,
-      "total_down_seconds": 362629,
+      "current_down_seconds": 0,
+      "total_down_seconds": 363121,
       "downtime_events": [
         {
           "down_at": "2026-07-14T01:50:43Z",
@@ -7726,13 +7726,19 @@
           "reopened_at": "2026-08-27T17:42:22Z",
           "duration_seconds": 2735,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-08-28T01:51:48Z",
+          "reopened_at": "2026-08-28T02:00:00Z",
+          "duration_seconds": 492,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-20T03:00:00Z"
+      "paused_at_park_close": "2026-08-28T02:00:00Z"
     },
     "e39b831b-7731-49bb-815b-289b4f49a9fd": {
       "id": "e39b831b-7731-49bb-815b-289b4f49a9fd",
