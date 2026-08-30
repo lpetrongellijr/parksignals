@@ -2133,15 +2133,15 @@
     },
     "de3309ca-97d5-4211-bffe-739fed47e92f": {
       "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
-      "is_open": false,
+      "is_open": null,
       "name": "Big Thunder Mountain",
       "last_seen_at": "2026-08-30T02:56:50Z",
       "last_changed_at": "2026-08-30T00:51:55Z",
-      "down_since": "2026-08-30T00:51:55Z",
+      "down_since": null,
       "last_down_at": "2026-08-30T00:51:55Z",
       "last_reopened_at": "2026-08-29T22:51:41Z",
-      "current_down_seconds": 7495,
-      "total_down_seconds": 443913,
+      "current_down_seconds": 0,
+      "total_down_seconds": 451598,
       "downtime_events": [
         {
           "down_at": "2026-07-16T13:01:02Z",
@@ -2574,13 +2574,19 @@
           "reopened_at": "2026-08-29T22:51:41Z",
           "duration_seconds": 4789,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-08-30T00:51:55Z",
+          "reopened_at": "2026-08-30T03:00:00Z",
+          "duration_seconds": 7685,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-25T22:00:00Z"
+      "paused_at_park_close": "2026-08-30T03:00:00Z"
     },
     "352feb94-e52e-45eb-9c92-e4b44c6b1a9d": {
       "id": "352feb94-e52e-45eb-9c92-e4b44c6b1a9d",
