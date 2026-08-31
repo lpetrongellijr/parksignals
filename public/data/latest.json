@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-31T01:02:06Z",
+  "generated_at": "2026-08-31T01:07:13Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -499,7 +499,7 @@
       "tracked_ride_count": 9,
       "open_ride_count": 8,
       "unavailable_ride_count": 1,
-      "average_wait_minutes": 18,
+      "average_wait_minutes": 17,
       "rides": [
         {
           "id": "d56506e2-6ad3-443a-8065-fea37987248d",
@@ -509,7 +509,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-31T01:02:06Z",
+          "last_seen_at": "2026-08-31T01:07:13Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -522,7 +522,7 @@
           "downtime_today_seconds": 6021,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-31T01:02:06Z",
+          "last_seen_at": "2026-08-31T01:07:13Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -535,7 +535,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-31T01:02:06Z",
+          "last_seen_at": "2026-08-31T01:07:13Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -548,7 +548,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-31T01:02:06Z",
+          "last_seen_at": "2026-08-31T01:07:13Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -558,10 +558,10 @@
           "name": "Slinky Dog Dash",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 9305,
-          "current_downtime_seconds": 7225,
+          "downtime_today_seconds": 9612,
+          "current_downtime_seconds": 7532,
           "planned_closure": false,
-          "last_seen_at": "2026-08-31T01:02:06Z",
+          "last_seen_at": "2026-08-31T01:07:13Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -574,7 +574,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-31T01:02:06Z",
+          "last_seen_at": "2026-08-31T01:07:13Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -583,11 +583,11 @@
           "id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
           "name": "Star Wars: Rise of the Resistance",
           "status": "open",
-          "wait_time_minutes": 20,
+          "wait_time_minutes": 10,
           "downtime_today_seconds": 7375,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-31T01:02:06Z",
+          "last_seen_at": "2026-08-31T01:07:13Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -600,7 +600,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-31T01:02:06Z",
+          "last_seen_at": "2026-08-31T01:07:13Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -613,7 +613,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-08-31T01:02:06Z",
+          "last_seen_at": "2026-08-31T01:07:13Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -724,10 +724,10 @@
       "name": "Slinky Dog Dash",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 9305,
-      "current_downtime_seconds": 7225,
+      "downtime_today_seconds": 9612,
+      "current_downtime_seconds": 7532,
       "planned_closure": false,
-      "last_seen_at": "2026-08-31T01:02:06Z",
+      "last_seen_at": "2026-08-31T01:07:13Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -735,6 +735,19 @@
   ],
   "latest_updates": [],
   "downtime_today": [
+    {
+      "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
+      "name": "Slinky Dog Dash",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 9612,
+      "current_downtime_seconds": 7532,
+      "planned_closure": false,
+      "last_seen_at": "2026-08-31T01:07:13Z",
+      "park_id": "hollywood_studios",
+      "park_name": "Hollywood Studios",
+      "park_slug": "hollywood-studios"
+    },
     {
       "id": "64a6915f-a835-4226-ba5c-8389fc4cade3",
       "name": "Expedition Everest",
@@ -749,27 +762,14 @@
       "park_slug": "animal-kingdom"
     },
     {
-      "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
-      "name": "Slinky Dog Dash",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 9305,
-      "current_downtime_seconds": 7225,
-      "planned_closure": false,
-      "last_seen_at": "2026-08-31T01:02:06Z",
-      "park_id": "hollywood_studios",
-      "park_name": "Hollywood Studios",
-      "park_slug": "hollywood-studios"
-    },
-    {
       "id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
       "name": "Star Wars: Rise of the Resistance",
       "status": "open",
-      "wait_time_minutes": 20,
+      "wait_time_minutes": 10,
       "downtime_today_seconds": 7375,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-31T01:02:06Z",
+      "last_seen_at": "2026-08-31T01:07:13Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -782,7 +782,7 @@
       "downtime_today_seconds": 6021,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-08-31T01:02:06Z",
+      "last_seen_at": "2026-08-31T01:07:13Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
