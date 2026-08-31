@@ -11658,15 +11658,15 @@
     },
     "399aa0a1-98e2-4d2b-b297-2b451e9665e1": {
       "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
-      "is_open": false,
+      "is_open": null,
       "name": "Slinky Dog Dash",
       "last_seen_at": "2026-08-31T01:26:36Z",
       "last_changed_at": "2026-08-30T23:01:41Z",
-      "down_since": "2026-08-30T23:01:41Z",
+      "down_since": null,
       "last_down_at": "2026-08-30T23:01:41Z",
       "last_reopened_at": "2026-08-30T13:36:34Z",
-      "current_down_seconds": 8695,
-      "total_down_seconds": 621043,
+      "current_down_seconds": 0,
+      "total_down_seconds": 629942,
       "downtime_events": [
         {
           "down_at": "2026-07-17T13:35:31Z",
@@ -12129,13 +12129,19 @@
           "reopened_at": "2026-08-30T13:36:34Z",
           "duration_seconds": 2080,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-08-30T23:01:41Z",
+          "reopened_at": "2026-08-31T01:30:00Z",
+          "duration_seconds": 8899,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-28T01:00:00Z"
+      "paused_at_park_close": "2026-08-31T01:30:00Z"
     },
     "6f6998e8-a629-412c-b964-2cb06af8e26b": {
       "id": "6f6998e8-a629-412c-b964-2cb06af8e26b",
