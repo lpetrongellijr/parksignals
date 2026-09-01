@@ -3877,15 +3877,15 @@
     },
     "73cb9445-0695-47a3-87ce-d08ae36b5f3c": {
       "id": "73cb9445-0695-47a3-87ce-d08ae36b5f3c",
-      "is_open": false,
+      "is_open": null,
       "name": "Tiana's Bayou Adventure",
       "last_seen_at": "2026-09-01T01:57:06Z",
       "last_changed_at": "2026-09-01T01:46:21Z",
-      "down_since": "2026-09-01T01:46:21Z",
+      "down_since": null,
       "last_down_at": "2026-09-01T01:46:21Z",
       "last_reopened_at": "2026-09-01T01:06:54Z",
-      "current_down_seconds": 645,
-      "total_down_seconds": 481463,
+      "current_down_seconds": 0,
+      "total_down_seconds": 482282,
       "downtime_events": [
         {
           "down_at": "2026-07-18T14:20:31Z",
@@ -4360,13 +4360,19 @@
           "reopened_at": "2026-09-01T01:06:54Z",
           "duration_seconds": 742,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-01T01:46:21Z",
+          "reopened_at": "2026-09-01T02:00:00Z",
+          "duration_seconds": 819,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-21T03:00:00Z"
+      "paused_at_park_close": "2026-09-01T02:00:00Z"
     },
     "72c7343a-f7fb-4f66-95df-c91016de7338": {
       "id": "72c7343a-f7fb-4f66-95df-c91016de7338",
