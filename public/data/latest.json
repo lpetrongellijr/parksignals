@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-02T01:01:52Z",
+  "generated_at": "2026-09-02T01:06:55Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -285,7 +285,7 @@
           "id": "5a43d1a7-ad53-4d25-abfe-25625f0da304",
           "name": "TRON Lightcycle / Run",
           "status": "park_closed",
-          "wait_time_minutes": 40,
+          "wait_time_minutes": 30,
           "downtime_today_seconds": 1525,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -499,7 +499,7 @@
       "tracked_ride_count": 9,
       "open_ride_count": 8,
       "unavailable_ride_count": 1,
-      "average_wait_minutes": 13,
+      "average_wait_minutes": 10,
       "rides": [
         {
           "id": "d56506e2-6ad3-443a-8065-fea37987248d",
@@ -509,7 +509,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-02T01:01:52Z",
+          "last_seen_at": "2026-09-02T01:06:55Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -522,7 +522,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-02T01:01:52Z",
+          "last_seen_at": "2026-09-02T01:06:55Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -535,7 +535,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-02T01:01:52Z",
+          "last_seen_at": "2026-09-02T01:06:55Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -548,7 +548,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-02T01:01:52Z",
+          "last_seen_at": "2026-09-02T01:06:55Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -558,10 +558,10 @@
           "name": "Slinky Dog Dash",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 43188,
-          "current_downtime_seconds": 43188,
+          "downtime_today_seconds": 43491,
+          "current_downtime_seconds": 43491,
           "planned_closure": false,
-          "last_seen_at": "2026-09-02T01:01:52Z",
+          "last_seen_at": "2026-09-02T01:06:55Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -574,7 +574,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-02T01:01:52Z",
+          "last_seen_at": "2026-09-02T01:06:55Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -587,7 +587,7 @@
           "downtime_today_seconds": 4197,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-02T01:01:52Z",
+          "last_seen_at": "2026-09-02T01:06:55Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -600,7 +600,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-02T01:01:52Z",
+          "last_seen_at": "2026-09-02T01:06:55Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -609,11 +609,11 @@
           "id": "20b5daa8-e1ea-436f-830c-2d7d18d929b5",
           "name": "Toy Story Mania!",
           "status": "open",
-          "wait_time_minutes": 30,
+          "wait_time_minutes": 5,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-02T01:01:52Z",
+          "last_seen_at": "2026-09-02T01:06:55Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -724,10 +724,10 @@
       "name": "Slinky Dog Dash",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 43188,
-      "current_downtime_seconds": 43188,
+      "downtime_today_seconds": 43491,
+      "current_downtime_seconds": 43491,
       "planned_closure": false,
-      "last_seen_at": "2026-09-02T01:01:52Z",
+      "last_seen_at": "2026-09-02T01:06:55Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -740,10 +740,10 @@
       "name": "Slinky Dog Dash",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 43188,
-      "current_downtime_seconds": 43188,
+      "downtime_today_seconds": 43491,
+      "current_downtime_seconds": 43491,
       "planned_closure": false,
-      "last_seen_at": "2026-09-02T01:01:52Z",
+      "last_seen_at": "2026-09-02T01:06:55Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -808,7 +808,7 @@
       "downtime_today_seconds": 4197,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-02T01:01:52Z",
+      "last_seen_at": "2026-09-02T01:06:55Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -986,7 +986,7 @@
       "id": "5a43d1a7-ad53-4d25-abfe-25625f0da304",
       "name": "TRON Lightcycle / Run",
       "status": "park_closed",
-      "wait_time_minutes": 40,
+      "wait_time_minutes": 30,
       "downtime_today_seconds": 1525,
       "current_downtime_seconds": 0,
       "planned_closure": false,
