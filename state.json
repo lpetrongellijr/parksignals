@@ -1227,7 +1227,7 @@
       "id": "5a43d1a7-ad53-4d25-abfe-25625f0da304",
       "is_open": true,
       "name": "TRON Lightcycle / Run",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-01T20:12:03Z",
       "down_since": null,
       "last_down_at": "2026-09-01T19:46:38Z",
@@ -1413,7 +1413,7 @@
       "id": "b2260923-9315-40fd-9c6b-44dd811dbe64",
       "is_open": true,
       "name": "Space Mountain",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-08-29T19:36:55Z",
       "down_since": null,
       "last_down_at": "2026-08-29T19:21:58Z",
@@ -1708,7 +1708,7 @@
       "id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
       "is_open": true,
       "name": "Seven Dwarfs Mine Train",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-03T00:57:19Z",
       "down_since": null,
       "last_down_at": "2026-09-02T23:17:04Z",
@@ -2121,15 +2121,15 @@
     },
     "de3309ca-97d5-4211-bffe-739fed47e92f": {
       "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
-      "is_open": false,
+      "is_open": true,
       "name": "Big Thunder Mountain",
-      "last_seen_at": "2026-09-03T00:57:19Z",
-      "last_changed_at": "2026-09-02T23:17:04Z",
-      "down_since": "2026-09-02T23:17:04Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
+      "last_changed_at": "2026-09-03T01:02:14Z",
+      "down_since": null,
       "last_down_at": "2026-09-02T23:17:04Z",
-      "last_reopened_at": "2026-09-02T22:06:49Z",
-      "current_down_seconds": 6015,
-      "total_down_seconds": 466988,
+      "last_reopened_at": "2026-09-03T01:02:14Z",
+      "current_down_seconds": 0,
+      "total_down_seconds": 473298,
       "downtime_events": [
         {
           "down_at": "2026-07-20T13:00:46Z",
@@ -2556,19 +2556,25 @@
           "reopened_at": "2026-09-02T22:06:49Z",
           "duration_seconds": 9299,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-02T23:17:04Z",
+          "reopened_at": "2026-09-03T01:02:14Z",
+          "duration_seconds": 6310,
+          "ended_by": "reopened"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN",
+      "source_status": "OPERATING",
       "paused_at_park_close": "2026-08-30T03:00:00Z"
     },
     "352feb94-e52e-45eb-9c92-e4b44c6b1a9d": {
       "id": "352feb94-e52e-45eb-9c92-e4b44c6b1a9d",
       "is_open": true,
       "name": "Pirates of the Caribbean",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-02T13:07:22Z",
       "down_since": null,
       "last_down_at": "2026-09-02T13:02:11Z",
@@ -2977,7 +2983,7 @@
       "id": "2551a77d-023f-4ab1-9a19-8afec0190f39",
       "is_open": true,
       "name": "Haunted Mansion",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-02T13:07:22Z",
       "down_since": null,
       "last_down_at": "2026-09-02T13:02:11Z",
@@ -3326,12 +3332,12 @@
       "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
       "is_open": false,
       "name": "Jungle Cruise",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-02T23:22:00Z",
       "down_since": "2026-09-02T23:22:00Z",
       "last_down_at": "2026-09-02T23:22:00Z",
       "last_reopened_at": "2026-09-02T21:57:02Z",
-      "current_down_seconds": 5719,
+      "current_down_seconds": 6014,
       "total_down_seconds": 366005,
       "downtime_events": [
         {
@@ -3723,7 +3729,7 @@
       "id": "86a41273-5f15-4b54-93b6-829f140e5161",
       "is_open": true,
       "name": "Peter Pan's Flight",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-08-31T18:06:57Z",
       "down_since": null,
       "last_down_at": "2026-08-31T17:57:13Z",
@@ -3849,7 +3855,7 @@
       "id": "73cb9445-0695-47a3-87ce-d08ae36b5f3c",
       "is_open": true,
       "name": "Tiana's Bayou Adventure",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-03T00:57:19Z",
       "down_since": null,
       "last_down_at": "2026-09-02T23:17:04Z",
@@ -4360,7 +4366,7 @@
       "id": "72c7343a-f7fb-4f66-95df-c91016de7338",
       "is_open": true,
       "name": "Buzz Lightyear\u2019s Space Ranger Spin",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-02T20:32:13Z",
       "down_since": null,
       "last_down_at": "2026-09-02T19:57:00Z",
@@ -4607,7 +4613,7 @@
       "id": "f5aad2d4-a419-4384-bd9a-42f86385c750",
       "is_open": true,
       "name": "\"it's a small world\"",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-08-27T13:06:39Z",
       "down_since": null,
       "last_down_at": "2026-08-27T13:01:55Z",
@@ -4716,7 +4722,7 @@
       "id": "0d94ad60-72f0-4551-83a6-ebaecdd89737",
       "is_open": true,
       "name": "The Many Adventures of Winnie the Pooh",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-02T20:02:13Z",
       "down_since": null,
       "last_down_at": "2026-09-02T19:57:00Z",
@@ -5131,7 +5137,7 @@
       "id": "3cba0cb4-e2a6-402c-93ee-c11ffcb127ef",
       "is_open": true,
       "name": "Under the Sea - Journey of The Little Mermaid",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-02T16:02:16Z",
       "down_since": null,
       "last_down_at": "2026-09-02T15:57:04Z",
@@ -5280,15 +5286,15 @@
     },
     "924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48": {
       "id": "924a3b2c-6b4b-49e5-99d3-e9dc3f2e8a48",
-      "is_open": false,
+      "is_open": true,
       "name": "The Barnstormer",
-      "last_seen_at": "2026-09-03T00:57:19Z",
-      "last_changed_at": "2026-09-02T23:17:04Z",
-      "down_since": "2026-09-02T23:17:04Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
+      "last_changed_at": "2026-09-03T01:02:14Z",
+      "down_since": null,
       "last_down_at": "2026-09-02T23:17:04Z",
-      "last_reopened_at": "2026-09-02T21:42:18Z",
-      "current_down_seconds": 6015,
-      "total_down_seconds": 359440,
+      "last_reopened_at": "2026-09-03T01:02:14Z",
+      "current_down_seconds": 0,
+      "total_down_seconds": 365750,
       "downtime_events": [
         {
           "down_at": "2026-07-20T17:00:42Z",
@@ -5631,19 +5637,25 @@
           "reopened_at": "2026-09-02T21:42:18Z",
           "duration_seconds": 7828,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-02T23:17:04Z",
+          "reopened_at": "2026-09-03T01:02:14Z",
+          "duration_seconds": 6310,
+          "ended_by": "reopened"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN",
+      "source_status": "OPERATING",
       "paused_at_park_close": "2026-07-23T03:00:00Z"
     },
     "890fa430-89c0-4a3f-96c9-11597888005e": {
       "id": "890fa430-89c0-4a3f-96c9-11597888005e",
       "is_open": true,
       "name": "Dumbo the Flying Elephant",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-03T00:57:19Z",
       "down_since": null,
       "last_down_at": "2026-09-02T23:22:00Z",
@@ -5872,7 +5884,7 @@
       "id": "ffcfeaa2-1416-4920-a1ed-543c1a1695c4",
       "is_open": true,
       "name": "Tomorrowland Transit Authority PeopleMover",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-02T21:21:26Z",
       "down_since": null,
       "last_down_at": "2026-09-02T21:17:08Z",
@@ -6143,7 +6155,7 @@
       "id": "f163ddcd-43e1-488d-8276-2381c1db0a39",
       "is_open": true,
       "name": "Tomorrowland Speedway",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-03T00:57:19Z",
       "down_since": null,
       "last_down_at": "2026-09-02T23:17:04Z",
@@ -6354,12 +6366,12 @@
       "id": "d9d12438-d999-4482-894b-8955fdb20ccf",
       "is_open": false,
       "name": "Astro Orbiter",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-02T23:17:04Z",
       "down_since": "2026-09-02T23:17:04Z",
       "last_down_at": "2026-09-02T23:17:04Z",
       "last_reopened_at": "2026-09-02T21:51:44Z",
-      "current_down_seconds": 6015,
+      "current_down_seconds": 6310,
       "total_down_seconds": 299214,
       "downtime_events": [
         {
@@ -6619,7 +6631,7 @@
       "id": "8183f3f2-1b59-4b9c-b634-6a863bdf8d84",
       "is_open": null,
       "name": "Walt Disney's Carousel of Progress",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-07-23T13:00:57Z",
       "down_since": null,
       "last_down_at": "2026-07-23T13:00:57Z",
@@ -6657,7 +6669,7 @@
       "id": "0aae716c-af13-4439-b638-d75fb1649df3",
       "is_open": true,
       "name": "Mad Tea Party",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-08-28T15:41:47Z",
       "down_since": null,
       "last_down_at": "2026-08-28T15:26:46Z",
@@ -6793,15 +6805,15 @@
     },
     "96455de6-f4f1-403c-9391-bf8396979149": {
       "id": "96455de6-f4f1-403c-9391-bf8396979149",
-      "is_open": false,
+      "is_open": true,
       "name": "The Magic Carpets of Aladdin",
-      "last_seen_at": "2026-09-03T00:57:19Z",
-      "last_changed_at": "2026-09-02T23:17:04Z",
-      "down_since": "2026-09-02T23:17:04Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
+      "last_changed_at": "2026-09-03T01:02:14Z",
+      "down_since": null,
       "last_down_at": "2026-09-02T23:17:04Z",
-      "last_reopened_at": "2026-09-02T21:51:44Z",
-      "current_down_seconds": 6015,
-      "total_down_seconds": 269439,
+      "last_reopened_at": "2026-09-03T01:02:14Z",
+      "current_down_seconds": 0,
+      "total_down_seconds": 275749,
       "downtime_events": [
         {
           "down_at": "2026-07-20T13:00:46Z",
@@ -7162,19 +7174,25 @@
           "reopened_at": "2026-09-02T21:51:44Z",
           "duration_seconds": 8394,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-02T23:17:04Z",
+          "reopened_at": "2026-09-03T01:02:14Z",
+          "duration_seconds": 6310,
+          "ended_by": "reopened"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
-      "source_status": "DOWN",
+      "source_status": "OPERATING",
       "paused_at_park_close": "2026-07-09T03:00:00Z"
     },
     "273ddb8d-e7b5-4e34-8657-1113f49262a5": {
       "id": "273ddb8d-e7b5-4e34-8657-1113f49262a5",
       "is_open": true,
       "name": "Prince Charming Regal Carrousel",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-01T01:55:00Z",
       "down_since": null,
       "last_down_at": "2026-09-01T01:26:57Z",
@@ -7523,7 +7541,7 @@
       "id": "e39b831b-7731-49bb-815b-289b4f49a9fd",
       "is_open": null,
       "name": "Walt Disney World Railroad",
-      "last_seen_at": "2026-09-03T00:57:19Z",
+      "last_seen_at": "2026-09-03T01:02:14Z",
       "last_changed_at": "2026-09-02T23:17:04Z",
       "down_since": null,
       "last_down_at": "2026-09-02T23:17:04Z",
@@ -8322,15 +8340,15 @@
     },
     "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0": {
       "id": "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0",
-      "is_open": false,
+      "is_open": null,
       "name": "Frozen Ever After",
       "last_seen_at": "2026-09-03T00:57:19Z",
       "last_changed_at": "2026-09-02T23:37:06Z",
-      "down_since": "2026-09-02T23:37:06Z",
+      "down_since": null,
       "last_down_at": "2026-09-02T23:37:06Z",
       "last_reopened_at": "2026-09-02T22:56:29Z",
-      "current_down_seconds": 4813,
-      "total_down_seconds": 388742,
+      "current_down_seconds": 0,
+      "total_down_seconds": 393716,
       "downtime_events": [
         {
           "down_at": "2026-07-20T17:15:40Z",
@@ -8601,32 +8619,32 @@
           "reopened_at": "2026-09-02T22:56:29Z",
           "duration_seconds": 8370,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-02T23:37:06Z",
+          "reopened_at": "2026-09-03T01:00:00Z",
+          "duration_seconds": 4974,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-08T01:00:00Z"
+      "paused_at_park_close": "2026-09-03T01:00:00Z"
     },
     "37ae57c5-feaf-4e47-8f27-4b385be200f0": {
       "id": "37ae57c5-feaf-4e47-8f27-4b385be200f0",
-      "is_open": false,
+      "is_open": null,
       "name": "Test Track",
       "last_seen_at": "2026-09-03T00:57:19Z",
       "last_changed_at": "2026-09-02T23:27:04Z",
-      "down_since": "2026-09-02T23:27:04Z",
+      "down_since": null,
       "last_down_at": "2026-09-02T23:27:04Z",
       "last_reopened_at": "2026-09-02T21:51:44Z",
-      "current_down_seconds": 5415,
-      "total_down_seconds": 865215,
+      "current_down_seconds": 0,
+      "total_down_seconds": 870791,
       "downtime_events": [
-        {
-          "down_at": "2026-07-25T21:05:42Z",
-          "reopened_at": "2026-07-25T21:10:44Z",
-          "duration_seconds": 302,
-          "ended_by": "reopened"
-        },
         {
           "down_at": "2026-07-25T22:10:48Z",
           "reopened_at": "2026-07-25T22:20:39Z",
@@ -9340,13 +9358,19 @@
           "reopened_at": "2026-09-02T21:51:44Z",
           "duration_seconds": 10862,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-02T23:27:04Z",
+          "reopened_at": "2026-09-03T01:00:00Z",
+          "duration_seconds": 5576,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-27T01:00:00Z"
+      "paused_at_park_close": "2026-09-03T01:00:00Z"
     },
     "81b15dfd-cf6a-466f-be59-3dd65d2a2807": {
       "id": "81b15dfd-cf6a-466f-be59-3dd65d2a2807",
@@ -10589,15 +10613,15 @@
     },
     "75449e85-c410-4cef-a368-9d2ea5d52b58": {
       "id": "75449e85-c410-4cef-a368-9d2ea5d52b58",
-      "is_open": false,
+      "is_open": null,
       "name": "Journey Into Imagination With Figment",
       "last_seen_at": "2026-09-03T00:57:19Z",
       "last_changed_at": "2026-09-03T00:42:03Z",
-      "down_since": "2026-09-03T00:42:03Z",
+      "down_since": null,
       "last_down_at": "2026-09-03T00:42:03Z",
       "last_reopened_at": "2026-09-02T15:47:09Z",
-      "current_down_seconds": 916,
-      "total_down_seconds": 194784,
+      "current_down_seconds": 0,
+      "total_down_seconds": 195861,
       "downtime_events": [
         {
           "down_at": "2026-07-20T13:00:46Z",
@@ -11006,13 +11030,19 @@
           "reopened_at": "2026-09-02T15:47:09Z",
           "duration_seconds": 1810,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-03T00:42:03Z",
+          "reopened_at": "2026-09-03T01:00:00Z",
+          "duration_seconds": 1077,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-19T01:00:00Z"
+      "paused_at_park_close": "2026-09-03T01:00:00Z"
     },
     "22f48b73-01df-460e-8969-9eb2b4ae836c": {
       "id": "22f48b73-01df-460e-8969-9eb2b4ae836c",
@@ -11283,15 +11313,15 @@
   "hollywood_studios": {
     "1a2e70d9-50d5-4140-b69e-799e950f7d18": {
       "id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
-      "is_open": false,
+      "is_open": null,
       "name": "Star Wars: Rise of the Resistance",
       "last_seen_at": "2026-09-03T00:57:19Z",
       "last_changed_at": "2026-09-03T00:07:09Z",
-      "down_since": "2026-09-03T00:07:09Z",
+      "down_since": null,
       "last_down_at": "2026-09-03T00:07:09Z",
       "last_reopened_at": "2026-09-02T22:26:40Z",
-      "current_down_seconds": 3010,
-      "total_down_seconds": 369030,
+      "current_down_seconds": 0,
+      "total_down_seconds": 372201,
       "downtime_events": [
         {
           "down_at": "2026-07-20T17:10:39Z",
@@ -11598,25 +11628,31 @@
           "reopened_at": "2026-09-02T22:26:40Z",
           "duration_seconds": 2377,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-03T00:07:09Z",
+          "reopened_at": "2026-09-03T01:00:00Z",
+          "duration_seconds": 3171,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "CLOSED",
-      "paused_at_park_close": "2026-08-11T01:00:00Z"
+      "paused_at_park_close": "2026-09-03T01:00:00Z"
     },
     "399aa0a1-98e2-4d2b-b297-2b451e9665e1": {
       "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
-      "is_open": false,
+      "is_open": null,
       "name": "Slinky Dog Dash",
       "last_seen_at": "2026-09-03T00:57:19Z",
       "last_changed_at": "2026-09-02T13:02:11Z",
-      "down_since": "2026-09-02T13:02:11Z",
+      "down_since": null,
       "last_down_at": "2026-09-02T13:02:11Z",
       "last_reopened_at": "2026-08-30T13:36:34Z",
-      "current_down_seconds": 42908,
-      "total_down_seconds": 717891,
+      "current_down_seconds": 0,
+      "total_down_seconds": 760960,
       "downtime_events": [
         {
           "down_at": "2026-07-20T16:55:40Z",
@@ -12061,13 +12097,19 @@
           "reopened_at": "2026-09-02T01:30:00Z",
           "duration_seconds": 44876,
           "ended_by": "park_close"
+        },
+        {
+          "down_at": "2026-09-02T13:02:11Z",
+          "reopened_at": "2026-09-03T01:00:00Z",
+          "duration_seconds": 43069,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-09-02T01:30:00Z"
+      "paused_at_park_close": "2026-09-03T01:00:00Z"
     },
     "6f6998e8-a629-412c-b964-2cb06af8e26b": {
       "id": "6f6998e8-a629-412c-b964-2cb06af8e26b",
