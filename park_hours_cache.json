@@ -28,7 +28,7 @@
               "currency": "USD",
               "formatted": "$13.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglane_411504498",
@@ -39,7 +39,7 @@
               "currency": "USD",
               "formatted": "$20.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007944",
@@ -131,7 +131,7 @@
               "currency": "USD",
               "formatted": "$22.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007998",
@@ -141,17 +141,6 @@
               "amount": 2700,
               "currency": "USD",
               "formatted": "$27.00"
-            },
-            "available": true
-          },
-          {
-            "id": "premierpass_80007998",
-            "name": "Lightning Lane Premier Pass",
-            "type": "PACKAGE",
-            "price": {
-              "amount": 28900,
-              "currency": "USD",
-              "formatted": "$289.00"
             },
             "available": true
           }
@@ -219,7 +208,7 @@
     }
   },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-09-05T16:02:25Z",
+  "generated_at": "2026-09-05T17:46:59Z",
   "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
   "last_fetch_status": "ok",
