@@ -11196,15 +11196,15 @@
   "hollywood_studios": {
     "1a2e70d9-50d5-4140-b69e-799e950f7d18": {
       "id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
-      "is_open": false,
+      "is_open": null,
       "name": "Star Wars: Rise of the Resistance",
       "last_seen_at": "2026-09-05T01:27:00Z",
       "last_changed_at": "2026-09-05T00:27:07Z",
-      "down_since": "2026-09-05T00:27:07Z",
+      "down_since": null,
       "last_down_at": "2026-09-05T00:27:07Z",
       "last_reopened_at": "2026-09-04T00:27:05Z",
-      "current_down_seconds": 3593,
-      "total_down_seconds": 374000,
+      "current_down_seconds": 0,
+      "total_down_seconds": 377773,
       "downtime_events": [
         {
           "down_at": "2026-07-22T14:15:42Z",
@@ -11505,13 +11505,19 @@
           "reopened_at": "2026-09-04T00:27:05Z",
           "duration_seconds": 1799,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-05T00:27:07Z",
+          "reopened_at": "2026-09-05T01:30:00Z",
+          "duration_seconds": 3773,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-09-03T01:00:00Z"
+      "paused_at_park_close": "2026-09-05T01:30:00Z"
     },
     "399aa0a1-98e2-4d2b-b297-2b451e9665e1": {
       "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
