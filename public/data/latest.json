@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T01:01:59Z",
+  "generated_at": "2026-09-09T01:07:15Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -499,7 +499,7 @@
       "tracked_ride_count": 9,
       "open_ride_count": 8,
       "unavailable_ride_count": 1,
-      "average_wait_minutes": 21,
+      "average_wait_minutes": 20,
       "rides": [
         {
           "id": "d56506e2-6ad3-443a-8065-fea37987248d",
@@ -509,7 +509,7 @@
           "downtime_today_seconds": 311,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-09T01:01:59Z",
+          "last_seen_at": "2026-09-09T01:07:15Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -518,11 +518,11 @@
           "id": "6e118e37-5002-408d-9d88-0b5d9cdb5d14",
           "name": "Mickey & Minnie's Runaway Railway",
           "status": "open",
-          "wait_time_minutes": 25,
+          "wait_time_minutes": 15,
           "downtime_today_seconds": 5474,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-09T01:01:59Z",
+          "last_seen_at": "2026-09-09T01:07:15Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -535,7 +535,7 @@
           "downtime_today_seconds": 1203,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-09T01:01:59Z",
+          "last_seen_at": "2026-09-09T01:07:15Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -548,7 +548,7 @@
           "downtime_today_seconds": 2198,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-09T01:01:59Z",
+          "last_seen_at": "2026-09-09T01:07:15Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -558,10 +558,10 @@
           "name": "Slinky Dog Dash",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 13864,
-          "current_downtime_seconds": 870,
+          "downtime_today_seconds": 14180,
+          "current_downtime_seconds": 1186,
           "planned_closure": false,
-          "last_seen_at": "2026-09-09T01:01:59Z",
+          "last_seen_at": "2026-09-09T01:07:15Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -574,7 +574,7 @@
           "downtime_today_seconds": 602,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-09T01:01:59Z",
+          "last_seen_at": "2026-09-09T01:07:15Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -587,7 +587,7 @@
           "downtime_today_seconds": 10415,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-09T01:01:59Z",
+          "last_seen_at": "2026-09-09T01:07:15Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -600,7 +600,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-09T01:01:59Z",
+          "last_seen_at": "2026-09-09T01:07:15Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -613,7 +613,7 @@
           "downtime_today_seconds": 2690,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-09T01:01:59Z",
+          "last_seen_at": "2026-09-09T01:07:15Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -724,10 +724,10 @@
       "name": "Slinky Dog Dash",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 13864,
-      "current_downtime_seconds": 870,
+      "downtime_today_seconds": 14180,
+      "current_downtime_seconds": 1186,
       "planned_closure": false,
-      "last_seen_at": "2026-09-09T01:01:59Z",
+      "last_seen_at": "2026-09-09T01:07:15Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -753,10 +753,10 @@
       "name": "Slinky Dog Dash",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 13864,
-      "current_downtime_seconds": 870,
+      "downtime_today_seconds": 14180,
+      "current_downtime_seconds": 1186,
       "planned_closure": false,
-      "last_seen_at": "2026-09-09T01:01:59Z",
+      "last_seen_at": "2026-09-09T01:07:15Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -769,7 +769,7 @@
       "downtime_today_seconds": 10415,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-09T01:01:59Z",
+      "last_seen_at": "2026-09-09T01:07:15Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -830,11 +830,11 @@
       "id": "6e118e37-5002-408d-9d88-0b5d9cdb5d14",
       "name": "Mickey & Minnie's Runaway Railway",
       "status": "open",
-      "wait_time_minutes": 25,
+      "wait_time_minutes": 15,
       "downtime_today_seconds": 5474,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-09T01:01:59Z",
+      "last_seen_at": "2026-09-09T01:07:15Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -925,7 +925,7 @@
       "downtime_today_seconds": 2690,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-09T01:01:59Z",
+      "last_seen_at": "2026-09-09T01:07:15Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -951,7 +951,7 @@
       "downtime_today_seconds": 2198,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-09T01:01:59Z",
+      "last_seen_at": "2026-09-09T01:07:15Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -1094,7 +1094,7 @@
       "downtime_today_seconds": 1203,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-09T01:01:59Z",
+      "last_seen_at": "2026-09-09T01:07:15Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -1133,7 +1133,7 @@
       "downtime_today_seconds": 602,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-09T01:01:59Z",
+      "last_seen_at": "2026-09-09T01:07:15Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -1146,7 +1146,7 @@
       "downtime_today_seconds": 311,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-09T01:01:59Z",
+      "last_seen_at": "2026-09-09T01:07:15Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
