@@ -3229,15 +3229,15 @@
     },
     "796b0a25-c51e-456e-9bb8-50a324e301b3": {
       "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
-      "is_open": false,
+      "is_open": null,
       "name": "Jungle Cruise",
       "last_seen_at": "2026-09-11T02:57:36Z",
       "last_changed_at": "2026-09-11T02:32:27Z",
-      "down_since": "2026-09-11T02:32:27Z",
+      "down_since": null,
       "last_down_at": "2026-09-11T02:32:27Z",
       "last_reopened_at": "2026-09-10T23:57:21Z",
-      "current_down_seconds": 1509,
-      "total_down_seconds": 408812,
+      "current_down_seconds": 0,
+      "total_down_seconds": 410465,
       "downtime_events": [
         {
           "down_at": "2026-07-28T13:00:57Z",
@@ -3604,13 +3604,19 @@
           "reopened_at": "2026-09-10T23:57:21Z",
           "duration_seconds": 2396,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-11T02:32:27Z",
+          "reopened_at": "2026-09-11T03:00:00Z",
+          "duration_seconds": 1653,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-07-09T03:00:00Z"
+      "paused_at_park_close": "2026-09-11T03:00:00Z"
     },
     "86a41273-5f15-4b54-93b6-829f140e5161": {
       "id": "86a41273-5f15-4b54-93b6-829f140e5161",
