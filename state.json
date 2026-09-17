@@ -3987,15 +3987,15 @@
     },
     "72c7343a-f7fb-4f66-95df-c91016de7338": {
       "id": "72c7343a-f7fb-4f66-95df-c91016de7338",
-      "is_open": false,
+      "is_open": null,
       "name": "Buzz Lightyear\u2019s Space Ranger Spin",
       "last_seen_at": "2026-09-17T01:57:58Z",
       "last_changed_at": "2026-09-16T21:52:36Z",
-      "down_since": "2026-09-16T21:52:36Z",
+      "down_since": null,
       "last_down_at": "2026-09-16T21:52:36Z",
       "last_reopened_at": "2026-09-16T20:57:49Z",
-      "current_down_seconds": 14722,
-      "total_down_seconds": 131542,
+      "current_down_seconds": 0,
+      "total_down_seconds": 146386,
       "downtime_events": [
         {
           "down_at": "2026-08-04T13:01:25Z",
@@ -4200,13 +4200,19 @@
           "reopened_at": "2026-09-16T20:57:49Z",
           "duration_seconds": 4213,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-16T21:52:36Z",
+          "reopened_at": "2026-09-17T02:00:00Z",
+          "duration_seconds": 14844,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-09-15T03:00:00Z"
+      "paused_at_park_close": "2026-09-17T02:00:00Z"
     },
     "f5aad2d4-a419-4384-bd9a-42f86385c750": {
       "id": "f5aad2d4-a419-4384-bd9a-42f86385c750",
