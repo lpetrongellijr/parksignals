@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-17T02:16:45Z",
+  "generated_at": "2026-09-17T02:22:34Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -395,7 +395,7 @@
           "id": "8f353879-d6ac-4211-9352-4029efb47c18",
           "name": "Living with the Land",
           "status": "park_closed",
-          "wait_time_minutes": null,
+          "wait_time_minutes": 5,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
