@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-23T01:03:18Z",
+  "generated_at": "2026-09-23T01:07:48Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -155,7 +155,7 @@
           "id": "86a41273-5f15-4b54-93b6-829f140e5161",
           "name": "Peter Pan's Flight",
           "status": "park_closed",
-          "wait_time_minutes": 20,
+          "wait_time_minutes": 30,
           "downtime_today_seconds": 22523,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -725,7 +725,7 @@
       "id": "86a41273-5f15-4b54-93b6-829f140e5161",
       "name": "Peter Pan's Flight",
       "status": "park_closed",
-      "wait_time_minutes": 20,
+      "wait_time_minutes": 30,
       "downtime_today_seconds": 22523,
       "current_downtime_seconds": 0,
       "planned_closure": false,
