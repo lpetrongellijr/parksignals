@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-24T20:02:36Z",
+  "generated_at": "2026-09-24T20:06:56Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -19,7 +19,7 @@
       "tracked_ride_count": 23,
       "open_ride_count": 20,
       "unavailable_ride_count": 2,
-      "average_wait_minutes": 14,
+      "average_wait_minutes": 16,
       "rides": [
         {
           "id": "f5aad2d4-a419-4384-bd9a-42f86385c750",
@@ -29,7 +29,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -42,7 +42,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -55,7 +55,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -68,7 +68,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -81,7 +81,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": true,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -94,7 +94,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -107,7 +107,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -120,7 +120,7 @@
           "downtime_today_seconds": 604,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -130,10 +130,10 @@
           "name": "Mad Tea Party",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 0,
-          "current_downtime_seconds": 0,
+          "downtime_today_seconds": 260,
+          "current_downtime_seconds": 260,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -146,7 +146,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -155,11 +155,11 @@
           "id": "86a41273-5f15-4b54-93b6-829f140e5161",
           "name": "Peter Pan's Flight",
           "status": "open",
-          "wait_time_minutes": 25,
+          "wait_time_minutes": 45,
           "downtime_today_seconds": 1226,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -172,7 +172,7 @@
           "downtime_today_seconds": 3624,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -185,7 +185,7 @@
           "downtime_today_seconds": 602,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -198,7 +198,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -208,10 +208,10 @@
           "name": "Space Mountain",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 1384,
-          "current_downtime_seconds": 1384,
+          "downtime_today_seconds": 1644,
+          "current_downtime_seconds": 1644,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -224,7 +224,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -237,7 +237,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -250,7 +250,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -263,7 +263,7 @@
           "downtime_today_seconds": 1165,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -272,11 +272,11 @@
           "id": "f163ddcd-43e1-488d-8276-2381c1db0a39",
           "name": "Tomorrowland Speedway",
           "status": "open",
-          "wait_time_minutes": 5,
+          "wait_time_minutes": 10,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -285,11 +285,11 @@
           "id": "5a43d1a7-ad53-4d25-abfe-25625f0da304",
           "name": "TRON Lightcycle / Run",
           "status": "open",
-          "wait_time_minutes": 50,
+          "wait_time_minutes": 55,
           "downtime_today_seconds": 1165,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -302,7 +302,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -315,7 +315,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -337,7 +337,7 @@
       "tracked_ride_count": 11,
       "open_ride_count": 10,
       "unavailable_ride_count": 1,
-      "average_wait_minutes": 29,
+      "average_wait_minutes": 30,
       "rides": [
         {
           "id": "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0",
@@ -347,7 +347,7 @@
           "downtime_today_seconds": 9303,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -360,7 +360,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -369,11 +369,11 @@
           "id": "e3549451-b284-453d-9c31-e3b1207abd79",
           "name": "Guardians of the Galaxy: Cosmic Rewind",
           "status": "open",
-          "wait_time_minutes": 65,
+          "wait_time_minutes": 70,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -386,7 +386,7 @@
           "downtime_today_seconds": 894,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -399,7 +399,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -412,7 +412,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -425,7 +425,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -438,7 +438,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -451,7 +451,7 @@
           "downtime_today_seconds": 1833,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -461,10 +461,10 @@
           "name": "Test Track",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 1415,
-          "current_downtime_seconds": 0,
+          "downtime_today_seconds": 1675,
+          "current_downtime_seconds": 260,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -477,7 +477,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -497,9 +497,9 @@
         "closes_at": "21:00"
       },
       "tracked_ride_count": 9,
-      "open_ride_count": 8,
-      "unavailable_ride_count": 1,
-      "average_wait_minutes": 41,
+      "open_ride_count": 9,
+      "unavailable_ride_count": 0,
+      "average_wait_minutes": 43,
       "rides": [
         {
           "id": "d56506e2-6ad3-443a-8065-fea37987248d",
@@ -509,7 +509,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -522,7 +522,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -535,7 +535,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -548,7 +548,7 @@
           "downtime_today_seconds": 2479,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -557,11 +557,11 @@
           "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
           "name": "Slinky Dog Dash",
           "status": "open",
-          "wait_time_minutes": 70,
+          "wait_time_minutes": 75,
           "downtime_today_seconds": 3225,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -574,7 +574,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -582,12 +582,12 @@
         {
           "id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
           "name": "Star Wars: Rise of the Resistance",
-          "status": "unavailable",
-          "wait_time_minutes": null,
-          "downtime_today_seconds": 2735,
-          "current_downtime_seconds": 2735,
+          "status": "open",
+          "wait_time_minutes": 45,
+          "downtime_today_seconds": 2995,
+          "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -600,7 +600,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -609,11 +609,11 @@
           "id": "20b5daa8-e1ea-436f-830c-2d7d18d929b5",
           "name": "Toy Story Mania!",
           "status": "open",
-          "wait_time_minutes": 50,
+          "wait_time_minutes": 55,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -633,19 +633,19 @@
         "closes_at": "19:00"
       },
       "tracked_ride_count": 6,
-      "open_ride_count": 5,
-      "unavailable_ride_count": 1,
-      "average_wait_minutes": 18,
+      "open_ride_count": 6,
+      "unavailable_ride_count": 0,
+      "average_wait_minutes": 19,
       "rides": [
         {
           "id": "24cf863c-b6ba-4826-a056-0b698989cbf7",
           "name": "Avatar Flight of Passage",
           "status": "open",
-          "wait_time_minutes": 30,
+          "wait_time_minutes": 35,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -654,11 +654,11 @@
           "id": "64a6915f-a835-4226-ba5c-8389fc4cade3",
           "name": "Expedition Everest",
           "status": "open",
-          "wait_time_minutes": 20,
+          "wait_time_minutes": 5,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -666,12 +666,12 @@
         {
           "id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
           "name": "Kali River Rapids",
-          "status": "unavailable",
-          "wait_time_minutes": null,
-          "downtime_today_seconds": 6160,
+          "status": "open",
+          "wait_time_minutes": 35,
+          "downtime_today_seconds": 6420,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -684,7 +684,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -697,7 +697,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -710,7 +710,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-24T20:02:36Z",
+          "last_seen_at": "2026-09-24T20:06:56Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -720,27 +720,14 @@
   ],
   "closures": [
     {
-      "id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
-      "name": "Star Wars: Rise of the Resistance",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 2735,
-      "current_downtime_seconds": 2735,
-      "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
-      "park_id": "hollywood_studios",
-      "park_name": "Hollywood Studios",
-      "park_slug": "hollywood-studios"
-    },
-    {
       "id": "b2260923-9315-40fd-9c6b-44dd811dbe64",
       "name": "Space Mountain",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 1384,
-      "current_downtime_seconds": 1384,
+      "downtime_today_seconds": 1644,
+      "current_downtime_seconds": 1644,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
@@ -750,10 +737,10 @@
       "name": "Mad Tea Party",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 0,
-      "current_downtime_seconds": 0,
+      "downtime_today_seconds": 260,
+      "current_downtime_seconds": 260,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
@@ -763,55 +750,33 @@
       "name": "Test Track",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 1415,
-      "current_downtime_seconds": 0,
+      "downtime_today_seconds": 1675,
+      "current_downtime_seconds": 260,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
-    },
-    {
-      "id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
-      "name": "Kali River Rapids",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 6160,
-      "current_downtime_seconds": 0,
-      "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
-      "park_id": "animal_kingdom",
-      "park_name": "Animal Kingdom",
-      "park_slug": "animal-kingdom"
     }
   ],
   "latest_updates": [
     {
-      "type": "down",
-      "ride_id": "0aae716c-af13-4439-b638-d75fb1649df3",
-      "ride_name": "Mad Tea Party",
-      "park_id": "magic_kingdom",
-      "park_name": "Magic Kingdom",
-      "park_slug": "magic-kingdom",
-      "observed_at": "2026-09-24T20:02:36Z"
+      "type": "reopened",
+      "ride_id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
+      "ride_name": "Star Wars: Rise of the Resistance",
+      "park_id": "hollywood_studios",
+      "park_name": "Hollywood Studios",
+      "park_slug": "hollywood-studios",
+      "observed_at": "2026-09-24T20:06:56Z"
     },
     {
-      "type": "down",
-      "ride_id": "37ae57c5-feaf-4e47-8f27-4b385be200f0",
-      "ride_name": "Test Track",
-      "park_id": "epcot",
-      "park_name": "EPCOT",
-      "park_slug": "epcot",
-      "observed_at": "2026-09-24T20:02:36Z"
-    },
-    {
-      "type": "down",
+      "type": "reopened",
       "ride_id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
       "ride_name": "Kali River Rapids",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom",
-      "observed_at": "2026-09-24T20:02:36Z"
+      "observed_at": "2026-09-24T20:06:56Z"
     }
   ],
   "downtime_today": [
@@ -823,7 +788,7 @@
       "downtime_today_seconds": 9303,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -831,12 +796,12 @@
     {
       "id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
       "name": "Kali River Rapids",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 6160,
+      "status": "open",
+      "wait_time_minutes": 35,
+      "downtime_today_seconds": 6420,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
@@ -849,7 +814,7 @@
       "downtime_today_seconds": 3624,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
@@ -858,11 +823,11 @@
       "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
       "name": "Slinky Dog Dash",
       "status": "open",
-      "wait_time_minutes": 70,
+      "wait_time_minutes": 75,
       "downtime_today_seconds": 3225,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -870,12 +835,12 @@
     {
       "id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
       "name": "Star Wars: Rise of the Resistance",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 2735,
-      "current_downtime_seconds": 2735,
+      "status": "open",
+      "wait_time_minutes": 45,
+      "downtime_today_seconds": 2995,
+      "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -888,7 +853,7 @@
       "downtime_today_seconds": 2479,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -901,7 +866,7 @@
       "downtime_today_seconds": 1833,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -911,10 +876,10 @@
       "name": "Test Track",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 1415,
-      "current_downtime_seconds": 0,
+      "downtime_today_seconds": 1675,
+      "current_downtime_seconds": 260,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -924,10 +889,10 @@
       "name": "Space Mountain",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 1384,
-      "current_downtime_seconds": 1384,
+      "downtime_today_seconds": 1644,
+      "current_downtime_seconds": 1644,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
@@ -936,11 +901,11 @@
       "id": "86a41273-5f15-4b54-93b6-829f140e5161",
       "name": "Peter Pan's Flight",
       "status": "open",
-      "wait_time_minutes": 25,
+      "wait_time_minutes": 45,
       "downtime_today_seconds": 1226,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
@@ -949,11 +914,11 @@
       "id": "5a43d1a7-ad53-4d25-abfe-25625f0da304",
       "name": "TRON Lightcycle / Run",
       "status": "open",
-      "wait_time_minutes": 50,
+      "wait_time_minutes": 55,
       "downtime_today_seconds": 1165,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
@@ -966,7 +931,7 @@
       "downtime_today_seconds": 1165,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
@@ -979,7 +944,7 @@
       "downtime_today_seconds": 894,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -992,7 +957,7 @@
       "downtime_today_seconds": 604,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
@@ -1005,7 +970,20 @@
       "downtime_today_seconds": 602,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-24T20:02:36Z",
+      "last_seen_at": "2026-09-24T20:06:56Z",
+      "park_id": "magic_kingdom",
+      "park_name": "Magic Kingdom",
+      "park_slug": "magic-kingdom"
+    },
+    {
+      "id": "0aae716c-af13-4439-b638-d75fb1649df3",
+      "name": "Mad Tea Party",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 260,
+      "current_downtime_seconds": 260,
+      "planned_closure": false,
+      "last_seen_at": "2026-09-24T20:06:56Z",
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
