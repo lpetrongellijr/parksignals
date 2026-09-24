@@ -74442,7 +74442,7 @@
     },
     "2026-09-24": {
       "date": "2026-09-24",
-      "last_observed_at": "2026-09-24T12:07:56Z",
+      "last_observed_at": "2026-09-24T12:12:51Z",
       "parks": {
         "animal_kingdom": {
           "park_name": "Animal Kingdom",
@@ -74454,28 +74454,28 @@
               "downtime_seconds": 0,
               "max_wait_time": 40,
               "min_wait_time": 40,
-              "open_samples": 2,
+              "open_samples": 3,
               "planned_closure_samples": 0,
               "ride_name": "Avatar Flight of Passage",
-              "samples": 2,
+              "samples": 3,
               "unknown_samples": 0,
-              "wait_time_samples": 2,
-              "wait_time_total": 80
+              "wait_time_samples": 3,
+              "wait_time_total": 120
             },
             "32e01181-9a5f-4936-8a77-0dace1de836c": {
-              "average_wait_time": 17.5,
+              "average_wait_time": 18.3,
               "down_event_count": 0,
               "down_samples": 0,
               "downtime_seconds": 0,
               "max_wait_time": 20,
               "min_wait_time": 15,
-              "open_samples": 2,
+              "open_samples": 3,
               "planned_closure_samples": 0,
               "ride_name": "Kilimanjaro Safaris",
-              "samples": 2,
+              "samples": 3,
               "unknown_samples": 0,
-              "wait_time_samples": 2,
-              "wait_time_total": 35
+              "wait_time_samples": 3,
+              "wait_time_total": 55
             },
             "4f391f0e-52be-4f9d-99d6-b3ae0373b43c": {
               "average_wait_time": null,
@@ -74485,9 +74485,9 @@
               "max_wait_time": null,
               "min_wait_time": null,
               "open_samples": 0,
-              "planned_closure_samples": 2,
+              "planned_closure_samples": 3,
               "ride_name": "Wildlife Express Train",
-              "samples": 2,
+              "samples": 3,
               "unknown_samples": 0,
               "wait_time_samples": 0,
               "wait_time_total": 0
@@ -74499,13 +74499,13 @@
               "downtime_seconds": 0,
               "max_wait_time": 5,
               "min_wait_time": 5,
-              "open_samples": 2,
+              "open_samples": 3,
               "planned_closure_samples": 0,
               "ride_name": "Expedition Everest - Legend of the Forbidden Mountain",
-              "samples": 2,
+              "samples": 3,
               "unknown_samples": 0,
-              "wait_time_samples": 2,
-              "wait_time_total": 10
+              "wait_time_samples": 3,
+              "wait_time_total": 15
             },
             "7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0": {
               "average_wait_time": 10.0,
@@ -74514,39 +74514,39 @@
               "downtime_seconds": 0,
               "max_wait_time": 10,
               "min_wait_time": 10,
-              "open_samples": 2,
+              "open_samples": 3,
               "planned_closure_samples": 0,
               "ride_name": "Na'vi River Journey",
-              "samples": 2,
+              "samples": 3,
               "unknown_samples": 0,
-              "wait_time_samples": 2,
-              "wait_time_total": 20
+              "wait_time_samples": 3,
+              "wait_time_total": 30
             },
             "d58d9262-ec95-4161-80a0-07ca43b2f5f3": {
               "average_wait_time": null,
               "down_event_count": 1,
-              "down_samples": 2,
-              "downtime_seconds": 290,
+              "down_samples": 3,
+              "downtime_seconds": 585,
               "max_wait_time": null,
               "min_wait_time": null,
               "open_samples": 0,
               "planned_closure_samples": 0,
               "ride_name": "Kali River Rapids",
-              "samples": 2,
+              "samples": 3,
               "unknown_samples": 0,
               "wait_time_samples": 0,
               "wait_time_total": 0
             }
           },
-          "samples": 2
+          "samples": 3
         }
       },
-      "runs_captured": 99,
+      "runs_captured": 100,
       "timezone": "America/New_York"
     }
   },
   "first_observed_at": "2026-06-16T04:02:28Z",
-  "last_observed_at": "2026-09-24T12:07:56Z",
-  "runs_captured": 25831,
+  "last_observed_at": "2026-09-24T12:12:51Z",
+  "runs_captured": 25832,
   "schema_version": 1
 }
