@@ -7285,15 +7285,15 @@
   "epcot": {
     "e3549451-b284-453d-9c31-e3b1207abd79": {
       "id": "e3549451-b284-453d-9c31-e3b1207abd79",
-      "is_open": false,
+      "is_open": null,
       "name": "Guardians of the Galaxy: Cosmic Rewind",
       "last_seen_at": "2026-09-25T00:57:01Z",
       "last_changed_at": "2026-09-25T00:22:59Z",
-      "down_since": "2026-09-25T00:22:59Z",
+      "down_since": null,
       "last_down_at": "2026-09-25T00:22:59Z",
       "last_reopened_at": "2026-09-22T19:12:19Z",
-      "current_down_seconds": 2042,
-      "total_down_seconds": 218988,
+      "current_down_seconds": 0,
+      "total_down_seconds": 221209,
       "downtime_events": [
         {
           "down_at": "2026-08-12T00:31:19Z",
@@ -7486,13 +7486,19 @@
           "reopened_at": "2026-09-22T19:12:19Z",
           "duration_seconds": 3625,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-25T00:22:59Z",
+          "reopened_at": "2026-09-25T01:00:00Z",
+          "duration_seconds": 2221,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-26T01:00:00Z"
+      "paused_at_park_close": "2026-09-25T01:00:00Z"
     },
     "1e735ffb-4868-47f1-b2cd-2ac1156cd5f0": {
       "id": "1e735ffb-4868-47f1-b2cd-2ac1156cd5f0",
@@ -8687,15 +8693,15 @@
     },
     "480fde8f-fe58-4bfb-b3ab-052a39d4db7c": {
       "id": "480fde8f-fe58-4bfb-b3ab-052a39d4db7c",
-      "is_open": false,
+      "is_open": null,
       "name": "Spaceship Earth",
       "last_seen_at": "2026-09-25T00:57:01Z",
       "last_changed_at": "2026-09-25T00:18:13Z",
-      "down_since": "2026-09-25T00:18:13Z",
+      "down_since": null,
       "last_down_at": "2026-09-25T00:18:13Z",
       "last_reopened_at": "2026-09-24T14:08:03Z",
-      "current_down_seconds": 2328,
-      "total_down_seconds": 480800,
+      "current_down_seconds": 0,
+      "total_down_seconds": 483307,
       "downtime_events": [
         {
           "down_at": "2026-08-12T14:51:22Z",
@@ -9230,13 +9236,19 @@
           "reopened_at": "2026-09-24T14:08:03Z",
           "duration_seconds": 297,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-25T00:18:13Z",
+          "reopened_at": "2026-09-25T01:00:00Z",
+          "duration_seconds": 2507,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-22T01:00:00Z"
+      "paused_at_park_close": "2026-09-25T01:00:00Z"
     },
     "5b6475ad-4e9a-4793-b841-501aa382c9c0": {
       "id": "5b6475ad-4e9a-4793-b841-501aa382c9c0",
@@ -11313,15 +11325,15 @@
     },
     "6e118e37-5002-408d-9d88-0b5d9cdb5d14": {
       "id": "6e118e37-5002-408d-9d88-0b5d9cdb5d14",
-      "is_open": false,
+      "is_open": null,
       "name": "Mickey & Minnie's Runaway Railway",
       "last_seen_at": "2026-09-25T00:57:01Z",
       "last_changed_at": "2026-09-25T00:42:57Z",
-      "down_since": "2026-09-25T00:42:57Z",
+      "down_since": null,
       "last_down_at": "2026-09-25T00:42:57Z",
       "last_reopened_at": "2026-09-23T13:57:53Z",
-      "current_down_seconds": 844,
-      "total_down_seconds": 235059,
+      "current_down_seconds": 0,
+      "total_down_seconds": 236082,
       "downtime_events": [
         {
           "down_at": "2026-08-11T00:31:20Z",
@@ -11490,13 +11502,19 @@
           "reopened_at": "2026-09-23T13:57:53Z",
           "duration_seconds": 2387,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-09-25T00:42:57Z",
+          "reopened_at": "2026-09-25T01:00:00Z",
+          "duration_seconds": 1023,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-25T01:00:00Z"
+      "paused_at_park_close": "2026-09-25T01:00:00Z"
     },
     "34c4916b-989b-4ff1-a7e3-a6a846a3484f": {
       "id": "34c4916b-989b-4ff1-a7e3-a6a846a3484f",
