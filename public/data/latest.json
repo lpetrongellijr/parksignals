@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-28T00:28:07Z",
+  "generated_at": "2026-09-28T00:33:10Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -103,7 +103,7 @@
           "id": "2551a77d-023f-4ab1-9a19-8afec0190f39",
           "name": "Haunted Mansion",
           "status": "park_closed",
-          "wait_time_minutes": 15,
+          "wait_time_minutes": 20,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -285,7 +285,7 @@
           "id": "5a43d1a7-ad53-4d25-abfe-25625f0da304",
           "name": "TRON Lightcycle / Run",
           "status": "park_closed",
-          "wait_time_minutes": 25,
+          "wait_time_minutes": 20,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -347,7 +347,7 @@
           "downtime_today_seconds": 4472,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -360,7 +360,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -373,7 +373,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -383,10 +383,10 @@
           "name": "Journey Into Imagination",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 1911,
-          "current_downtime_seconds": 1911,
+          "downtime_today_seconds": 2214,
+          "current_downtime_seconds": 2214,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -399,7 +399,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -412,7 +412,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -421,11 +421,11 @@
           "id": "1e735ffb-4868-47f1-b2cd-2ac1156cd5f0",
           "name": "Remy's Ratatouille Adventure",
           "status": "open",
-          "wait_time_minutes": 40,
+          "wait_time_minutes": 35,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -438,7 +438,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -451,7 +451,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -464,7 +464,7 @@
           "downtime_today_seconds": 579,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -477,7 +477,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -499,17 +499,17 @@
       "tracked_ride_count": 9,
       "open_ride_count": 9,
       "unavailable_ride_count": 0,
-      "average_wait_minutes": 26,
+      "average_wait_minutes": 24,
       "rides": [
         {
           "id": "d56506e2-6ad3-443a-8065-fea37987248d",
           "name": "Alien Swirling Saucers",
           "status": "open",
-          "wait_time_minutes": 15,
+          "wait_time_minutes": 10,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -522,7 +522,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -535,7 +535,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -548,7 +548,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -561,7 +561,7 @@
           "downtime_today_seconds": 5387,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -574,7 +574,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -583,11 +583,11 @@
           "id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
           "name": "Star Wars: Rise of the Resistance",
           "status": "open",
-          "wait_time_minutes": 35,
+          "wait_time_minutes": 30,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -600,7 +600,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -613,7 +613,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T00:28:07Z",
+          "last_seen_at": "2026-09-28T00:33:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -724,10 +724,10 @@
       "name": "Journey Into Imagination",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 1911,
-      "current_downtime_seconds": 1911,
+      "downtime_today_seconds": 2214,
+      "current_downtime_seconds": 2214,
       "planned_closure": false,
-      "last_seen_at": "2026-09-28T00:28:07Z",
+      "last_seen_at": "2026-09-28T00:33:10Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -782,7 +782,7 @@
       "downtime_today_seconds": 5387,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-28T00:28:07Z",
+      "last_seen_at": "2026-09-28T00:33:10Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -795,7 +795,7 @@
       "downtime_today_seconds": 4472,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-28T00:28:07Z",
+      "last_seen_at": "2026-09-28T00:33:10Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -827,6 +827,19 @@
       "park_slug": "magic-kingdom"
     },
     {
+      "id": "75449e85-c410-4cef-a368-9d2ea5d52b58",
+      "name": "Journey Into Imagination",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 2214,
+      "current_downtime_seconds": 2214,
+      "planned_closure": false,
+      "last_seen_at": "2026-09-28T00:33:10Z",
+      "park_id": "epcot",
+      "park_name": "EPCOT",
+      "park_slug": "epcot"
+    },
+    {
       "id": "7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0",
       "name": "Na'vi River Journey",
       "status": "park_closed",
@@ -838,19 +851,6 @@
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
-    },
-    {
-      "id": "75449e85-c410-4cef-a368-9d2ea5d52b58",
-      "name": "Journey Into Imagination",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 1911,
-      "current_downtime_seconds": 1911,
-      "planned_closure": false,
-      "last_seen_at": "2026-09-28T00:28:07Z",
-      "park_id": "epcot",
-      "park_name": "EPCOT",
-      "park_slug": "epcot"
     },
     {
       "id": "0d94ad60-72f0-4551-83a6-ebaecdd89737",
@@ -886,7 +886,7 @@
       "downtime_today_seconds": 579,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-09-28T00:28:07Z",
+      "last_seen_at": "2026-09-28T00:33:10Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
