@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-28T12:02:54Z",
+  "generated_at": "2026-09-28T12:08:37Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -635,17 +635,17 @@
       "tracked_ride_count": 6,
       "open_ride_count": 3,
       "unavailable_ride_count": 2,
-      "average_wait_minutes": 32,
+      "average_wait_minutes": 45,
       "rides": [
         {
           "id": "24cf863c-b6ba-4826-a056-0b698989cbf7",
           "name": "Avatar Flight of Passage",
           "status": "open",
-          "wait_time_minutes": 55,
+          "wait_time_minutes": 75,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T12:02:54Z",
+          "last_seen_at": "2026-09-28T12:08:37Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -655,10 +655,10 @@
           "name": "Expedition Everest",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 0,
-          "current_downtime_seconds": 0,
+          "downtime_today_seconds": 343,
+          "current_downtime_seconds": 343,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T12:02:54Z",
+          "last_seen_at": "2026-09-28T12:08:37Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -668,10 +668,10 @@
           "name": "Kali River Rapids",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 0,
-          "current_downtime_seconds": 0,
+          "downtime_today_seconds": 343,
+          "current_downtime_seconds": 343,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T12:02:54Z",
+          "last_seen_at": "2026-09-28T12:08:37Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -684,7 +684,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T12:02:54Z",
+          "last_seen_at": "2026-09-28T12:08:37Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -693,11 +693,11 @@
           "id": "7a5af3b7-9bc1-4962-92d0-3ea9c9ce35f0",
           "name": "Na'vi River Journey",
           "status": "open",
-          "wait_time_minutes": 10,
+          "wait_time_minutes": 15,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-09-28T12:02:54Z",
+          "last_seen_at": "2026-09-28T12:08:37Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -710,7 +710,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": true,
-          "last_seen_at": "2026-09-28T12:02:54Z",
+          "last_seen_at": "2026-09-28T12:08:37Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -724,10 +724,10 @@
       "name": "Expedition Everest",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 0,
-      "current_downtime_seconds": 0,
+      "downtime_today_seconds": 343,
+      "current_downtime_seconds": 343,
       "planned_closure": false,
-      "last_seen_at": "2026-09-28T12:02:54Z",
+      "last_seen_at": "2026-09-28T12:08:37Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
@@ -737,34 +737,42 @@
       "name": "Kali River Rapids",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 0,
-      "current_downtime_seconds": 0,
+      "downtime_today_seconds": 343,
+      "current_downtime_seconds": 343,
       "planned_closure": false,
-      "last_seen_at": "2026-09-28T12:02:54Z",
+      "last_seen_at": "2026-09-28T12:08:37Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
     }
   ],
-  "latest_updates": [
+  "latest_updates": [],
+  "downtime_today": [
     {
-      "type": "down",
-      "ride_id": "64a6915f-a835-4226-ba5c-8389fc4cade3",
-      "ride_name": "Expedition Everest",
+      "id": "64a6915f-a835-4226-ba5c-8389fc4cade3",
+      "name": "Expedition Everest",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 343,
+      "current_downtime_seconds": 343,
+      "planned_closure": false,
+      "last_seen_at": "2026-09-28T12:08:37Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
-      "park_slug": "animal-kingdom",
-      "observed_at": "2026-09-28T12:02:54Z"
+      "park_slug": "animal-kingdom"
     },
     {
-      "type": "down",
-      "ride_id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
-      "ride_name": "Kali River Rapids",
+      "id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
+      "name": "Kali River Rapids",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 343,
+      "current_downtime_seconds": 343,
+      "planned_closure": false,
+      "last_seen_at": "2026-09-28T12:08:37Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
-      "park_slug": "animal-kingdom",
-      "observed_at": "2026-09-28T12:02:54Z"
+      "park_slug": "animal-kingdom"
     }
-  ],
-  "downtime_today": []
+  ]
 }
