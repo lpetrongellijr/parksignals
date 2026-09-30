@@ -1,28 +1,22 @@
 {
   "parks": {
     "magic_kingdom": {
-      "date": "2026-09-29",
+      "date": "2026-09-30",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
-      "closes_at": "18:00",
+      "closes_at": "22:00",
       "selected_schedule_type": "OPERATING",
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-09-29T08:30:00-04:00",
-          "closingTime": "2026-09-29T09:00:00-04:00",
+          "openingTime": "2026-09-30T08:30:00-04:00",
+          "closingTime": "2026-09-30T09:00:00-04:00",
           "description": "Early Entry"
-        },
-        {
-          "type": "TICKETED_EVENT",
-          "openingTime": "2026-09-29T19:00:00-04:00",
-          "closingTime": "2026-09-30T00:00:00-04:00",
-          "description": "Special Ticketed Event"
         }
       ],
       "raw": {
-        "date": "2026-09-29",
+        "date": "2026-09-30",
         "type": "OPERATING",
         "purchases": [
           {
@@ -34,7 +28,7 @@
               "currency": "USD",
               "formatted": "$11.00"
             },
-            "available": true
+            "available": false
           },
           {
             "id": "lightninglane_411504498",
@@ -52,19 +46,30 @@
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 2300,
+              "amount": 2700,
               "currency": "USD",
-              "formatted": "$23.00"
+              "formatted": "$27.00"
+            },
+            "available": true
+          },
+          {
+            "id": "premierpass_80007944",
+            "name": "Lightning Lane Premier Pass",
+            "type": "PACKAGE",
+            "price": {
+              "amount": 32900,
+              "currency": "USD",
+              "formatted": "$329.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-09-29T18:00:00-04:00",
-        "openingTime": "2026-09-29T09:00:00-04:00"
+        "closingTime": "2026-09-30T22:00:00-04:00",
+        "openingTime": "2026-09-30T09:00:00-04:00"
       }
     },
     "epcot": {
-      "date": "2026-09-29",
+      "date": "2026-09-30",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -73,13 +78,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-09-29T08:30:00-04:00",
-          "closingTime": "2026-09-29T09:00:00-04:00",
+          "openingTime": "2026-09-30T08:30:00-04:00",
+          "closingTime": "2026-09-30T09:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-09-29",
+        "date": "2026-09-30",
         "type": "OPERATING",
         "purchases": [
           {
@@ -91,7 +96,7 @@
               "currency": "USD",
               "formatted": "$18.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007838",
@@ -109,19 +114,19 @@
             "name": "Lightning Lane Premier Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 16900,
+              "amount": 14900,
               "currency": "USD",
-              "formatted": "$169.00"
+              "formatted": "$149.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-09-29T21:00:00-04:00",
-        "openingTime": "2026-09-29T09:00:00-04:00"
+        "closingTime": "2026-09-30T21:00:00-04:00",
+        "openingTime": "2026-09-30T09:00:00-04:00"
       }
     },
     "hollywood_studios": {
-      "date": "2026-09-29",
+      "date": "2026-09-30",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -130,13 +135,19 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-09-29T08:30:00-04:00",
-          "closingTime": "2026-09-29T09:00:00-04:00",
+          "openingTime": "2026-09-30T08:30:00-04:00",
+          "closingTime": "2026-09-30T09:00:00-04:00",
           "description": "Early Entry"
+        },
+        {
+          "type": "TICKETED_EVENT",
+          "openingTime": "2026-09-30T21:00:00-04:00",
+          "closingTime": "2026-09-30T23:00:00-04:00",
+          "description": "Extended Evening"
         }
       ],
       "raw": {
-        "date": "2026-09-29",
+        "date": "2026-09-30",
         "type": "OPERATING",
         "purchases": [
           {
@@ -155,19 +166,30 @@
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 2200,
+              "amount": 2400,
               "currency": "USD",
-              "formatted": "$22.00"
+              "formatted": "$24.00"
+            },
+            "available": true
+          },
+          {
+            "id": "premierpass_80007998",
+            "name": "Lightning Lane Premier Pass",
+            "type": "PACKAGE",
+            "price": {
+              "amount": 24900,
+              "currency": "USD",
+              "formatted": "$249.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-09-29T21:00:00-04:00",
-        "openingTime": "2026-09-29T09:00:00-04:00"
+        "closingTime": "2026-09-30T21:00:00-04:00",
+        "openingTime": "2026-09-30T09:00:00-04:00"
       }
     },
     "animal_kingdom": {
-      "date": "2026-09-29",
+      "date": "2026-09-30",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "08:00",
@@ -176,13 +198,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-09-29T07:30:00-04:00",
-          "closingTime": "2026-09-29T08:00:00-04:00",
+          "openingTime": "2026-09-30T07:30:00-04:00",
+          "closingTime": "2026-09-30T08:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-09-29",
+        "date": "2026-09-30",
         "type": "OPERATING",
         "purchases": [
           {
@@ -194,7 +216,7 @@
               "currency": "USD",
               "formatted": "$15.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007823",
@@ -205,16 +227,27 @@
               "currency": "USD",
               "formatted": "$15.00"
             },
-            "available": false
+            "available": true
+          },
+          {
+            "id": "premierpass_80007823",
+            "name": "Lightning Lane Premier Pass",
+            "type": "PACKAGE",
+            "price": {
+              "amount": 11900,
+              "currency": "USD",
+              "formatted": "$119.00"
+            },
+            "available": true
           }
         ],
-        "closingTime": "2026-09-29T18:00:00-04:00",
-        "openingTime": "2026-09-29T08:00:00-04:00"
+        "closingTime": "2026-09-30T18:00:00-04:00",
+        "openingTime": "2026-09-30T08:00:00-04:00"
       }
     }
   },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-09-30T00:52:23Z",
+  "generated_at": "2026-09-30T04:05:24Z",
   "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
   "last_fetch_status": "ok",
