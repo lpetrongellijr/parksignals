@@ -587,15 +587,15 @@
     },
     "d58d9262-ec95-4161-80a0-07ca43b2f5f3": {
       "id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
-      "is_open": false,
+      "is_open": null,
       "name": "Kali River Rapids",
       "last_seen_at": "2026-10-01T20:36:12Z",
       "last_changed_at": "2026-10-01T18:52:52Z",
-      "down_since": "2026-10-01T18:52:52Z",
+      "down_since": null,
       "last_down_at": "2026-10-01T18:52:52Z",
       "last_reopened_at": "2026-10-01T13:02:59Z",
-      "current_down_seconds": 6200,
-      "total_down_seconds": 940293,
+      "current_down_seconds": 0,
+      "total_down_seconds": 951521,
       "downtime_events": [
         {
           "down_at": "2026-08-17T19:56:17Z",
@@ -1208,13 +1208,19 @@
           "reopened_at": "2026-10-01T13:02:59Z",
           "duration_seconds": 3641,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-10-01T18:52:52Z",
+          "reopened_at": "2026-10-01T22:00:00Z",
+          "duration_seconds": 11228,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-09-22T23:00:00Z"
+      "paused_at_park_close": "2026-10-01T22:00:00Z"
     },
     "4f391f0e-52be-4f9d-99d6-b3ae0373b43c": {
       "id": "4f391f0e-52be-4f9d-99d6-b3ae0373b43c",
@@ -7739,22 +7745,16 @@
     },
     "37ae57c5-feaf-4e47-8f27-4b385be200f0": {
       "id": "37ae57c5-feaf-4e47-8f27-4b385be200f0",
-      "is_open": false,
+      "is_open": null,
       "name": "Test Track",
       "last_seen_at": "2026-10-01T20:36:12Z",
       "last_changed_at": "2026-10-01T19:13:26Z",
-      "down_since": "2026-10-01T19:13:26Z",
+      "down_since": null,
       "last_down_at": "2026-10-01T19:13:26Z",
       "last_reopened_at": "2026-10-01T15:23:25Z",
-      "current_down_seconds": 4966,
-      "total_down_seconds": 1273836,
+      "current_down_seconds": 0,
+      "total_down_seconds": 1294630,
       "downtime_events": [
-        {
-          "down_at": "2026-08-19T21:26:32Z",
-          "reopened_at": "2026-08-19T22:31:37Z",
-          "duration_seconds": 3905,
-          "ended_by": "reopened"
-        },
         {
           "down_at": "2026-08-19T23:51:35Z",
           "reopened_at": "2026-08-20T01:00:00Z",
@@ -8468,13 +8468,19 @@
           "reopened_at": "2026-10-01T15:23:25Z",
           "duration_seconds": 303,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-10-01T19:13:26Z",
+          "reopened_at": "2026-10-02T01:00:00Z",
+          "duration_seconds": 20794,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-09-11T01:00:00Z"
+      "paused_at_park_close": "2026-10-02T01:00:00Z"
     },
     "81b15dfd-cf6a-466f-be59-3dd65d2a2807": {
       "id": "81b15dfd-cf6a-466f-be59-3dd65d2a2807",
@@ -10328,15 +10334,15 @@
     },
     "399aa0a1-98e2-4d2b-b297-2b451e9665e1": {
       "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
-      "is_open": false,
+      "is_open": null,
       "name": "Slinky Dog Dash",
       "last_seen_at": "2026-10-01T20:36:12Z",
       "last_changed_at": "2026-10-01T20:36:12Z",
-      "down_since": "2026-10-01T20:36:12Z",
+      "down_since": null,
       "last_down_at": "2026-10-01T20:36:12Z",
       "last_reopened_at": "2026-09-29T13:18:34Z",
       "current_down_seconds": 0,
-      "total_down_seconds": 963098,
+      "total_down_seconds": 978926,
       "downtime_events": [
         {
           "down_at": "2026-08-17T19:56:17Z",
@@ -10787,13 +10793,19 @@
           "reopened_at": "2026-09-29T13:18:34Z",
           "duration_seconds": 911,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-10-01T20:36:12Z",
+          "reopened_at": "2026-10-02T01:00:00Z",
+          "duration_seconds": 15828,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-09-23T01:00:00Z"
+      "paused_at_park_close": "2026-10-02T01:00:00Z"
     },
     "6f6998e8-a629-412c-b964-2cb06af8e26b": {
       "id": "6f6998e8-a629-412c-b964-2cb06af8e26b",
