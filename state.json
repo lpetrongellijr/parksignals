@@ -9417,15 +9417,15 @@
     },
     "75449e85-c410-4cef-a368-9d2ea5d52b58": {
       "id": "75449e85-c410-4cef-a368-9d2ea5d52b58",
-      "is_open": false,
+      "is_open": null,
       "name": "Journey Into Imagination With Figment",
       "last_seen_at": "2026-10-03T00:58:52Z",
       "last_changed_at": "2026-10-03T00:55:32Z",
-      "down_since": "2026-10-03T00:55:32Z",
+      "down_since": null,
       "last_down_at": "2026-10-03T00:55:32Z",
       "last_reopened_at": "2026-09-29T13:08:13Z",
-      "current_down_seconds": 200,
-      "total_down_seconds": 262312,
+      "current_down_seconds": 0,
+      "total_down_seconds": 262580,
       "downtime_events": [
         {
           "down_at": "2026-08-18T22:31:40Z",
@@ -9726,13 +9726,19 @@
           "reopened_at": "2026-09-29T13:08:13Z",
           "duration_seconds": 290,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-10-03T00:55:32Z",
+          "reopened_at": "2026-10-03T01:00:00Z",
+          "duration_seconds": 268,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-09-28T01:00:00Z"
+      "paused_at_park_close": "2026-10-03T01:00:00Z"
     },
     "22f48b73-01df-460e-8969-9eb2b4ae836c": {
       "id": "22f48b73-01df-460e-8969-9eb2b4ae836c",
@@ -10238,15 +10244,15 @@
     },
     "399aa0a1-98e2-4d2b-b297-2b451e9665e1": {
       "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
-      "is_open": false,
+      "is_open": null,
       "name": "Slinky Dog Dash",
       "last_seen_at": "2026-10-03T00:58:52Z",
       "last_changed_at": "2026-10-03T00:48:21Z",
-      "down_since": "2026-10-03T00:48:21Z",
+      "down_since": null,
       "last_down_at": "2026-10-03T00:48:21Z",
       "last_reopened_at": "2026-09-29T13:18:34Z",
-      "current_down_seconds": 631,
-      "total_down_seconds": 978926,
+      "current_down_seconds": 0,
+      "total_down_seconds": 979625,
       "downtime_events": [
         {
           "down_at": "2026-08-19T13:01:42Z",
@@ -10697,13 +10703,19 @@
           "reopened_at": "2026-10-02T01:00:00Z",
           "duration_seconds": 15828,
           "ended_by": "park_close"
+        },
+        {
+          "down_at": "2026-10-03T00:48:21Z",
+          "reopened_at": "2026-10-03T01:00:00Z",
+          "duration_seconds": 699,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-10-02T01:00:00Z"
+      "paused_at_park_close": "2026-10-03T01:00:00Z"
     },
     "6f6998e8-a629-412c-b964-2cb06af8e26b": {
       "id": "6f6998e8-a629-412c-b964-2cb06af8e26b",
