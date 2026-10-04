@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T03:28:24Z",
+  "generated_at": "2026-10-04T03:36:36Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -356,7 +356,7 @@
           "id": "22f48b73-01df-460e-8969-9eb2b4ae836c",
           "name": "Gran Fiesta Tour",
           "status": "park_closed",
-          "wait_time_minutes": 5,
+          "wait_time_minutes": null,
           "downtime_today_seconds": 1264,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -1024,7 +1024,7 @@
       "id": "22f48b73-01df-460e-8969-9eb2b4ae836c",
       "name": "Gran Fiesta Tour",
       "status": "park_closed",
-      "wait_time_minutes": 5,
+      "wait_time_minutes": null,
       "downtime_today_seconds": 1264,
       "current_downtime_seconds": 0,
       "planned_closure": false,
