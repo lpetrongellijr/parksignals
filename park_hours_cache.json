@@ -1,28 +1,22 @@
 {
   "parks": {
     "magic_kingdom": {
-      "date": "2026-10-04",
+      "date": "2026-10-05",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
-      "opens_at": "08:00",
-      "closes_at": "18:00",
+      "opens_at": "09:00",
+      "closes_at": "23:00",
       "selected_schedule_type": "OPERATING",
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-10-04T07:30:00-04:00",
-          "closingTime": "2026-10-04T08:00:00-04:00",
+          "openingTime": "2026-10-05T08:30:00-04:00",
+          "closingTime": "2026-10-05T09:00:00-04:00",
           "description": "Early Entry"
-        },
-        {
-          "type": "TICKETED_EVENT",
-          "openingTime": "2026-10-04T19:00:00-04:00",
-          "closingTime": "2026-10-05T00:00:00-04:00",
-          "description": "Special Ticketed Event"
         }
       ],
       "raw": {
-        "date": "2026-10-04",
+        "date": "2026-10-05",
         "type": "OPERATING",
         "purchases": [
           {
@@ -30,9 +24,9 @@
             "name": "Lightning Lane for Seven Dwarfs Mine Train",
             "type": "ATTRACTION",
             "price": {
-              "amount": 1400,
+              "amount": 1500,
               "currency": "USD",
-              "formatted": "$14.00"
+              "formatted": "$15.00"
             },
             "available": false
           },
@@ -59,12 +53,12 @@
             "available": true
           }
         ],
-        "closingTime": "2026-10-04T18:00:00-04:00",
-        "openingTime": "2026-10-04T08:00:00-04:00"
+        "closingTime": "2026-10-05T23:00:00-04:00",
+        "openingTime": "2026-10-05T09:00:00-04:00"
       }
     },
     "epcot": {
-      "date": "2026-10-04",
+      "date": "2026-10-05",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -73,13 +67,19 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-10-04T08:30:00-04:00",
-          "closingTime": "2026-10-04T09:00:00-04:00",
+          "openingTime": "2026-10-05T08:30:00-04:00",
+          "closingTime": "2026-10-05T09:00:00-04:00",
           "description": "Early Entry"
+        },
+        {
+          "type": "TICKETED_EVENT",
+          "openingTime": "2026-10-05T21:00:00-04:00",
+          "closingTime": "2026-10-05T23:00:00-04:00",
+          "description": "Extended Evening"
         }
       ],
       "raw": {
-        "date": "2026-10-04",
+        "date": "2026-10-05",
         "type": "OPERATING",
         "purchases": [
           {
@@ -98,9 +98,9 @@
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 2400,
+              "amount": 2600,
               "currency": "USD",
-              "formatted": "$24.00"
+              "formatted": "$26.00"
             },
             "available": true
           },
@@ -116,12 +116,12 @@
             "available": true
           }
         ],
-        "closingTime": "2026-10-04T21:00:00-04:00",
-        "openingTime": "2026-10-04T09:00:00-04:00"
+        "closingTime": "2026-10-05T21:00:00-04:00",
+        "openingTime": "2026-10-05T09:00:00-04:00"
       }
     },
     "hollywood_studios": {
-      "date": "2026-10-04",
+      "date": "2026-10-05",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -130,13 +130,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-10-04T08:30:00-04:00",
-          "closingTime": "2026-10-04T09:00:00-04:00",
+          "openingTime": "2026-10-05T08:30:00-04:00",
+          "closingTime": "2026-10-05T09:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-10-04",
+        "date": "2026-10-05",
         "type": "OPERATING",
         "purchases": [
           {
@@ -144,9 +144,9 @@
             "name": "Lightning Lane for Star Wars: Rise of the Resistance",
             "type": "ATTRACTION",
             "price": {
-              "amount": 2400,
+              "amount": 2500,
               "currency": "USD",
-              "formatted": "$24.00"
+              "formatted": "$25.00"
             },
             "available": false
           },
@@ -155,9 +155,9 @@
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 2700,
+              "amount": 2900,
               "currency": "USD",
-              "formatted": "$27.00"
+              "formatted": "$29.00"
             },
             "available": true
           },
@@ -173,12 +173,12 @@
             "available": true
           }
         ],
-        "closingTime": "2026-10-04T21:00:00-04:00",
-        "openingTime": "2026-10-04T09:00:00-04:00"
+        "closingTime": "2026-10-05T21:00:00-04:00",
+        "openingTime": "2026-10-05T09:00:00-04:00"
       }
     },
     "animal_kingdom": {
-      "date": "2026-10-04",
+      "date": "2026-10-05",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "08:00",
@@ -187,13 +187,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-10-04T07:30:00-04:00",
-          "closingTime": "2026-10-04T08:00:00-04:00",
+          "openingTime": "2026-10-05T07:30:00-04:00",
+          "closingTime": "2026-10-05T08:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-10-04",
+        "date": "2026-10-05",
         "type": "OPERATING",
         "purchases": [
           {
@@ -201,31 +201,42 @@
             "name": "Lightning Lane for Avatar Flight of Passage",
             "type": "ATTRACTION",
             "price": {
-              "amount": 1900,
+              "amount": 1800,
               "currency": "USD",
-              "formatted": "$19.00"
+              "formatted": "$18.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007823",
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 2200,
+              "amount": 1900,
               "currency": "USD",
-              "formatted": "$22.00"
+              "formatted": "$19.00"
+            },
+            "available": true
+          },
+          {
+            "id": "premierpass_80007823",
+            "name": "Lightning Lane Premier Pass",
+            "type": "PACKAGE",
+            "price": {
+              "amount": 17900,
+              "currency": "USD",
+              "formatted": "$179.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-10-04T18:00:00-04:00",
-        "openingTime": "2026-10-04T08:00:00-04:00"
+        "closingTime": "2026-10-05T18:00:00-04:00",
+        "openingTime": "2026-10-05T08:00:00-04:00"
       }
     }
   },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-10-05T00:22:15Z",
+  "generated_at": "2026-10-05T04:04:01Z",
   "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
   "last_fetch_status": "ok",
