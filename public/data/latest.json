@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-06T12:03:43Z",
+  "generated_at": "2026-10-06T12:07:58Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -645,7 +645,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-06T12:03:43Z",
+          "last_seen_at": "2026-10-06T12:07:58Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -658,7 +658,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-06T12:03:43Z",
+          "last_seen_at": "2026-10-06T12:07:58Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -668,10 +668,10 @@
           "name": "Kali River Rapids",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 0,
-          "current_downtime_seconds": 0,
+          "downtime_today_seconds": 255,
+          "current_downtime_seconds": 255,
           "planned_closure": false,
-          "last_seen_at": "2026-10-06T12:03:43Z",
+          "last_seen_at": "2026-10-06T12:07:58Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -681,10 +681,10 @@
           "name": "Kilimanjaro Safaris",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 0,
-          "current_downtime_seconds": 0,
+          "downtime_today_seconds": 255,
+          "current_downtime_seconds": 255,
           "planned_closure": false,
-          "last_seen_at": "2026-10-06T12:03:43Z",
+          "last_seen_at": "2026-10-06T12:07:58Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -697,7 +697,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-06T12:03:43Z",
+          "last_seen_at": "2026-10-06T12:07:58Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -710,7 +710,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": true,
-          "last_seen_at": "2026-10-06T12:03:43Z",
+          "last_seen_at": "2026-10-06T12:07:58Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -724,10 +724,10 @@
       "name": "Kilimanjaro Safaris",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 0,
-      "current_downtime_seconds": 0,
+      "downtime_today_seconds": 255,
+      "current_downtime_seconds": 255,
       "planned_closure": false,
-      "last_seen_at": "2026-10-06T12:03:43Z",
+      "last_seen_at": "2026-10-06T12:07:58Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
@@ -737,34 +737,42 @@
       "name": "Kali River Rapids",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 0,
-      "current_downtime_seconds": 0,
+      "downtime_today_seconds": 255,
+      "current_downtime_seconds": 255,
       "planned_closure": false,
-      "last_seen_at": "2026-10-06T12:03:43Z",
+      "last_seen_at": "2026-10-06T12:07:58Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
     }
   ],
-  "latest_updates": [
+  "latest_updates": [],
+  "downtime_today": [
     {
-      "type": "down",
-      "ride_id": "32e01181-9a5f-4936-8a77-0dace1de836c",
-      "ride_name": "Kilimanjaro Safaris",
+      "id": "32e01181-9a5f-4936-8a77-0dace1de836c",
+      "name": "Kilimanjaro Safaris",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 255,
+      "current_downtime_seconds": 255,
+      "planned_closure": false,
+      "last_seen_at": "2026-10-06T12:07:58Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
-      "park_slug": "animal-kingdom",
-      "observed_at": "2026-10-06T12:03:43Z"
+      "park_slug": "animal-kingdom"
     },
     {
-      "type": "down",
-      "ride_id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
-      "ride_name": "Kali River Rapids",
+      "id": "d58d9262-ec95-4161-80a0-07ca43b2f5f3",
+      "name": "Kali River Rapids",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 255,
+      "current_downtime_seconds": 255,
+      "planned_closure": false,
+      "last_seen_at": "2026-10-06T12:07:58Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
-      "park_slug": "animal-kingdom",
-      "observed_at": "2026-10-06T12:03:43Z"
+      "park_slug": "animal-kingdom"
     }
-  ],
-  "downtime_today": []
+  ]
 }
