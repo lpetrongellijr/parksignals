@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-08T22:57:21Z",
+  "generated_at": "2026-10-08T23:04:10Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -116,7 +116,7 @@
           "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
           "name": "Jungle Cruise",
           "status": "park_closed",
-          "wait_time_minutes": 10,
+          "wait_time_minutes": 5,
           "downtime_today_seconds": 307,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -168,7 +168,7 @@
           "id": "352feb94-e52e-45eb-9c92-e4b44c6b1a9d",
           "name": "Pirates of the Caribbean",
           "status": "park_closed",
-          "wait_time_minutes": 10,
+          "wait_time_minutes": 5,
           "downtime_today_seconds": 247,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -285,7 +285,7 @@
           "id": "5a43d1a7-ad53-4d25-abfe-25625f0da304",
           "name": "TRON Lightcycle / Run",
           "status": "park_closed",
-          "wait_time_minutes": 55,
+          "wait_time_minutes": 45,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -337,17 +337,17 @@
       "tracked_ride_count": 11,
       "open_ride_count": 9,
       "unavailable_ride_count": 2,
-      "average_wait_minutes": 24,
+      "average_wait_minutes": 18,
       "rides": [
         {
           "id": "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0",
           "name": "Frozen Ever After",
-          "status": "unavailable",
-          "wait_time_minutes": null,
-          "downtime_today_seconds": 3217,
-          "current_downtime_seconds": 3217,
+          "status": "open",
+          "wait_time_minutes": 20,
+          "downtime_today_seconds": 3626,
+          "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -360,7 +360,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -368,12 +368,12 @@
         {
           "id": "e3549451-b284-453d-9c31-e3b1207abd79",
           "name": "Guardians of the Galaxy: Cosmic Rewind",
-          "status": "open",
-          "wait_time_minutes": 75,
+          "status": "unavailable",
+          "wait_time_minutes": null,
           "downtime_today_seconds": 14583,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -386,7 +386,7 @@
           "downtime_today_seconds": 918,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -399,7 +399,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -412,7 +412,7 @@
           "downtime_today_seconds": 1143,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -421,11 +421,11 @@
           "id": "1e735ffb-4868-47f1-b2cd-2ac1156cd5f0",
           "name": "Remy's Ratatouille Adventure",
           "status": "open",
-          "wait_time_minutes": 45,
+          "wait_time_minutes": 50,
           "downtime_today_seconds": 3664,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -438,7 +438,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -451,7 +451,7 @@
           "downtime_today_seconds": 286,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -461,10 +461,10 @@
           "name": "Test Track",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 20437,
-          "current_downtime_seconds": 5640,
+          "downtime_today_seconds": 20846,
+          "current_downtime_seconds": 6049,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -477,7 +477,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -499,7 +499,7 @@
       "tracked_ride_count": 9,
       "open_ride_count": 8,
       "unavailable_ride_count": 1,
-      "average_wait_minutes": 37,
+      "average_wait_minutes": 39,
       "rides": [
         {
           "id": "d56506e2-6ad3-443a-8065-fea37987248d",
@@ -509,7 +509,7 @@
           "downtime_today_seconds": 578,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -518,11 +518,11 @@
           "id": "6e118e37-5002-408d-9d88-0b5d9cdb5d14",
           "name": "Mickey & Minnie's Runaway Railway",
           "status": "open",
-          "wait_time_minutes": 40,
+          "wait_time_minutes": 50,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -531,11 +531,11 @@
           "id": "34c4916b-989b-4ff1-a7e3-a6a846a3484f",
           "name": "Millennium Falcon: Smugglers Run",
           "status": "open",
-          "wait_time_minutes": 20,
+          "wait_time_minutes": 30,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -545,10 +545,10 @@
           "name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 226,
-          "current_downtime_seconds": 0,
+          "downtime_today_seconds": 635,
+          "current_downtime_seconds": 409,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -561,7 +561,7 @@
           "downtime_today_seconds": 15105,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -574,7 +574,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -587,7 +587,7 @@
           "downtime_today_seconds": 4888,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -600,7 +600,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -613,7 +613,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-08T22:57:21Z",
+          "last_seen_at": "2026-10-08T23:04:10Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -724,23 +724,10 @@
       "name": "Test Track",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 20437,
-      "current_downtime_seconds": 5640,
+      "downtime_today_seconds": 20846,
+      "current_downtime_seconds": 6049,
       "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
-      "park_id": "epcot",
-      "park_name": "EPCOT",
-      "park_slug": "epcot"
-    },
-    {
-      "id": "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0",
-      "name": "Frozen Ever After",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 3217,
-      "current_downtime_seconds": 3217,
-      "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
+      "last_seen_at": "2026-10-08T23:04:10Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -750,33 +737,46 @@
       "name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 226,
-      "current_downtime_seconds": 0,
+      "downtime_today_seconds": 635,
+      "current_downtime_seconds": 409,
       "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
+      "last_seen_at": "2026-10-08T23:04:10Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
+    },
+    {
+      "id": "e3549451-b284-453d-9c31-e3b1207abd79",
+      "name": "Guardians of the Galaxy: Cosmic Rewind",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 14583,
+      "current_downtime_seconds": 0,
+      "planned_closure": false,
+      "last_seen_at": "2026-10-08T23:04:10Z",
+      "park_id": "epcot",
+      "park_name": "EPCOT",
+      "park_slug": "epcot"
     }
   ],
   "latest_updates": [
     {
-      "type": "reopened",
+      "type": "down",
       "ride_id": "e3549451-b284-453d-9c31-e3b1207abd79",
       "ride_name": "Guardians of the Galaxy: Cosmic Rewind",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot",
-      "observed_at": "2026-10-08T22:57:21Z"
+      "observed_at": "2026-10-08T23:04:10Z"
     },
     {
-      "type": "down",
-      "ride_id": "e516f303-e82d-4fd3-8fbf-8e6ab624cf89",
-      "ride_name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
-      "park_id": "hollywood_studios",
-      "park_name": "Hollywood Studios",
-      "park_slug": "hollywood-studios",
-      "observed_at": "2026-10-08T22:57:21Z"
+      "type": "reopened",
+      "ride_id": "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0",
+      "ride_name": "Frozen Ever After",
+      "park_id": "epcot",
+      "park_name": "EPCOT",
+      "park_slug": "epcot",
+      "observed_at": "2026-10-08T23:04:10Z"
     }
   ],
   "downtime_today": [
@@ -785,10 +785,10 @@
       "name": "Test Track",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 20437,
-      "current_downtime_seconds": 5640,
+      "downtime_today_seconds": 20846,
+      "current_downtime_seconds": 6049,
       "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
+      "last_seen_at": "2026-10-08T23:04:10Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -801,7 +801,7 @@
       "downtime_today_seconds": 15105,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
+      "last_seen_at": "2026-10-08T23:04:10Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -822,12 +822,12 @@
     {
       "id": "e3549451-b284-453d-9c31-e3b1207abd79",
       "name": "Guardians of the Galaxy: Cosmic Rewind",
-      "status": "open",
-      "wait_time_minutes": 75,
+      "status": "unavailable",
+      "wait_time_minutes": null,
       "downtime_today_seconds": 14583,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
+      "last_seen_at": "2026-10-08T23:04:10Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -840,7 +840,7 @@
       "downtime_today_seconds": 4888,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
+      "last_seen_at": "2026-10-08T23:04:10Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -849,11 +849,24 @@
       "id": "1e735ffb-4868-47f1-b2cd-2ac1156cd5f0",
       "name": "Remy's Ratatouille Adventure",
       "status": "open",
-      "wait_time_minutes": 45,
+      "wait_time_minutes": 50,
       "downtime_today_seconds": 3664,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
+      "last_seen_at": "2026-10-08T23:04:10Z",
+      "park_id": "epcot",
+      "park_name": "EPCOT",
+      "park_slug": "epcot"
+    },
+    {
+      "id": "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0",
+      "name": "Frozen Ever After",
+      "status": "open",
+      "wait_time_minutes": 20,
+      "downtime_today_seconds": 3626,
+      "current_downtime_seconds": 0,
+      "planned_closure": false,
+      "last_seen_at": "2026-10-08T23:04:10Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -870,19 +883,6 @@
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
-    },
-    {
-      "id": "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0",
-      "name": "Frozen Ever After",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 3217,
-      "current_downtime_seconds": 3217,
-      "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
-      "park_id": "epcot",
-      "park_name": "EPCOT",
-      "park_slug": "epcot"
     },
     {
       "id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
@@ -905,7 +905,7 @@
       "downtime_today_seconds": 1143,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
+      "last_seen_at": "2026-10-08T23:04:10Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -931,7 +931,7 @@
       "downtime_today_seconds": 918,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
+      "last_seen_at": "2026-10-08T23:04:10Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -976,6 +976,19 @@
       "park_slug": "animal-kingdom"
     },
     {
+      "id": "e516f303-e82d-4fd3-8fbf-8e6ab624cf89",
+      "name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 635,
+      "current_downtime_seconds": 409,
+      "planned_closure": false,
+      "last_seen_at": "2026-10-08T23:04:10Z",
+      "park_id": "hollywood_studios",
+      "park_name": "Hollywood Studios",
+      "park_slug": "hollywood-studios"
+    },
+    {
       "id": "d56506e2-6ad3-443a-8065-fea37987248d",
       "name": "Alien Swirling Saucers",
       "status": "open",
@@ -983,7 +996,7 @@
       "downtime_today_seconds": 578,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
+      "last_seen_at": "2026-10-08T23:04:10Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -992,7 +1005,7 @@
       "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
       "name": "Jungle Cruise",
       "status": "park_closed",
-      "wait_time_minutes": 10,
+      "wait_time_minutes": 5,
       "downtime_today_seconds": 307,
       "current_downtime_seconds": 0,
       "planned_closure": false,
@@ -1009,7 +1022,7 @@
       "downtime_today_seconds": 286,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
+      "last_seen_at": "2026-10-08T23:04:10Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -1018,7 +1031,7 @@
       "id": "352feb94-e52e-45eb-9c92-e4b44c6b1a9d",
       "name": "Pirates of the Caribbean",
       "status": "park_closed",
-      "wait_time_minutes": 10,
+      "wait_time_minutes": 5,
       "downtime_today_seconds": 247,
       "current_downtime_seconds": 0,
       "planned_closure": false,
@@ -1026,19 +1039,6 @@
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
-    },
-    {
-      "id": "e516f303-e82d-4fd3-8fbf-8e6ab624cf89",
-      "name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 226,
-      "current_downtime_seconds": 0,
-      "planned_closure": false,
-      "last_seen_at": "2026-10-08T22:57:21Z",
-      "park_id": "hollywood_studios",
-      "park_name": "Hollywood Studios",
-      "park_slug": "hollywood-studios"
     }
   ]
 }
