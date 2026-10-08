@@ -39,7 +39,7 @@
               "currency": "USD",
               "formatted": "$23.00"
             },
-            "available": true
+            "available": false
           },
           {
             "id": "lightninglanemultipass_80007944",
@@ -85,7 +85,7 @@
               "currency": "USD",
               "formatted": "$21.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007838",
@@ -95,17 +95,6 @@
               "amount": 2400,
               "currency": "USD",
               "formatted": "$24.00"
-            },
-            "available": true
-          },
-          {
-            "id": "premierpass_80007838",
-            "name": "Lightning Lane Premier Pass",
-            "type": "PACKAGE",
-            "price": {
-              "amount": 21900,
-              "currency": "USD",
-              "formatted": "$219.00"
             },
             "available": true
           }
@@ -148,7 +137,7 @@
               "currency": "USD",
               "formatted": "$24.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007998",
@@ -194,7 +183,7 @@
               "currency": "USD",
               "formatted": "$17.00"
             },
-            "available": true
+            "available": false
           },
           {
             "id": "lightninglanemultipass_80007823",
@@ -205,18 +194,7 @@
               "currency": "USD",
               "formatted": "$17.00"
             },
-            "available": true
-          },
-          {
-            "id": "premierpass_80007823",
-            "name": "Lightning Lane Premier Pass",
-            "type": "PACKAGE",
-            "price": {
-              "amount": 17900,
-              "currency": "USD",
-              "formatted": "$179.00"
-            },
-            "available": true
+            "available": false
           }
         ],
         "closingTime": "2026-10-07T18:00:00-04:00",
@@ -225,7 +203,7 @@
     }
   },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-10-07T22:06:04Z",
+  "generated_at": "2026-10-08T01:27:49Z",
   "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
   "last_fetch_status": "ok",
