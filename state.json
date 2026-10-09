@@ -7331,22 +7331,16 @@
     },
     "37ae57c5-feaf-4e47-8f27-4b385be200f0": {
       "id": "37ae57c5-feaf-4e47-8f27-4b385be200f0",
-      "is_open": false,
+      "is_open": null,
       "name": "Test Track",
       "last_seen_at": "2026-10-09T00:58:37Z",
       "last_changed_at": "2026-10-08T21:23:21Z",
-      "down_since": "2026-10-08T21:23:21Z",
+      "down_since": null,
       "last_down_at": "2026-10-08T21:23:21Z",
       "last_reopened_at": "2026-10-08T21:00:43Z",
-      "current_down_seconds": 12916,
-      "total_down_seconds": 1412937,
+      "current_down_seconds": 0,
+      "total_down_seconds": 1425936,
       "downtime_events": [
-        {
-          "down_at": "2026-08-26T21:16:30Z",
-          "reopened_at": "2026-08-27T01:00:00Z",
-          "duration_seconds": 13410,
-          "ended_by": "park_close"
-        },
         {
           "down_at": "2026-08-27T14:52:54Z",
           "reopened_at": "2026-08-27T17:08:25Z",
@@ -8060,13 +8054,19 @@
           "reopened_at": "2026-10-08T21:00:43Z",
           "duration_seconds": 5822,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-10-08T21:23:21Z",
+          "reopened_at": "2026-10-09T01:00:00Z",
+          "duration_seconds": 12999,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-10-08T01:00:00Z"
+      "paused_at_park_close": "2026-10-09T01:00:00Z"
     },
     "81b15dfd-cf6a-466f-be59-3dd65d2a2807": {
       "id": "81b15dfd-cf6a-466f-be59-3dd65d2a2807",
@@ -9866,15 +9866,15 @@
     },
     "399aa0a1-98e2-4d2b-b297-2b451e9665e1": {
       "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
-      "is_open": false,
+      "is_open": null,
       "name": "Slinky Dog Dash",
       "last_seen_at": "2026-10-09T00:58:37Z",
       "last_changed_at": "2026-10-09T00:33:52Z",
-      "down_since": "2026-10-09T00:33:52Z",
+      "down_since": null,
       "last_down_at": "2026-10-09T00:33:52Z",
       "last_reopened_at": "2026-10-08T21:58:40Z",
-      "current_down_seconds": 1485,
-      "total_down_seconds": 1014716,
+      "current_down_seconds": 0,
+      "total_down_seconds": 1016284,
       "downtime_events": [
         {
           "down_at": "2026-08-26T21:11:40Z",
@@ -10313,13 +10313,19 @@
           "reopened_at": "2026-10-08T21:58:40Z",
           "duration_seconds": 5127,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-10-09T00:33:52Z",
+          "reopened_at": "2026-10-09T01:00:00Z",
+          "duration_seconds": 1568,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-10-03T01:00:00Z"
+      "paused_at_park_close": "2026-10-09T01:00:00Z"
     },
     "6f6998e8-a629-412c-b964-2cb06af8e26b": {
       "id": "6f6998e8-a629-412c-b964-2cb06af8e26b",
