@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-09T01:18:31Z",
+  "generated_at": "2026-10-09T01:24:18Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -129,7 +129,7 @@
           "id": "0aae716c-af13-4439-b638-d75fb1649df3",
           "name": "Mad Tea Party",
           "status": "park_closed",
-          "wait_time_minutes": 10,
+          "wait_time_minutes": null,
           "downtime_today_seconds": 918,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -894,7 +894,7 @@
       "id": "0aae716c-af13-4439-b638-d75fb1649df3",
       "name": "Mad Tea Party",
       "status": "park_closed",
-      "wait_time_minutes": 10,
+      "wait_time_minutes": null,
       "downtime_today_seconds": 918,
       "current_downtime_seconds": 0,
       "planned_closure": false,
