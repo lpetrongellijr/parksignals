@@ -1,28 +1,22 @@
 {
   "parks": {
     "magic_kingdom": {
-      "date": "2026-10-09",
+      "date": "2026-10-10",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "08:00",
-      "closes_at": "18:00",
+      "closes_at": "23:00",
       "selected_schedule_type": "OPERATING",
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-10-09T07:30:00-04:00",
-          "closingTime": "2026-10-09T08:00:00-04:00",
+          "openingTime": "2026-10-10T07:30:00-04:00",
+          "closingTime": "2026-10-10T08:00:00-04:00",
           "description": "Early Entry"
-        },
-        {
-          "type": "TICKETED_EVENT",
-          "openingTime": "2026-10-09T19:00:00-04:00",
-          "closingTime": "2026-10-10T00:00:00-04:00",
-          "description": "Special Ticketed Event"
         }
       ],
       "raw": {
-        "date": "2026-10-09",
+        "date": "2026-10-10",
         "type": "OPERATING",
         "purchases": [
           {
@@ -30,9 +24,9 @@
             "name": "Lightning Lane for Seven Dwarfs Mine Train",
             "type": "ATTRACTION",
             "price": {
-              "amount": 1400,
+              "amount": 1500,
               "currency": "USD",
-              "formatted": "$14.00"
+              "formatted": "$15.00"
             },
             "available": false
           },
@@ -52,19 +46,19 @@
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 3700,
+              "amount": 3900,
               "currency": "USD",
-              "formatted": "$37.00"
+              "formatted": "$39.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-10-09T18:00:00-04:00",
-        "openingTime": "2026-10-09T08:00:00-04:00"
+        "closingTime": "2026-10-10T23:00:00-04:00",
+        "openingTime": "2026-10-10T08:00:00-04:00"
       }
     },
     "epcot": {
-      "date": "2026-10-09",
+      "date": "2026-10-10",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -73,13 +67,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-10-09T08:30:00-04:00",
-          "closingTime": "2026-10-09T09:00:00-04:00",
+          "openingTime": "2026-10-10T08:30:00-04:00",
+          "closingTime": "2026-10-10T09:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-10-09",
+        "date": "2026-10-10",
         "type": "OPERATING",
         "purchases": [
           {
@@ -102,30 +96,30 @@
               "currency": "USD",
               "formatted": "$32.00"
             },
-            "available": false
+            "available": true
           }
         ],
-        "closingTime": "2026-10-09T21:00:00-04:00",
-        "openingTime": "2026-10-09T09:00:00-04:00"
+        "closingTime": "2026-10-10T21:00:00-04:00",
+        "openingTime": "2026-10-10T09:00:00-04:00"
       }
     },
     "hollywood_studios": {
-      "date": "2026-10-09",
+      "date": "2026-10-10",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
-      "opens_at": "08:30",
+      "opens_at": "09:00",
       "closes_at": "21:00",
       "selected_schedule_type": "OPERATING",
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-10-09T08:00:00-04:00",
-          "closingTime": "2026-10-09T08:30:00-04:00",
+          "openingTime": "2026-10-10T08:30:00-04:00",
+          "closingTime": "2026-10-10T09:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-10-09",
+        "date": "2026-10-10",
         "type": "OPERATING",
         "purchases": [
           {
@@ -151,12 +145,12 @@
             "available": true
           }
         ],
-        "closingTime": "2026-10-09T21:00:00-04:00",
-        "openingTime": "2026-10-09T08:30:00-04:00"
+        "closingTime": "2026-10-10T21:00:00-04:00",
+        "openingTime": "2026-10-10T09:00:00-04:00"
       }
     },
     "animal_kingdom": {
-      "date": "2026-10-09",
+      "date": "2026-10-10",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "08:00",
@@ -165,13 +159,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-10-09T07:30:00-04:00",
-          "closingTime": "2026-10-09T08:00:00-04:00",
+          "openingTime": "2026-10-10T07:30:00-04:00",
+          "closingTime": "2026-10-10T08:00:00-04:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-10-09",
+        "date": "2026-10-10",
         "type": "OPERATING",
         "purchases": [
           {
@@ -190,31 +184,20 @@
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 2500,
+              "amount": 2900,
               "currency": "USD",
-              "formatted": "$25.00"
-            },
-            "available": true
-          },
-          {
-            "id": "premierpass_80007823",
-            "name": "Lightning Lane Premier Pass",
-            "type": "PACKAGE",
-            "price": {
-              "amount": 19900,
-              "currency": "USD",
-              "formatted": "$199.00"
+              "formatted": "$29.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-10-09T19:00:00-04:00",
-        "openingTime": "2026-10-09T08:00:00-04:00"
+        "closingTime": "2026-10-10T19:00:00-04:00",
+        "openingTime": "2026-10-10T08:00:00-04:00"
       }
     }
   },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-10-10T01:24:21Z",
+  "generated_at": "2026-10-10T04:04:04Z",
   "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
   "last_fetch_status": "ok",
