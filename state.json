@@ -6885,15 +6885,15 @@
     },
     "1e735ffb-4868-47f1-b2cd-2ac1156cd5f0": {
       "id": "1e735ffb-4868-47f1-b2cd-2ac1156cd5f0",
-      "is_open": false,
+      "is_open": null,
       "name": "Remy's Ratatouille Adventure",
       "last_seen_at": "2026-10-10T00:58:03Z",
       "last_changed_at": "2026-10-10T00:28:39Z",
-      "down_since": "2026-10-10T00:28:39Z",
+      "down_since": null,
       "last_down_at": "2026-10-10T00:28:39Z",
       "last_reopened_at": "2026-10-08T22:43:39Z",
-      "current_down_seconds": 1764,
-      "total_down_seconds": 296234,
+      "current_down_seconds": 0,
+      "total_down_seconds": 298115,
       "downtime_events": [
         {
           "down_at": "2026-08-26T13:01:57Z",
@@ -7128,13 +7128,19 @@
           "reopened_at": "2026-10-08T22:43:39Z",
           "duration_seconds": 3664,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-10-10T00:28:39Z",
+          "reopened_at": "2026-10-10T01:00:00Z",
+          "duration_seconds": 1881,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-10-05T01:00:00Z"
+      "paused_at_park_close": "2026-10-10T01:00:00Z"
     },
     "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0": {
       "id": "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0",
