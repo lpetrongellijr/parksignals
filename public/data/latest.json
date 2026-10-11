@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T12:08:44Z",
+  "generated_at": "2026-10-11T12:13:45Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -17,8 +17,8 @@
         "closes_at": "23:00"
       },
       "tracked_ride_count": 23,
-      "open_ride_count": 19,
-      "unavailable_ride_count": 2,
+      "open_ride_count": 20,
+      "unavailable_ride_count": 1,
       "average_wait_minutes": 12,
       "rides": [
         {
@@ -29,7 +29,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -42,7 +42,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -50,12 +50,12 @@
         {
           "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
           "name": "Big Thunder Mountain",
-          "status": "unavailable",
-          "wait_time_minutes": null,
-          "downtime_today_seconds": 328,
-          "current_downtime_seconds": 328,
+          "status": "open",
+          "wait_time_minutes": 5,
+          "downtime_today_seconds": 629,
+          "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -68,7 +68,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -81,7 +81,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": true,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -94,7 +94,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -107,7 +107,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -120,7 +120,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -133,7 +133,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -146,7 +146,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -159,7 +159,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -172,7 +172,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -185,7 +185,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -198,7 +198,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -211,7 +211,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -224,7 +224,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -237,7 +237,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -250,7 +250,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -263,7 +263,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -272,11 +272,11 @@
           "id": "f163ddcd-43e1-488d-8276-2381c1db0a39",
           "name": "Tomorrowland Speedway",
           "status": "open",
-          "wait_time_minutes": 5,
+          "wait_time_minutes": 10,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -286,10 +286,10 @@
           "name": "TRON Lightcycle / Run",
           "status": "unavailable",
           "wait_time_minutes": 30,
-          "downtime_today_seconds": 328,
-          "current_downtime_seconds": 328,
+          "downtime_today_seconds": 629,
+          "current_downtime_seconds": 629,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -302,7 +302,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -315,7 +315,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": true,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "magic_kingdom",
           "park_name": "Magic Kingdom",
           "park_slug": "magic-kingdom"
@@ -583,7 +583,7 @@
           "id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
           "name": "Star Wars: Rise of the Resistance",
           "status": "park_closed",
-          "wait_time_minutes": 25,
+          "wait_time_minutes": 35,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -635,17 +635,17 @@
       "tracked_ride_count": 6,
       "open_ride_count": 3,
       "unavailable_ride_count": 2,
-      "average_wait_minutes": 27,
+      "average_wait_minutes": 37,
       "rides": [
         {
           "id": "24cf863c-b6ba-4826-a056-0b698989cbf7",
           "name": "Avatar Flight of Passage",
           "status": "open",
-          "wait_time_minutes": 60,
+          "wait_time_minutes": 90,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -658,7 +658,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -668,10 +668,10 @@
           "name": "Kali River Rapids",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 328,
-          "current_downtime_seconds": 328,
+          "downtime_today_seconds": 629,
+          "current_downtime_seconds": 629,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -681,10 +681,10 @@
           "name": "Kilimanjaro Safaris",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 328,
-          "current_downtime_seconds": 328,
+          "downtime_today_seconds": 629,
+          "current_downtime_seconds": 629,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -697,7 +697,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -710,7 +710,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": true,
-          "last_seen_at": "2026-10-11T12:08:44Z",
+          "last_seen_at": "2026-10-11T12:13:45Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -724,23 +724,10 @@
       "name": "TRON Lightcycle / Run",
       "status": "unavailable",
       "wait_time_minutes": 30,
-      "downtime_today_seconds": 328,
-      "current_downtime_seconds": 328,
+      "downtime_today_seconds": 629,
+      "current_downtime_seconds": 629,
       "planned_closure": false,
-      "last_seen_at": "2026-10-11T12:08:44Z",
-      "park_id": "magic_kingdom",
-      "park_name": "Magic Kingdom",
-      "park_slug": "magic-kingdom"
-    },
-    {
-      "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
-      "name": "Big Thunder Mountain",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 328,
-      "current_downtime_seconds": 328,
-      "planned_closure": false,
-      "last_seen_at": "2026-10-11T12:08:44Z",
+      "last_seen_at": "2026-10-11T12:13:45Z",
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
@@ -750,10 +737,10 @@
       "name": "Kilimanjaro Safaris",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 328,
-      "current_downtime_seconds": 328,
+      "downtime_today_seconds": 629,
+      "current_downtime_seconds": 629,
       "planned_closure": false,
-      "last_seen_at": "2026-10-11T12:08:44Z",
+      "last_seen_at": "2026-10-11T12:13:45Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
@@ -763,26 +750,36 @@
       "name": "Kali River Rapids",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 328,
-      "current_downtime_seconds": 328,
+      "downtime_today_seconds": 629,
+      "current_downtime_seconds": 629,
       "planned_closure": false,
-      "last_seen_at": "2026-10-11T12:08:44Z",
+      "last_seen_at": "2026-10-11T12:13:45Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
     }
   ],
-  "latest_updates": [],
+  "latest_updates": [
+    {
+      "type": "reopened",
+      "ride_id": "de3309ca-97d5-4211-bffe-739fed47e92f",
+      "ride_name": "Big Thunder Mountain",
+      "park_id": "magic_kingdom",
+      "park_name": "Magic Kingdom",
+      "park_slug": "magic-kingdom",
+      "observed_at": "2026-10-11T12:13:45Z"
+    }
+  ],
   "downtime_today": [
     {
       "id": "5a43d1a7-ad53-4d25-abfe-25625f0da304",
       "name": "TRON Lightcycle / Run",
       "status": "unavailable",
       "wait_time_minutes": 30,
-      "downtime_today_seconds": 328,
-      "current_downtime_seconds": 328,
+      "downtime_today_seconds": 629,
+      "current_downtime_seconds": 629,
       "planned_closure": false,
-      "last_seen_at": "2026-10-11T12:08:44Z",
+      "last_seen_at": "2026-10-11T12:13:45Z",
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
@@ -790,12 +787,12 @@
     {
       "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
       "name": "Big Thunder Mountain",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 328,
-      "current_downtime_seconds": 328,
+      "status": "open",
+      "wait_time_minutes": 5,
+      "downtime_today_seconds": 629,
+      "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-11T12:08:44Z",
+      "last_seen_at": "2026-10-11T12:13:45Z",
       "park_id": "magic_kingdom",
       "park_name": "Magic Kingdom",
       "park_slug": "magic-kingdom"
@@ -805,10 +802,10 @@
       "name": "Kilimanjaro Safaris",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 328,
-      "current_downtime_seconds": 328,
+      "downtime_today_seconds": 629,
+      "current_downtime_seconds": 629,
       "planned_closure": false,
-      "last_seen_at": "2026-10-11T12:08:44Z",
+      "last_seen_at": "2026-10-11T12:13:45Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
@@ -818,10 +815,10 @@
       "name": "Kali River Rapids",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 328,
-      "current_downtime_seconds": 328,
+      "downtime_today_seconds": 629,
+      "current_downtime_seconds": 629,
       "planned_closure": false,
-      "last_seen_at": "2026-10-11T12:08:44Z",
+      "last_seen_at": "2026-10-11T12:13:45Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
