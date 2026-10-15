@@ -2423,15 +2423,15 @@
     },
     "352feb94-e52e-45eb-9c92-e4b44c6b1a9d": {
       "id": "352feb94-e52e-45eb-9c92-e4b44c6b1a9d",
-      "is_open": false,
+      "is_open": null,
       "name": "Pirates of the Caribbean",
       "last_seen_at": "2026-10-15T02:58:59Z",
       "last_changed_at": "2026-10-14T12:02:37Z",
-      "down_since": "2026-10-14T12:02:37Z",
+      "down_since": null,
       "last_down_at": "2026-10-14T12:02:37Z",
       "last_reopened_at": "2026-10-09T19:38:42Z",
-      "current_down_seconds": 53782,
-      "total_down_seconds": 289771,
+      "current_down_seconds": 0,
+      "total_down_seconds": 343614,
       "downtime_events": [
         {
           "down_at": "2026-09-01T13:07:14Z",
@@ -2600,25 +2600,31 @@
           "reopened_at": "2026-10-09T19:38:42Z",
           "duration_seconds": 5684,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-10-14T12:02:37Z",
+          "reopened_at": "2026-10-15T03:00:00Z",
+          "duration_seconds": 53843,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-08-23T22:00:00Z"
+      "paused_at_park_close": "2026-10-15T03:00:00Z"
     },
     "2551a77d-023f-4ab1-9a19-8afec0190f39": {
       "id": "2551a77d-023f-4ab1-9a19-8afec0190f39",
-      "is_open": false,
+      "is_open": null,
       "name": "Haunted Mansion",
       "last_seen_at": "2026-10-15T02:58:59Z",
       "last_changed_at": "2026-10-15T02:04:19Z",
-      "down_since": "2026-10-15T02:04:19Z",
+      "down_since": null,
       "last_down_at": "2026-10-15T02:04:19Z",
       "last_reopened_at": "2026-10-12T13:14:10Z",
-      "current_down_seconds": 3280,
-      "total_down_seconds": 224310,
+      "current_down_seconds": 0,
+      "total_down_seconds": 227651,
       "downtime_events": [
         {
           "down_at": "2026-08-31T13:02:07Z",
@@ -2883,13 +2889,19 @@
           "reopened_at": "2026-10-12T13:14:10Z",
           "duration_seconds": 592,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-10-15T02:04:19Z",
+          "reopened_at": "2026-10-15T03:00:00Z",
+          "duration_seconds": 3341,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-10-06T22:00:00Z"
+      "paused_at_park_close": "2026-10-15T03:00:00Z"
     },
     "796b0a25-c51e-456e-9bb8-50a324e301b3": {
       "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
