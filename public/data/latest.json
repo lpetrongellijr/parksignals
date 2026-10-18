@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-18T22:35:26Z",
+  "generated_at": "2026-10-18T22:39:44Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -64,7 +64,7 @@
           "id": "72c7343a-f7fb-4f66-95df-c91016de7338",
           "name": "Buzz Lightyear\u2019s Space Ranger Spin",
           "status": "park_closed",
-          "wait_time_minutes": 30,
+          "wait_time_minutes": 25,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -116,7 +116,7 @@
           "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
           "name": "Jungle Cruise",
           "status": "park_closed",
-          "wait_time_minutes": 30,
+          "wait_time_minutes": 25,
           "downtime_today_seconds": 254,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -168,7 +168,7 @@
           "id": "352feb94-e52e-45eb-9c92-e4b44c6b1a9d",
           "name": "Pirates of the Caribbean",
           "status": "park_closed",
-          "wait_time_minutes": 15,
+          "wait_time_minutes": 10,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -298,7 +298,7 @@
           "id": "3cba0cb4-e2a6-402c-93ee-c11ffcb127ef",
           "name": "Under the Sea - Journey of The Little Mermaid",
           "status": "park_closed",
-          "wait_time_minutes": 25,
+          "wait_time_minutes": 15,
           "downtime_today_seconds": 11662,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -335,9 +335,9 @@
         "closes_at": "21:00"
       },
       "tracked_ride_count": 11,
-      "open_ride_count": 10,
-      "unavailable_ride_count": 1,
-      "average_wait_minutes": 34,
+      "open_ride_count": 11,
+      "unavailable_ride_count": 0,
+      "average_wait_minutes": 32,
       "rides": [
         {
           "id": "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0",
@@ -347,7 +347,7 @@
           "downtime_today_seconds": 3362,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -360,7 +360,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -373,7 +373,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -386,7 +386,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -399,7 +399,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -412,7 +412,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -425,7 +425,7 @@
           "downtime_today_seconds": 3438,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -438,7 +438,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -446,12 +446,12 @@
         {
           "id": "480fde8f-fe58-4bfb-b3ab-052a39d4db7c",
           "name": "Spaceship Earth",
-          "status": "unavailable",
-          "wait_time_minutes": null,
-          "downtime_today_seconds": 0,
+          "status": "open",
+          "wait_time_minutes": 20,
+          "downtime_today_seconds": 258,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -464,7 +464,7 @@
           "downtime_today_seconds": 1265,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -477,7 +477,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -499,7 +499,7 @@
       "tracked_ride_count": 9,
       "open_ride_count": 9,
       "unavailable_ride_count": 0,
-      "average_wait_minutes": 39,
+      "average_wait_minutes": 38,
       "rides": [
         {
           "id": "d56506e2-6ad3-443a-8065-fea37987248d",
@@ -509,7 +509,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -522,7 +522,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -535,7 +535,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -548,7 +548,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -557,11 +557,11 @@
           "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
           "name": "Slinky Dog Dash",
           "status": "open",
-          "wait_time_minutes": 70,
+          "wait_time_minutes": 60,
           "downtime_today_seconds": 12130,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -574,7 +574,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -587,7 +587,7 @@
           "downtime_today_seconds": 2658,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -600,7 +600,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -613,7 +613,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -645,7 +645,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -658,7 +658,7 @@
           "downtime_today_seconds": 4716,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -668,10 +668,10 @@
           "name": "Kali River Rapids",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 5178,
-          "current_downtime_seconds": 1582,
+          "downtime_today_seconds": 5436,
+          "current_downtime_seconds": 1840,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -681,10 +681,10 @@
           "name": "Kilimanjaro Safaris",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 2496,
-          "current_downtime_seconds": 1582,
+          "downtime_today_seconds": 2754,
+          "current_downtime_seconds": 1840,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -697,7 +697,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -710,7 +710,7 @@
           "downtime_today_seconds": 737,
           "current_downtime_seconds": 0,
           "planned_closure": true,
-          "last_seen_at": "2026-10-18T22:35:26Z",
+          "last_seen_at": "2026-10-18T22:39:44Z",
           "park_id": "animal_kingdom",
           "park_name": "Animal Kingdom",
           "park_slug": "animal-kingdom"
@@ -724,10 +724,10 @@
       "name": "Kilimanjaro Safaris",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 2496,
-      "current_downtime_seconds": 1582,
+      "downtime_today_seconds": 2754,
+      "current_downtime_seconds": 1840,
       "planned_closure": false,
-      "last_seen_at": "2026-10-18T22:35:26Z",
+      "last_seen_at": "2026-10-18T22:39:44Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
@@ -737,46 +737,24 @@
       "name": "Kali River Rapids",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 5178,
-      "current_downtime_seconds": 1582,
+      "downtime_today_seconds": 5436,
+      "current_downtime_seconds": 1840,
       "planned_closure": false,
-      "last_seen_at": "2026-10-18T22:35:26Z",
+      "last_seen_at": "2026-10-18T22:39:44Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
-    },
-    {
-      "id": "480fde8f-fe58-4bfb-b3ab-052a39d4db7c",
-      "name": "Spaceship Earth",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 0,
-      "current_downtime_seconds": 0,
-      "planned_closure": false,
-      "last_seen_at": "2026-10-18T22:35:26Z",
-      "park_id": "epcot",
-      "park_name": "EPCOT",
-      "park_slug": "epcot"
     }
   ],
   "latest_updates": [
     {
       "type": "reopened",
-      "ride_id": "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0",
-      "ride_name": "Frozen Ever After",
-      "park_id": "epcot",
-      "park_name": "EPCOT",
-      "park_slug": "epcot",
-      "observed_at": "2026-10-18T22:35:26Z"
-    },
-    {
-      "type": "down",
       "ride_id": "480fde8f-fe58-4bfb-b3ab-052a39d4db7c",
       "ride_name": "Spaceship Earth",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot",
-      "observed_at": "2026-10-18T22:35:26Z"
+      "observed_at": "2026-10-18T22:39:44Z"
     }
   ],
   "downtime_today": [
@@ -784,11 +762,11 @@
       "id": "399aa0a1-98e2-4d2b-b297-2b451e9665e1",
       "name": "Slinky Dog Dash",
       "status": "open",
-      "wait_time_minutes": 70,
+      "wait_time_minutes": 60,
       "downtime_today_seconds": 12130,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-18T22:35:26Z",
+      "last_seen_at": "2026-10-18T22:39:44Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -797,7 +775,7 @@
       "id": "3cba0cb4-e2a6-402c-93ee-c11ffcb127ef",
       "name": "Under the Sea - Journey of The Little Mermaid",
       "status": "park_closed",
-      "wait_time_minutes": 25,
+      "wait_time_minutes": 15,
       "downtime_today_seconds": 11662,
       "current_downtime_seconds": 0,
       "planned_closure": false,
@@ -837,10 +815,10 @@
       "name": "Kali River Rapids",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 5178,
-      "current_downtime_seconds": 1582,
+      "downtime_today_seconds": 5436,
+      "current_downtime_seconds": 1840,
       "planned_closure": false,
-      "last_seen_at": "2026-10-18T22:35:26Z",
+      "last_seen_at": "2026-10-18T22:39:44Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
@@ -866,7 +844,7 @@
       "downtime_today_seconds": 4716,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-18T22:35:26Z",
+      "last_seen_at": "2026-10-18T22:39:44Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
@@ -892,7 +870,7 @@
       "downtime_today_seconds": 3438,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-18T22:35:26Z",
+      "last_seen_at": "2026-10-18T22:39:44Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -905,10 +883,23 @@
       "downtime_today_seconds": 3362,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-18T22:35:26Z",
+      "last_seen_at": "2026-10-18T22:39:44Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
+    },
+    {
+      "id": "32e01181-9a5f-4936-8a77-0dace1de836c",
+      "name": "Kilimanjaro Safaris",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 2754,
+      "current_downtime_seconds": 1840,
+      "planned_closure": false,
+      "last_seen_at": "2026-10-18T22:39:44Z",
+      "park_id": "animal_kingdom",
+      "park_name": "Animal Kingdom",
+      "park_slug": "animal-kingdom"
     },
     {
       "id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
@@ -918,23 +909,10 @@
       "downtime_today_seconds": 2658,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-18T22:35:26Z",
+      "last_seen_at": "2026-10-18T22:39:44Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
-    },
-    {
-      "id": "32e01181-9a5f-4936-8a77-0dace1de836c",
-      "name": "Kilimanjaro Safaris",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 2496,
-      "current_downtime_seconds": 1582,
-      "planned_closure": false,
-      "last_seen_at": "2026-10-18T22:35:26Z",
-      "park_id": "animal_kingdom",
-      "park_name": "Animal Kingdom",
-      "park_slug": "animal-kingdom"
     },
     {
       "id": "86a41273-5f15-4b54-93b6-829f140e5161",
@@ -957,7 +935,7 @@
       "downtime_today_seconds": 1265,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-18T22:35:26Z",
+      "last_seen_at": "2026-10-18T22:39:44Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -996,16 +974,29 @@
       "downtime_today_seconds": 737,
       "current_downtime_seconds": 0,
       "planned_closure": true,
-      "last_seen_at": "2026-10-18T22:35:26Z",
+      "last_seen_at": "2026-10-18T22:39:44Z",
       "park_id": "animal_kingdom",
       "park_name": "Animal Kingdom",
       "park_slug": "animal-kingdom"
     },
     {
+      "id": "480fde8f-fe58-4bfb-b3ab-052a39d4db7c",
+      "name": "Spaceship Earth",
+      "status": "open",
+      "wait_time_minutes": 20,
+      "downtime_today_seconds": 258,
+      "current_downtime_seconds": 0,
+      "planned_closure": false,
+      "last_seen_at": "2026-10-18T22:39:44Z",
+      "park_id": "epcot",
+      "park_name": "EPCOT",
+      "park_slug": "epcot"
+    },
+    {
       "id": "796b0a25-c51e-456e-9bb8-50a324e301b3",
       "name": "Jungle Cruise",
       "status": "park_closed",
-      "wait_time_minutes": 30,
+      "wait_time_minutes": 25,
       "downtime_today_seconds": 254,
       "current_downtime_seconds": 0,
       "planned_closure": false,
