@@ -1923,15 +1923,15 @@
     },
     "9d4d5229-7142-44b6-b4fb-528920969a2c": {
       "id": "9d4d5229-7142-44b6-b4fb-528920969a2c",
-      "is_open": false,
+      "is_open": null,
       "name": "Seven Dwarfs Mine Train",
       "last_seen_at": "2026-10-29T01:59:41Z",
       "last_changed_at": "2026-10-29T01:28:59Z",
-      "down_since": "2026-10-29T01:28:59Z",
+      "down_since": null,
       "last_down_at": "2026-10-29T01:28:59Z",
       "last_reopened_at": "2026-10-26T16:59:42Z",
-      "current_down_seconds": 1842,
-      "total_down_seconds": 662975,
+      "current_down_seconds": 0,
+      "total_down_seconds": 664836,
       "downtime_events": [
         {
           "down_at": "2026-09-14T15:38:27Z",
@@ -2172,13 +2172,19 @@
           "reopened_at": "2026-10-26T16:59:42Z",
           "duration_seconds": 3903,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-10-29T01:28:59Z",
+          "reopened_at": "2026-10-29T02:00:00Z",
+          "duration_seconds": 1861,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "CLOSED",
-      "paused_at_park_close": "2026-10-15T22:00:00Z"
+      "paused_at_park_close": "2026-10-29T02:00:00Z"
     },
     "de3309ca-97d5-4211-bffe-739fed47e92f": {
       "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
