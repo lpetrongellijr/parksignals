@@ -6167,15 +6167,15 @@
     },
     "37ae57c5-feaf-4e47-8f27-4b385be200f0": {
       "id": "37ae57c5-feaf-4e47-8f27-4b385be200f0",
-      "is_open": false,
+      "is_open": null,
       "name": "Test Track",
       "last_seen_at": "2026-10-30T00:58:34Z",
       "last_changed_at": "2026-10-29T23:19:50Z",
-      "down_since": "2026-10-29T23:19:50Z",
+      "down_since": null,
       "last_down_at": "2026-10-29T23:19:50Z",
       "last_reopened_at": "2026-10-29T18:34:54Z",
-      "current_down_seconds": 5924,
-      "total_down_seconds": 1583391,
+      "current_down_seconds": 0,
+      "total_down_seconds": 1589401,
       "downtime_events": [
         {
           "down_at": "2026-09-15T17:42:04Z",
@@ -6836,13 +6836,19 @@
           "reopened_at": "2026-10-29T18:34:54Z",
           "duration_seconds": 286,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-10-29T23:19:50Z",
+          "reopened_at": "2026-10-30T01:00:00Z",
+          "duration_seconds": 6010,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-10-17T01:00:00Z"
+      "paused_at_park_close": "2026-10-30T01:00:00Z"
     },
     "81b15dfd-cf6a-466f-be59-3dd65d2a2807": {
       "id": "81b15dfd-cf6a-466f-be59-3dd65d2a2807",
