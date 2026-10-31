@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-31T23:05:02Z",
+  "generated_at": "2026-10-31T23:09:53Z",
   "timezone": "America/New_York",
   "source": "ParkSignals monitoring data",
   "parks": [
@@ -51,7 +51,7 @@
           "id": "de3309ca-97d5-4211-bffe-739fed47e92f",
           "name": "Big Thunder Mountain",
           "status": "park_closed",
-          "wait_time_minutes": 15,
+          "wait_time_minutes": 10,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -64,7 +64,7 @@
           "id": "72c7343a-f7fb-4f66-95df-c91016de7338",
           "name": "Buzz Lightyear\u2019s Space Ranger Spin",
           "status": "park_closed",
-          "wait_time_minutes": null,
+          "wait_time_minutes": 15,
           "downtime_today_seconds": 20360,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -181,7 +181,7 @@
           "id": "273ddb8d-e7b5-4e34-8657-1113f49262a5",
           "name": "Prince Charming Regal Carrousel",
           "status": "park_closed",
-          "wait_time_minutes": 5,
+          "wait_time_minutes": 10,
           "downtime_today_seconds": 558,
           "current_downtime_seconds": 0,
           "planned_closure": false,
@@ -347,7 +347,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -360,7 +360,7 @@
           "downtime_today_seconds": 2223,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -370,10 +370,10 @@
           "name": "Guardians of the Galaxy: Cosmic Rewind",
           "status": "unavailable",
           "wait_time_minutes": null,
-          "downtime_today_seconds": 593,
-          "current_downtime_seconds": 593,
+          "downtime_today_seconds": 884,
+          "current_downtime_seconds": 884,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -386,7 +386,7 @@
           "downtime_today_seconds": 235,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -394,12 +394,12 @@
         {
           "id": "8f353879-d6ac-4211-9352-4029efb47c18",
           "name": "Living with the Land",
-          "status": "unavailable",
-          "wait_time_minutes": null,
-          "downtime_today_seconds": 588,
-          "current_downtime_seconds": 353,
+          "status": "open",
+          "wait_time_minutes": 5,
+          "downtime_today_seconds": 879,
+          "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -412,7 +412,7 @@
           "downtime_today_seconds": 583,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -425,7 +425,7 @@
           "downtime_today_seconds": 2788,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -438,7 +438,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -446,12 +446,12 @@
         {
           "id": "480fde8f-fe58-4bfb-b3ab-052a39d4db7c",
           "name": "Spaceship Earth",
-          "status": "open",
-          "wait_time_minutes": 10,
+          "status": "unavailable",
+          "wait_time_minutes": null,
           "downtime_today_seconds": 8893,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -464,7 +464,7 @@
           "downtime_today_seconds": 6977,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -477,7 +477,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "epcot",
           "park_name": "EPCOT",
           "park_slug": "epcot"
@@ -499,7 +499,7 @@
       "tracked_ride_count": 9,
       "open_ride_count": 9,
       "unavailable_ride_count": 0,
-      "average_wait_minutes": 38,
+      "average_wait_minutes": 37,
       "rides": [
         {
           "id": "d56506e2-6ad3-443a-8065-fea37987248d",
@@ -509,7 +509,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -522,7 +522,7 @@
           "downtime_today_seconds": 9397,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -535,7 +535,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -548,7 +548,7 @@
           "downtime_today_seconds": 6145,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -561,7 +561,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -574,7 +574,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -583,11 +583,11 @@
           "id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
           "name": "Star Wars: Rise of the Resistance",
           "status": "open",
-          "wait_time_minutes": 45,
+          "wait_time_minutes": 40,
           "downtime_today_seconds": 4515,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -600,7 +600,7 @@
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -609,11 +609,11 @@
           "id": "20b5daa8-e1ea-436f-830c-2d7d18d929b5",
           "name": "Toy Story Mania!",
           "status": "open",
-          "wait_time_minutes": 40,
+          "wait_time_minutes": 35,
           "downtime_today_seconds": 0,
           "current_downtime_seconds": 0,
           "planned_closure": false,
-          "last_seen_at": "2026-10-31T23:05:02Z",
+          "last_seen_at": "2026-10-31T23:09:53Z",
           "park_id": "hollywood_studios",
           "park_name": "Hollywood Studios",
           "park_slug": "hollywood-studios"
@@ -724,35 +724,54 @@
       "name": "Guardians of the Galaxy: Cosmic Rewind",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 593,
-      "current_downtime_seconds": 593,
+      "downtime_today_seconds": 884,
+      "current_downtime_seconds": 884,
       "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
+      "last_seen_at": "2026-10-31T23:09:53Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
     },
     {
-      "id": "8f353879-d6ac-4211-9352-4029efb47c18",
-      "name": "Living with the Land",
+      "id": "480fde8f-fe58-4bfb-b3ab-052a39d4db7c",
+      "name": "Spaceship Earth",
       "status": "unavailable",
       "wait_time_minutes": null,
-      "downtime_today_seconds": 588,
-      "current_downtime_seconds": 353,
+      "downtime_today_seconds": 8893,
+      "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
+      "last_seen_at": "2026-10-31T23:09:53Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
     }
   ],
-  "latest_updates": [],
+  "latest_updates": [
+    {
+      "type": "down",
+      "ride_id": "480fde8f-fe58-4bfb-b3ab-052a39d4db7c",
+      "ride_name": "Spaceship Earth",
+      "park_id": "epcot",
+      "park_name": "EPCOT",
+      "park_slug": "epcot",
+      "observed_at": "2026-10-31T23:09:53Z"
+    },
+    {
+      "type": "reopened",
+      "ride_id": "8f353879-d6ac-4211-9352-4029efb47c18",
+      "ride_name": "Living with the Land",
+      "park_id": "epcot",
+      "park_name": "EPCOT",
+      "park_slug": "epcot",
+      "observed_at": "2026-10-31T23:09:53Z"
+    }
+  ],
   "downtime_today": [
     {
       "id": "72c7343a-f7fb-4f66-95df-c91016de7338",
       "name": "Buzz Lightyear\u2019s Space Ranger Spin",
       "status": "park_closed",
-      "wait_time_minutes": null,
+      "wait_time_minutes": 15,
       "downtime_today_seconds": 20360,
       "current_downtime_seconds": 0,
       "planned_closure": false,
@@ -769,7 +788,7 @@
       "downtime_today_seconds": 9397,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
+      "last_seen_at": "2026-10-31T23:09:53Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -777,12 +796,12 @@
     {
       "id": "480fde8f-fe58-4bfb-b3ab-052a39d4db7c",
       "name": "Spaceship Earth",
-      "status": "open",
-      "wait_time_minutes": 10,
+      "status": "unavailable",
+      "wait_time_minutes": null,
       "downtime_today_seconds": 8893,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
+      "last_seen_at": "2026-10-31T23:09:53Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -821,7 +840,7 @@
       "downtime_today_seconds": 6977,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
+      "last_seen_at": "2026-10-31T23:09:53Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -834,7 +853,7 @@
       "downtime_today_seconds": 6145,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
+      "last_seen_at": "2026-10-31T23:09:53Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -843,11 +862,11 @@
       "id": "1a2e70d9-50d5-4140-b69e-799e950f7d18",
       "name": "Star Wars: Rise of the Resistance",
       "status": "open",
-      "wait_time_minutes": 45,
+      "wait_time_minutes": 40,
       "downtime_today_seconds": 4515,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
+      "last_seen_at": "2026-10-31T23:09:53Z",
       "park_id": "hollywood_studios",
       "park_name": "Hollywood Studios",
       "park_slug": "hollywood-studios"
@@ -886,7 +905,7 @@
       "downtime_today_seconds": 2788,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
+      "last_seen_at": "2026-10-31T23:09:53Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -912,7 +931,7 @@
       "downtime_today_seconds": 2223,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
+      "last_seen_at": "2026-10-31T23:09:53Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -944,6 +963,32 @@
       "park_slug": "magic-kingdom"
     },
     {
+      "id": "e3549451-b284-453d-9c31-e3b1207abd79",
+      "name": "Guardians of the Galaxy: Cosmic Rewind",
+      "status": "unavailable",
+      "wait_time_minutes": null,
+      "downtime_today_seconds": 884,
+      "current_downtime_seconds": 884,
+      "planned_closure": false,
+      "last_seen_at": "2026-10-31T23:09:53Z",
+      "park_id": "epcot",
+      "park_name": "EPCOT",
+      "park_slug": "epcot"
+    },
+    {
+      "id": "8f353879-d6ac-4211-9352-4029efb47c18",
+      "name": "Living with the Land",
+      "status": "open",
+      "wait_time_minutes": 5,
+      "downtime_today_seconds": 879,
+      "current_downtime_seconds": 0,
+      "planned_closure": false,
+      "last_seen_at": "2026-10-31T23:09:53Z",
+      "park_id": "epcot",
+      "park_name": "EPCOT",
+      "park_slug": "epcot"
+    },
+    {
       "id": "86a41273-5f15-4b54-93b6-829f140e5161",
       "name": "Peter Pan's Flight",
       "status": "park_closed",
@@ -957,32 +1002,6 @@
       "park_slug": "magic-kingdom"
     },
     {
-      "id": "e3549451-b284-453d-9c31-e3b1207abd79",
-      "name": "Guardians of the Galaxy: Cosmic Rewind",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 593,
-      "current_downtime_seconds": 593,
-      "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
-      "park_id": "epcot",
-      "park_name": "EPCOT",
-      "park_slug": "epcot"
-    },
-    {
-      "id": "8f353879-d6ac-4211-9352-4029efb47c18",
-      "name": "Living with the Land",
-      "status": "unavailable",
-      "wait_time_minutes": null,
-      "downtime_today_seconds": 588,
-      "current_downtime_seconds": 353,
-      "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
-      "park_id": "epcot",
-      "park_name": "EPCOT",
-      "park_slug": "epcot"
-    },
-    {
       "id": "5b6475ad-4e9a-4793-b841-501aa382c9c0",
       "name": "Mission: SPACE",
       "status": "open",
@@ -990,7 +1009,7 @@
       "downtime_today_seconds": 583,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
+      "last_seen_at": "2026-10-31T23:09:53Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
@@ -999,7 +1018,7 @@
       "id": "273ddb8d-e7b5-4e34-8657-1113f49262a5",
       "name": "Prince Charming Regal Carrousel",
       "status": "park_closed",
-      "wait_time_minutes": 5,
+      "wait_time_minutes": 10,
       "downtime_today_seconds": 558,
       "current_downtime_seconds": 0,
       "planned_closure": false,
@@ -1016,7 +1035,7 @@
       "downtime_today_seconds": 235,
       "current_downtime_seconds": 0,
       "planned_closure": false,
-      "last_seen_at": "2026-10-31T23:05:02Z",
+      "last_seen_at": "2026-10-31T23:09:53Z",
       "park_id": "epcot",
       "park_name": "EPCOT",
       "park_slug": "epcot"
