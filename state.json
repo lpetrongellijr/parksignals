@@ -5317,15 +5317,15 @@
   "epcot": {
     "e3549451-b284-453d-9c31-e3b1207abd79": {
       "id": "e3549451-b284-453d-9c31-e3b1207abd79",
-      "is_open": false,
+      "is_open": null,
       "name": "Guardians of the Galaxy: Cosmic Rewind",
       "last_seen_at": "2026-11-01T00:54:56Z",
       "last_changed_at": "2026-11-01T00:54:56Z",
-      "down_since": "2026-11-01T00:54:56Z",
+      "down_since": null,
       "last_down_at": "2026-11-01T00:54:56Z",
       "last_reopened_at": "2026-11-01T00:09:53Z",
       "current_down_seconds": 0,
-      "total_down_seconds": 293645,
+      "total_down_seconds": 293949,
       "downtime_events": [
         {
           "down_at": "2026-09-17T14:42:44Z",
@@ -5518,13 +5518,19 @@
           "reopened_at": "2026-11-01T00:09:53Z",
           "duration_seconds": 4484,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-11-01T00:54:56Z",
+          "reopened_at": "2026-11-01T01:00:00Z",
+          "duration_seconds": 304,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-09-25T01:00:00Z"
+      "paused_at_park_close": "2026-11-01T01:00:00Z"
     },
     "1e735ffb-4868-47f1-b2cd-2ac1156cd5f0": {
       "id": "1e735ffb-4868-47f1-b2cd-2ac1156cd5f0",
@@ -5769,15 +5775,15 @@
     },
     "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0": {
       "id": "8d7ccdb1-a22b-4e26-8dc8-65b1938ed5f0",
-      "is_open": false,
+      "is_open": null,
       "name": "Frozen Ever After",
       "last_seen_at": "2026-11-01T00:54:56Z",
       "last_changed_at": "2026-11-01T00:15:14Z",
-      "down_since": "2026-11-01T00:15:14Z",
+      "down_since": null,
       "last_down_at": "2026-11-01T00:15:14Z",
       "last_reopened_at": "2026-10-30T15:50:06Z",
-      "current_down_seconds": 2382,
-      "total_down_seconds": 622753,
+      "current_down_seconds": 0,
+      "total_down_seconds": 625439,
       "downtime_events": [
         {
           "down_at": "2026-09-21T13:03:32Z",
@@ -6042,13 +6048,19 @@
           "reopened_at": "2026-10-30T15:50:06Z",
           "duration_seconds": 3311,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-11-01T00:15:14Z",
+          "reopened_at": "2026-11-01T01:00:00Z",
+          "duration_seconds": 2686,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-10-15T01:00:00Z"
+      "paused_at_park_close": "2026-11-01T01:00:00Z"
     },
     "37ae57c5-feaf-4e47-8f27-4b385be200f0": {
       "id": "37ae57c5-feaf-4e47-8f27-4b385be200f0",
@@ -6785,15 +6797,15 @@
     },
     "480fde8f-fe58-4bfb-b3ab-052a39d4db7c": {
       "id": "480fde8f-fe58-4bfb-b3ab-052a39d4db7c",
-      "is_open": false,
+      "is_open": null,
       "name": "Spaceship Earth",
       "last_seen_at": "2026-11-01T00:54:56Z",
       "last_changed_at": "2026-10-31T23:09:53Z",
-      "down_since": "2026-10-31T23:09:53Z",
+      "down_since": null,
       "last_down_at": "2026-10-31T23:09:53Z",
       "last_reopened_at": "2026-10-31T16:56:01Z",
-      "current_down_seconds": 6303,
-      "total_down_seconds": 577643,
+      "current_down_seconds": 0,
+      "total_down_seconds": 584250,
       "downtime_events": [
         {
           "down_at": "2026-09-17T16:57:34Z",
@@ -7214,13 +7226,19 @@
           "reopened_at": "2026-10-31T16:56:01Z",
           "duration_seconds": 356,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-10-31T23:09:53Z",
+          "reopened_at": "2026-11-01T01:00:00Z",
+          "duration_seconds": 6607,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-09-25T01:00:00Z"
+      "paused_at_park_close": "2026-11-01T01:00:00Z"
     },
     "5b6475ad-4e9a-4793-b841-501aa382c9c0": {
       "id": "5b6475ad-4e9a-4793-b841-501aa382c9c0",
@@ -8846,15 +8864,15 @@
     },
     "e516f303-e82d-4fd3-8fbf-8e6ab624cf89": {
       "id": "e516f303-e82d-4fd3-8fbf-8e6ab624cf89",
-      "is_open": false,
+      "is_open": null,
       "name": "Rock \u2019n\u2019 Roller Coaster Starring The Muppets",
       "last_seen_at": "2026-11-01T00:54:56Z",
       "last_changed_at": "2026-11-01T00:54:56Z",
-      "down_since": "2026-11-01T00:54:56Z",
+      "down_since": null,
       "last_down_at": "2026-11-01T00:54:56Z",
       "last_reopened_at": "2026-10-31T14:15:34Z",
       "current_down_seconds": 0,
-      "total_down_seconds": 517547,
+      "total_down_seconds": 517851,
       "downtime_events": [
         {
           "down_at": "2026-09-17T20:27:38Z",
@@ -9083,13 +9101,19 @@
           "reopened_at": "2026-10-31T14:15:34Z",
           "duration_seconds": 6145,
           "ended_by": "reopened"
+        },
+        {
+          "down_at": "2026-11-01T00:54:56Z",
+          "reopened_at": "2026-11-01T01:00:00Z",
+          "duration_seconds": 304,
+          "ended_by": "park_close"
         }
       ],
       "planned_closure_active": false,
       "planned_closure": null,
       "source": "themeparks_wiki",
       "source_status": "DOWN",
-      "paused_at_park_close": "2026-10-06T01:00:00Z"
+      "paused_at_park_close": "2026-11-01T01:00:00Z"
     },
     "6e118e37-5002-408d-9d88-0b5d9cdb5d14": {
       "id": "6e118e37-5002-408d-9d88-0b5d9cdb5d14",
