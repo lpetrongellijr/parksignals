@@ -1,7 +1,7 @@
 {
   "parks": {
     "magic_kingdom": {
-      "date": "2026-11-19",
+      "date": "2026-11-20",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -10,19 +10,19 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-19T08:30:00-05:00",
-          "closingTime": "2026-11-19T09:00:00-05:00",
+          "openingTime": "2026-11-20T08:30:00-05:00",
+          "closingTime": "2026-11-20T09:00:00-05:00",
           "description": "Early Entry"
         },
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-19T19:00:00-05:00",
-          "closingTime": "2026-11-20T00:00:00-05:00",
+          "openingTime": "2026-11-20T19:00:00-05:00",
+          "closingTime": "2026-11-21T00:00:00-05:00",
           "description": "Special Ticketed Event"
         }
       ],
       "raw": {
-        "date": "2026-11-19",
+        "date": "2026-11-20",
         "type": "OPERATING",
         "purchases": [
           {
@@ -30,9 +30,9 @@
             "name": "Lightning Lane for Seven Dwarfs Mine Train",
             "type": "ATTRACTION",
             "price": {
-              "amount": 1500,
+              "amount": 1600,
               "currency": "USD",
-              "formatted": "$15.00"
+              "formatted": "$16.00"
             },
             "available": false
           },
@@ -70,12 +70,12 @@
             "available": true
           }
         ],
-        "closingTime": "2026-11-19T18:00:00-05:00",
-        "openingTime": "2026-11-19T09:00:00-05:00"
+        "closingTime": "2026-11-20T18:00:00-05:00",
+        "openingTime": "2026-11-20T09:00:00-05:00"
       }
     },
     "epcot": {
-      "date": "2026-11-19",
+      "date": "2026-11-20",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -84,13 +84,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-19T08:30:00-05:00",
-          "closingTime": "2026-11-19T09:00:00-05:00",
+          "openingTime": "2026-11-20T08:30:00-05:00",
+          "closingTime": "2026-11-20T09:00:00-05:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-11-19",
+        "date": "2026-11-20",
         "type": "OPERATING",
         "purchases": [
           {
@@ -127,12 +127,12 @@
             "available": true
           }
         ],
-        "closingTime": "2026-11-19T21:00:00-05:00",
-        "openingTime": "2026-11-19T09:00:00-05:00"
+        "closingTime": "2026-11-20T21:00:00-05:00",
+        "openingTime": "2026-11-20T09:00:00-05:00"
       }
     },
     "hollywood_studios": {
-      "date": "2026-11-19",
+      "date": "2026-11-20",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -141,13 +141,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-19T08:30:00-05:00",
-          "closingTime": "2026-11-19T09:00:00-05:00",
+          "openingTime": "2026-11-20T08:30:00-05:00",
+          "closingTime": "2026-11-20T09:00:00-05:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-11-19",
+        "date": "2026-11-20",
         "type": "OPERATING",
         "purchases": [
           {
@@ -159,16 +159,16 @@
               "currency": "USD",
               "formatted": "$25.00"
             },
-            "available": true
+            "available": false
           },
           {
             "id": "lightninglanemultipass_80007998",
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 2900,
+              "amount": 3200,
               "currency": "USD",
-              "formatted": "$29.00"
+              "formatted": "$32.00"
             },
             "available": true
           },
@@ -184,12 +184,12 @@
             "available": true
           }
         ],
-        "closingTime": "2026-11-19T21:00:00-05:00",
-        "openingTime": "2026-11-19T09:00:00-05:00"
+        "closingTime": "2026-11-20T21:00:00-05:00",
+        "openingTime": "2026-11-20T09:00:00-05:00"
       }
     },
     "animal_kingdom": {
-      "date": "2026-11-19",
+      "date": "2026-11-20",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "08:00",
@@ -198,13 +198,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-19T07:30:00-05:00",
-          "closingTime": "2026-11-19T08:00:00-05:00",
+          "openingTime": "2026-11-20T07:30:00-05:00",
+          "closingTime": "2026-11-20T08:00:00-05:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-11-19",
+        "date": "2026-11-20",
         "type": "OPERATING",
         "purchases": [
           {
@@ -212,9 +212,9 @@
             "name": "Lightning Lane for Avatar Flight of Passage",
             "type": "ATTRACTION",
             "price": {
-              "amount": 1800,
+              "amount": 1900,
               "currency": "USD",
-              "formatted": "$18.00"
+              "formatted": "$19.00"
             },
             "available": true
           },
@@ -234,20 +234,20 @@
             "name": "Lightning Lane Premier Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 15900,
+              "amount": 17900,
               "currency": "USD",
-              "formatted": "$159.00"
+              "formatted": "$179.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-11-19T18:00:00-05:00",
-        "openingTime": "2026-11-19T08:00:00-05:00"
+        "closingTime": "2026-11-20T18:00:00-05:00",
+        "openingTime": "2026-11-20T08:00:00-05:00"
       }
     }
   },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-11-19T22:52:20Z",
+  "generated_at": "2026-11-20T12:19:46Z",
   "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
   "last_fetch_status": "ok",
