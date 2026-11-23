@@ -1,7 +1,7 @@
 {
   "parks": {
     "magic_kingdom": {
-      "date": "2026-11-22",
+      "date": "2026-11-23",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -10,13 +10,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-22T08:30:00-05:00",
-          "closingTime": "2026-11-22T09:00:00-05:00",
+          "openingTime": "2026-11-23T08:30:00-05:00",
+          "closingTime": "2026-11-23T09:00:00-05:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-11-22",
+        "date": "2026-11-23",
         "type": "OPERATING",
         "purchases": [
           {
@@ -46,19 +46,19 @@
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 4200,
+              "amount": 4500,
               "currency": "USD",
-              "formatted": "$42.00"
+              "formatted": "$45.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-11-22T23:00:00-05:00",
-        "openingTime": "2026-11-22T09:00:00-05:00"
+        "closingTime": "2026-11-23T23:00:00-05:00",
+        "openingTime": "2026-11-23T09:00:00-05:00"
       }
     },
     "epcot": {
-      "date": "2026-11-22",
+      "date": "2026-11-23",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -67,13 +67,19 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-22T08:30:00-05:00",
-          "closingTime": "2026-11-22T09:00:00-05:00",
+          "openingTime": "2026-11-23T08:30:00-05:00",
+          "closingTime": "2026-11-23T09:00:00-05:00",
           "description": "Early Entry"
+        },
+        {
+          "type": "TICKETED_EVENT",
+          "openingTime": "2026-11-23T21:00:00-05:00",
+          "closingTime": "2026-11-23T23:00:00-05:00",
+          "description": "Extended Evening"
         }
       ],
       "raw": {
-        "date": "2026-11-22",
+        "date": "2026-11-23",
         "type": "OPERATING",
         "purchases": [
           {
@@ -81,9 +87,9 @@
             "name": "Lightning Lane for Guardians of the Galaxy: Cosmic Rewind",
             "type": "ATTRACTION",
             "price": {
-              "amount": 2300,
+              "amount": 2500,
               "currency": "USD",
-              "formatted": "$23.00"
+              "formatted": "$25.00"
             },
             "available": false
           },
@@ -92,34 +98,40 @@
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 3200,
+              "amount": 3500,
               "currency": "USD",
-              "formatted": "$32.00"
+              "formatted": "$35.00"
             },
             "available": false
           }
         ],
-        "closingTime": "2026-11-22T21:00:00-05:00",
-        "openingTime": "2026-11-22T09:00:00-05:00"
+        "closingTime": "2026-11-23T21:00:00-05:00",
+        "openingTime": "2026-11-23T09:00:00-05:00"
       }
     },
     "hollywood_studios": {
-      "date": "2026-11-22",
+      "date": "2026-11-23",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
-      "opens_at": "09:00",
-      "closes_at": "21:00",
+      "opens_at": "08:30",
+      "closes_at": "19:00",
       "selected_schedule_type": "OPERATING",
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-22T08:30:00-05:00",
-          "closingTime": "2026-11-22T09:00:00-05:00",
+          "openingTime": "2026-11-23T08:00:00-05:00",
+          "closingTime": "2026-11-23T08:30:00-05:00",
           "description": "Early Entry"
+        },
+        {
+          "type": "TICKETED_EVENT",
+          "openingTime": "2026-11-23T19:30:00-05:00",
+          "closingTime": "2026-11-24T00:30:00-05:00",
+          "description": "Special Ticketed Event"
         }
       ],
       "raw": {
-        "date": "2026-11-22",
+        "date": "2026-11-23",
         "type": "OPERATING",
         "purchases": [
           {
@@ -138,34 +150,34 @@
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 3700,
+              "amount": 3900,
               "currency": "USD",
-              "formatted": "$37.00"
+              "formatted": "$39.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-11-22T21:00:00-05:00",
-        "openingTime": "2026-11-22T09:00:00-05:00"
+        "closingTime": "2026-11-23T19:00:00-05:00",
+        "openingTime": "2026-11-23T08:30:00-05:00"
       }
     },
     "animal_kingdom": {
-      "date": "2026-11-22",
+      "date": "2026-11-23",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "08:00",
-      "closes_at": "19:00",
+      "closes_at": "20:00",
       "selected_schedule_type": "OPERATING",
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-22T07:30:00-05:00",
-          "closingTime": "2026-11-22T08:00:00-05:00",
+          "openingTime": "2026-11-23T07:30:00-05:00",
+          "closingTime": "2026-11-23T08:00:00-05:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-11-22",
+        "date": "2026-11-23",
         "type": "OPERATING",
         "purchases": [
           {
@@ -184,20 +196,20 @@
             "name": "Lightning Lane Multi Pass",
             "type": "PACKAGE",
             "price": {
-              "amount": 2500,
+              "amount": 2900,
               "currency": "USD",
-              "formatted": "$25.00"
+              "formatted": "$29.00"
             },
             "available": true
           }
         ],
-        "closingTime": "2026-11-22T19:00:00-05:00",
-        "openingTime": "2026-11-22T08:00:00-05:00"
+        "closingTime": "2026-11-23T20:00:00-05:00",
+        "openingTime": "2026-11-23T08:00:00-05:00"
       }
     }
   },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-11-23T02:07:31Z",
+  "generated_at": "2026-11-23T13:49:11Z",
   "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
   "last_fetch_status": "ok",
