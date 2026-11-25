@@ -1,28 +1,28 @@
 {
   "parks": {
     "magic_kingdom": {
-      "date": "2026-11-24",
+      "date": "2026-11-25",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
-      "opens_at": "08:00",
+      "opens_at": "09:00",
       "closes_at": "18:00",
       "selected_schedule_type": "OPERATING",
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-24T07:30:00-05:00",
-          "closingTime": "2026-11-24T08:00:00-05:00",
+          "openingTime": "2026-11-25T08:30:00-05:00",
+          "closingTime": "2026-11-25T09:00:00-05:00",
           "description": "Early Entry"
         },
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-24T19:00:00-05:00",
-          "closingTime": "2026-11-25T00:00:00-05:00",
+          "openingTime": "2026-11-25T19:00:00-05:00",
+          "closingTime": "2026-11-26T00:00:00-05:00",
           "description": "Special Ticketed Event"
         }
       ],
       "raw": {
-        "date": "2026-11-24",
+        "date": "2026-11-25",
         "type": "OPERATING",
         "purchases": [
           {
@@ -56,15 +56,15 @@
               "currency": "USD",
               "formatted": "$39.00"
             },
-            "available": false
+            "available": true
           }
         ],
-        "closingTime": "2026-11-24T18:00:00-05:00",
-        "openingTime": "2026-11-24T08:00:00-05:00"
+        "closingTime": "2026-11-25T18:00:00-05:00",
+        "openingTime": "2026-11-25T09:00:00-05:00"
       }
     },
     "epcot": {
-      "date": "2026-11-24",
+      "date": "2026-11-25",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "09:00",
@@ -73,13 +73,13 @@
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-24T08:30:00-05:00",
-          "closingTime": "2026-11-24T09:00:00-05:00",
+          "openingTime": "2026-11-25T08:30:00-05:00",
+          "closingTime": "2026-11-25T09:00:00-05:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-11-24",
+        "date": "2026-11-25",
         "type": "OPERATING",
         "purchases": [
           {
@@ -87,9 +87,9 @@
             "name": "Lightning Lane for Guardians of the Galaxy: Cosmic Rewind",
             "type": "ATTRACTION",
             "price": {
-              "amount": 2500,
+              "amount": 2300,
               "currency": "USD",
-              "formatted": "$25.00"
+              "formatted": "$23.00"
             },
             "available": false
           },
@@ -102,30 +102,30 @@
               "currency": "USD",
               "formatted": "$32.00"
             },
-            "available": false
+            "available": true
           }
         ],
-        "closingTime": "2026-11-24T21:00:00-05:00",
-        "openingTime": "2026-11-24T09:00:00-05:00"
+        "closingTime": "2026-11-25T21:00:00-05:00",
+        "openingTime": "2026-11-25T09:00:00-05:00"
       }
     },
     "hollywood_studios": {
-      "date": "2026-11-24",
+      "date": "2026-11-25",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
-      "opens_at": "08:30",
+      "opens_at": "09:00",
       "closes_at": "21:00",
       "selected_schedule_type": "OPERATING",
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-24T08:00:00-05:00",
-          "closingTime": "2026-11-24T08:30:00-05:00",
+          "openingTime": "2026-11-25T08:30:00-05:00",
+          "closingTime": "2026-11-25T09:00:00-05:00",
           "description": "Early Entry"
         }
       ],
       "raw": {
-        "date": "2026-11-24",
+        "date": "2026-11-25",
         "type": "OPERATING",
         "purchases": [
           {
@@ -148,30 +148,36 @@
               "currency": "USD",
               "formatted": "$39.00"
             },
-            "available": false
+            "available": true
           }
         ],
-        "closingTime": "2026-11-24T21:00:00-05:00",
-        "openingTime": "2026-11-24T08:30:00-05:00"
+        "closingTime": "2026-11-25T21:00:00-05:00",
+        "openingTime": "2026-11-25T09:00:00-05:00"
       }
     },
     "animal_kingdom": {
-      "date": "2026-11-24",
+      "date": "2026-11-25",
       "source": "themeparks_wiki",
       "timezone": "America/New_York",
       "opens_at": "08:00",
-      "closes_at": "20:00",
+      "closes_at": "18:00",
       "selected_schedule_type": "OPERATING",
       "ignored_schedule_entries": [
         {
           "type": "TICKETED_EVENT",
-          "openingTime": "2026-11-24T07:30:00-05:00",
-          "closingTime": "2026-11-24T08:00:00-05:00",
+          "openingTime": "2026-11-25T07:30:00-05:00",
+          "closingTime": "2026-11-25T08:00:00-05:00",
           "description": "Early Entry"
+        },
+        {
+          "type": "TICKETED_EVENT",
+          "openingTime": "2026-11-25T18:00:00-05:00",
+          "closingTime": "2026-11-25T20:00:00-05:00",
+          "description": "Extended Evening"
         }
       ],
       "raw": {
-        "date": "2026-11-24",
+        "date": "2026-11-25",
         "type": "OPERATING",
         "purchases": [
           {
@@ -183,7 +189,7 @@
               "currency": "USD",
               "formatted": "$20.00"
             },
-            "available": false
+            "available": true
           },
           {
             "id": "lightninglanemultipass_80007823",
@@ -197,13 +203,13 @@
             "available": true
           }
         ],
-        "closingTime": "2026-11-24T20:00:00-05:00",
-        "openingTime": "2026-11-24T08:00:00-05:00"
+        "closingTime": "2026-11-25T18:00:00-05:00",
+        "openingTime": "2026-11-25T08:00:00-05:00"
       }
     }
   },
   "special_events_extend_monitoring": false,
-  "generated_at": "2026-11-25T00:16:16Z",
+  "generated_at": "2026-11-25T13:43:39Z",
   "source_url": "https://api.themeparks.wiki/v1/destinations | not_needed",
   "timezone": "America/New_York",
   "last_fetch_status": "ok",
